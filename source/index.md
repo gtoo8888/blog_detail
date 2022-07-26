@@ -16,6 +16,9 @@ date: 2022-06-21 22:40:31
 - **PythonRobotics documentation** https://pythonrobotics.readthedocs.io/en/latest/index.html
 - **CMake Document** https://cmake.org/cmake/help/v3.23/
 - **ROS document** http://wiki.ros.org/Documentation
+- **TIDB** https://docs.pingcap.com/zh/tidb/stable/overview
+- **redis** https://www.redis.net.cn/
+- **腾讯云开发者社区** https://cloud.tencent.com/developer/chapter/12850
 - **opencv document** https://docs.opencv.org/4.x/
 - **pytorch document** https://pytorch.org/tutorials/
 - **Wireshark User’s Guide** https://www.wireshark.org/docs/wsug_html_chunked/
