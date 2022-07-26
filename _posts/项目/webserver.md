@@ -16,8 +16,8 @@ tags:
 
 1. 学习了namespace和share_ptr是怎么使用的
 
-1
-2
+6
+
 
 # 参考文献
 
