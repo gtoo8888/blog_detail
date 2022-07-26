@@ -177,6 +177,10 @@ git commit -m ""
 git push 
 
 
+git rm -r --cached .
+.gitignore不生效
+
+
 # git config
 git config --list
 列出git的所有配置
@@ -206,6 +210,45 @@ git config --global core.autocrlf input
 # git branch
 查看当前所在分支 
 
+```git branch -r```
+查看远程有哪些分支
+
+
+# git 高级技术
+
+## git log
+
+```
+git log --pretty=format:'%h: %s'
+d27f636: test:15
+e54dd6f: test:rebase 12
+db794d8: test:11
+ee8c5a3: test:rebase
+5a30601: test:3
+08089a1: test:2
+4a82470: test:1
+46480b8: feat:增加了链接
+7035791: feat:init
+2544c56: Initial commit
+```
+## git rebase
+
+步骤一：
+git rebase -i [startPonit] [endPoint]
+一般不使用endPoint
+git rebase -i ee8c5a3
+(ee8c5a3,d27f636]
+(test:rebase,test:15]
+步骤二：
+接下来进入图形界面
+p 选择
+s 放弃
+步骤二：
+图形界面2
+注释掉不想要提交的
+:wq退出
+
+
 
 # 参考文献
 https://blog.csdn.net/ajianyingxiaoqinghan/article/details/70544159
@@ -216,3 +259,4 @@ https://blog.csdn.net/u014361280/article/details/109703556
 [白色箭头]https://blog.csdn.net/bowenlaw/article/details/124594664
 [git commit 规范指南]https://blog.csdn.net/qq_41662115/article/details/99759645
 [.gitignore基础规则]https://www.cnblogs.com/kevingrace/p/5690241.html
+[git rebase]https://blog.csdn.net/small_white_123/article/details/121563248
