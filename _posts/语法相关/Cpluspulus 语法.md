@@ -54,6 +54,50 @@ lock_guard
 
 ## cv::gpu::GpuMat
 
+
+# C++17
+
+## 1.语法糖
+### 结构化绑定
+### 模板参数推导
+### constexpr if
+在编译时期就可以判断是否要用这个分支，根据输入的类型来判断分支的走向
+
+### if初始化语句
+可以像for一样，将一些变量的生命周期控制在if里面
+
+## 2.性能提升
+### shared_mutex
+
+### string_view
+在调用一些strcpy函数的时候，不会进行值传递，而是会复制引用
+
+
+### try_emplace
+在插入map之类的数组的时候，会先检查是否已经有元素存在了
+
+
+## 3.类型系统
+### any
+代替了空类型void*，变得类型安全了
+
+### optinal
+
+### variant
+
+## 4.其他
+
+### apply
+
+### make_from_tuple
+
+### [[nodiscard]]
+
+### 捕获*this
+
+
+
+
 # 参考文献：
 [C++ explicit 关键字]https://zhuanlan.zhihu.com/p/52152355
 [解决 VSCode 编写 C++11 代码报红问题]https://blog.csdn.net/weixin_42292229/article/details/113767569
@@ -62,5 +106,6 @@ lock_guard
 [C++中lock_guard的学习]https://blog.csdn.net/CHYabc123456hh/article/details/111317404
 [C++ std::lock_guard详解]https://jishuin.proginn.com/p/763bfbd6f671
 [一文详解OpenCV中的CUDA模块]https://zhuanlan.zhihu.com/p/358648337
+[「直播回放」腾讯工程师：C++17在业务代码中最好用的十个特性]https://www.zhihu.com/zvideo/1523417372937027584
 
 
