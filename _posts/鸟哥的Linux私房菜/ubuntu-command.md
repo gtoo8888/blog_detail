@@ -208,6 +208,12 @@ dpkg -l "*mysql*"
 
 
 
+# 参考文献
+
+
+[查看linux用户密码]https://blog.csdn.net/feikillyou/article/details/109129870
+
+
 
 
 

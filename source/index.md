@@ -10,6 +10,7 @@ date: 2022-06-21 22:40:31
 - **hexo** https://hexo.io/zh-cn/
 - **raspberry** https://www.raspberrypi.org/
 - **路过图床** https://imgtu.com/
+- **halo博客系统**https://halo.run/
 - **阿里云开发者网站** https://developer.aliyun.com/?spm=a2c6h.23182525.J_5404914170.1.77483b2fjWTL8k
 
 ## *WIKI*
@@ -71,7 +72,7 @@ date: 2022-06-21 22:40:31
 - **_Luc_** https://www.cnblogs.com/figure9
 - **codedump的网络日志** https://www.codedump.info/post/20200122-series-pages/
 - **程序员的喵** https://catcoding.me/
-
+- **秦怀杂货店** http://aphysia.cn/
 ## *外国博客*
 
 - **Kent C. Dodds** https://kentcdodds.com/

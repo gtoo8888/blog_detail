@@ -249,6 +249,10 @@ s 放弃
 :wq退出
 
 
+如果需要rebase已经push的commit
+需要在提交的时候直接git push -f强制交上去，就会刷新掉之前的提交
+
+
 
 # 参考文献
 https://blog.csdn.net/ajianyingxiaoqinghan/article/details/70544159

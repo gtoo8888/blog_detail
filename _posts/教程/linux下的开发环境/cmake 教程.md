@@ -55,7 +55,16 @@ make clean
 cmake 并不支持 make distclean，无法清理构建过程产生的中间文件
 
 
+# cmake使用时候的命名
 
+cmake .. -DCMAKE_BUILD_TYPE=Debug
+
+CMAKE_BUILD_TYPE
+可选值包括：
+Debug：用于在没有优化的情况下，使用带有调试符号构建库或可执行文件
+Release：用于构建的优化的库或可执行文件，不包含调试符号
+RelWithDebInfo：由于构建较少的优化库或可执行文件，包含调试符号
+MinSizeRel：用于不增加目标代码大小的优化方式，来构建或可执行文件
 
 # 参考文献
 

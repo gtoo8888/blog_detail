@@ -30,6 +30,8 @@ docker run 镜像名
 docker run 镜像名:Tag
 
 --name="nginx-lb": 为容器指定一个名称；
+-P：随机映射
+    -P 22 解析 将容器内部的 22端口随机映射到外面
 -p: 指定端口映射，格式为：主机(宿主)端口:容器端口
     -p 8888:6379
     -p 8888:6379 解析 将容器内部的 6379端口与docker 宿主机（docker装在哪太服务器 那台服务器 就是其数组机）8888 端口进行映射 那通过外部访问宿主机8888端口 即可访问到 docker 容器 6379 端口了
@@ -46,6 +48,9 @@ docker run 镜像名:Tag
 docker run -it --privileged -v D:\test\:/output -d -p 8010:22 -p 50001:50051 -p 50002:50052 -p 50005:55555 e9e8789a3024
 
 docker run -it -v $PWD:output test_tool:1-3 /bin/bash
+
+在端口映射以后，需要测试一下映射是否成功
+ssh root@127.0.0.1 -p 8010
 
 ## 镜像删除
 docker rmi java

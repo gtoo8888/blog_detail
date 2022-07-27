@@ -158,10 +158,17 @@ printf("hello world")
 ``\<mutex>``
 \<mutex>
 
-
+# cmMarkdown
+- [x] 有一个launch.json文件，会调用刚刚写的
+- [ ] 支持以 PDF 格式导出文稿
+- [ ] 改进 Cmd 渲染算法，使用局部渲染技术提高渲染效率
+- [x] 新增 Todo 列表功能
+- [x] 修复 LaTex 公式渲染问题
+- [x] 新增 LaTex 公式编号功能
 
 
 # 参考文献
 https://shd101wyy.github.io/markdown-preview-enhanced/#/zh-cn/markdown-basics
 https://www.jianshu.com/p/280c6a6f2594
+[md文件编写可以使用在线所见即所得编辑器] https://www.zybuluo.com/mdeditor
 

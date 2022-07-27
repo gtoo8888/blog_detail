@@ -103,33 +103,6 @@ gcc -o test mian.c string.c
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 # 参考资料：
 https://www.nowcoder.com/courses/cover/live/504
+[100个gdb小技巧]https://wizardforcel.gitbooks.io/100-gdb-tips/content/index.html
