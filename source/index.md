@@ -89,6 +89,7 @@ date: 2022-06-21 22:40:31
 - **hexo** https://bestzuo.cn/
 - **goodwell** https://goodwell42.github.io/
 - **std::mutex 用法與範例** https://shengyu7697.github.io/std-mutex/
+- **前端写的博客** https://carefulsuper.github.io/#articles
 
 ## 课程
 

@@ -110,5 +110,7 @@ lock_guard
 [一文详解OpenCV中的CUDA模块]https://zhuanlan.zhihu.com/p/358648337
 [「直播回放」腾讯工程师：C++17在业务代码中最好用的十个特性]https://www.zhihu.com/zvideo/1523417372937027584
 [Qt开源作品21-日志重定向输出类]https://www.cnblogs.com/feiyangqingyun/p/12970350.html
+[C++多线程之semaphore]https://blog.csdn.net/qq_41949047/article/details/108324225
+
 
 
