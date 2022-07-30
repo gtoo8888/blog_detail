@@ -213,6 +213,25 @@ git config --global core.autocrlf input
 ```git branch -r```
 查看远程有哪些分支
 
+```git branch -v```
+显示当前分支的详细信息
+
+```git branch -d feat-0728```
+删除本地创建的分支
+
+# git reset
+```git reset HEAD ```
+恢复已经add的提交
+```git reset HEAD test.cpp```
+指定文件恢复
+
+
+```git reset HEAD^ ```           
+回退所有内容到上一个版本  
+```git reset HEAD^ hello.php  ```    
+回退 hello.php 文件的版本到上一个版本  
+
+
 
 # git 高级技术
 
@@ -264,3 +283,5 @@ https://blog.csdn.net/u014361280/article/details/109703556
 [git commit 规范指南]https://blog.csdn.net/qq_41662115/article/details/99759645
 [.gitignore基础规则]https://www.cnblogs.com/kevingrace/p/5690241.html
 [git rebase]https://blog.csdn.net/small_white_123/article/details/121563248
+[git reset HEAD 用法]https://blog.csdn.net/wangkai6666/article/details/120810363
+[英文git教程网站]https://www.atlassian.com/git

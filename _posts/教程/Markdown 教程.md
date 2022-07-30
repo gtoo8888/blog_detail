@@ -158,7 +158,7 @@ printf("hello world")
 ``\<mutex>``
 \<mutex>
 
-# cmMarkdown
+# cmMarkdown[^code]
 - [x] 有一个launch.json文件，会调用刚刚写的
 - [ ] 支持以 PDF 格式导出文稿
 - [ ] 改进 Cmd 渲染算法，使用局部渲染技术提高渲染效率
@@ -166,9 +166,53 @@ printf("hello world")
 - [x] 修复 LaTex 公式渲染问题
 - [x] 新增 LaTex 公式编号功能
 
+> * 整理知识，学习笔记
+> * 发布日记，杂文，所见所想
+> * 撰写发布技术文稿（代码支持）
+> * 撰写发布学术论文（LaTeX 公式支持）
+
+
+// 引用
+[^code]: 代码高亮功能支持包括 Java, Python, JavaScript 在内的，**四十一**种主流编程语言。
+
+
+<i class="icon-adjust"></i> 主题：内置了黑白两种模式的主题，试试 **黑色主题**，超炫！
+<i class="icon-desktop"></i> 阅读：心无旁骛的阅读模式提供超一流的阅读体验
+<i class="icon-fullscreen"></i> 全屏：简洁，简洁，再简洁，一个完全沉浸式的写作和阅读环境
+
+
+
+```python
+@requires_authorization
+def somefunc(param1='', param2=0):
+    '''A docstring'''
+    if param1 > param2: # interesting
+        print 'Greater'
+    return (param2 - param1 + 1) or None
+
+class SomeClass:
+    pass
+
+>>> message = '''interpreter
+... prompt'''
+```
+
+
+```cpp
+#include "config.h"
+
+Config::Config(){
+    //端口号,默认9006
+    PORT = 9006;
+}
+```
+
+[md文件编写可以使用在线所见即所得编辑器]https://www.zybuluo.com/mdeditor
+[md文件编写可以使用在线所见即所得编辑器](https://www.zybuluo.com/mdeditor)
+
 
 # 参考文献
 https://shd101wyy.github.io/markdown-preview-enhanced/#/zh-cn/markdown-basics
 https://www.jianshu.com/p/280c6a6f2594
-[md文件编写可以使用在线所见即所得编辑器] https://www.zybuluo.com/mdeditor
+[md文件编写可以使用在线所见即所得编辑器]https://www.zybuluo.com/mdeditor
 

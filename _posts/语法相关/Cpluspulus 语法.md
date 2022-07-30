@@ -55,6 +55,8 @@ lock_guard
 ## cv::gpu::GpuMat
 
 
+## std::move
+
 # C++17
 
 ## 1.语法糖
@@ -107,5 +109,6 @@ lock_guard
 [C++ std::lock_guard详解]https://jishuin.proginn.com/p/763bfbd6f671
 [一文详解OpenCV中的CUDA模块]https://zhuanlan.zhihu.com/p/358648337
 [「直播回放」腾讯工程师：C++17在业务代码中最好用的十个特性]https://www.zhihu.com/zvideo/1523417372937027584
+[Qt开源作品21-日志重定向输出类]https://www.cnblogs.com/feiyangqingyun/p/12970350.html
 
 
