@@ -66,9 +66,14 @@ Release：用于构建的优化的库或可执行文件，不包含调试符号
 RelWithDebInfo：由于构建较少的优化库或可执行文件，包含调试符号
 MinSizeRel：用于不增加目标代码大小的优化方式，来构建或可执行文件
 
+
+
+# 交叉编译工具
+CMAKE给交叉编译预留了一个变量CMAKE_TOOLCHAIN_FILE，它定义了一个.cmake文件的路径，该文件里面设置了一系列CMAKE变量和属性，比如C_COMPILER，CXX_COMPILER等。.cmake文件的好处是一次编写多次使用，不同平台架构的交叉编译工具链可以编写一个独立的toolchain.cmake文件，而工程的CMakeLists.txt可以编写为通用格式，对工具链不可见。cmake脚本可以如下形式：
+
 # 参考文献
 
 [find_package讲解]https://blog.csdn.net/zhanghm1995/article/details/105466372
 [C++连接mysql用cmake编译]https://blog.csdn.net/lbwanghr/article/details/111076593
-
+[什么是交叉编译]https://zhuanlan.zhihu.com/p/77116555
 

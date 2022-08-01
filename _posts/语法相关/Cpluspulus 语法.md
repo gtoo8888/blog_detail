@@ -57,6 +57,25 @@ lock_guard
 
 ## std::move
 
+
+
+## std::enable_shared_from_this
+在类的内部获取自己的 shared_ptr 这件事情而存在的。
+
+
+## std::chrono::duration
+std::chrono::duration(下文简称duration)是标准库中用来代表时间段的一个类模板
+
+
+
+## std::unique_lock
+功能比std::unique_group更多
+
+
+## std::condition_variable
+ condition_variable是一个类，搭配互斥量mutex来用，
+
+
 # C++17
 
 ## 1.语法糖
@@ -97,7 +116,31 @@ lock_guard
 
 ### 捕获*this
 
+# 第三方库
 
+## httplib库简介
+httplib库简介
+httplib库是一个以C++11特性编写的库，所以编译器也需要能支持C++11的。库在使用时只需包含一个头文件即可，非常方便。
+
+下载地址
+
+注意：此库为线程阻塞，使用时还请注意
+
+##  jsoncpp库
+#include <json/json.h>
+
+
+# 注释规范
+
+@brief  @param  @return @author @date @version是代码书写的一种规范
+@brief  ：简介，简单介绍函数作用
+@param  ：介绍函数参数
+@return：函数返回类型说明
+@exception NSException 可能抛出的异常.
+@author zhangsan：  作者
+@date 2011-07-27 22:30:00 ：时间
+@version 1.0 ：版本  
+@property ：属性介绍
 
 
 # 参考文献：
@@ -111,6 +154,12 @@ lock_guard
 [「直播回放」腾讯工程师：C++17在业务代码中最好用的十个特性]https://www.zhihu.com/zvideo/1523417372937027584
 [Qt开源作品21-日志重定向输出类]https://www.cnblogs.com/feiyangqingyun/p/12970350.html
 [C++多线程之semaphore]https://blog.csdn.net/qq_41949047/article/details/108324225
-
+[C++11中enable_shared_from_this的用法解析]https://blog.csdn.net/breadheart/article/details/112451022
+[std::chrono::duration详解]https://blog.csdn.net/t114211200/article/details/78029553
+[C++ 11 多线程下std::unique_lock与std::lock_guard的区别和用法]http://t.zoukankan.com/moodlxs-p-10111843.html
+[C++ 条件变量(condition_variable)]https://cloud.tencent.com/developer/article/1584067
+[httplib库的使用(支持http/https)（一）]https://blog.csdn.net/harry49/article/details/115763383
+[注释规范：详细]https://www.cnblogs.com/lyggqm/p/4629711.html
+[注释规范]https://blog.csdn.net/lxj362343/article/details/105711524/
 
 

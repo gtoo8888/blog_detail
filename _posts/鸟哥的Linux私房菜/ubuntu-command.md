@@ -208,6 +208,21 @@ dpkg -l "*mysql*"
 
 
 
+# 第一种方法：df命令
+# df -hT
+
+# 第二种方法：使用mount命令
+# mount -l
+
+# 第三种方法：查看文件/etc/mtab。
+# cat /etc/mtab
+
+# 第四种方法：使用lsblk命令查看
+# lsblk -P
+
+
+
+
 # 参考文献
 
 

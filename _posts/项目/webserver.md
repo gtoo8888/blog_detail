@@ -26,6 +26,16 @@ fix:使用阻塞队列插入，但是自己还没有实现阻塞队列的内容�
 
 
 
+
+
+# 改进
+使用vcpkg做包管理
+cmake中使用vcpkg
+使用httplib库
+使用jsoncpp库
+
+
+
 # 参考文献
 
 [日志系统]https://mp.weixin.qq.com/s?__biz=MzI3NzE0NjcwMg==&mid=2650122657&idx=1&sn=c5ce1d8059c40e4cd6deb42a34f8fe49&chksm=f36bb480c41c3d96f69a9fbbc8e7e1515b8bbec87742f76fa3dfda0019a7b58aa282c3ef9bde&scene=21#wechat_redirect
