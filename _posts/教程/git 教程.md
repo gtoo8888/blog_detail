@@ -256,6 +256,13 @@ ee8c5a3: test:rebase
 7035791: feat:init
 2544c56: Initial commit
 ```
+
+只显示一行，详细的
+git log --pretty=oneline
+只显示一行
+git log --oneline
+显示图形界面
+git log --graph
 ## git rebase
 
 步骤一：
@@ -277,6 +284,19 @@ s 放弃
 如果需要rebase已经push的commit
 需要在提交的时候直接git push -f强制交上去，就会刷新掉之前的提交
 
+
+# git stsh 暂存
+暂存命令
+git stash save "暂存的备注"
+直接执行git stash也可以达到暂存的目的，但是连续多次暂存后容易让人混淆哪次暂存了哪些代码
+
+查看暂存记录
+git stash list
+取回暂存代码
+git stash pop
+取消【取消暂存代码】
+
+git reset --hard
 
 
 # 参考文献
