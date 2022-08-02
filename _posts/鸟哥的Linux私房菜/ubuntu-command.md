@@ -220,7 +220,8 @@ dpkg -l "*mysql*"
 # 第四种方法：使用lsblk命令查看
 # lsblk -P
 
-
+# 查看端口号
+netstat -tunpl | grep 端口号
 
 
 # 参考文献
