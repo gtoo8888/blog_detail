@@ -224,10 +224,19 @@ dpkg -l "*mysql*"
 netstat -tunpl | grep 端口号
 
 
+
+# chrony
+
+Chrony是一个开源自由的网络时间协议 NTP 的客户端和服务器软软件。它能让计算机保持系统时钟与时钟服务器（NTP）同步，因此让你的计算机保持精确的时间，Chrony也可以作为服务端软件为其他计算机提供时间同步服务。
+
+
+
+
 # 参考文献
 
 
 [查看linux用户密码]https://blog.csdn.net/feikillyou/article/details/109129870
+[chrony]https://www.cnblogs.com/my-show-time/p/14658895.html
 
 
 
