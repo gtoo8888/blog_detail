@@ -220,13 +220,99 @@ dpkg -l "*mysql*"
 # 第四种方法：使用lsblk命令查看
 # lsblk -P
 
+# 查看端口号
+netstat -tunpl | grep 端口号
 
+
+
+# chrony
+
+Chrony是一个开源自由的网络时间协议 NTP 的客户端和服务器软软件。它能让计算机保持系统时钟与时钟服务器（NTP）同步，因此让你的计算机保持精确的时间，Chrony也可以作为服务端软件为其他计算机提供时间同步服务。
+
+
+# modprobe 
+modprobe命令用于智能地向内核中加载模块或者从内核中移除模块。
+
+
+modprobe -V
+kmod version 27
++XZ -ZLIB +LIBCRYPTO -EXPERIMENTAL
+
+加载模型
+modprobe sysrq
+都从这个路径下加载
+/lib/modules/
+error:
+modprobe: FATAL: Module sysrq not found in directory /lib/modules/5.10.16.3-microsoft-standard-WSL2
+
+# lsmod
+查看已加载的内核模块信息
+
+sudo insmod hello.ko  //插入模块
+sudo rmmode hello // 卸载模块
+modinfo hello.ko // 查看模块信息
+lsmod //查看系统模块
+dmesg // 查看系统日志信息
+
+
+# systemctl 
+
+-p 从指定文件夹加载
+sysctl -p /etc/sysctl.d/my-default.conf
+
+
+查看进程
+ps -a 
+
+which systmd
+查看状态
+sysctl docker status
+
+
+
+
+wget https://github.com/microsoft/WSL2-Linux-Kernel/archive/refs/tags/linux-msft-5.4.72.tar.gz
+
+
+# modprobe br_netfilter
+linux透明防火墙--br_netfilter
+
+
+
+# 更新内核
+查看内核是否存在
+apt-cache search linux | grep "linux-buildinfo-5.4.0-122-generic"
+寻找内核是否存在
+apt search 'linux-image-5.4.0-122-generic'
+
+apt install 'linux-image-5.4.0-122-generic'
+sudo update-initramfs -u -k all
+sudo update-grub
+
+sudo update-initramfs -u -k all
+
+# lsof
+
+# swapoff
+Linux swapoff命令用于关闭系统交换区(swap area)。
+-a 将/etc/fstab文件中所有设置为swap的设备关闭
+-h 帮助信息
+-V 版本信息
+
+
+# free -h
+
+查看交换区
+
+sudo -i 切换用户身份到root.
 
 
 # 参考文献
-
-
 [查看linux用户密码]https://blog.csdn.net/feikillyou/article/details/109129870
+[chrony]https://www.cnblogs.com/my-show-time/p/14658895.html
+[linux kernel文档]https://www.kernel.org/doc/html/v5.4/admin-guide/sysctl/kernel.html
+[lsof]https://www.cnblogs.com/bangerlee/archive/2012/05/03/2464495.html
+[strace]https://www.cnblogs.com/ggjucheng/archive/2012/01/08/2316692.html
 
 
 
