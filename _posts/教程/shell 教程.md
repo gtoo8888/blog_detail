@@ -19,4 +19,12 @@ sudo dpkg-reconfigure dash
 
 
 
+# 查看脚本文件是dos还是unix
+
+查看脚本文件是dos格式还是unix格式，dos格式的文件行尾为^M$ ，unix格式的文件行尾为$
+cat -A filename
+把dos格式的文件转换为unix格式的文件
+dos2unix filename
+
+
 https://blog.csdn.net/liuqiyao_01/article/details/41551075

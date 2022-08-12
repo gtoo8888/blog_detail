@@ -20,6 +20,14 @@ tags:
 
 /dev/null 垃圾桶黑洞装置与特殊写法
 
+常见命令
+daily.log 2>&1 &
+
+2>&1 &
+最后的&表示把条命令放到后台执行
+
+2>&1
+
 ----
 
 命令下达情况	说明
@@ -132,7 +140,10 @@ cat /etc/passwd | wc -l   # 目前你的账号文件中有多少个账号时
 
 
 
+# 参考文献
 
+[Linux Shell >/dev/null 2>&1 &含义]https://www.silenceboy.com/2019/04/01/Linux-Shell-dev-null-2-1-%E5%90%AB%E4%B9%89/index.html
+[深入理解Linux shell中2>&1的含义(全网最全，看完就懂)]https://segmentfault.com/a/1190000040086046
 
 
 

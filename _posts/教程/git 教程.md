@@ -277,6 +277,11 @@ s 放弃
 如果需要rebase已经push的commit
 需要在提交的时候直接git push -f强制交上去，就会刷新掉之前的提交
 
+# 修改最后一次提交的注释
+
+git commit --amend 
+
+
 
 
 # 参考文献
@@ -291,3 +296,4 @@ https://blog.csdn.net/u014361280/article/details/109703556
 [git rebase]https://blog.csdn.net/small_white_123/article/details/121563248
 [git reset HEAD 用法]https://blog.csdn.net/wangkai6666/article/details/120810363
 [英文git教程网站]https://www.atlassian.com/git
+[git commit --amend]https://blog.csdn.net/xiaoyulike/article/details/119176756

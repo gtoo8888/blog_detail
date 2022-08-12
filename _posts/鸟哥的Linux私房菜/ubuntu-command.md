@@ -307,12 +307,83 @@ Linux swapoff命令用于关闭系统交换区(swap area)。
 sudo -i 切换用户身份到root.
 
 
+# mount
+mount命令是经常会使用到的命令，它用于挂载Linux系统外的文件。
+-t：指定档案系统的型态，通常不必指定。mount 会自动选择正确的型态。
+ mount -t glusterfs
+
+
+# 查看时间
+date
+
+# \cp
+不会询问是否覆盖
+\cp /app/WEB-INF/com/cfg.properties /app_bak/WEB-INF/com/cfg.properties 
+
+# crontab 是用来定期执行程序的命令
+crontab 命令
+crontab 命令需要 crond 服务支持
+crond 是 Linux 下用来周期地执行某种任务或等待处理某些事件的一个守护进程，和 Windows 中的计划任务有些类似。
+
+当安装完成操作系统之后，默认便会启动此任务调度命令。
+
+crond 命令每分钟会定期检查是否有要执行的工作，如果有要执行的工作便会自动执行该工作。
+
+注意：新创建的 cron 任务，不会马上执行，至少要过 2 分钟后才可以，当然你可以重启 cron 来马上执行。
+
+而 linux 任务调度的工作主要分为以下两类：
+
+1、系统执行的工作：系统周期性所要执行的工作，如备份系统数据、清理缓存
+2、个人执行的工作：某个用户定期要做的工作，例如每隔 10 分钟检查邮件服务器是否有新信，这些工作可由每个用户自行设置
+
+apt-get install cron 安装
+crontab -l 列出目前的时程表，检查是否安装成功
+cat /etc/crontab 输出使用说明
+service crond status查看服务状态
+
+ubuntu上的crond名称为cron没有d
+星号（*）：代表所有可能的值，如month字段为星号，则表示在满足其它字段的制约条件后每月都执行该命令操作。
+逗号（,）：可以用逗号隔开的值指定一个列表范围，例如，“1,2,5,7,8,9”
+中杠（-）：可以用整数之间的中杠表示一个整数范围，例如“2-6”表示“2,3,4,5,6”
+正斜线（/）：可以用正斜线指定时间的间隔频率，例如“0-23/2”表示每两小时执行一次。
+
+
+
+# 看内存使用情况
+free -h
+
+
+
+# 查看ubuntu下都开启了哪些服务
+
+service --status-all
+
+systemctl
+
+pstree
+
+
+# 列出当前目录的隐藏权限
+lsattr 
+
+
+date +%Y%m%d_%H%M%S
+
+
+# 轮循任务
+
+
+
 # 参考文献
 [查看linux用户密码]https://blog.csdn.net/feikillyou/article/details/109129870
 [chrony]https://www.cnblogs.com/my-show-time/p/14658895.html
 [linux kernel文档]https://www.kernel.org/doc/html/v5.4/admin-guide/sysctl/kernel.html
 [lsof]https://www.cnblogs.com/bangerlee/archive/2012/05/03/2464495.html
 [strace]https://www.cnblogs.com/ggjucheng/archive/2012/01/08/2316692.html
+[Linux crontab命令详解]https://www.cnblogs.com/ftl1012/p/crontab.html
+[Linux Crontab 定时任务]https://www.runoob.com/w3cnote/linux-crontab-tasks.html
+[systemd]https://www.ruanyifeng.com/blog/2016/03/systemd-tutorial-commands.html
+[linux下计划任务学习记录 ]https://blog.51cto.com/u_15060465/4164796
 
 
 
