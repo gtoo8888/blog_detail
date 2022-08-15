@@ -411,6 +411,7 @@ ls -t $DIR/*_timedata.db | sed -e '1,10d' | xargs rm
 [Linux Crontab 定时任务]https://www.runoob.com/w3cnote/linux-crontab-tasks.html
 [systemd]https://www.ruanyifeng.com/blog/2016/03/systemd-tutorial-commands.html
 [linux下计划任务学习记录 ]https://blog.51cto.com/u_15060465/4164796
+[xargs]https://ruanyifeng.com/blog/2019/08/xargs-tutorial.html
 
 
 
