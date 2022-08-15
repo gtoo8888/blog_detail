@@ -153,7 +153,12 @@ C_Cpp.errorSquiggles
 "cppStandard": "c++17",
 2. 使用了外部的库，比如opencv,QThread等库的时候，编译可以通过但是无法转跳
 
+# shell
+格式化工具
+shell-format
 
+代码提示工具
+shellman
 
 
 # 参考文献

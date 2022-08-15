@@ -5,6 +5,52 @@ tags:
 - 鸟哥的Linux私房菜
 ---
 
+
+# 查看脚本文件是dos还是unix
+
+查看脚本文件是dos格式还是unix格式，dos格式的文件行尾为^M$ ，unix格式的文件行尾为$
+cat -A filename
+把dos格式的文件转换为unix格式的文件
+dos2unix filename
+
+[ -d DIR ] 如果 FILE 存在且是一个目录则为真。
+[ -z STRING ] 如果STRING的长度为零则为真 ，即判断是否为空，空即是真；
+
+二、文件/文件夹(目录)判断
+
+[ -b FILE ] 如果 FILE 存在且是一个块特殊文件则为真。
+[ -c FILE ] 如果 FILE 存在且是一个字特殊文件则为真。
+[ -d DIR ] 如果 FILE 存在且是一个目录则为真。
+[ -e FILE ] 如果 FILE 存在则为真。
+[ -f FILE ] 如果 FILE 存在且是一个普通文件则为真。
+[ -g FILE ] 如果 FILE 存在且已经设置了SGID则为真。
+[ -k FILE ] 如果 FILE 存在且已经设置了粘制位则为真。
+[ -p FILE ] 如果 FILE 存在且是一个名字管道(F如果O)则为真。
+[ -r FILE ] 如果 FILE 存在且是可读的则为真。
+[ -s FILE ] 如果 FILE 存在且大小不为0则为真。
+[ -t FD ] 如果文件描述符 FD 打开且指向一个终端则为真。
+[ -u FILE ] 如果 FILE 存在且设置了SUID (set user ID)则为真。
+[ -w FILE ] 如果 FILE存在且是可写的则为真。
+[ -x FILE ] 如果 FILE 存在且是可执行的则为真。
+[ -O FILE ] 如果 FILE 存在且属有效用户ID则为真。
+[ -G FILE ] 如果 FILE 存在且属有效用户组则为真。
+[ -L FILE ] 如果 FILE 存在且是一个符号连接则为真。
+[ -N FILE ] 如果 FILE 存在 and has been mod如果ied since it was last read则为真。
+[ -S FILE ] 如果 FILE 存在且是一个套接字则为真。
+[ FILE1 -nt FILE2 ] 如果 FILE1 has been changed more recently than FILE2, or 如果 FILE1 exists and FILE2 does not则为真。
+[ FILE1 -ot FILE2 ] 如果 FILE1 比 FILE2 要老, 或者 FILE2 存在且 FILE1 不存在则为真。
+[ FILE1 -ef FILE2 ] 如果 FILE1 和 FILE2 指向相同的设备和节点号则为真。
+
+三、字符串判断
+
+[ -z STRING ] 如果STRING的长度为零则为真 ，即判断是否为空，空即是真；
+[ -n STRING ] 如果STRING的长度非零则为真 ，即判断是否为非空，非空即是真；
+[ STRING1 = STRING2 ] 如果两个字符串相同则为真 ；
+[ STRING1 != STRING2 ] 如果字符串不相同则为真 ；
+[ STRING1 ]　 如果字符串不为空则为真,与-n类似
+
+
+
 # 开启摄像头
 
 
@@ -307,12 +353,111 @@ Linux swapoff命令用于关闭系统交换区(swap area)。
 sudo -i 切换用户身份到root.
 
 
+# mount
+mount命令是经常会使用到的命令，它用于挂载Linux系统外的文件。
+-t：指定档案系统的型态，通常不必指定。mount 会自动选择正确的型态。
+ mount -t glusterfs
+
+
+# 查看时间
+date
+
+# \cp
+不会询问是否覆盖
+\cp /app/WEB-INF/com/cfg.properties /app_bak/WEB-INF/com/cfg.properties 
+
+# crontab 是用来定期执行程序的命令
+crontab 命令
+crontab 命令需要 crond 服务支持
+crond 是 Linux 下用来周期地执行某种任务或等待处理某些事件的一个守护进程，和 Windows 中的计划任务有些类似。
+
+当安装完成操作系统之后，默认便会启动此任务调度命令。
+
+crond 命令每分钟会定期检查是否有要执行的工作，如果有要执行的工作便会自动执行该工作。
+
+注意：新创建的 cron 任务，不会马上执行，至少要过 2 分钟后才可以，当然你可以重启 cron 来马上执行。
+
+而 linux 任务调度的工作主要分为以下两类：
+
+1、系统执行的工作：系统周期性所要执行的工作，如备份系统数据、清理缓存
+2、个人执行的工作：某个用户定期要做的工作，例如每隔 10 分钟检查邮件服务器是否有新信，这些工作可由每个用户自行设置
+
+apt-get install cron 安装
+crontab -l 列出目前的时程表，检查是否安装成功
+cat /etc/crontab 输出使用说明
+service crond status查看服务状态
+
+ubuntu上的crond名称为cron没有d
+星号（*）：代表所有可能的值，如month字段为星号，则表示在满足其它字段的制约条件后每月都执行该命令操作。
+逗号（,）：可以用逗号隔开的值指定一个列表范围，例如，“1,2,5,7,8,9”
+中杠（-）：可以用整数之间的中杠表示一个整数范围，例如“2-6”表示“2,3,4,5,6”
+正斜线（/）：可以用正斜线指定时间的间隔频率，例如“0-23/2”表示每两小时执行一次。
+
+
+
+# 看内存使用情况
+free -h
+
+
+
+# 查看ubuntu下都开启了哪些服务
+
+service --status-all
+
+systemctl
+
+pstree
+
+
+# 列出当前目录的隐藏权限
+lsattr 
+
+
+date +%Y%m%d_%H%M%S
+
+
+# 轮循任务
+
+
+# readlink
+readlink是Linux系统中一个常用工具，主要用来找出符号链接所指向的位置。
+
+
+echo "shell脚本本身的名字: $0"
+echo "传给shell的第一个参数: $1"
+echo "传给shell的第二个参数: $2"
+
+
+
+一、dirname命令
+dirname命令去除文件名中的非目录部分，仅显示与目录有关的内容。dirname命令读取指定路径名保留最后一个/及其后面的字符，删除其他部分，并写结果到标准输出。如果最后一个/后无字符，dirname 命令使用倒数第二个/，并忽略其后的所有字符。dirname 和 basename 通常在 shell 内部命令替换使用，以指定一个与指定输入文件名略有差异的输出文件名。
+
+
+
+# sed 
+选项
+
+-e是编辑命令，用于sed执行多个编辑任务的情况下。在下一行开始编辑前，所有的编辑动作将应用到模式缓冲区中的行上。
+
+sed -e '1,10d' -e 's/My/Your/g' datafile
+
+#选项-e用于进行多重编辑。第一重编辑删除第1-3行。第二重编辑将出现的所有My替换为Your。因为是逐行进行这两项编辑（即这两个命令都在模式空间的当前行上执行），所以编辑命令的顺序会影响结果。
+
+
+ls -t $DIR/*_timedata.db | sed -e '1,10d' | xargs rm
+按时间排序，1-10行删除掉
+
 # 参考文献
 [查看linux用户密码]https://blog.csdn.net/feikillyou/article/details/109129870
 [chrony]https://www.cnblogs.com/my-show-time/p/14658895.html
 [linux kernel文档]https://www.kernel.org/doc/html/v5.4/admin-guide/sysctl/kernel.html
 [lsof]https://www.cnblogs.com/bangerlee/archive/2012/05/03/2464495.html
 [strace]https://www.cnblogs.com/ggjucheng/archive/2012/01/08/2316692.html
+[Linux crontab命令详解]https://www.cnblogs.com/ftl1012/p/crontab.html
+[Linux Crontab 定时任务]https://www.runoob.com/w3cnote/linux-crontab-tasks.html
+[systemd]https://www.ruanyifeng.com/blog/2016/03/systemd-tutorial-commands.html
+[linux下计划任务学习记录 ]https://blog.51cto.com/u_15060465/4164796
+[xargs]https://ruanyifeng.com/blog/2019/08/xargs-tutorial.html
 
 
 

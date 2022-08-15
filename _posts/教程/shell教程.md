@@ -19,6 +19,7 @@ sudo dpkg-reconfigure dash
 
 
 
+<<<<<<< HEAD:_posts/教程/shell 教程.md
 [ -d DIR ] 如果 FILE 存在且是一个目录则为真。
 [ -z STRING ] 如果STRING的长度为零则为真 ，即判断是否为空，空即是真；
 
@@ -55,6 +56,14 @@ sudo dpkg-reconfigure dash
 [ STRING1 != STRING2 ] 如果字符串不相同则为真 ；
 [ STRING1 ]　 如果字符串不为空则为真,与-n类似
 
+=======
+# 查看脚本文件是dos还是unix
+
+查看脚本文件是dos格式还是unix格式，dos格式的文件行尾为^M$ ，unix格式的文件行尾为$
+cat -A filename
+把dos格式的文件转换为unix格式的文件
+dos2unix filename
+>>>>>>> 5d3cd45b2a48d34a62c61d98961b133b740fbbf2:_posts/教程/shell教程.md
 
 
 https://blog.csdn.net/liuqiyao_01/article/details/41551075
