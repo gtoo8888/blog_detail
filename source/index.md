@@ -91,7 +91,9 @@ date: 2022-06-21 22:40:31
 - **goodwell** https://goodwell42.github.io/
 - **std::mutex 用法與範例** https://shengyu7697.github.io/std-mutex/
 - **前端写的博客** https://carefulsuper.github.io/#articles
-
+- **ACM学习计划** https://gist.github.com/dodola/6227480
+- **NOIP2018游记** http://lycltb.top/post/noip2018/
+- **打了三年ACM，拿了几个金牌** https://mp.ofweek.com/ee/a356714167237
 ## 课程
 
 - **MIT 6.828 Fall 2018** https://pdos.csail.mit.edu/6.828/2018/schedule.html
