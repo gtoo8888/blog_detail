@@ -373,6 +373,33 @@ date +%Y%m%d_%H%M%S
 # 轮循任务
 
 
+# readlink
+readlink是Linux系统中一个常用工具，主要用来找出符号链接所指向的位置。
+
+
+echo "shell脚本本身的名字: $0"
+echo "传给shell的第一个参数: $1"
+echo "传给shell的第二个参数: $2"
+
+
+
+一、dirname命令
+dirname命令去除文件名中的非目录部分，仅显示与目录有关的内容。dirname命令读取指定路径名保留最后一个/及其后面的字符，删除其他部分，并写结果到标准输出。如果最后一个/后无字符，dirname 命令使用倒数第二个/，并忽略其后的所有字符。dirname 和 basename 通常在 shell 内部命令替换使用，以指定一个与指定输入文件名略有差异的输出文件名。
+
+
+
+# sed 
+选项
+
+-e是编辑命令，用于sed执行多个编辑任务的情况下。在下一行开始编辑前，所有的编辑动作将应用到模式缓冲区中的行上。
+
+sed -e '1,10d' -e 's/My/Your/g' datafile
+
+#选项-e用于进行多重编辑。第一重编辑删除第1-3行。第二重编辑将出现的所有My替换为Your。因为是逐行进行这两项编辑（即这两个命令都在模式空间的当前行上执行），所以编辑命令的顺序会影响结果。
+
+
+ls -t $DIR/*_timedata.db | sed -e '1,10d' | xargs rm
+按时间排序，1-10行删除掉
 
 # 参考文献
 [查看linux用户密码]https://blog.csdn.net/feikillyou/article/details/109129870
