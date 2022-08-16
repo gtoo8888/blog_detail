@@ -8,7 +8,7 @@ tags:
 生成目录 [TOC]
 [TOC]
 
-# 标题
+# 1标题
 ```
 # 这是 <h1> 一级标题
 
@@ -23,17 +23,21 @@ tags:
 ###### 这是 <h6> 六级标题
 ```
 
-# 斜体
+# 2斜体
 
+```
 ```*这会是 斜体 的文字*``` *这会是 斜体 的文字*
 ```_这会是 斜体 的文字_``` _这会是 斜体 的文字_
 ```**这会是 粗体 的文字**``` **这会是 粗体 的文字**
 ```__这会是 粗体 的文字__``` __这会是 粗体 的文字__
 ```_你也 **组合** 这些符号_``` _你也 **组合** 这些符号_
-```~~这个文字将会被横线删除~~``` ~~这个文字将会被横线删除~~```
+```~~这个文字将会被横线删除~~``` ~~这个文字将会被横线删除~~
+```
 
 
-# 列表
+
+
+# 3列表
 ## 无序列表
 - Item 1
 - Item 2
@@ -103,7 +107,7 @@ Alt text：图片的Alt标签，用来描述图片的关键词，可以不写。
 > the present is our past.
 ```
 
-# 分隔符
+# 4分隔符
 ---
 连字符
 ---
@@ -112,7 +116,7 @@ Alt text：图片的Alt标签，用来描述图片的关键词，可以不写。
 下划线
 ---
 
-# 代码块
+
 你可以在你的代码上面和下面添加 ``` 来表示代码块。
 
 ```
@@ -120,7 +124,7 @@ printf("hello world")
 ```
 
 
-# 创建表格
+# 5创建表格
 
 ## 默认表格
 ```
@@ -142,10 +146,12 @@ printf("hello world")
 | 文本好长文本好长文本好长 | 文本好短 | 文本不短也不长 |
 ```
 
+
 | 左对齐 | 右对齐 | 居中对齐 |
 | :-----| ----: | :----: |
 | 文本好短 | 文本不短也不长 | 文本好长文本好长文本好长 |
 | 文本好长文本好长文本好长 | 文本好短 | 文本不短也不长 |
+
 
 ## Markdown关于表格的语法
 默认标题居中对齐，内容居左对齐
@@ -161,13 +167,34 @@ printf("hello world")
 ``\<mutex>``
 \<mutex>
 
-# cmMarkdown[^code]
+# 6代码块
+```python
+@requires_authorization
+def somefunc(param1='', param2=0):
+    '''A docstring'''
+    if param1 > param2: # interesting
+        print 'Greater'
+    return (param2 - param1 + 1) or None
+
+class SomeClass:
+    pass
+```
+
+
+```cpp
+#include "config.h"
+Config::Config(){
+    //端口号,默认9006
+    PORT = 9006;
+}
+```
+
+
+# 7已完成的标记+引用[^code]
 - [x] 有一个launch.json文件，会调用刚刚写的
-- [ ] 支持以 PDF 格式导出文稿
 - [ ] 改进 Cmd 渲染算法，使用局部渲染技术提高渲染效率
 - [x] 新增 Todo 列表功能
-- [x] 修复 LaTex 公式渲染问题
-- [x] 新增 LaTex 公式编号功能
+
 
 > * 整理知识，学习笔记
 > * 发布日记，杂文，所见所想
@@ -183,33 +210,7 @@ printf("hello world")
 <i class="icon-desktop"></i> 阅读：心无旁骛的阅读模式提供超一流的阅读体验
 <i class="icon-fullscreen"></i> 全屏：简洁，简洁，再简洁，一个完全沉浸式的写作和阅读环境
 
-
-
-```python
-@requires_authorization
-def somefunc(param1='', param2=0):
-    '''A docstring'''
-    if param1 > param2: # interesting
-        print 'Greater'
-    return (param2 - param1 + 1) or None
-
-class SomeClass:
-    pass
-
->>> message = '''interpreter
-... prompt'''
-```
-
-
-```cpp
-#include "config.h"
-
-Config::Config(){
-    //端口号,默认9006
-    PORT = 9006;
-}
-```
-
+# 8隐藏超链接
 [md文件编写可以使用在线所见即所得编辑器]https://www.zybuluo.com/mdeditor
 [md文件编写可以使用在线所见即所得编辑器](https://www.zybuluo.com/mdeditor)
 

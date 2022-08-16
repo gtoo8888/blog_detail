@@ -153,6 +153,8 @@ C_Cpp.errorSquiggles
 "cppStandard": "c++17",
 2. 使用了外部的库，比如opencv,QThread等库的时候，编译可以通过但是无法转跳
 
+
+# 各种插件推荐
 # shell
 格式化工具
 shell-format
@@ -160,6 +162,19 @@ shell-format
 代码提示工具
 shellman
 
+
+
+# 前端使用的插件
+
+快捷键
+开头按输入!,自动填充基础内容
+
+1. Auto Rename Tag
+自动修改前后标签名
+2. open in browser
+在浏览器中打开
+3. CSS Peek
+追踪CSS样式
 
 # 参考文献
 

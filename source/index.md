@@ -167,6 +167,7 @@ date: 2022-06-21 22:40:31
 - **make a gif** https://makeagif.com/
 - **木及简历** https://www.mujicv.com/
 
+- **RSS订阅其他博主** https://feedly.com/i/welcome
 ## 地图
 - **阿里云地图** http://datav.aliyun.com/portal/school/atlas/area_selector
 - **中国标准地图服务网站** http://bzdt.ch.mnr.gov.cn/

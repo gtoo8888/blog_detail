@@ -257,3 +257,6 @@ hexo下Markdown语法失效总结 https://blog.csdn.net/weixin_42932905/article/
 大佬的一些教程 https://hwame.top/
 [hexo博客出现“Cannot GET/xxxx”的错误]https://blog.csdn.net/weixin_30699831/article/details/96894620
 [启用搜索功能]https://blog.plcent.com/2019/11/05/hexo-theme-pure/
+[添加友链]https://github.com/cofess/hexo-theme-pure/blob/master/README.cn.md
+[启用RSS订阅]https://wxnacy.com/2018/12/12/hexo-add-rss/
+[启用RSS订阅]https://www.jianshu.com/p/2aaac7a19736

@@ -1,5 +1,5 @@
 ---
-title: shell 教程
+title: k8s教程
 date: 2022-08-11 10:15:04
 tags:
 - 教程
@@ -11,10 +11,6 @@ kubectl get rs my-name -n dev -o -wide
 
 -n 命名空间
 -o 查看pod节点详情
-
-
-# 查看脚本文件是dos还是unix
-
 
 # 查看kubernetes的资源情况：
 kubectl get ns
