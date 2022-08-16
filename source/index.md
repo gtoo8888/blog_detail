@@ -64,7 +64,7 @@ date: 2022-06-21 22:40:31
 - **经典技术书籍** https://awesome-programming-books.github.io/
 - **数据结构的演示** https://www.cs.usfca.edu/~galles/visualization/
 - **pkucs自学指南** https://csdiy.wiki/
-- **小白视角：一文读懂社长的TinyWebServer** https://huixxi.github.io/2020/06/02/%E5%B0%8F%E7%99%BD%E8%A7%86%E8%A7%92%EF%BC%9A%E4%B8%80%E6%96%87%E8%AF%BB%E6%87%82%E7%A4%BE%E9%95%BF%E7%9A%84TinyWebServer/#more
+- [**小白视角：一文读懂社长的TinyWebServer**](https://huixxi.github.io/2020/06/02/%E5%B0%8F%E7%99%BD%E8%A7%86%E8%A7%92%EF%BC%9A%E4%B8%80%E6%96%87%E8%AF%BB%E6%87%82%E7%A4%BE%E9%95%BF%E7%9A%84TinyWebServer/#more)
 - **追梦算法网** http://acm.mangata.ltd/
 - **vincents** https://vincents.top/2022/08/14/60.html
 
@@ -165,6 +165,7 @@ date: 2022-06-21 22:40:31
 - **思维导图** https://www.processon.com/
 - **路过图床** https://imgtu.com/
 - **make a gif** https://makeagif.com/
+- **木及简历** https://www.mujicv.com/
 
 ## 地图
 - **阿里云地图** http://datav.aliyun.com/portal/school/atlas/area_selector

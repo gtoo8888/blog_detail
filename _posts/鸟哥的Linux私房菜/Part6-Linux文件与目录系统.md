@@ -66,6 +66,9 @@ find [PATH] [option] [action]
 
 3. 与文件权限及名称有关的参数：
    -name filename：搜寻文件名称为 filename 的文件；
+   
+   find . -name "*.log"
+
    -size [+-]SIZE：搜寻比 SIZE 还要大(+)或小(-)的文件。这个 SIZE 的规格有：
                    c: 代表 byte， k: 代表 1024bytes。所以，要找比 50KB
                    还要大的文件，就是『 -size +50k 』
