@@ -458,6 +458,9 @@ ls -t $DIR/*_timedata.db | sed -e '1,10d' | xargs rm
 [systemd]https://www.ruanyifeng.com/blog/2016/03/systemd-tutorial-commands.html
 [linux下计划任务学习记录 ]https://blog.51cto.com/u_15060465/4164796
 [xargs]https://ruanyifeng.com/blog/2019/08/xargs-tutorial.html
+[用history查看历史命令]https://blog.csdn.net/qq_34243930/article/details/107007654
+[让 history 命令显示日期和时间]https://zhuanlan.zhihu.com/p/99818664
+[环境变量HISTCONTROL命令及对快捷键Ctrl+o命令的影响]https://blog.csdn.net/weixin_30723433/article/details/96641179
 
 
 
