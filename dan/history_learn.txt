@@ -1,0 +1,94 @@
+    1  exit
+    2  apt install net-tools && apt install ansible && apt install sshpass
+    3  apt-get update
+    4  sudo cp /etc/apt/sources.list /etc/apt/sources.list.bak
+    5  vim /etc/apt/sources.list
+    6  sudo apt-get update
+    7  sudo apt-get upgrade
+    8  apt install net-tools
+    9  ipconfig
+   10  ifconfig
+   11  apt install ansible
+   12  apt install sshpass
+   13  apt-get remove openssh-server
+   14  apt-get install openssh-server -y
+   15  apt-get install openssh-client
+   16  sudo vim /etc/ssh/sshd_config
+   17  /etc/init.d/ssh restart
+   18  sudo apt-get remove docker docker-engine docker.io
+   19  sudo apt-get update
+   20  sudo apt-get install     apt-transport-https     ca-certificates     curl     software-properties-common
+   21  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+   22  sudo apt-key fingerprint 0EBFCD88
+   23  sudo add-apt-repository    "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+   24     $(lsb_release -cs) \
+   25     stable"
+   26  sudo apt-get update
+   27  sudo apt-get install docker-ce
+   28  docker version
+   29  docker 
+   30  docker version
+   31  systemctl restart ssh
+   32  vim install.sh
+   33  chmod +x install.sh
+   34  sudo ./install.sh install
+   35  /opt/distrod/bin/distrod enable
+   36  sudo ./install.sh install
+   37  /opt/distrod/bin/distrod enable
+   38  top
+   39  systemctl restart ssh
+   40  docker
+   41  docker version
+   42  alias b="kubectl -n lookonce"
+   43  ll
+   44  b get pod
+   45  b get pod -A
+   46  nvidia-smi
+   47  docker images
+   48  docker images | grep clust
+   49  docker pull ihouqi-docker.pkg.coding.net/shipinanquan/lookonce/clustering-worker:replace-openblas-2.0-1330
+   50  vi /etc/hosts
+   51  ifconfig
+   52  ip addr
+   53  ifconfig | grep 192/168
+   54  ifconfig | grep 192.168
+   55  ifconfig | grep 192.168 -C 5
+   56  vi /etc/hostgs
+   57  vi /etc/hosts
+   58  docker pull ihouqi-docker.pkg.coding.net/shipinanquan/lookonce/clustering-worker:replace-openblas-2.0-1330
+   59  docker login -u lookonce-1660722664546 -p 55d0feef9a2349f799da9fd679d5f467368f807b ihouqi-docker.pkg.coding.net
+   60  docker pull ihouqi-docker.pkg.coding.net/shipinanquan/lookonce/clustering-worker:replace-openblas-2.0-1330
+   61  docker images | grep vearch
+   62  docker pull ihouqi-docker.pkg.coding.net/shipinanquan/lookonce/vearch:vearch-intel-12-97
+   63  alias b="kubectl -n lookonce"
+   64  b get deploy
+   65  b edit deploy clustering-worker
+   66  b get all -n vearch
+   67  b edit deploy router -n vearch
+   68  b edit statefulset master -n vearch
+   69  b edit statefulset ps -n vearch
+   70  b get po -A
+   71  b describe po lookonce-init-5lbqn -n tidb-cluster
+   72  docker pull ihouqi-docker.pkg.coding.net/shipinanquan/lookonce/mysql-schema-sync:latest
+   73  vi /etc/hosts
+   74  docker push ihouqi-docker.pkg.coding.net/shipinanquan/lookonce/mysql-schema-sync:latest
+   75  b get po -n registry
+   76  b edit deploy docker-registry
+   77  b edit deploy docker-registry -n registry
+   78  b get cm docker-registry-config -n registry
+   79  b get cm docker-registry-config -n registry -o yaml
+   80  b get po
+   81  b get po -A
+   82  b delete po master-0 ps-0 router-854464f577-t9cl5  router-854464f577-xh8b5  router-b99d587dd-7f8zz router-b99d587dd-ts75c  router-b99d587dd-xzx6f -n vearch --force --grace-period=0
+   83  b get po -n vearch
+   84  b get po
+   85  b logs -p clustering-worker-74d749d446-f8sv4
+   86  b get po
+   87  b get po -A
+   88  b edit job lookonce-init -n tidb-cluster
+   89  b delete po lookonce-init-5lbqn -n tidb-cluster
+   90  b get po -A
+   91  b edit job lookonce-init -n tidb-cluster
+   92  b edit deploy intelligent-search
+   93  b edit job lookonce-init -n tidb-cluster
+   94  history > history_learn.txt

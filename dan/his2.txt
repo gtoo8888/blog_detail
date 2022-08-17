@@ -1,0 +1,19 @@
+  
+   31  2022-08-17 18:13:11 systemctl restart ssh
+   32  2022-08-17 18:13:11 vim install.sh
+   33  2022-08-17 18:13:11 chmod +x install.sh
+   34  2022-08-17 18:13:11 sudo ./install.sh install
+   35  2022-08-17 18:13:11 /opt/distrod/bin/distrod enable
+   36  2022-08-17 18:13:11 sudo ./install.sh install
+   37  2022-08-17 18:13:11 /opt/distrod/bin/distrod enable
+   38  2022-08-17 18:13:11 top
+   39  2022-08-17 18:13:11 systemctl restart ssh
+   40  2022-08-17 18:13:11 docker
+   41  2022-08-17 18:13:11 docker version
+   42  2022-08-17 18:14:24 cd 
+   43  2022-08-17 18:14:30 vim .bashrc 
+   44  2022-08-17 18:15:30 source .bashrc 
+   45  2022-08-17 18:15:34 history -w
+   46  2022-08-17 18:15:37 history 
+   47  2022-08-17 18:15:59 cd /mnt/d/wsl-install/
+   48  2022-08-17 18:16:09 history > his2.txt
