@@ -67,10 +67,14 @@ wsl --unregister Ubuntu-20.04-test-yzx-1
 wsl --terminate Ubuntu-20.04
 打包子系统
 > wsl --export Ubuntu-20.04 D:\Ubuntu-20.04-test-yzx.tar
+> wsl --export Ubuntu-20.04 D:\Ubuntu-20.04.tar
 还原子系统
 > wsl --import Ubuntu-20.04-test-yzx-1 C:\WSL D:\Ubuntu-20.04-test-yzx.tar
+> wsl --import ihouqi-Ubuntu-20.04 D:\ihouqi-Ubuntu-20.04 D:\Ubuntu-20.04.tar
 设置默认wsl
+wsl --setdefault Ubuntu-20.04
 wsl --setdefault Ubuntu-20.04-test-yzx-1
+wsl --setdefault ihouqi-Ubuntu-20.04
 
 # openssh配置
 -v显示详细参数

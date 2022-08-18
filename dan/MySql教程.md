@@ -50,6 +50,98 @@ SELECT user,host FROM mysql.user;
 
 SELECT * FROM information_schema.TABLES WHERE TABLE_SCHEMA = 'yzx_test';
 
+
+
+
+# TIDB 的恢复尝试
+
+
+
+
+[TIDB-PD-RECOVER的恢复方式]https://blog.csdn.net/line_on_database/article/details/125938140
+[jp官网]https://docs.pingcap.com/zh/tidb-in-kubernetes/stable/pd-recover
+
+https://docs.pingcap.com/zh/tidb/stable/pd-recover#pd-recover-%E4%BD%BF%E7%94%A8%E6%96%87%E6%A1%A3
+
+
+# 获取id
+kubectl get tc basic -n tidb-cluster -o='go-template={{.status.clusterID}}{{"\n"}}'
+
+
+
+wget https://download.pingcap.org/tidb-${version}-linux-amd64.tar.gz
+
+wget https://download.pingcap.org/tidb-v4.0.8-linux-amd64.tar.gz
+
+
+kubectl logs -n tidb-cluster basic-pd-2 | grep "init cluster id"
+
+[2022/08/15 08:04:47.380 +00:00] [INFO] [server.go:343] ["init cluster id"] [cluster-id=7125293229949899697]
+cluster-id=7125293229949899697
+
+kubectl logs -n tidb-cluster basic-pd-0  | grep "idAllocator "
+
+[2022/08/15 08:26:13.835 +00:00] [INFO] [id.go:110] ["idAllocator allocates a new id"] [alloc-id=35000]
+alloc-id=35000
+
+
+./pd-recover -endpoints http://10.101.154.54:2379 -cluster-id 7125293229949899697 -alloc-id 35002
+
+
+
+# 输出两个需要的地址
+kubectl logs -n tidb-cluster basic-pd-0 | grep "init cluster id"
+kubectl logs -n tidb-cluster basic-pd-0  | grep "idAllocator "
+t get svc
+./pd-recover -endpoints http://10.102.215.78:2379 -cluster-id 7125293229949899697 -alloc-id 35002
+t delete svc basic-pd
+
+
+
+# 官方文档的恢复
+
+kubectl patch tc basic -n tidb-cluster --type merge -p '{"spec":{"pd":{"replicas": 0}}}'
+
+
+kubectl patch sts basic-pd -pd -n  tidb-cluster -p '{"spec":{"replicas": 0}}'
+
+
+
+ihouqi-docker.pkg.coding.net/shipinanquan/pingcap/pd:v4.0.8
+
+kubectl delete pvc -l app.kubernetes.io/component=pd,app.kubernetes.io/instance=pd-basic-pd-0 -n tidb-cluster
+
+kubectl delete pvc -l ihouqi-docker.pkg.coding.net/shipinanquan/pingcap/pd:v4.0.8 -n tidb-cluster
+
+
+kubectl patch tc basic -n tidb-cluster --type merge -p '{"spec":{"pd":{"replicas": 1}}}'
+
+
+kubectl patch sts basic-pd -n tidb-cluster -p '{"spec":{"replicas": 1}}'
+
+
+
+kubectl port-forward -n tidb-cluster svc/basic-pd 2379:2379
+
+./pd-recover -endpoints http://10.102.215.78:2379 -cluster-id 7125293229949899697 -alloc-id 37002
+
+~~不可以~~
+~~./pd-recover -endpoints http://127.0.0.1:2379 -cluster-id 7125293229949899697 -alloc-id 39002~~
+
+
+查看configmap
+t describe cm basic-pd-6232343
+
+
+
+
+kubectl patch tc basic -n tidb-cluster --type merge -p '{"spec":{"pd":{"replicas": 3}}}'
+
+
+kubectl patch sts basic-pd -pd -n  tidb-cluster -p '{"spec":{"replicas": 3}}'
+
+
+
 # 参考文献
 
 https://blog.csdn.net/m0_67393039/article/details/123702111

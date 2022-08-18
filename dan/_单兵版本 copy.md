@@ -1,0 +1,558 @@
+---
+title: 单兵版本
+date: 2022-08-02 10:01:26
+tags:
+- 教程
+---
+
+[TOC]
+
+# 概述
+安装单兵版本有多重模式
+准备材料：.tar.gz安装包，wsl准备包
+- [X] 方法一（复杂）：自己配置wsl->使用ansibled安装——（需要尽量使用能翻墙的电脑）
+- [X] 方法二（简单）：使用配置好了wsl包->自己使用ansible安装
+- [ ] 方法三（最简单）：直接使用安装好的灯塔wsl包
+
+
+# 方法一：自主安装
+
+## 步骤零：windows电脑的准备
+### 0.1.windowsc磁盘分区
+给想要安装的磁盘至少留出150G的安装空间
+
+
+### 0.2.启用子系统功能，并更新wsl内核
+新电脑的wsl是不完整的，需要做一些改进
+[摘抄来自官方教程]https://docs.microsoft.com/zh-cn/windows/wsl/install-manual
+#### 0.2.1 启用适用于 Linux 的 Windows 子系统
+> [powershell] dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
+
+#### 0.2.2 检查运行 WSL 2 的要求
+- 需要运行 Windows 10
+ 对于 x64 系统：版本 1903 或更高版本，内部版本为 18362 或更高版本。
+ 对于 ARM64 系统：版本 2004 或更高版本，内部版本为 19041 或更高版本。
+- 或 Windows 11。
+Win+R，然后输入winver
+选择“确定”，更新到“设置”菜单中的最新 Windows 版本
+
+#### 0.2.3 启用虚拟机功能
+> [powershell] dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
+
+#### 0.2.4 下载 Linux 内核更新包
+> [powershell] systeminfo
+查看系统类型，是arm还是x64
+安装对应的内核更新包
+wsl_update_x64.msi或wsl_update_arm64.msi
+
+#### 0.2.5 将 WSL 2 设置为默认版本
+> [powershell] wsl --set-default-version 2
+
+
+
+
+
+## 步骤一：wsl内部的环境配置
+
+## 步骤三：通过ansible安装软件包
+大体上参考方法二[2.将.tar.gz安装包放到指定位置]之后的内容
+
+
+# 方法二：自行通过ansible安装
+## 1.导入可以具有安装环境的wsl包
+> [powershell] wsl --import <Distro> <InstallLocation> <FileName> [Options]
+> [powershell] wsl --import <你想要的wsl包名字> <wsl安装的位置,推荐D盘,空间大于150G> <导入包的名字> 
+> [powershell] wsl --import ihouqi-Ubuntu-20.04 D:\ihouqi-Ubuntu-20.04 D:\Ubuntu-20.04.tar
+
+## 2.将.tar.gz安装包放到指定位置
+### 2.1存放安装包的位置
+> mkdir /mnt/d/wsl-install
+> cd /mnt/d/wsl-install
+### 2.2解压安装包
+> tar -xzvf [安装包名字]
+> ex : tar -xzvf deploy_x86_64_v123_63c5ee3.tar.gz 
+## 3.测试ssh是否可以连接
+> ifconfig
+> ssh ihouqi@192.168.50.16 -p 2222
+## 4.修改ansible安装的配置文件
+### 4.1修改主机名字
+> vim install_host
+> [name] ansible_host=192.168.50.16
+> name改成自己想要的主机名字，这个文件里的所有name同名替换
+### 4.2修改ssh登录用户名密码
+> ansible_ssh_pass=[]
+> ansible_ssh_port=2222
+> ansible_ssh_user=ihouqi
+### 4.2修改ssh登录转为root用户名密码
+> ansible_become_pass=[]
+## 5.使用ansible进行安装
+> cd /mnt/d/wsl-install/
+> ansible-playbook -i install_host install.yml
+
+
+
+# 方法三：开箱即用
+## 1.导入
+> [powershell] wsl --import <Distro> <InstallLocation> <FileName> [Options]
+> [powershell] wsl --import <你想要的wsl包名字> <wsl安装的位置,推荐D盘,空间大于150G> <导入包的名字> 
+> [powershell] wsl --import ihouqi-Ubuntu-20.04 D:\ihouqi-Ubuntu-20.04 D:\Ubuntu-20.04.tar
+
+## 2.进入wsl
+> [powershell] wsl
+
+
+
+
+# windows电脑的环境准备
+
+## 步骤一：windows分区
+
+## 步骤二：安装wsl
+<!-- 0. 新电脑的wsl是不完整的，需要做一些改进
+
+[摘抄来自官方教程]https://docs.microsoft.com/zh-cn/windows/wsl/install-manual
+- 步骤 1 - 启用适用于 Linux 的 Windows 子系统dism.exe /online /enable-feature /featurename:Microsoft-Windows-Subsystem-Linux /all /norestart
+- 步骤 3 - 启用虚拟机功能
+dism.exe /online /enable-feature /featurename:VirtualMachinePlatform /all /norestart
+
+- 步骤 4 - 下载 Linux 内核更新包
+直接下一步下一步安装wsl_update_x64
+
+- 步骤 5 - 将 WSL 2 设置为默认版本
+wsl --set-default-version 2 -->
+
+<!-- 1. [powershell]列出有什么版本
+wsl --list --online
+```
+以下是可安装的有效分发的列表。
+请使用“wsl --install -d <分发>”安装。
+
+NAME            FRIENDLY NAME
+Ubuntu          Ubuntu
+Debian          Debian GNU/Linux
+kali-linux      Kali Linux Rolling
+openSUSE-42     openSUSE Leap 42
+SLES-12         SUSE Linux Enterprise Server v12
+Ubuntu-16.04    Ubuntu 16.04 LTS
+Ubuntu-18.04    Ubuntu 18.04 LTS
+Ubuntu-20.04    Ubuntu 20.04 LTS
+```
+3. [powershell]找到指定版本安装
+wsl --install -d Ubuntu-20.04
+FQ(VPN)
+
+4. 配置为默认的wsl
+wsl --setdefault Ubuntu-20.04-test-yzx-1
+wsl --list
+
+5. [文档操作] 建立wsl的配置文件，关闭交换内存和修改使用内存大小
+wsl配置文件的位置
+C:\Users\<YourUserName>\.wslconfig
+原来是没有这个文件的，直接自己新建一个.wslconfig文件就好
+重启wsl
+[powershell] wsl --shutdown # 关闭wsl
+[powershell] wsl -l -v  # 查看wsl状态
+[powershell] wsl  # 稍等一会儿输入，重启后进入 -->
+
+5. [wsl]查看user和root的密码
+
+6. 换源
+[下面的换源教程]
+
+7. 常用软件安装
+apt-get update
+apt install net-tools && apt install ansible && apt install sshpass && apt install tree
+
+
+8. [wsl]下载openssh组件，并且开启ssh
+
+需要先删除
+apt-get remove openssh-server -y
+apt-get install openssh-server -y
+apt-get install openssh-client
+
+sudo vim /etc/ssh/sshd_config
+
+PermitRootLogin yes （默认为#PermitRootLogin prohibit-password）前面的#号要放开
+PasswordAuthentication yes   #登录时候需要密码
+
+
+/etc/init.d/ssh restart
+如果没有卸载老的ssh会启动失败
+service ssh restart
+
+ssh root@127.0.0.1 -p 2222
+
+
+
+11. 安装docker
+apt-get install docker-ce
+[下面的参考教程，一定要按照那个顺序来]
+
+sudo apt-get remove docker docker-engine docker.io
+sudo apt-get update
+sudo apt-get install \
+    apt-transport-https \
+    ca-certificates \
+    curl \         
+    software-properties-common
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+sudo apt-key fingerprint 0EBFCD88
+sudo add-apt-repository \
+   "deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+   $(lsb_release -cs) \
+   stable"
+sudo apt-get update
+sudo apt-get install docker-ce
+
+docker version
+
+
+12. 安装systemctl 
+下载
+curl -L -O "https://raw.githubusercontent.com/nullpo-head/wsl-distrod/main/install.sh"
+vim install.sh
+chmod +x install.sh
+sudo ./install.sh install(需要翻墙)
+启动
+/opt/distrod/bin/distrod enable
+重启
+wsl --shutdown
+检测
+top
+systemctl restart ssh
+
+
+
+## 步骤二：用ansible开始安装
+mkdir /mnt/d/wsl-install
+cd /mnt/d/wsl-install
+tar -xzvf deploy_x86_64_v123_63c5ee3.tar.gz 
+tar -xzvf deploy_x86_64_v123_63c5ee3.tar.gz -C untar/
+
+外面开一下ip
+ifconfig
+ssh yzx@192.168.50.16 -p 2222
+cd /mnt/d/wsl-install/
+ansible-playbook -i install_host install.yml
+
+## 步骤三：windows安装openssh
+1. PowerShell 中查看是否安装
+Get-WindowsCapability -Online | Where-Object Name -like 'OpenSSH*'
+如果两者均尚未安装，则此操作应返回以下输出：
+
+Name  : OpenSSH.Client~~~~0.0.1.0
+State : NotPresent
+
+Name  : OpenSSH.Server~~~~0.0.1.0
+State : NotPresent
+
+2. 根据需要安装
+然后，根据需要安装服务器或客户端组件：
+##Install the OpenSSH Client
+Add-WindowsCapability -Online -Name OpenSSH.Client~~~~0.0.1.0
+##Install the OpenSSH Server
+Add-WindowsCapability -Online -Name OpenSSH.Server~~~~0.0.1.0
+这两者应该都会返回以下输出：
+Path          :
+Online        : True
+RestartNeeded : False
+
+3. 测试是否安装成功
+ssh username@servername
+
+
+
+# 自己的服务器41作为堡垒机
+
+1. 下载代码
+git clone [url]
+
+
+
+
+# 现在遇到wsl的问题
+
+1. 安装wsl需要翻墙
+    提供离线版本解决
+
+2. 每次启动ip地址都会变化
+1.win+r
+2.regedit
+3.计算机\HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\Layers
+4.新建字符串值
+5.右键，重命名，输入需要改的文件的地址
+C:\Users\houqi\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Startup\wsl_start.bat
+6.右键，修改，数值数据
+~ RunAsInvoker
+
+3. 无法使用systemctl，systemd
+service [] start 代替
+4. 内核缺少东西
+sysctl -p /etc/sysctl.d/my-default.conf
+sysctl: cannot stat /proc/sys/kernel/sysrq: No such file or directory
+sysctl: cannot stat /proc/sys/kernel/watchdog_thresh: No such file or directory
+sysctl: cannot stat /proc/sys/kernel/softlockup_panic: No such file or directory 
+
+5. 没有这个k8s防火墙模块modprobe br_netfilter
+
+6. 如果使用管理员模式使用终端，会导致有时候无法打开
+
+7. 装到后面会出现莫名其妙的问题，复制文件无法进行，新建文件夹无法进行
+cpu，内存，硬盘占用全满
+mysql的问题
+
+8. 使用ansible卸载以后，需要重启电脑才生效，不然还有很多残留的IP地址
+
+9. 重启后k8s无法启动
+报错：
+```kubelet cgroup driver: \“systemd\“ is different from docker cgroup driver: \“cgroupfs\“```
+kubectl 和 docker 使用的东西不同
+systmd   | cgroup
+cgroup改成systmd
+docker是自己手动安装的，没有使用安装包，所以有问题
+docker info
+ Cgroup Driver: cgroupfs
+
+10. 无法记录history的命令，有时候记录，有时候不记录
+
+11. wsl最好更新到最新版本，显卡驱动更新到最新版本
+
+12. 针对inter12需要取新的镜像
+lookonce-init
+clustering-worker:replace-openblas-2.0-1330
+
+13. 增加bash的配置
+运行一下ihouqi-bash-config.sh
+
+alias b="kubectl -n lookonce"
+alias t="kubectl -n tidb-cluster"
+echo "wsl 配置文件位置 C:\Users\<YourUserName>\.wslconfig"
+
+
+
+# 安装包的使用要求
+
+0. 电脑的内存至少16G+，wsl至少18G，不然会出现wsl安装灯塔以后，整个程序无法运行的问题
+
+1. wsl安装，一定需要将安装包拷贝到本地，使用ip固定的方法，安装文件中的IP使用那个自己固定的IP，不然的话，启动k8s的时候，会导致IP无法找到
+
+2. 禁止检测剩余空间大小，检测data_hdd/data_ssd大小
+ 
+3. gluster创建的时候，
+D:\wsl-install\roles\glusterd\templates\base_glusterd.sh.j2
+D:\wsl-install\roles\glusterd\templates\config_vearch.sh.j2
+最长的末尾需要加上force,强制在根目录创建
+
+4. 删除中需要删除glusterfs-server，现在看起来也是无效的
+删除的脚本存在问题，无法正常删除，而且会没法二次安装，特别是glusterfs部分
+
+
+# 查看k8s服务是否启动
+
+总共有4个服务，是不是开起来了
+docker ps -a
+kube-apiserver
+kube-controller
+kube-scheduler 
+
+现在看起来
+kube-apiserver没有起来
+查看需要找的kube-apiserver的日志
+docker logs 879a412b81d8
+etcd没有起来
+docker ps -a |grep etcd
+
+docker logs e5a62759ae80
+查看这个进程
+lsof -i:2380
+  518  ping 10.1.0.181
+  519  ip addr
+  520  ping 172.29.190.231
+
+
+[powershell]查看端口是否被占用
+netstat -ano | findstr LISTEN
+
+
+
+
+
+
+# 参考文献
+[设置软件以管理员身份运行不弹出提示框]https://blog.csdn.net/Ghost_Darkgreen/article/details/121799702
+[Is RunAsInvoker a secret, even higher UAC setting?]https://devblogs.microsoft.com/oldnewthing/20161117-00/?p=94735
+[用户帐户控制工作原理]https://docs.microsoft.com/zh-cn/windows/security/identity-protection/user-account-control/how-user-account-control-works
+[ubuntu20换源]https://zhuanlan.zhihu.com/p/142014944
+[换源]https://blog.csdn.net/u012308586/article/details/102953882
+[基础设置]https://blog.csdn.net/weixin_43718675/article/details/106844150
+[microsoft官方 windows安装opnessh]https://docs.microsoft.com/zh-cn/windows-server/administration/openssh/openssh_install_firstuse
+[wsl重装openssh](https://blog.csdn.net/diyiday/article/details/105321630#:~:text=%E9%80%9A%E8%BF%87%20xshell%20%E8%BF%9E%E6%8E%A5ubuntuonwindows%28WSL%29%E8%BF%99%E9%87%8C%E4%B8%BB%E8%A6%81%E8%AE%B2%E5%87%A0%E4%B8%AA%E5%85%B3%E9%94%AE%E6%AD%A5%E9%AA%A41.%202.%20%E5%AE%89%E8%A3%85%20sshserversudo%20apt-get,install%20openssh-server%203.%20%E4%BF%AE%E6%94%B9%20sshserver%20%E9%85%8D%E7%BD%AEsudo%20vim%20%2Fetc%2Fssh%2Fsshd_config)
+[wsl安装docker]https://blog.csdn.net/weixin_36182972/article/details/104898438
+[wsl的.conf配置]https://docs.microsoft.com/zh-cn/windows/wsl/wsl-config#wslconf
+[给 WSL2 设置静态 IP 地址]https://zhuanlan.zhihu.com/p/380779630
+[内网穿透]https://zhuanlan.zhihu.com/p/303175108
+[wsl.exe无法启动的问题]https://zhuanlan.zhihu.com/p/337361570
+[netsh]https://docs.microsoft.com/zh-cn/windows-server/networking/technologies/netsh/netsh-contexts
+[端口映射]http://www.ahanwhite.com/archives/wsl-port-nat
+[局域网中连接时，关闭防火墙]https://zhuanlan.zhihu.com/p/425312804
+~~[无法使用systemctl]https://github.com/MicrosoftDocs/WSL/issues/457~~
+~~[解决无法使用systemctl完全没有用]https://www.cnblogs.com/MorStar/p/15078738.html~~
+[现在解决systemctl的方法]https://blog.allwens.work/wslSystemd/
+[无法启动，systemd cgroupfs冲突问题]https://blog.csdn.net/zenglingmin8/article/details/122507259
+
+https://juejin.cn/post/6961800061210591268
+
+
+1. 安装vim
+2. 安装ansible
+
+
+
+# 之前有用的，现在被删除了
+
+9. [powershell管理员]需要把端口映射出来
+
+          - 1. 查看wsl内ip地址
+          wsl -- ifconfig eth0
+
+          - 2. 将本机地址映射进去
+          ```powershell
+          netsh interface portproxy add v4tov4 listenport=6899  listenaddress=0.0.0.0 connectport=2222 connectaddress=192.168.50.16
+          ```
+
+          - 3. 查看映射结果
+          netsh interface portproxy show all
+
+10. 需要将wsl的IP进行固定[^1]
+
+            1)管理员权限
+            ```shell
+            @echo off
+            %1 mshta vbscript:CreateObject("Shell.Application").ShellExecute("cmd.exe","/c %~s0 ::","","runas",1)(window.close)&&exit
+            cd /d "%~dp0"
+            ```
+            2)wsl中添加IP
+            ```powershell
+            wsl -d Ubuntu-20.04 -u root ip addr add 192.168.50.16/24 broadcast 192.168.50.255 dev eth0 label eth0:1
+            ```
+            3)windows中添加IP
+            ```powershell
+            netsh interface ip add address "vEthernet (WSL)" 192.168.50.88 255.255.255.0
+            ```
+
+# 引用内容
+[^1]:[(可能是)完美解决WSL2重启变IP问题] https://blog.csdn.net/weixin_41301508/article/details/108939520?spm=1001.2101.3001.6661.1&utm_medium=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1-108939520-blog-112651567.pc_relevant_multi_platform_whitelistv3&depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-2%7Edefault%7ECTRLIST%7ERate-1-108939520-blog-112651567.pc_relevant_multi_platform_whitelistv3&utm_relevant_index=1
+
+
+
+
+
+[TIDB-PD-RECOVER的恢复方式]https://blog.csdn.net/line_on_database/article/details/125938140
+[jp官网]https://docs.pingcap.com/zh/tidb-in-kubernetes/stable/pd-recover
+
+https://docs.pingcap.com/zh/tidb/stable/pd-recover#pd-recover-%E4%BD%BF%E7%94%A8%E6%96%87%E6%A1%A3
+
+
+# 获取id
+kubectl get tc basic -n tidb-cluster -o='go-template={{.status.clusterID}}{{"\n"}}'
+
+
+
+wget https://download.pingcap.org/tidb-${version}-linux-amd64.tar.gz
+
+wget https://download.pingcap.org/tidb-v4.0.8-linux-amd64.tar.gz
+
+
+kubectl logs -n tidb-cluster basic-pd-2 | grep "init cluster id"
+
+[2022/08/15 08:04:47.380 +00:00] [INFO] [server.go:343] ["init cluster id"] [cluster-id=7125293229949899697]
+cluster-id=7125293229949899697
+
+kubectl logs -n tidb-cluster basic-pd-0  | grep "idAllocator "
+
+[2022/08/15 08:26:13.835 +00:00] [INFO] [id.go:110] ["idAllocator allocates a new id"] [alloc-id=35000]
+alloc-id=35000
+
+
+./pd-recover -endpoints http://10.101.154.54:2379 -cluster-id 7125293229949899697 -alloc-id 35002
+
+
+
+# 输出两个需要的地址
+kubectl logs -n tidb-cluster basic-pd-0 | grep "init cluster id"
+kubectl logs -n tidb-cluster basic-pd-0  | grep "idAllocator "
+t get svc
+./pd-recover -endpoints http://10.102.215.78:2379 -cluster-id 7125293229949899697 -alloc-id 35002
+t delete svc basic-pd
+
+
+
+# 官方文档的恢复
+
+kubectl patch tc basic -n tidb-cluster --type merge -p '{"spec":{"pd":{"replicas": 0}}}'
+
+
+kubectl patch sts basic-pd -pd -n  tidb-cluster -p '{"spec":{"replicas": 0}}'
+
+
+
+ihouqi-docker.pkg.coding.net/shipinanquan/pingcap/pd:v4.0.8
+
+kubectl delete pvc -l app.kubernetes.io/component=pd,app.kubernetes.io/instance=pd-basic-pd-0 -n tidb-cluster
+
+kubectl delete pvc -l ihouqi-docker.pkg.coding.net/shipinanquan/pingcap/pd:v4.0.8 -n tidb-cluster
+
+
+kubectl patch tc basic -n tidb-cluster --type merge -p '{"spec":{"pd":{"replicas": 1}}}'
+
+
+kubectl patch sts basic-pd -n tidb-cluster -p '{"spec":{"replicas": 1}}'
+
+
+
+kubectl port-forward -n tidb-cluster svc/basic-pd 2379:2379
+
+./pd-recover -endpoints http://10.102.215.78:2379 -cluster-id 7125293229949899697 -alloc-id 37002
+
+~~不可以~~
+~~./pd-recover -endpoints http://127.0.0.1:2379 -cluster-id 7125293229949899697 -alloc-id 39002~~
+
+
+查看configmap
+t describe cm basic-pd-6232343
+
+
+
+
+kubectl patch tc basic -n tidb-cluster --type merge -p '{"spec":{"pd":{"replicas": 3}}}'
+
+
+kubectl patch sts basic-pd -pd -n  tidb-cluster -p '{"spec":{"replicas": 3}}'
+
+
+
+
+
+[crul指南]https://www.ruanyifeng.com/blog/2019/09/curl-reference.html
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

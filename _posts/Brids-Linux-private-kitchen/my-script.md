@@ -16,3 +16,12 @@ c3=$(find -name "*.cpp"  | xargs cat | grep -v ^$| wc -l)
 h3=$(find -name "*.cpp"  | xargs cat | grep -v ^$| wc -l)
 echo "去掉空格行数：$(expr ${c3} + ${c3}),*.cpp:${c3},*.h:${h3}"
 ```
+
+```
+cat > "" << 'EOF'
+加载文件
+```
+
+
+# 参考文献
+[cat << EOF]https://www.jianshu.com/p/df07d8498fa5
