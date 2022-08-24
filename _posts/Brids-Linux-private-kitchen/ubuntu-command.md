@@ -447,6 +447,17 @@ sed -e '1,10d' -e 's/My/Your/g' datafile
 ls -t $DIR/*_timedata.db | sed -e '1,10d' | xargs rm
 按时间排序，1-10行删除掉
 
+
+
+
+
+# 查看时区
+
+timedatectl
+
+timedatectl list-timezones
+
+
 # 参考文献
 [查看linux用户密码]https://blog.csdn.net/feikillyou/article/details/109129870
 [chrony]https://www.cnblogs.com/my-show-time/p/14658895.html
