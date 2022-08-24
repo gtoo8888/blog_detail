@@ -149,5 +149,9 @@ https://blog.csdn.net/m0_51889436/article/details/123227451
 [你常听说的WAL到底是什么]https://ost.51cto.com/posts/15404
 [Ubuntu 20.04 MySQL 命令行导入导出数据库]https://blog.csdn.net/LZW15082682930/article/details/118554610
 [Mysql快速比较两个表中的数据是否有差异]https://blog.csdn.net/usualheart/article/details/107403759
+[最好用的 10 款 MySQL GUI 管理工具横向测评 - 免费和付费到底怎么选?]https://kalacloud.com/blog/best-mysql-gui-tools/?utm_medium=inside
+
+
+[NSQ简明教程]https://jiajunhuang.com/articles/2020_08_15-nsq.md.html
 
 

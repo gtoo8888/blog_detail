@@ -453,8 +453,8 @@ ls -t $DIR/*_timedata.db | sed -e '1,10d' | xargs rm
 [linux kernel文档]https://www.kernel.org/doc/html/v5.4/admin-guide/sysctl/kernel.html
 [lsof]https://www.cnblogs.com/bangerlee/archive/2012/05/03/2464495.html
 [strace]https://www.cnblogs.com/ggjucheng/archive/2012/01/08/2316692.html
-[Linux crontab命令详解]https://www.cnblogs.com/ftl1012/p/crontab.html
-[Linux Crontab 定时任务]https://www.runoob.com/w3cnote/linux-crontab-tasks.html
+[Linux crontab命令详解-博客]https://www.cnblogs.com/ftl1012/p/crontab.html
+[Linux Crontab定时任务-菜鸟教程]https://www.runoob.com/w3cnote/linux-crontab-tasks.html
 [systemd]https://www.ruanyifeng.com/blog/2016/03/systemd-tutorial-commands.html
 [linux下计划任务学习记录 ]https://blog.51cto.com/u_15060465/4164796
 [xargs]https://ruanyifeng.com/blog/2019/08/xargs-tutorial.html

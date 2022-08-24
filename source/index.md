@@ -12,6 +12,7 @@ date: 2022-06-21 22:40:31
 - **路过图床** https://imgtu.com/
 - **halo博客系统**https://halo.run/
 - **阿里云开发者网站** https://developer.aliyun.com/?spm=a2c6h.23182525.J_5404914170.1.77483b2fjWTL8k
+- **Google Research** https://research.google/
 
 ## *WIKI*
 - **PythonRobotics documentation** https://pythonrobotics.readthedocs.io/en/latest/index.html
@@ -30,6 +31,7 @@ date: 2022-06-21 22:40:31
 - **zeroguide 中文翻译** https://wizardforcel.gitbooks.io/zmq-guide/content/chapter1.html
 - https://www.cnblogs.com/Anker/p/4706244.html
 - https://blog.csdn.net/a19891024/article/details/78182287
+- **摩天轮中国数据库流行排名** https://www.modb.pro/dbRank
 
 -lzmq
 
@@ -68,6 +70,8 @@ date: 2022-06-21 22:40:31
 - **追梦算法网** http://acm.mangata.ltd/
 - **vincents** https://vincents.top/2022/08/14/60.html
 - **被删的前端游乐场** https://godbasin.github.io/front-end-playground/
+- **go+python**https://jiajunhuang.com/
+
 
 ## *技术博客学习*
 
