@@ -198,7 +198,7 @@ Handler_read_rnd_next
     很多时候，为了完成一个查询任务，我们往往可以写出几种查询语句，这时，你不妨挨个按照上面的方式执行，根据结果中的Handler_read_*数值，你就能相对容易的判断各种查询方式的优劣。
 
 
-# 唯一索引
+# 索引
 
 
 1、普通索引  mysql>ALTER TABLE `table_name` ADD INDEX index_name ( `column` )
@@ -245,6 +245,13 @@ s.db.Debug().Model(&CachedFeatureInfo{}).Where("temporary = 1 and created_at <= 
 # delete
 s.db.Debug().Where("temporary = 1 and created_at <= ?", deleteTime).Order("created_at asc").Limit(100).Delete(&CachedFeatureInfo{}) 	// 从最早的开始删
 
+
+
+
+drop table是数据库中用于删除一个或多个数据表的命令，具体格式“DROP TABLE [IF EXISTS] 表名列表”；如果想要同时删除多个表，只要将表名依次写在后面，相互之间用逗号隔开即可。
+
+
+
 # 参考文献
 
 https://blog.csdn.net/m0_67393039/article/details/123702111
@@ -253,7 +260,10 @@ https://blog.csdn.net/m0_51889436/article/details/123227451
 [Ubuntu 20.04 MySQL 命令行导入导出数据库]https://blog.csdn.net/LZW15082682930/article/details/118554610
 [Mysql快速比较两个表中的数据是否有差异]https://blog.csdn.net/usualheart/article/details/107403759
 [最好用的 10 款 MySQL GUI 管理工具横向测评 - 免费和付费到底怎么选?]https://kalacloud.com/blog/best-mysql-gui-tools/?utm_medium=inside
-
+[mysql索引类型normal，unique，full text]https://blog.csdn.net/cuidiwhere/article/details/8452997
+[MySQL的几个概念：主键，外键，索引，唯一索引]https://blog.51cto.com/wushank/1641308
+[数据库逻辑设计之三大范式通俗理解，一看就懂，书上说的太晦涩]https://segmentfault.com/a/1190000013695030
+[数据库范式那些事]https://www.cnblogs.com/CareySon/archive/2010/02/16/1668803.html
 
 [NSQ简明教程]https://jiajunhuang.com/articles/2020_08_15-nsq.md.html
 [0227浅谈MySQL之 Handler_read_*参数]https://www.cnblogs.com/qcfeng/p/6476392.html

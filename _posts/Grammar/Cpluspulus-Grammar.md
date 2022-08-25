@@ -143,6 +143,15 @@ httplib库是一个以C++11特性编写的库，所以编译器也需要能支�
 @property ：属性介绍
 
 
+
+# std::recursive_mutex
+recursive_mutex
+
+
+
+# 精确到ns的计时方法
+std::chrono
+
 # 参考文献：
 [C++ explicit 关键字]https://zhuanlan.zhihu.com/p/52152355
 [解决 VSCode 编写 C++11 代码报红问题]https://blog.csdn.net/weixin_42292229/article/details/113767569
@@ -161,5 +170,6 @@ httplib库是一个以C++11特性编写的库，所以编译器也需要能支�
 [httplib库的使用(支持http/https)（一）]https://blog.csdn.net/harry49/article/details/115763383
 [注释规范：详细]https://www.cnblogs.com/lyggqm/p/4629711.html
 [注释规范]https://blog.csdn.net/lxj362343/article/details/105711524/
+[C++11 新的计时方法——std::chrono 大法好]https://blog.csdn.net/u013390476/article/details/50209603
 
 
