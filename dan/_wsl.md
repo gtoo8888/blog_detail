@@ -159,41 +159,6 @@ net start sshd
 # 关闭公用网络的防火墙
 
 
-
-
-
-# 单兵安装流程
-
-
-wsl ssh 2222
-windows 6899->2222
-
-
-1. windows开启ssh
-net start sshd
-2. wsl开启ssh
-sudo su
-/etc/init.d/ssh restart
-3. windows->wsl
-ssh [wsl用户名]@[wsl内的ip] -p [端口]
-example:
-ssh yzx@172.24.75.110 -p 2222
-4. linux->windows
-ssh [windows用户名]@[windows内的ip] 
-example:
-ssh HOULAI@10.1.0.181 
-5. linux->windows(映射)->wsl
-这一步需要关闭防火墙
-ssh [wsl用户名]@[windows内的ip]  -p [windows映射端口]
-ssh yzx@10.1.0.181  -p 6899
-
-
-
-
-
-
-
-
 # k8s
 
 重启
@@ -275,7 +240,7 @@ journalctl -xe
 
 
 
-# 参考文献
+# 参考资料
 [配置 WSL 2 全局设置]https://dowww.spencerwoo.com/4-advanced/4-3-wslconfig.html
 [下载ubuntu TSL 发行版 官方教程]https://docs.microsoft.com/zh-cn/windows/wsl/install-manual
 [基础设置]https://blog.csdn.net/weixin_43718675/article/details/106844150
