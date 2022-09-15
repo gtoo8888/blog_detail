@@ -120,6 +120,8 @@ git push origin main
 发现仓库中主要分支叫做master修改后就好了
 
 # 生成ssh秘钥
+git config --global user.name "XXX"
+git config --global user.email "XXX"
 ## 1.生成公钥：
 git命令：ssh-keygen  -m [密钥格式]  -t [密钥类型]  -C[密钥注解] 
 ```

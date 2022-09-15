@@ -71,7 +71,7 @@ date: 2022-06-21 22:40:31
 - **vincents** https://vincents.top/2022/08/14/60.html
 - **被删的前端游乐场** https://godbasin.github.io/front-end-playground/
 - **go+python**https://jiajunhuang.com/
-
+- **LearnData 开源笔记** https://vincentsx.github.io/
 
 ## *技术博客学习*
 
