@@ -53,3 +53,5 @@ UUID 全局唯一标识符
 
 -zxvf 解压
 解压、解包、显示过程 指定解压名字
+
+tar zcvf FileName.tar.gz DirName

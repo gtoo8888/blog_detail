@@ -34,6 +34,8 @@ fix:使用阻塞队列插入，但是自己还没有实现阻塞队列的内容�
 cmake中使用vcpkg
 使用httplib库
 使用jsoncpp库
+接口测试方法
+压力测试方法
 
 
 # epoll_event

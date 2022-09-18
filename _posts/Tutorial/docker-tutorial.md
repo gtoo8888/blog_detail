@@ -6,6 +6,8 @@ tags:
 ---
 
 
+# docker 安装教程
+
 # 一、docker 镜像命令
 
 ## 镜像查看
@@ -47,7 +49,7 @@ docker run 镜像名:Tag
 
 docker run -it --privileged -v D:\test\:/output -d -p 8010:22 -p 50001:50051 -p 50002:50052 -p 50005:55555 e9e8789a3024
 
-docker run -it -v $PWD:output test_tool:1-3 /bin/bash
+docker run -it --name="u1" -v $PWD:/myapp ubuntu:latest /bin/bash
 
 在端口映射以后，需要测试一下映射是否成功
 ssh root@127.0.0.1 -p 8010
@@ -97,6 +99,8 @@ docker port [容器名]
 
 
 
-
+# 参考资料
+[Ubuntu20.04安装docker]https://blog.csdn.net/m0_59092234/article/details/123816391#:~:text=Ubuntu20.04%20%E5%AE%89%E8%A3%85Docker%201859%20%E7%AC%AC%E4%B8%80%E6%AD%A5%EF%BC%9A%201%E3%80%81%E5%85%88%E6%9B%B4%E6%96%B0%E5%BA%93%E6%BA%90%20sudo%20apt-get%20update,2%E3%80%81%E7%84%B6%20%E5%90%8E%20%E7%9B%B4%E6%8E%A5%20sudo%20apt%20install%20docker.io%20%2F3%E3%80%82
+[docker hub]https://hub.docker.com/
 
 
