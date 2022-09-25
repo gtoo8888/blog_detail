@@ -303,8 +303,34 @@ git stash pop
 
 git reset --hard
 
+# git gc
 
-# Filtering content 很慢
+在当前存储库中运行许多内务处理任务，例如压缩文件修订（以减少磁盘空间并提高性能）
+并移除可能由之前git add调用创建的不可达对象。
+
+鼓励用户在每个存储库中定期运行此任务，以保持良好的磁盘空间利用率和良好的操作性能。
+
+git-gc  - 清理不必要的文件并优化本地存储库
+
+Git是如何存储对象的
+
+Git 中存在两种对象 -  松散对象(loose object) 和 打包对象(packed object) .
+
+git gc 为了定时的对文件进行打包
+松散对象存储的文件，一个很大的文件1G的文件，改动一行，那依然会有一个1G的副本保存下来
+所以需要将松散对象打包为打包对象用来节约存储空间
+
+关闭自动打包的原理是：
+如果有大文件包含在文件夹中，并且需要经常改动，那么就需要打开gc机制
+但是正常情况下，提交的都是几KB的小文件，源代码之类的，空间占用的很好，关闭git gc机制，还可以更好的溯源文件变化情况
+
+问题：
+git gc以后，会消失一些什么信息？
+
+# git reflog
+
+如果使用git reset --herd HEAD^回退了版本，会出现amend的未来提交
+可以使用reflog查看到，并且回退到未来的版本
 
 # 参考文献
 https://blog.csdn.net/ajianyingxiaoqinghan/article/details/70544159
@@ -320,3 +346,10 @@ https://blog.csdn.net/u014361280/article/details/109703556
 [英文git教程网站]https://www.atlassian.com/git
 [git commit --amend]https://blog.csdn.net/xiaoyulike/article/details/119176756
 [git - 执行 git clone 时 "Filtering content"是什么意思？]https://www.coder.work/article/1531074
+[为什么要管理git gc自动垃圾回收(英文)]https://donatstudios.com/yagni-git-gc
+[为什么要git gc]https://www.cnblogs.com/ayseeing/p/4226471.html
+[Git是如何存储对象的]https://blog.csdn.net/hudashi/article/details/7669477
+[10.4 Git 内部原理 - 包文件]https://git-scm.com/book/zh/v2/Git-%E5%86%85%E9%83%A8%E5%8E%9F%E7%90%86-%E5%8C%85%E6%96%87%E4%BB%B6
+[Git是如何存储对象的- 7. 原理解析- [ Git Community Book 中文版 ...]https://www.shouce.ren/api/view/a/9924
+[git 版本回退]https://www.liaoxuefeng.com/wiki/896043488029600/897013573512192
+[【学了就忘】Git操作 — 51.git reflog命令]https://www.jianshu.com/p/7e4cef3863e7

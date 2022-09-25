@@ -116,6 +116,11 @@ std::chrono::duration(下文简称duration)是标准库中用来代表时间段�
 
 ### 捕获*this
 
+## 结构化绑定
+auto [cur, pos] = qu.front();
+https://blog.csdn.net/yaoshenjie/article/details/99288495
+
+
 # 第三方库
 
 ## httplib库简介

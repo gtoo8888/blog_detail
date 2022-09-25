@@ -13,14 +13,14 @@ tags:
 灰色：版本控制已忽略文件。
 
 git文件标识:
+M: 文件的内容被修改了
+U: 文件没有被合并(你需要完成合并才能进行提交)
+D: 删除的一个文件
 
 A: 增加的文件.
 C: 文件的一个新拷贝.
-D: 删除的一个文件.
-M: 文件的内容或者mode被修改了.
 R: 文件名被修改了。
 T: 文件的类型被修改了。
-U: 文件没有被合并(你需要完成合并才能进行提交)
 X: 未知状态
 
 # 使用VSCode远程调试linux
@@ -82,102 +82,24 @@ Host 15.1.0.89      # 显示的名字
 | ctl + g | 跳到指定行 | 
 | ctl + b | 关闭左侧栏 | 
 | ctl + j | 关闭下面栏 | 
+| ctl + K + T | 换主题颜色 | 
 
 # 一些设置
 C++不报错
 C_Cpp.errorSquiggles
-
-# 调试相关的三个主要文件
-调试的基本思路：
-步骤一：
-先有一个tasks.json文件可以对文件进行生成
-对于C++来说，可以使用gcc,g++,make,cmake,shell脚本，都可以进行生成
-可以先测试task能否正常运行，这一步的测试就是测试程序是否能编译通过
-步骤二：
-### tasks.json
-```
-{
-    "version": "2.0.0",
-    "tasks": [
-        {
-            "label": "compile",
-            "type": "shell",
-            "command": "./build.sh",
-            "args": [],
-            "problemMatcher": [],
-            "group": "build"
-        },
-        {
-            "label": "clean",
-            "type": "shell",
-            "command": "make",
-            "args": [
-                "clean",
-            ],
-        }
-    ]
-}
-```
-
-### launch.json
-
-
-### c_cpp_properties.json
-
-```
-// https://code.visualstudio.com/docs/cpp/c-cpp-properties-schema-reference
-//.vscode文件夹局部的配置c_cpp_properties.json
-{
-    "configurations": [
-        {
-            "name": "Linux",
-            "includePath": [            // 这个是使用头文件时候vscode查找的路径，如果路径没有包含进来，头文件会有红色波浪线
-                "${workspaceFolder}/**", //
-                "/vcpkg/x64-linux/installed/x64-linux/include/**"
-            ],
-            "defines": [
-              "F_OS_LINUX",         // 这里定义的头文件在程序中使用的时候，#ifndef的内容不会灰色
-              "_DEBUG"
-            ],
-            "cStandard": "c17",       // 指定c语言使用的语法版本
-            "cppStandard": "c++17",   // 指定c++使用的语法版本
-            "intelliSenseMode": "linux-gcc-x64"
-        }
-    ],
-    "version": 4
-}
-```
-一些问题：
-1. 使用了C++11的语法，但是C++11的语句，比如auto还是会报错
-"cStandard": "c17",
-"cppStandard": "c++17",
-2. 使用了外部的库，比如opencv,QThread等库的时候，编译可以通过但是无法转跳
-
-
-# 各种插件推荐
-# shell
-格式化工具
-shell-format
-
-代码提示工具
-shellman
-
-
 
 # 前端使用的插件
 
 快捷键
 开头按输入!,自动填充基础内容
 
-1. Auto Rename Tag
-自动修改前后标签名
-2. open in browser
-在浏览器中打开
-3. CSS Peek
-追踪CSS样式
+
+# 代码滚动时候进行附着
+sticky scroll
+打开以后会把函数名进行附着
 
 # 参考文献
 
 
 [在VScode中，代码提示左边的图标各自代表的含义]https://blog.csdn.net/qq_42838904/article/details/108222619
-[c_cpp_properties.json]https://code.visualstudio.com/docs/cpp/c-cpp-properties-schema-reference
+[Sticky Scroll in vscode]https://dev.to/this-is-learning/sticky-scroll-in-vscode-44h2
