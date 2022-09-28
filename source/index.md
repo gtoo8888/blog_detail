@@ -13,6 +13,7 @@ date: 2022-06-21 22:40:31
 - **halo博客系统**https://halo.run/
 - **阿里云开发者网站** https://developer.aliyun.com/?spm=a2c6h.23182525.J_5404914170.1.77483b2fjWTL8k
 - **Google Research** https://research.google/
+- **docker hub** https://hub.docker.com/
 
 ## *WIKI*
 - **PythonRobotics documentation** https://pythonrobotics.readthedocs.io/en/latest/index.html
@@ -26,20 +27,18 @@ date: 2022-06-21 22:40:31
 - **Wireshark User’s Guide** https://www.wireshark.org/docs/wsug_html_chunked/
 - **鸟哥的Linuxs私房菜** http://cn.linux.vbird.org/linux_basic/linux_basic.php
 - **zeromq** https://zguide.zeromq.org/
-
 - **ZeroMQ 教程** https://www.jianshu.com/p/a8b657472518
 - **zeroguide 中文翻译** https://wizardforcel.gitbooks.io/zmq-guide/content/chapter1.html
 - https://www.cnblogs.com/Anker/p/4706244.html
 - https://blog.csdn.net/a19891024/article/details/78182287
 - **摩天轮中国数据库流行排名** https://www.modb.pro/dbRank
+- **LABULADONG 的算法网站** https://labuladong.github.io/algo/5/43/
 
--lzmq
-
-## *中文教程*
+## *中文WIKI*
+- **鸟哥的Linux私房菜** https://linux.vbird.org/
 - **树莓派实验室** https://shumeipai.nxez.com/download
 - **古月居** https://www.guyuehome.com/
 
-- **鸟哥的Linux私房菜** https://linux.vbird.org/
 ---
 
 # 外文网站
@@ -52,6 +51,7 @@ date: 2022-06-21 22:40:31
     - /shittyprogramming：
 - **Medium** https://medium.com/
 - **Quora** https://www.quora.com/
+- **InfoQ** https://www.infoq.com/
 ---
 # 求职
 
@@ -72,6 +72,10 @@ date: 2022-06-21 22:40:31
 - **被删的前端游乐场** https://godbasin.github.io/front-end-playground/
 - **go+python**https://jiajunhuang.com/
 - **LearnData 开源笔记** https://vincentsx.github.io/
+
+
+## 一些动画在线练习
+- **Learn Git Branching** https://learngitbranching.js.org/?locale=zh_CN
 
 ## *技术博客学习*
 

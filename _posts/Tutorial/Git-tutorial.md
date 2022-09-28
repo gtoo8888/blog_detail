@@ -333,6 +333,7 @@ git gc以后，会消失一些什么信息？
 可以使用reflog查看到，并且回退到未来的版本
 
 # 参考文献
+[GIT在线练习平台]https://learngitbranching.js.org/?locale=zh_CN
 https://blog.csdn.net/ajianyingxiaoqinghan/article/details/70544159
 https://blog.csdn.net/u014361280/article/details/109703556
 [git submodule]https://blog.csdn.net/weixin_44901565/article/details/123086226
@@ -353,3 +354,4 @@ https://blog.csdn.net/u014361280/article/details/109703556
 [Git是如何存储对象的- 7. 原理解析- [ Git Community Book 中文版 ...]https://www.shouce.ren/api/view/a/9924
 [git 版本回退]https://www.liaoxuefeng.com/wiki/896043488029600/897013573512192
 [【学了就忘】Git操作 — 51.git reflog命令]https://www.jianshu.com/p/7e4cef3863e7
+[Good First Issue]https://goodfirstissue.dev/language/cplusplus/

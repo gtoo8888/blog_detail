@@ -1,5 +1,5 @@
 ---
-title: Vscode 环境安装
+title: VScode 环境安装
 date: 2022-09-22 16:30:31
 tags:
 - 环境配置

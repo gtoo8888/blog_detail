@@ -10,3 +10,4 @@ tags:
 
 [机器学习开篇之机器学习的分类]https://blog.csdn.net/Lion_Dreams/article/details/125269215
 [计算机视觉 - 语义分割 （semantic segmentation）]https://blog.csdn.net/baidu_41617231/article/details/107739897
+[机器学习：mAP评价指标]https://blog.csdn.net/qq_40765537/article/details/106394103
