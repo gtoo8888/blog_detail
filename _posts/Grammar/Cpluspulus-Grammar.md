@@ -176,5 +176,6 @@ std::chrono
 [注释规范：详细]https://www.cnblogs.com/lyggqm/p/4629711.html
 [注释规范]https://blog.csdn.net/lxj362343/article/details/105711524/
 [C++11 新的计时方法——std::chrono 大法好]https://blog.csdn.net/u013390476/article/details/50209603
+[C++模板全特化、偏特化]https://blog.csdn.net/m_buddy/article/details/72973207
 
 

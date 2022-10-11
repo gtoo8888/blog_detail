@@ -116,7 +116,84 @@ ans = math.ceil(-45.17) : -45.0
 ans = math.ceil(100.12) :  101.0
 ```
 
+# anaconda
 
+1. 打开anaconda,初始化自己的环境
+
+```python
+# 装python3.6版本，环境所用的python版本需要在后面指定，如果不指定默认Anaconda自带python版本
+# doccano 是环境名称，可根据自己命名区分不同自己的环境
+conda create -n labeme python=3.10
+# 激活自己的环境
+conda activate ant
+```
+
+2. 在pycharm中配置
+file->setting->Project: Complete Coverage Pat...->Python Interpreter
+
+
+
+conda update -n base conda
+
+
+conda install --yes --file requirements.txt
+
+
+conda config --remove-key channels
+conda config --show # 查看conda的配置，确认channels
+conda config --show-sources # 仅查看所有镜像
+
+
+查看已经添加的channels
+
+conda config --get channels
+conda config --show channels
+
+channels:
+  - defaults
+show_channel_urls: true
+default_channels:
+  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main
+  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/r
+  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/msys2
+custom_channels:
+  conda-forge: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+  msys2: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+  bioconda: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+  menpo: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+  pytorch: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+  pytorch-lts: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+  simpleitk: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
+
+channel_priority: flexible
+
+conda list
+
+pip3 install torch torchvision -i https://pypi.mirrors.ustc.edu.cn/simple/
+
+
+
+import torch
+
+print(torch.__version__)
+print(torch.cuda.is_available())
+
+
+
+
+# 参考资料
+[anaconda启动非常慢，一直卡在Initializing(看起来没什么用，FQ马上打开了)]https://blog.csdn.net/qq_40051406/article/details/121365478
+[Anaconda超详细安装教程（Windows环境下）]https://blog.csdn.net/fan18317517352/article/details/123035625
+[新手教程一：Anaconda新建开发环境]https://blog.csdn.net/qq_42573052/article/details/113770662
+[Python命名规范-大小写]https://blog.csdn.net/quietbxj/article/details/107188786
+[Solving environment: failed with initial frozen solve. Retrying with flexible solve的解决]https://blog.csdn.net/Brookekitty/article/details/106226285
+[Python使用conda安装requirement.txt的扩展包]https://blog.csdn.net/weixin_45092662/article/details/106906719
+[安装PyTorch详细过程]https://blog.csdn.net/MCYZSF/article/details/116525159
+[清华大学开源软件镜像站]https://mirrors.tuna.tsinghua.edu.cn/
+[Pytorch教程（一）：Pytorch安装教程-使用pip在conda里面装上了]https://zhuanlan.zhihu.com/p/88903659
+[基于pytorch的yolov5运行报错warnings.warn(‘User provided device_type of ‘cuda‘, but CUDA is not available)]https://blog.csdn.net/weixin_50813961/article/details/122587255
+[CUDA 11.7无法安装pytorch的GPU版本]https://blog.csdn.net/qq_46037444/article/details/125991109
+[pytorch官网]https://pytorch.org/get-started/locally/
 
 
 
