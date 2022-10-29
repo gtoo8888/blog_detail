@@ -113,11 +113,41 @@ Linus说： “烂程序员关心的是代码。好程序员关心的是数据�
 在github上clone该项目到本地，保留项目完整的commit和tag。
 
 
+
+
+# 硬核课堂，源码阅读方法
+来自B站的硬核课堂
+## 第一步：环境搭建
+### 1. 源码运行环境
+克隆源码下来之后，必须要保证源码正常编译运行
+### 2. 源码阅读工具
+如需要支持函数之间的跳转，如vim/vscode/code-server/source insight等，适合自己的就行；
+gdb调试工具等
+## 第二步：阅读项目文档，熟悉项目
+阅读项目文档，主要是对项目有个整体的认知，不要一开始拘泥细节，包括：
+- 项目简介
+- 背景知识：这部分不清楚的，可以先去补充一下，比如leveldb涉及到的lsm树，不熟悉的，可以先去看看lsm相关知识
+- 整体架构
+## 第三步：编译并运行源码
+将源码以debug的方式(Leveldb源码解读(一) )编译/运行起来，以debug的方式，目的方便我们调试
+## 第四步：更深入进行阅读
+1. gdb跟踪我们的单元测试(常见的命令如，bt/b/p/n/s,layout src等)
+2. 自己编写测试用例
+3. 如果此时还是摸不着头脑，要学会站在“巨人”的肩膀上，借助网络的力量，去看看前人写的文章，去问问别人，来打开思路，慢慢形成自己的方法
+4. 多使用日志大法，多线程等场景可能使用gdb不太方便，我们完全可以在源码中添加自己的日志
+5. 涉及到网络相关的项目如redis，我在阅读源码时，也会借助tcpdump工具来抓包验证是否自己的理解正确
+## 第五步：重复和总结
+1. 我们没有过目不忘和无所不知的本领，因此源码阅读应该是一个心平气和和重复循环的过程(多看几遍总是有好处的)
+2. 要有沉淀，可以记笔记/录制视频，能把别人讲清楚，那你自己肯定清楚了
+3. 可以想想如何将源码中知识点应用到我们自己的项目中来
+  1. 我自己阅读了leveldb之后，将sst中的差值压缩思想应用项目中，存储压缩比大约30%+
+  2. 命名更人性化
+
 ## 参考链接
-
-
 https://www.codedump.info/post/20190324-how-to-read-code/
 https://www.zhihu.com/question/19625320/answer/12429108
 https://www.zhihu.com/question/19625320/answer/307133854
 https://github.com/zhangguixu/myblogs/issues/4
 [英文能力与独立思考]https://www.raychase.net/6902
+[分享个人阅读源码的方法]https://www.bilibili.com/video/BV1w34y1p7V7/?spm_id_from=333.999.0.0&vd_source=76dff3ae3b42b00d067c0921bf6859ca     
+[LevelDB 源码分析]https://hardcore.feishu.cn/mindnotes/bmncnzpUmXNQruVGOwRwisHyxoh

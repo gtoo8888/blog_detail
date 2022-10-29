@@ -32,6 +32,8 @@ tags:
 | open in browser | 在浏览器中打开 | 
 | CSS Peek | 追踪CSS样式 | 
 | HTML CSS Support | HTML样式支持 | 
+| **Vue** | |
+| Live Server | 保存后动态显示 | 
 | **Git** | |
 | Git History | 查看git历史提交记录 | 
 | GitLens  |  | 

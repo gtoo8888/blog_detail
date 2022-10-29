@@ -6,7 +6,7 @@ tags:
 
 
 
-
+https://www.redis.com.cn/redis-installation-on-ubuntu.html
 
 # 参考文献
 [CAP理论]https://cloud.tencent.com/developer/article/1860632

@@ -84,6 +84,15 @@ loss: 0.5165 (0.7486)
 损失函数用来评价模型的预测值和真实值不一样的程度，损失函数越小，通常模型的性能越好。不同的模型用的损失函数一般也不一样。
 
 
+# 5.2 Bagging
+Bagging是并行式集成学习的最著名代表
+它是基于自助采样法（Boostrap sampleing），Bagging也是同理.给定包含m个样本的数据集，先随机抽取一个样本放入采样集中，再把该样本放回，使得下次采样时该样本仍有机会被选中，这样经过m次采样，我们便从原始是数据集中抽取样本得到一个数据量同为m的数据集.
+**有放回的抽样，最后取平均**
+
+# 9.1 模型调参
+
+
+
 # 动手学习pytorch
 ## 11 模型选择+过拟合、欠拟合
 ## 超参数
@@ -101,9 +110,13 @@ Mini-Batch大小 单步迭代的效果
 各层激励函数 影响模型各层之间的联系
 优化算法 根据问题需要比较优化算法的效果
 损失函数 评估模型误差的函数
-## 过拟合、欠拟合
+
+
+# 10 多层感知机
+## 11 过拟合、欠拟合
 训练集是图片，标号是和他一样大小的图片，每个像素值对应标号
 
+先过拟合了，然后再想办法把过拟合消除掉
 
 
 
@@ -128,4 +141,5 @@ VOC格式
 [损失函数（loss function）]https://blog.csdn.net/EmilyHoward/article/details/118367495
 [标注工具的使用]https://www.bilibili.com/video/BV1ev411P7dR/?spm_id_from=333.999.0.0&vd_source=76dff3ae3b42b00d067c0921bf6859ca
 [Labelme工具对应博文]https://blog.csdn.net/qq_37541097/article/details/120162702
+[安装labelme教程]https://blog.csdn.net/weixin_43427721/article/details/107122775
 [EISeg工具对应博文]https://blog.csdn.net/qq_37541097/article/details/120154543

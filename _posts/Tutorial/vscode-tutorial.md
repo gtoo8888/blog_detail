@@ -88,12 +88,18 @@ Host 15.1.0.89      # 显示的名字
 C++不报错
 C_Cpp.errorSquiggles
 
+
+code runner在命令行中运行，可以接受输入
+Code-runner: Run In Terminal
 # 前端使用的插件
 
 快捷键
 开头按输入!,自动填充基础内容
 
 
+# Live Server
+保存以后会自动更新
+alt+KO可以打开新页面
 # 代码滚动时候进行附着
 sticky scroll
 打开以后会把函数名进行附着

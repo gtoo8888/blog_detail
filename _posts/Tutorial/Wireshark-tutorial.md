@@ -10,6 +10,7 @@ tags:
 
 ip.addr == 110.242.68.3 and icmp
 ip.addr == 192.168.1.9 and tcp.port == 8888
+ip.addr == 192.168.43.12 and tcp.port == 8888
 
 视图->着色规则
 绿色背景的是HTTP包

@@ -50,6 +50,22 @@ BloomRPC
 在调试的时候，需要把包含的文件，还有包含文件的包含文件全部导入
 
 
+
+# kdevelop
+CMake可视化调试工具
+
+
+打开命令窗口:
+1. 安装gcc(编译器)
+    sudo apt-get build-dep gcc
+    sudo apt-get install build-essential
+    
+2. 安装kdevelop
+sudo apt-get install kdevelop
+
+3. 安装cmake等
+sudo apt-get install automake autoconf g++ libtool cmake
+
 # 参考文献
 [使用Navicat分析SQL性能]https://blog.csdn.net/weixin_43416686/article/details/121037223
 
