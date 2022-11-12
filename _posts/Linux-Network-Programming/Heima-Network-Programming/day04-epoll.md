@@ -68,65 +68,75 @@ linux下编程，肯定用这个了
 告诉有几个发生了变化，精准的告诉哪个有变化
 epoll底层实现用的红黑二叉树，也就是平衡二叉树
 
-
- int epoll_create(int size);
- 函数说明:
- 创建一棵epoll树,返回一个树根节点
- 函数参数:
+## epoll_create()
+int epoll_create(int size);
+### 函数说明:
+创建一棵epoll树,返回一个树根节点
+### 函数参数:
 size:必须传一个大于0的数
-  返回值:
+### 返回值:
 返回个文件描述符,这个文件描述符就表示epoll树的树根节点.
 
 
-
- int epoll_ctl(int epfd, int op, int fd, struct epoll_event *event);
-函数说明:将fd上epoll树,从树上删除和修改
-函数参数:
-    epfd: epoll树的树根节点
-    op:
-        EPOLL_CTL_ADD:上树操作
-        EPOLL_CTL_MOD:修改
-        EPOLL_CTL_DEL:从树上删除节点
-        fd:要操作的文件描述符
+## epoll_ctl()
+int epoll_ctl(int epfd, int op, int fd, struct epoll_event *event);
+### 函数说明:
+将fd上epoll树,从树上删除和修改
+### 函数参数:
+epfd: epoll树的树根节点
+op:
+    EPOLL_CTL_ADD:上树操作
+    EPOLL_CTL_MOD:修改
+    EPOLL_CTL_DEL:从树上删除节点
+    fd:要操作的文件描述符
 event:
     Event.exents:
     EPOLLIN:可读事件
     EPOLLOUT:可写事件
     EPOLLERR:异常事件
+```C++
+typedef union epoll_data {
+    void        *ptr;
+    int          fd;
+    uint32_t     u32;
+    uint64_t     u64;
+} epoll_data_t;
 
-    typedef union epoll_data {
-        void        *ptr;
-        int          fd;
-        uint32_t     u32;
-        uint64_t     u64;
-    } epoll_data_t;
-
-    struct epoll_event {
-        uint32_t     events;      /* Epoll events */
-        epoll_data_t data;        /* User data variable */
-    };
-
- Struct epoll_exent ev;
- ex.events = EPOLLIN;
- ex.data.fd = fd;
- epoll_ctl(epfd, EPOLL_CTL_ADD, fd,&ey);
-   
+struct epoll_event {
+    uint32_t     events;      /* Epoll events */
+    epoll_data_t data;        /* User data variable */
+};
+```
+```C++
+Struct epoll_exent ev;
+ex.events = EPOLLIN;
+ex.data.fd = fd;
+epoll_ctl(epfd, EPOLL_CTL_ADD, fd,&ey);
+```
 
 
-
- int epoll_wait(int epfd, struct epoll_event *events,
-                      int maxevents, int timeout);
+## epoll_wait
+int epoll_wait(int epfd, struct epoll_event *events, int maxevents, int timeout);
 有返回了，就说明一定有事件发生了
 
-函数说明:委托内核监控epoll树的事件节点
-函数参数:
-    epfd: epoll树根节点
-    events:传出参数,结构体数组
-    maxevents: events数组大小
-    timeout:
-        -1:表示阻塞
-        0:表示不阻塞
-        >0:表示阻塞超时时长
+### 函数说明
+委托内核监控epoll树的事件节点
+### 函数参数
+epfd: epoll树根节点
+events:传出参数,结构体数组
+maxevents: events数组大小
+timeout:
+-1:表示阻塞
+0:表示不阻塞
+>0:表示阻塞超时时长
+### 函数返回值：
+只有在下面的情况下才会返回：
+1. 有至少一个事件发生
+2. 调用过程中被信号中断
+3. 超时。
+成功时，返回请求的I/O准备就绪的文件描述符的数目
+发生错误时，返回-1并正确设置errno
+
 
 epoll_wait返回的数组中的事件节点的值不会修改,是当时上epoll树的时候设置的值.
 
@@ -134,20 +144,23 @@ epoll_wait返回的数组中的事件节点的值不会修改,是当时上epoll�
 
 
 # 进阶epoll
+epoll有两种工作模式ET和LT
 
-介绍epoll的两种工作模式
-
-水平触发:高电平代表1
-只要缓冲区中有数据，就一直通知
-边缘触发:电平有变化就代表1
-缓冲区中有数据只会通知一次，之后再有数据才会通知.()若是读数据的时候没有读完，则剩余的数据不会再通知，直到有新的数据到来
+水平触发：高电平代表1
+- 只要缓冲区中有数据，就一直通知
+- 缓冲区是内核的读缓冲区
+边缘触发：电平有变化就代表1
+- 缓冲区中有数据只会通知一次，之后再有数据才会通知
+- 若是读数据的时候没有读完，则剩余的数据不会再通知，直到有新的数据到来
 边缘非阻塞模式:提高效率
 
+
+LT模式（水平触发）
+ET模式（边沿触发）
+
 epoll的LT和ET模式:
-1 epoll默认情况下是LT模式，在这种模式下，若读数据一次性没有读完，
-缓冲区中还有可读数据，则epoll_wait还会再次通知
-2若将epoll设置为ET模式，若读数据的时候一次性没有读完，则epoll_wait不再通知,
-直到下次有新的数据发来．
+1. epoll默认情况下是LT模式，在这种模式下，若读数据一次性没有读完，缓冲区中还有可读数据，则epoll_wait还会再次通知
+2. 若将epoll设置为ET模式，若读数据的时候一次性没有读完，则epoll_wait不再通知，直到下次有新的数据发来
 
 思考:
 1在ET模式下，如何在epoll_wait返回一次的情况下读完数据

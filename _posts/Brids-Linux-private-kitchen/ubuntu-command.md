@@ -460,6 +460,11 @@ timedatectl
 timedatectl list-timezones
 
 
+
+# wget
+
+
+
 # 参考文献
 [查看linux用户密码]https://blog.csdn.net/feikillyou/article/details/109129870
 [chrony]https://www.cnblogs.com/my-show-time/p/14658895.html

@@ -191,4 +191,8 @@ date: 2022-06-21 22:40:31
 - **阿里云服务器白嫖** https://developer.aliyun.com/plan/acc
 
 
+## 其他
+- **在线整数数列查询网站** http://oeis.org/
+
+
 

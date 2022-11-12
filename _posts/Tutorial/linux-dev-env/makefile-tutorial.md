@@ -47,8 +47,11 @@ tags:
 markdown中的函数
 
 
+BIN_SRCS := $(wildcard bin/*.cc)
 获取匹配模式的文件名 wildcard
 src = $(wildcard *.c)
+wildcard把 指定目录 ./ 和 ./sub/ 下的所有后缀是c的文件全部展开。
+
 
 模式替换函数 patsubst
 
@@ -57,9 +60,28 @@ src = $(wildcard *.c)
 
 
 
+g++ -Wall -std=c++11 -pthread -O2 -g -iquote include/ -I../ -I/usr/local/include  -L lib/ -L/usr/local/lib -ltpc  bin/echo_client.cc lib/libtpc.a   -o bin/echo_client
+
+
+# 输出信息
+$(info "info here")
+$(info "$(CFLAGS)")
+# 输出变量
+$(warning "CFLAGS = $(CFLAGS)")，
+
+
+# 生成静态库文件
+g++ test -c 
+g++ test -o
+ar -rcs libtest.a
 
 
 
+# 常见编译选项
+```makefile
+BIN_SRCS := $(wildcard bin/*.cc)  # 选择所有文件
+BIN_SRCS := $(filter-out bin/test.cc, $(BIN_SRCS)) # 单独去掉bin/test.cc
+```
 
 
 # 参考文献

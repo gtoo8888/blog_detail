@@ -79,7 +79,6 @@ tags:
 
 
 
-
 ------------------------------------------------------
 PPT设计要点：
 1. 减少大段文字的出现，大段文字总结成小标题，或者小标题配和一小段文字
@@ -99,6 +98,24 @@ PPT设计要点：
 3. 设计封面的时候，用动画将主要要讲述的物体突出
 4. 红圈，用轮子效果
 5. 半透明形状
+
+
+
+# 参考资料
+
+[图标下载,ICON(PNG/ICO/SVG/矢量) easyicon 免费下载 - 爱给网 (aigei.com)](https://www.aigei.com/icon/class/)
+
+[NN SVG (alexlenail.me)](http://alexlenail.me/NN-SVG/AlexNet.html)
+
+[画神经网络](https://cbovar.github.io/ConvNetDraw/)
+
+[Make A Gif - Animated Gifs Maker, Free Gif Creator Online](https://makeagif.com/)
+
+[DataV.GeoAtlas地理小工具系列 (aliyun.com)](http://datav.aliyun.com/portal/school/atlas/area_selector)
+
+[在线抠图软件_图片去除背景 | remove.bg – remove.bg](https://www.remove.bg/zh)
+
+[佐糖-免费在线抠图神器_证件照换底色_照片修复_无损压缩创意图像平台-PicWish](https://picwish.cn/)
 
 
 
