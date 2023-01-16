@@ -1,5 +1,5 @@
 ---
-title: vscode 教程
+title: VSCode 教程
 date: 2022-04-05 20:33:12
 tags:
 - 教程

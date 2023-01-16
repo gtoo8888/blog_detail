@@ -66,6 +66,14 @@ sudo apt-get install kdevelop
 3. 安装cmake等
 sudo apt-get install automake autoconf g++ libtool cmake
 
+# 打包工具
+
+# inno setup
+
+# filepack
+
+# NSIS
+
 # 参考文献
 [使用Navicat分析SQL性能]https://blog.csdn.net/weixin_43416686/article/details/121037223
 

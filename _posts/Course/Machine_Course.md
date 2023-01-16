@@ -143,3 +143,8 @@ VOC格式
 [Labelme工具对应博文]https://blog.csdn.net/qq_37541097/article/details/120162702
 [安装labelme教程]https://blog.csdn.net/weixin_43427721/article/details/107122775
 [EISeg工具对应博文]https://blog.csdn.net/qq_37541097/article/details/120154543
+
+
+
+
+[Azure Kinect DK 深度相机]https://blog.csdn.net/denkywu/article/details/103177559
