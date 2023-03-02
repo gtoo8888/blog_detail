@@ -37,6 +37,7 @@ tags:
 | **Git** | |
 | Git History | 查看git历史提交记录 | 
 | GitLens  |  | 
+| Git Graph  |  | 
 | **GoLang** | |
 | go | 语法支持 | 
 | vscode-proto3  | 查看protobuf格式 | 

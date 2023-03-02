@@ -178,7 +178,10 @@ import torch
 print(torch.__version__)
 print(torch.cuda.is_available())
 
+# pycharm
+1. python的编译过程
 
+没有二进制文件，直接编译成字节码了
 
 
 # 参考资料
@@ -194,6 +197,7 @@ print(torch.cuda.is_available())
 [基于pytorch的yolov5运行报错warnings.warn(‘User provided device_type of ‘cuda‘, but CUDA is not available)]https://blog.csdn.net/weixin_50813961/article/details/122587255
 [CUDA 11.7无法安装pytorch的GPU版本]https://blog.csdn.net/qq_46037444/article/details/125991109
 [pytorch官网]https://pytorch.org/get-started/locally/
+[__pycache__文件夹是什么东西？]https://zhuanlan.zhihu.com/p/476772186
 
 
 

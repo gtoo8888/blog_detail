@@ -52,15 +52,28 @@ wget https://golang.google.cn/dl/go1.19.5.linux-amd64.tar.gz
 
 tar -C /usr/local -xzf go1.19.5.linux-amd64.tar.gz
 
-
+vim /etc/profile
 source /etc/profile
-export GOPATH=/gobuild
+export GOROOT=/usr/local/go
+#export PATH=$PATH:/usr/local/go/bin
+export PATH=$PATH:$GOROOT/bin
+export GOPATH=/yzx
 export GOBIN=$GOPATH/bin
 export GOPROXY=https://goproxy.cn/,direct
 
 
 https://goproxy.io/zh/
 https://goproxy.cn/
+
+
+```shell
+go mod init [工程名字]
+go mod tidy  # 刷新mod
+go mod vender
+go get [跟着整个github目录]
+```
+
+
 
 # 遇到问题
 下错版本
