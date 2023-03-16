@@ -133,18 +133,4 @@ VOC格式
 
 
 
-
-[机器学习开篇之机器学习的分类]https://blog.csdn.net/Lion_Dreams/article/details/125269215
-[计算机视觉 - 语义分割 （semantic segmentation）]https://blog.csdn.net/baidu_41617231/article/details/107739897
-[机器学习：mAP评价指标]https://blog.csdn.net/qq_40765537/article/details/106394103
-[PASCAL VOC2012数据集介绍]https://blog.csdn.net/qq_37541097/article/details/115787033
-[损失函数（loss function）]https://blog.csdn.net/EmilyHoward/article/details/118367495
-[标注工具的使用]https://www.bilibili.com/video/BV1ev411P7dR/?spm_id_from=333.999.0.0&vd_source=76dff3ae3b42b00d067c0921bf6859ca
-[Labelme工具对应博文]https://blog.csdn.net/qq_37541097/article/details/120162702
-[安装labelme教程]https://blog.csdn.net/weixin_43427721/article/details/107122775
-[EISeg工具对应博文]https://blog.csdn.net/qq_37541097/article/details/120154543
-
-
-
-
-[Azure Kinect DK 深度相机]https://blog.csdn.net/denkywu/article/details/103177559
+# 参考资料

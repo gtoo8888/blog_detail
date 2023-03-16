@@ -5,6 +5,16 @@ tags:
 - 语法
 ---
 
+# 语言规范
+
+
+1. 变量名小写，下划线连接
+   1. train_txt_file
+2. 函数名一般小写，下划线连接
+   1. def txt_save(self):
+3. 类名称一般大驼峰
+   1. class BatchRename():
+
 # 基础
 
 ## inf
@@ -178,10 +188,17 @@ import torch
 print(torch.__version__)
 print(torch.cuda.is_available())
 
+
+# argparse
+
 # pycharm
 1. python的编译过程
 
 没有二进制文件，直接编译成字节码了
+
+
+
+
 
 
 # 参考资料

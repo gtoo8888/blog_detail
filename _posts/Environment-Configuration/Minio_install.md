@@ -1,3 +1,9 @@
+---
+title: minio 环境配置
+date: 2023-01-19 18:40:28
+tags:
+- 环境配置
+---
 # minio 环境配置
 
 # 安装docker

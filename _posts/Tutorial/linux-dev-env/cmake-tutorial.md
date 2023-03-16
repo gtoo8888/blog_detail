@@ -71,6 +71,21 @@ MinSizeRel：用于不增加目标代码大小的优化方式，来构建或可�
 # 交叉编译工具
 CMAKE给交叉编译预留了一个变量CMAKE_TOOLCHAIN_FILE，它定义了一个.cmake文件的路径，该文件里面设置了一系列CMAKE变量和属性，比如C_COMPILER，CXX_COMPILER等。.cmake文件的好处是一次编写多次使用，不同平台架构的交叉编译工具链可以编写一个独立的toolchain.cmake文件，而工程的CMakeLists.txt可以编写为通用格式，对工具链不可见。cmake脚本可以如下形式：
 
+
+
+
+add_library()：这是一个CMake函数，用于创建一个库文件。
+
+add_executable()：这是一个CMake函数，用于创建一个可执行文件。
+
+target_link_libraries()：这是一个CMake函数，用于指定链接的库文件。
+
+include_directories()：这是一个CMake函数，用于指定头文件的搜索路径。
+
+
+add_subdirectory():添加一个子目录并构建该子目录。
+
+
 # 参考文献
 
 [find_package讲解]https://blog.csdn.net/zhanghm1995/article/details/105466372
