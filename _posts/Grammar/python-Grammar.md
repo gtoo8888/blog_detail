@@ -142,6 +142,13 @@ conda activate ant
 file->setting->Project: Complete Coverage Pat...->Python Interpreter
 
 
+安装过程增加环境变量
+E:\Anaconda 
+E:\Anaconda\Scripts 
+E:\Anaconda\Library\mingw-w64\bin
+E:\Anaconda\Library\usr\bin 
+E:\Anaconda\Library\bin
+
 
 conda update -n base conda
 
@@ -159,6 +166,8 @@ conda config --show-sources # 仅查看所有镜像
 conda config --get channels
 conda config --show channels
 
+## 修改文件
+在C:\Users\{username} 文件夹下面修改.condarc
 channels:
   - defaults
 show_channel_urls: true
@@ -197,7 +206,18 @@ print(torch.cuda.is_available())
 没有二进制文件，直接编译成字节码了
 
 
+pip3 install paddlepaddle -i https://mirror.baidu.com/pypi/simple/
 
+pip3 install eiseg -i https://mirror.baidu.com/pypi/simple/
+
+# anaconda导出环境
+conda env export > environment.yaml
+
+导入环境
+conda env create -f environment.yaml
+
+
+# 安装anaconda环境
 
 
 
@@ -205,6 +225,7 @@ print(torch.cuda.is_available())
 [anaconda启动非常慢，一直卡在Initializing(看起来没什么用，FQ马上打开了)]https://blog.csdn.net/qq_40051406/article/details/121365478
 [Anaconda超详细安装教程（Windows环境下）]https://blog.csdn.net/fan18317517352/article/details/123035625
 [新手教程一：Anaconda新建开发环境]https://blog.csdn.net/qq_42573052/article/details/113770662
+[anaconda 换清华镜像源 windows](https://blog.csdn.net/jasneik/article/details/114227716)
 [Python命名规范-大小写]https://blog.csdn.net/quietbxj/article/details/107188786
 [Solving environment: failed with initial frozen solve. Retrying with flexible solve的解决]https://blog.csdn.net/Brookekitty/article/details/106226285
 [Python使用conda安装requirement.txt的扩展包]https://blog.csdn.net/weixin_45092662/article/details/106906719
@@ -215,6 +236,8 @@ print(torch.cuda.is_available())
 [CUDA 11.7无法安装pytorch的GPU版本]https://blog.csdn.net/qq_46037444/article/details/125991109
 [pytorch官网]https://pytorch.org/get-started/locally/
 [__pycache__文件夹是什么东西？]https://zhuanlan.zhihu.com/p/476772186
+[Anaconda之导出/导出配置好的虚拟环境](https://blog.csdn.net/qq_43382635/article/details/127124980)
+[EISeg工具对应博文]https://blog.csdn.net/qq_37541097/article/details/120154543
 
 
 

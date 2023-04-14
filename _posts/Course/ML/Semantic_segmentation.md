@@ -11,7 +11,7 @@ tags:
 实例分割( Instance segmentation)Mask R-CNN
 全景分割(Panoramic segmentation) Panoptic FPN
 
-# 采集数据的注意点
+# 3-13采集数据的注意点
 1. 不要迎着光拍摄
 2. 最好有云台支持
 <!-- 3. 采集的图片，虽然分文件夹，但是文件名还是得处理，不然重名了 -->
@@ -20,6 +20,11 @@ tags:
    2. 
 5. 要考虑拍照的时间，白天还是下午，看起来最好是早上，阴天
 6. 需要考虑照相机摆放的位置
+
+
+# 3-22采集数据的注意点
+1. 可以拍摄不同角度的，比如竖着的也拍摄一点
+
 
 
 3.15下次拍照需要注意的：
@@ -37,6 +42,28 @@ tags:
 出现了脏数据
 
 
+
+
+# 语义分割评价指标
+
+## 混淆矩阵
+
+TP（True Positive）：真正例，模型预测为正例，实际是正例（模型预测为类别1，实际是类别1）
+FP（False Positive）：假正例，模型预测为正例，实际是反例 （模型预测为类别1，实际是类别2）
+FN（False Negative）：假反例，模型预测为反例，实际是正例 （模型预测为类别2，实际是类别1）
+TN（True Negative）：真反例，模型预测为反例，实际是反例 （模型预测为类别2，实际是类别2）
+
+## 交并比（Intersection over Union，IoU）
+含义：模型对某一类别预测结果和真实值的交集与并集的比值
+
+## 平均交并比（Mean Intersection over Union，MIoU）
+含义：模型对每一类预测的结果和真实值的交集与并集的比值，求和再平均的结果
+只有一个数值，对于每个类的IoU取平均
+
+
+
+
+
 # 参考资料
 [机器学习开篇之机器学习的分类]https://blog.csdn.net/Lion_Dreams/article/details/125269215
 [计算机视觉 - 语义分割 （semantic segmentation）]https://blog.csdn.net/baidu_41617231/article/details/107739897
@@ -48,6 +75,13 @@ tags:
 [安装labelme教程]https://blog.csdn.net/weixin_43427721/article/details/107122775
 [EISeg工具对应博文]https://blog.csdn.net/qq_37541097/article/details/120154543
 [batch size设置技巧]https://blog.csdn.net/zqx951102/article/details/88918948
-
 [Azure Kinect DK 深度相机]https://blog.csdn.net/denkywu/article/details/103177559
+[【语义分割】评价指标：PA、CPA、MPA、IoU、MIoU详细总结和代码实现](https://blog.csdn.net/sinat_29047129/article/details/103642140)
+[ADE20K](https://groups.csail.mit.edu/vision/datasets/ADE20K/)
+
+## 图像标定
+[张正友标定法-完整学习笔记-从原理到实战](https://zhuanlan.zhihu.com/p/136827980)
+[生成标定纸](https://calib.io/pages/camera-calibration-pattern-generator)
+
+
 
