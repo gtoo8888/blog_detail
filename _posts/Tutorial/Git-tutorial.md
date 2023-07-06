@@ -147,6 +147,9 @@ linux地址为（/root/.ssh/id_ed25519）
 ssh -T git@github.com
 ssh -T git@e.coding.net
 
+
+ssh-keygen -R 192.168.0.100
+
 # 一些git的命令
 
 ## git LFS技术
@@ -351,7 +354,8 @@ https://blog.csdn.net/u014361280/article/details/109703556
 [为什么要git gc]https://www.cnblogs.com/ayseeing/p/4226471.html
 [Git是如何存储对象的]https://blog.csdn.net/hudashi/article/details/7669477
 [10.4 Git 内部原理 - 包文件]https://git-scm.com/book/zh/v2/Git-%E5%86%85%E9%83%A8%E5%8E%9F%E7%90%86-%E5%8C%85%E6%96%87%E4%BB%B6
-[Git是如何存储对象的- 7. 原理解析- [ Git Community Book 中文版 ...]https://www.shouce.ren/api/view/a/9924
+[Git是如何存储对象的- 7. 原理解析- [ Git Community Book 中文版 ...]]https://www.shouce.ren/api/view/a/9924
 [git 版本回退]https://www.liaoxuefeng.com/wiki/896043488029600/897013573512192
 [【学了就忘】Git操作 — 51.git reflog命令]https://www.jianshu.com/p/7e4cef3863e7
 [Good First Issue]https://goodfirstissue.dev/language/cplusplus/
+[ssh远程连接主机报错:Someone could be eavesdropping on you right now (man-in-the-middle attack)!](https://blog.csdn.net/qq_36393978/article/details/118334076)

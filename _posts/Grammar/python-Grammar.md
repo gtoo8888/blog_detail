@@ -220,6 +220,109 @@ conda env create -f environment.yaml
 # 安装anaconda环境
 
 
+# pip3
+pip3 安装在/usr/lib/python3/dist-packages
+pip3 freeze # 查看安装了什么包
+pip3 show <package_name>
+pip3 list -v # 列出所有已安装包的位置
+pip3 --version 查看 pip3 的默认安装位置
+
+
+
+# Linux下安装Django
+使用在线安装
+sudo pip3 install django==2.2.28
+
+使用离线安装包安装
+```shell
+apt-get install python3-setuptools -y  # setup.py中的依赖项
+apt-get install python3-pip -y
+tar -xvf Django-2.2.28.tar.gz 
+cd Django-2.2.28/
+python3 setup.py install
+pip3 freeze |grep Django # 查看是否安装成功
+```
+
+
+
+
+# vscode调试python单个文件
+只需要直接F5，自动生成的就可以了
+
+
+
+# 常用命令
+python3 manage.py runserver # 启动服务
+python3 manage.py startapp # 创建应用
+python3 manage.py migrate # 数据库迁移
+python3 manage.py  # 列出所有Django子命令
+
+
+
+# 项目结构
+_init : Python包的初始化文件
+wsgi.py : WEB服务网关的配置文件– Django正式启动时，需要用到
+urls.py :项目的主路由配置- HTTP请求进入Django时，优先调用该文件
+settings.py:项目的配置文件–包含项目启动时需要的配置
+
+
+# 搭建第一个Django程序
+
+1. 安装环境
+2. django-admin startproject mysite1
+3. 需要在setting中改为，ALLOWED_HOSTS = ["192.168.1.19"]
+4. python3 manage.py runserver 0.0.0.0:8000 # 将所有IP的请求都接入进来
+5. 成功连接
+
+常见修改
+LANGUAGE_CODE = 'zh-Hans'
+
+TIME_ZONE = 'Asia/Shanghai'
+
+
+
+
+
+
+
+
+
+matplotlib有很多主要的模块，例如：
+
+matplotlib.figure: 用来创建和管理图像对象
+matplotlib.axes: 用来创建和管理子图对象，提供大部分的绘图方法
+matplotlib.pyplot: 用来提供类似于MATLAB的绘图接口，方便快速绘制图像
+matplotlib.animation: 用来创建和保存动画
+matplotlib.cm: 用来提供颜色映射相关的功能
+matplotlib.colorbar: 用来添加颜色条到图像中
+matplotlib.colors: 用来处理颜色相关的问题
+matplotlib.image: 用来处理图像相关的问题
+matplotlib.patches: 用来绘制各种形状的对象，如圆，矩形，多边形等
+matplotlib.text: 用来绘制文本相关的对象，如标签，注释，数学公式等
+matplotlib.ticker: 用来控制坐标轴刻度的格式和位置
+matplotlib.transforms: 用来处理坐标变换相关的问题
+
+
+
+|类型|描述|简写|
+|---|---|---|
+|int8|8位整数|'i1'|
+|int16|16位整数|'i2'|
+|int32|32位整数|'i4'|
+|int64|64位整数|'i8'|
+|uint8|8位无符号整数|'u1'|
+|uint16|16位无符号整数|'u2'|
+|uint32|32位无符号整数|'u4'|
+|uint64|64位无符号整数|'u8'|
+|float16|半精度浮点数|'f2'|
+|float32|单精度浮点数|'f4'|
+|float64|双精度浮点数|'f8'|
+|complex64|由两个32位浮点数组成的复数|'c8'|
+|complex128|由两个64位浮点数组成的复数|'c16'|
+|bool_|布尔型|'bool'|
+|object_|Python对象类型|'O'|
+|string_|固定长度字符串|'S'|
+|unicode_|固定长度unicode字符串|'U'|
 
 # 参考资料
 [anaconda启动非常慢，一直卡在Initializing(看起来没什么用，FQ马上打开了)]https://blog.csdn.net/qq_40051406/article/details/121365478

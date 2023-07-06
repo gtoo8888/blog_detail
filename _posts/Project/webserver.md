@@ -710,6 +710,36 @@ libavcodec中有很多重要的函数，以下是一些主要的函数：
 
 
 
+
+有很多优秀的前端页面模板可以参考，以下是一些比较好的学生管理系统前端页面模板：
+
+1. AdminLTE：一个开源的后台管理模板，提供了丰富的UI组件、表格、图表等功能，适合用于学生管理系统的后台管理页面。
+
+2. Material Dashboard：一个基于Google Material Design的模板，提供了漂亮的UI设计和丰富的组件，适合用于学生管理系统的前台页面。
+
+3. Metronic：一个功能强大的后台管理模板，提供了多种布局和主题，适合用于学生管理系统的后台管理页面。
+
+4. SB Admin 2：一个简洁美观的后台管理模板，提供了响应式设计和多种组件，适合用于学生管理系统的后台管理页面。
+
+5. Bootstrap Admin Template：一个基于Bootstrap的后台管理模板，提供了丰富的UI组件和布局，适合用于学生管理系统的后台管理页面。
+
+以上模板都可以在Github上找到源码和使用文档，可以根据自己的需求进行定制和修改。
+
+
+
+以下是一些比较好的ffmpeg和C++结合的视频播放器的Github仓库：
+
+1. mpv-player/mpv：一个基于FFmpeg和OpenGL的视频播放器，支持多种视频格式和音频格式，可以在Linux、Windows和macOS系统上运行。
+
+2. VideoLAN/VLC：一个开源的跨平台媒体播放器，支持各种视频和音频格式，可以在Windows、Linux、macOS、Android和iOS等平台上运行。
+
+3. Bilibili/ijkplayer：一个基于FFmpeg的Android/iOS视频播放器，支持多种视频格式和音频格式，提供了丰富的API和示例代码。
+
+4. FFmpegPlayer/FFmpegPlayer：一个基于FFmpeg和SDL的视频播放器，支持多种视频格式和音频格式，提供了简单易用的API和示例代码。
+
+这些仓库都提供了丰富的文档、示例代码和API，可以根据自己的需求进行定制和修改。
+
+
 # 参考文献
 
 [日志系统]https://mp.weixin.qq.com/s?__biz=MzI3NzE0NjcwMg==&mid=2650122657&idx=1&sn=c5ce1d8059c40e4cd6deb42a34f8fe49&chksm=f36bb480c41c3d96f69a9fbbc8e7e1515b8bbec87742f76fa3dfda0019a7b58aa282c3ef9bde&scene=21#wechat_redirect

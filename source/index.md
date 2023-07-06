@@ -190,7 +190,8 @@ date: 2022-06-21 22:40:31
 - **everything** https://www.voidtools.com/zh-cn/downloads/
 - **阿里云服务器白嫖** https://developer.aliyun.com/plan/acc
 
-
+## mermaid
+- **mermaid在线绘图** https://mermaid.live/
 ## 其他
 - **在线整数数列查询网站** http://oeis.org/
 
