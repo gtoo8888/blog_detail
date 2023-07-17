@@ -23,25 +23,47 @@ tags:
 4. 安装ipconfig
 5. 安装ssh
 6. 配置历史记录
+   1. echo 'HISTTIMEFORMAT="%F %T "' >> ~/.bashrc
+   2. source ~/.bashrc
 7. 配置静态ip -- 不需要？
 8. 安装git
 
-
-
+# 换源
+```
+#添加阿里源
+deb http://mirrors.aliyun.com/ubuntu/ focal main restricted universe multiverse
+deb-src http://mirrors.aliyun.com/ubuntu/ focal main restricted universe multiverse
+deb http://mirrors.aliyun.com/ubuntu/ focal-security main restricted universe multiverse
+deb-src http://mirrors.aliyun.com/ubuntu/ focal-security main restricted universe multiverse
+deb http://mirrors.aliyun.com/ubuntu/ focal-updates main restricted universe multiverse
+deb-src http://mirrors.aliyun.com/ubuntu/ focal-updates main restricted universe multiverse
+deb http://mirrors.aliyun.com/ubuntu/ focal-proposed main restricted universe multiverse
+deb-src http://mirrors.aliyun.com/ubuntu/ focal-proposed main restricted universe multiverse
+deb http://mirrors.aliyun.com/ubuntu/ focal-backports main restricted universe multiverse
+deb-src http://mirrors.aliyun.com/ubuntu/ focal-backports main restricted universe multiverse
+#添加清华源
+deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal main restricted universe multiverse
+# deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal main restricted universe multiverse
+deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-updates main restricted universe multiverse
+# deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-updates main restricted universe multiverse
+deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-backports main restricted universe multiverse
+# deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-backports main restricted universe multiverse
+deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-security main restricted universe multiverse
+# deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-security main restricted universe multiverse multiverse
+```
 
 
 # 安装ssh
 
 1. 准备工作
-```
+```bash
 apt-get update
 apt-get install sudo
-apt-get install vim
+apt-get install vim -y
 passwd # 修改密码
 ```
 2. 安装openssh
-apt-get install openssh-server
-apt-get install openssh-client
+sudo apt-get install openssh-server openssh-client -y
 3. 修改ssh配置文件 
 sudo vi /etc/ssh/sshd_config
 PermitRootLogin yes 
@@ -102,9 +124,6 @@ VScode无法调试go
 cgo: C compiler "gcc" not found: exec: "gcc": executable file not found in $PATH (exit status 2)
 
 # 参考资料
-
 [Ubuntu20.04软件源更换 - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/142014944)
-
 https://blog.csdn.net/liangcsdn111/article/details/115405223
-
 https://www.jianshu.com/p/2802d71ab9e9

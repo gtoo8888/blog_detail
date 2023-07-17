@@ -25,8 +25,8 @@ Enter passphrase (empty for no passphrase): // 此处直接回车即可；若设
 ```
 ## 2.添加公钥
 windows地址为（C:\Users\you\.ssh\id_ed25519.pub）
-linux地址为（/home/user/.ssh/id_ed25519）
-linux地址为（/root/.ssh/id_ed25519）
+linux地址为（/home/user/.ssh/id_ed25519.pub）
+linux地址为（/root/.ssh/id_ed25519.pub）
 打开上文中生成的秘钥对的地址（默认地址通常为 ~/.ssh/）找到后缀为 pub 的公钥文件，使用 cat 命令输出所有内容并复制。
 
 ## 3.尝试使用ssh连接github

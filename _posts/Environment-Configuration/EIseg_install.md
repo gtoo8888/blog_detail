@@ -56,6 +56,13 @@ conda config --show-sources # 仅查看所有镜像
 
 
 
+```python
+import torch # 如果pytorch安装成功即可导入
+print(torch.cuda.is_available()) # 查看CUDA是否可用
+print(torch.cuda.device_count()) # 查看可用的CUDA数量
+print(torch.version.cuda) # 查看CUDA的版本号
+```
+
 # 3. 安装EIseg
 
 1. 创建自己的环境
@@ -126,8 +133,8 @@ conda update -n base conda
 conda install --yes --file requirements.txt
 conda config --remove-key channels
 ```
-
-
+conda install --use-local pytorch-0.4.0-py35_cuda8.0.61_cudnn7.1.2_1.tar.bz2
+conda remove -n 环境名字 --all
 # 参考资料
 [Anaconda超详细安装教程（Windows环境下）]https://blog.csdn.net/fan18317517352/article/details/123035625 <br/>
 [新手教程一：Anaconda新建开发环境]https://blog.csdn.net/qq_42573052/article/details/113770662 <br/>

@@ -2,6 +2,7 @@
 title: ffmpeg
 date: 2023-04-14 22:29:24
 tags:
+- 项目
 ---
 
 ./configure --prefix=/usr/local/ffmpeg --enable-shared --disable-static --disable-doc  --enable-gpl --enable-libx264

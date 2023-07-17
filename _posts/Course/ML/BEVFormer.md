@@ -1,0 +1,104 @@
+---
+title: BEVFormer
+date: 2022-10-11 16:16:20
+tags:
+- 课程
+---
+
+
+python=3.8
+pip install torch==1.9.1+cu111 torchvision==0.10.1+cu111 torchaudio==0.9.1 -f https://download.pytorch.org/whl/torch_stable.html
+
+matplotlib-3.7.2-cp38-cp38-manylinux_2_12_x86_64.manylinux2010_x86_64.whl
+Pillow-10.0.0-cp38-cp38-manylinux_2_28_x86_64.whl
+conda install numpy
+conda create -n Bev_test python=3.10 -y
+```bash
+conda create -n Bev python=3.8 -y
+conda activate Bev
+pip install torch==1.9.1+cu111 torchvision==0.10.1+cu111 torchaudio==0.9.1 -f https://download.pytorch.org/whl/torch_stable.html # 或者torch>=1.9
+conda install -c omgarcia gcc-6 # gcc-6.2
+pip install mmcv-full==1.4.0
+pip install mmdet==2.14.0
+pip install mmsegmentation==0.14.1
+git clone https://github.com/open-mmlab/mmdetection3d.git
+cd mmdetection3d
+git checkout v0.17.1 # Other versions may not be compatible.
+python setup.py install
+pip install timm
+
+
+git clone https://github.com/fundamentalvision/BEVFormer.git
+cd bevformer
+mkdir ckpts
+cd ckpts & wget https://github.com/zhiqi-li/storage/releases/download/v1.0/r101_dcn_fcos3d_pretrain.pth
+```
+
+## 需要安装的软件版本
+mmcv_full-1.4.1
+mmcv_full-1.4.1-cp38-cp38-manylinux1_x86_64.whl
+cu111/torch-1.9.1%2Bcu111-cp38-cp38-linux_x86_64.whl
+
+import torch
+print(torch.__version__)
+conda install --use-local pytorch-0.4.0-py35_cuda8.0.61_cudnn7.1.2_1.tar.bz2
+gcc-6-6.1.0-2.tar.bz2
+# anaconda常用指令
+```bash
+conda config --show # 查看conda的配置，确认channels
+conda config --show-sources # 仅查看所有镜像
+conda config --get channels # 查看已经添加的channels
+conda config --show channels # 查看已经添加的channels
+conda list # 当前安装的包列表
+
+# 未查看
+conda update -n base conda
+conda install --yes --file requirements.txt
+conda config --remove-key channels
+
+conda env list
+```
+conda install --use-local pytorch-0.4.0-py35_cuda8.0.61_cudnn7.1.2_1.tar.bz2
+conda remove -n 环境名字 --all
+
+conda clean -i
+
+conda uninstall xxx 
+
+tar -xzf pycharm-community-2021.1.3.tar.gz
+sudo mkdir /opt/pycharm
+sudo mv pycharm-community-2023.1.3 /opt/pycharm/
+cd ~/anaconda3/pkgs/
+
+
+cd /usr/lib/x86_64-linux-gnu
+ln -s libmpfr.so.6.0.2  libmpfr.so.4
+ln -s libisl.so.22 libisl.so.15
+# 参考资料
+[pip install mmdet==2.14.0](https://pypi.org/project/mmdet/2.14.0/#files)
+[mmcv](https://download.openmmlab.com/mmcv/dist/cu111/torch1.9.0/index.html)
+[torch](https://download.pytorch.org/whl/torch_stable.html)
+https://pypi.org/
+https://anaconda.org/
+https://repo.anaconda.com/archive/
+
+https://zhuanlan.zhihu.com/p/101953103#:~:text=%E9%A6%96%E5%85%88%E8%A7%A3%E5%8E%8B%E6%BA%90%E7%A0%81%E5%8C%85%20%24%20tar%20-Jxvf%20Python-3.8.1.tar.xz%20%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85%20%24.%2Fconfigure%20--prefix%3D%2Fusr%2Flocal%2Fpython3,ln%20-s%20%2Fusr%2Flocal%2Fpython3%2Fbin%2Fpip3.8%20%2Fusr%2Fbin%2Fpip3%20%E5%91%BD%E4%BB%A4%E8%A1%8C%E8%BE%93%E5%85%A5%20python3%20-V%20%E6%9F%A5%E7%9C%8B%E6%98%AF%E5%90%A6%E5%AE%89%E8%A3%85%E6%88%90%E5%8A%9F%E3%80%82
+
+https://blog.csdn.net/xiaowenshen/article/details/118760047
+
+https://blog.csdn.net/hangtianlc/article/details/120007086
+
+
+https://www.nvidia.com/Download/index.aspx?lang=en-us
+
+https://developer.nvidia.com/cuda-toolkit-archive
+
+
+
+
+
+
+
+
+
+
