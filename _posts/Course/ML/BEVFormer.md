@@ -39,8 +39,13 @@ mmcv_full-1.4.1
 mmcv_full-1.4.1-cp38-cp38-manylinux1_x86_64.whl
 cu111/torch-1.9.1%2Bcu111-cp38-cp38-linux_x86_64.whl
 
+
+```python
+# 测试pytorch是否好用
 import torch
 print(torch.__version__)
+print(torch.cuda.is_available())
+```
 conda install --use-local pytorch-0.4.0-py35_cuda8.0.61_cudnn7.1.2_1.tar.bz2
 gcc-6-6.1.0-2.tar.bz2
 # anaconda常用指令

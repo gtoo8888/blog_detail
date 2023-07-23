@@ -144,11 +144,32 @@ linux地址为（/root/.ssh/id_ed25519）
 打开上文中生成的秘钥对的地址（默认地址通常为 ~/.ssh/）找到后缀为 pub 的公钥文件，使用 cat 命令输出所有内容并复制。
 
 ## 3.尝试使用ssh连接github
+```bash
 ssh -T git@github.com
 ssh -T git@e.coding.net
+ssh -T git@gitee.com
 
+ssh -vT git@github.com # 显示详细连接信息,排查错误
+```
 
 ssh-keygen -R 192.168.0.100
+
+# 想要同时提交到git和github
+vim <仓库>/.git/config
+
+[core]
+        repositoryformatversion = 0
+        filemode = true
+        bare = false
+        logallrefupdates = true
+[remote "origin"]
+        url = [github中的ssh] # 增加这一条
+        url = [git中的ssh]
+        fetch = +refs/heads/*:refs/remotes/origin/*
+[branch "main"]
+        remote = origin
+        merge = refs/heads/main
+
 
 # 一些git的命令
 

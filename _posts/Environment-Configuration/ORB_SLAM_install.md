@@ -46,6 +46,7 @@ sed -i "s/#PermitRootLogin prohibit-password/PermitRootLogin yes/g" /etc/ssh/ssh
 
 
 sudo apt-get install libudev-dev pkg-config libgtk-3-dev libusb-1.0-0-dev libglfw3-dev libssl-dev -y
+sudo apt-get install terminator -y # 安装多窗口终端
 
 mkdir build && cd build
 cmake ../ -DBUILD_EXAMPLES=true
@@ -71,6 +72,31 @@ GIT_REPOSITORY "git@github.com:curl/curl.git" # 需要配置一下git拉取
       //右上角出现Dismiss错误时，可以重新插拔，但即使不出现错误，其Motion Module打开时依旧报错，但貌似不影响使用，暂时不管
          Severity:Error
          Description:Motion Module failure
+
+
+while true; do free -h | tail ; sleep 1; done
+while true; do rostopic list;echo "-------------"  ; sleep 1; done
+
+rostopic list | tail
+## 跑bag包测试
+1. roscore
+
+cd $HOME/orb_slam/ORB_SLAM3_detailed_comments/Examples/ROS/ORB_SLAM3/build/
+2. source $HOME/orb_slam/ORB_SLAM3_detailed_comments/Examples/ROS/ORB_SLAM3/build/devel/setup.bash
+
+source $HOME/orb_slam/ORB_SLAM3_pigg/Examples_old/ROS/ORB_SLAM3_dense_yolo/build/devel/setup.bash
+
+cd $HOME/orb_slam/ORB_SLAM3_detailed_comments/
+1. rosrun ORB_SLAM3 Mono Vocabulary/ORBvoc.txt Examples_old/Monocular-Inertial/EuRoC.yaml
+//运行ORB-SLAM3,并在ORB_SLAM3下产生运行结果（关键帧轨迹文件）
+//如果运行完记录包，出现跟踪局部地图失败提示，好像是因为运行快没有提取到特征点，目前解决方案是重新运行跑一次。
+//跑完记录包，本运行终端不会停止运行，暂时只能Ctrl+C结束，会有qt报错和核心转储报错，暂时无法解决。
+
+1. 在ROS记录包目录下打开终端3，运行记录包
+rosbag play –pause MH_01_easy.bag /cam0/image_raw:=/camera/image_raw /imu0:=/imu
+//选择下载的Euroc数据集的ROS记录包
+//设置发布的话题名称，要与ORB-SLAM3订阅的话题一样
+//pause代表用space可以控制开始和暂停跑包
 
 ## 双系统的问题
 1. 没有网卡
@@ -117,9 +143,14 @@ Eigen3
 
 
 
+# 关闭自动更新
 
+打开软件安装，更新，永远停止
 
-
+set -e
+set -u # 不能使用未定义的变量
+# set -x # 每一行执行后显示
+# set -o pipefail # 管道中的每个错误都会显示
 
 
 
@@ -149,7 +180,7 @@ DEFAULT_INDEX_URL = 'file:///home/yzx/rosdistro/index-v4.yaml'
 
 df -h 查看空间大小
 
-
+# 
 
 # 参考资料
 [Ubuntu20.04软件源更换 - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/142014944)

@@ -96,13 +96,7 @@ umount /dev/sdb1
 
 # alias 设置永久的alias别名
 
-# uname
-uname -r 获取内核版本
-uname -v 可以查看版本号
-uname -a，可以看到操作系统的发行版号和操作系统版本
-lsb_release -a，查看发行版本信息，并且方法可以适用于所有的Linux发行版本
-cat /etc/issue可以查看到当前是Linux什么版本系统。
-cat /proc/version可以查看内核的版本号。
+
 
 # 更改./.bashrc配置
 
@@ -148,14 +142,9 @@ CTRL+C | 停止当前运行的命令|
 
 # netstat -a 网络的联机状态
 
-# ps -aux 后台的使用情况
-
 # dmesg 查看内核信息
 
 
-# 查看电脑是否支持虚拟化技术
-## 通过lscpu命令
-lscpu命令是一种提取有关CPU体系结构信息的常用方法。此命令从sysfs的/pro /cpuinfo文件中提取硬件信息。该信息包括处理器数量，CPU操作模式，套接字，内核，线程，型号名称和虚拟化信息等。
 
 ## 通过cpu-checker实用程序
  sudo apt-get install cpu-checker
@@ -244,20 +233,6 @@ Ubuntu缺省情况下，并没有提供C/C++的编译环境，因此还需要手
 libtool 是一个通用库支持脚本，将使用动态库的复杂性隐藏在统一、可移植的接口中，也就是说，你可以通过如下所示的标准方法，在不同平台上创建并调用动态库，我们 可以认为libtool是gcc的一个抽象，也就是说，它包装了gcc或者其他的任何编译器，用户无需知道细节，只要告诉libtool说我需要要编译哪 些库即可，并且，它只与libtool文件打交道，例如lo、la为后缀的文件。
 
 
-dpkg 包管理工具
-
-dpkg -l
-
-dpkg -l | grep mysql*
-dpkg -l "mysql*"
-
-sudo dpkg -r vim
-dpkg -l "*mysql*"
-
-
-
-# 第一种方法：df命令
-# df -hT
 
 # 第二种方法：使用mount命令
 # mount -l
@@ -309,9 +284,6 @@ dmesg // 查看系统日志信息
 sysctl -p /etc/sysctl.d/my-default.conf
 
 
-查看进程
-ps -a 
-
 which systmd
 查看状态
 sysctl docker status
@@ -348,9 +320,7 @@ Linux swapoff命令用于关闭系统交换区(swap area)。
 -V 版本信息
 
 
-# free -h
 
-查看交换区
 
 sudo -i 切换用户身份到root.
 
@@ -361,8 +331,7 @@ mount命令是经常会使用到的命令，它用于挂载Linux系统外的文�
  mount -t glusterfs
 
 
-# 查看时间
-date
+
 
 # \cp
 不会询问是否覆盖
@@ -395,10 +364,6 @@ ubuntu上的crond名称为cron没有d
 中杠（-）：可以用整数之间的中杠表示一个整数范围，例如“2-6”表示“2,3,4,5,6”
 正斜线（/）：可以用正斜线指定时间的间隔频率，例如“0-23/2”表示每两小时执行一次。
 
-
-
-# 看内存使用情况
-free -h
 
 
 
@@ -452,12 +417,6 @@ ls -t $DIR/*_timedata.db | sed -e '1,10d' | xargs rm
 
 
 
-
-# 查看时区
-
-timedatectl
-
-timedatectl list-timezones
 
 
 
