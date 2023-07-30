@@ -1,5 +1,5 @@
 ---
-title: 包管理工具
+title: Part17 包管理工具
 date: 2023-07-23 21:33:32
 tags:
 - 鸟哥的Linux私房菜
@@ -42,18 +42,39 @@ Advanced Package Tool
 ## apt和apt-get的区别
 apt 和 apt-get 都是用于在 Debian 及其派生发行版（如 Ubuntu）上管理软件包的命令行工具。它们有很多相似之处，但也存在一些区别
 
-### 常用指令
+### 1.常用指令
 ```bash
-sudo apt update # 更新软件包列表
-sudo apt install vim # 安装软件包
+sudo apt update # 更新软件包列表,更新本地包缓存
+# E: Unable to locate package ros-melodic-cotomap-msgs 找不到本地包的详细信息时候可以更新一下本地包缓存
+sudo apt list --upgradable # 查看可以升级的软件包
+
 sudo apt upgrade # 升级软件包
-sudo apt remove vim # 卸载软件包
-
-
+sudo apt install vim # 安装软件包
+```
+#### 2.删除安装包
+```bash
+sudo apt remove vim # 卸载软件包，仅删除安装包
+sudo apt remove "nvidia*" # 同时移除以为nvidia开头的安装包
+sudo apt purge "nvidia*"  # 卸载软件包，同时删除配置文件
+# 老的写法
+sudo apt-get --purge remove "nvidia*" # 卸载软件包，同时删除配置文件
+```
+### 3. 查看软件包的安装来源
+```bash
+# 会显示每个版本的软件包名称、软件源的名称、版本号、优先级等信息。
+apt-cache madison nvidia-cuda-toolkit  # 显示这些软件包所属的软件源
+apt-cache policy nvidia-cuda-toolkit # 列出软件的所有来源，更加详细一些
+apt-cache showpkg nvidia-cuda-toolkit  # 列出软件的所有来源，包括软件包的依赖关系、提供的功能以及逆向依赖关系等
+apt-get install -s  nvidia-cuda-toolkit # 模拟安装软件
+# 列出软件所有版本，并查看是否已经安装
+apt-get install apt-show-versions # 需要安装这个软件
+apt-show-versions -a nvidia-cuda-toolkit # 列出软件所有版本
+```
+### 4. 其他指令
+```bash
 apt autoremove # 清理不再需要的软件包
 apt search vim # 搜索软件包
 apt show vim # 显示软件包信息
-
 
 apt list --upgradable # 列出可升级的软件包
 apt list --installed # 列出所有已安装的软件包

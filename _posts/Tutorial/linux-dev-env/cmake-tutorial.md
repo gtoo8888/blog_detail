@@ -1,13 +1,77 @@
 ---
-title: cmake 教程
+title: CMake教程
 date: 2022-02-21 17:40:18
 tags:
 - 教程
 ---
 
+# CMake例子
 
-# PROJECT 指令的语法
+## 最简单的CMake文件
+```c++
+cmake_minimum_required(VERSION 3.0) # 设置最低的 CMake 版本要求
+project(SimpleProject) # 设置项目名称
+add_executable(main main.cpp) # 添加可执行文件
 ```
+```bash
+cmake -S . -B build
+cmake --build build
+```
+## 添加动态库，静态库，生成动态库静态库，可执行文件
+```c++
+cmake_minimum_required(VERSION 3.0) # 设置最低的 CMake 版本要求
+project(MyProject) # 设置项目名称
+
+add_subdirectory(src) # 添加源文件目录
+include_directories(include) # 添加头文件目录
+
+add_library(MyLibrary SHARED src/add.cpp) # 生成动态库
+add_library(MyStaticLibrary STATIC src/add.cpp) # 生成静态库
+
+add_executable(MyExecutable src/main.cpp) # 添加可执行文件
+target_link_libraries(MyExecutable MyLibrary) # 链接动态库到可执行文件 
+target_link_libraries(MyExecutable MyStaticLibrary) # 链接静态库到可执行文件
+```
+```bash
+cmake -S . -B build
+cmake --build build
+```
+## 添加CMake test
+```c++
+cmake_minimum_required(VERSION 3.0) # 设置最低的 CMake 版本要求
+project(MyProject) # 设置项目名称
+
+add_subdirectory(src) # 添加源文件目录
+include_directories(include) # 添加头文件目录
+
+add_library(MyLibrary SHARED src/add.cpp) # 生成动态库
+add_library(MyStaticLibrary STATIC src/add.cpp) # 生成静态库
+
+add_executable(MyExecutable src/main.cpp) # 添加可执行文件
+target_link_libraries(MyExecutable MyLibrary) # 链接动态库到可执行文件 
+target_link_libraries(MyExecutable MyStaticLibrary) # 链接静态库到可执行文件
+
+
+
+enable_testing() # 添加测试
+add_executable(TestExecutable src/test.cpp) # 添加测试用例
+target_link_libraries(TestExecutable MyLibrary)
+add_test(NAME MyTest COMMAND TestExecutable) # 添加测试到 CTest
+
+```
+
+
+```bash
+cmake -S . -B build
+cmake --build build
+cd build
+ctest
+```
+
+## CMake常见指令
+### cmake_minimum_required
+### project
+```C++
 PROJECT(projectname [CXX] [C] [Java])
 PROJECT (HELLO)
 ```
@@ -15,7 +79,7 @@ PROJECT (HELLO)
 
 
 # SET 指令的语法
-```
+```C++
 SET(VAR [VALUE] [CACHE TYPE DOCSTRING [FORCE]])
 SET(SRC_LIST main.c t1.c t2.c)
 SET(SRC_LIST main.c)也可以写成 SET(SRC_LIST “main.c”)
@@ -24,7 +88,7 @@ SET 指令可以用来显式的定义变量即可
 
 
 # MESSAGE 指令的语法
-```
+```C++
 MESSAGE([SEND_ERROR | STATUS | FATAL_ERROR] "message to display"
 ...)
 MESSAGE(STATUS "This is BINARY dir " ${HELLO_BINARY_DIR})
@@ -38,7 +102,7 @@ FATAL_ERROR，立即终止所有 cmake 过程**
 
 
 # ADD_EXECUTABLE 指令的语法
-```
+```C++
 ADD_EXECUTABLE(hello ${SRC_LIST})
 ```
 定义了这个工程会生成一个文件名为 hello 的可执行文件
@@ -49,7 +113,7 @@ ${}来引用变量，这是 cmake 的变量引用方式
 
 
 # 清理
-```
+```bash
 make clean
 ```
 cmake 并不支持 make distclean，无法清理构建过程产生的中间文件

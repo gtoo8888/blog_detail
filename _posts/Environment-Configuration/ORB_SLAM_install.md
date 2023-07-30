@@ -147,15 +147,10 @@ Eigen3
 
 打开软件安装，更新，永远停止
 
-set -e
-set -u # 不能使用未定义的变量
-# set -x # 每一行执行后显示
-# set -o pipefail # 管道中的每个错误都会显示
 
 
 
-
-
+```bash
 # os-specific listings first
 yaml file:///home/yzx/rosdistro/rosdep/osx-homebrew.yaml osx
 
@@ -165,7 +160,7 @@ yaml file:///home/yzx/rosdistro/rosdep/python.yaml
 yaml file:///home/yzx/rosdistro/rosdep/ruby.yaml
 gbpdistro file:///home/yzx/rosdistro/releases/fuerte.yaml fuerte
 # newer distributions (Groovy, Hydro, ...) must not be listed anymore, they are being fetched from the rosdistro index.yaml instead
-
+```
 FUERTE_GBPDISTRO_URL = 'file:///home/yzx/rosdistro/' \
     'releases/fuerte.yaml'
 
@@ -178,10 +173,43 @@ DEFAULT_INDEX_URL = 'file:///home/yzx/rosdistro/index-v4.yaml'
 ./Examples/Monocular-Inertial/mono_inertial_euroc ./Vocabulary/ORBvoc.txt ./Examples/Monocular-Inertial/EuRoC.yaml /home/yzx/MH01 ./Examples/Monocular-Inertial/EuRoC_TimeStamps/MH01.txt dataset-MH01_monoi
 
 
-df -h 查看空间大小
+# 主要头文件所在位置
+/opt/ros/melodic/include
+/usr/include/pcl-1.8/
 
-# 
+"${workspaceFolder}/**",
+"/usr/include/**",
+"/opt/ros/melodic/include/**"
 
+
+
+
+
+
+
+## 第一个libtorch例子
+
+```C++
+#include <torch/torch.h>
+#include <iostream>
+
+int main() {
+  torch::Tensor tensor = torch::eye(3);
+  std::cout << tensor << std::endl;
+}
+```
+
+
+```c++
+cmake_minimum_required(VERSION 3.0 FATAL_ERROR)
+project(dcgan)
+
+find_package(Torch REQUIRED)
+
+add_executable(dcgan dcgan.cpp)
+target_link_libraries(dcgan "${TORCH_LIBRARIES}")
+set_property(TARGET dcgan PROPERTY CXX_STANDARD 14)
+```
 # 参考资料
 [Ubuntu20.04软件源更换 - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/142014944)
 
@@ -192,5 +220,9 @@ https://fishros.org.cn/forum/topic/20/%E5%B0%8F%E9%B1%BC%E7%9A%84%E4%B8%80%E9%94
 
 https://blog.csdn.net/m0_58402697/article/details/122298129
 https://www.intel.com/content/www/us/en/support/articles/000005511/wireless.html
+
+[libtorch总教程](https://pytorch.org/cppdocs/installing.html)
+[libtorch简单的介绍](https://pytorch.org/tutorials/advanced/cpp_frontend.html)
+
 
 

@@ -1,5 +1,5 @@
 ---
-title: Part10 认识与学习bash
+title: Part10 认识与学习bash && 管道命令
 date: 2022-03-31 15:06:08
 tags:
 - 鸟哥的Linux私房菜
@@ -55,17 +55,55 @@ cut -d'分隔字符' -f fields
 |-c  |以字符 (characters) 的单位取出固定字符区间；|
 
 
-### grep     分析一行信息，提取整行
-grep [-acinv] [--color=auto] '搜寻字符串' filename
+### grep     
+分析一行信息，提取整行
+### 常用方法
+```bash
+grep [options] pattern [file ...]
+grep -i "HISTORY" ~/.bashrc          # 查找指定的文件内容
+ls -al | grep -i "HISTORY" ~/.bashrc # 通过字符串流过滤
+```
+### 常用指令
+```bash
+grep -i "HISTORY" ~/.bashrc       # 忽略大小写，默认是处理大小写的
+grep -v "HISTORY" ~/.bashrc       # 反向匹配，显示不包含模式的行
+grep -n "HISTORY" ~/.bashrc       # 显示匹配行的行号
+grep -w "HISTORY" ~/.bashrc       # 仅匹配整个单词，而不是模式的一部分
+grep -E "*HIS*"                   # 使用扩展正则表达式进行匹配,如果使用 grep "*HIS*"不会正确的匹配
+grep -F "HISTORY" ~/.bashrc       # 将模式视为固定字符串，而不是正则表达式
+```
+**扩展正则表达式**
+1. `.`：匹配任意单个字符（除了换行符）
+2. `*`：匹配前面的字符零次或多次。
+3. `+`：匹配前面的字符一次或多次。
+4. `?`：匹配前面的字符零次或一次。
+5. `|`：逻辑或，匹配两个模式中的任意一个。
+6. `()`：用于分组，可以改变操作符优先级，并且匹配的内容可以在后续使用。
+7. `{n}`：匹配前面的字符恰好 n 次。
+8. `{n,}`：匹配前面的字符至少 n 次。
+9. `{n,m}`：匹配前面的字符至少 n 次但不超过 m 次。
+### 不常用指令
+```bash
+grep -r "install" /home         # 递归搜索目录及其子目录中的文件,类似vscode中的全局搜索,是搜索文件中的内容
+grep -l "HISTORY" ~/.bashrc     # 只显示包含模式的文件名，而不显示具体匹配行
+grep -A 2 "HISTORY" ~/.bashrc   # 显示匹配行及其后面 2 行的内容
+grep -B 2 "HISTORY" ~/.bashrc   # 显示匹配行及其前面 2 行的内容
+grep -C 2 "HISTORY" ~/.bashrc   # 显示匹配行及其前后各 2 行的内容
+                                # 用在shell，返回一个退出码，检查退出状态码来判断是否找到了匹配的内容
+grep -q "HISTORY" ~/.bashrc     # 静默模式，不输出任何信息
+```
+### 常用指令组合
+```bash
+grep -inE "*HIS*"               # i:忽略大小写，n:显示行号，E:使用扩展正则
 
-|选项 | 含义|
-| ------ | ------ | 
-|-a |将 binary 文件以 text 文件的方式搜寻数据|
-|-c |计算找到 '搜寻字符串' 的次数|
-|-i |忽略大小写的不同，所以大小写视为相同|
-|-n |顺便输出行号|
-|-v |反向选择|
-|--color=auto |可以将找到的关键词部分加上颜色|
+grep -i "apple" fruits.txt          # 在 fruits.txt 文件中忽略大小写查找 "apple"
+grep -r "error" /var/log/           # 在 /var/log/ 目录及其子目录中递归搜索包含 "error" 的文件
+grep -n "function" script.sh        # 在 script.sh 文件中查找包含 "function" 的行，并显示行号
+grep -l "success" *.log             # 查找所有 .log 文件中包含 "success" 的文件名
+grep -w "word" text.txt             # 在 text.txt 文件中查找整个单词 "word"
+grep -A 2 "error" log.txt           # 显示 log.txt 文件中包含 "error" 的行及其后两行内容
+grep -E "^[A-Za-z]+$" names.txt     # 使用扩展正则表达式查找 names.txt 文件中的字母名称
+```
 
 ## 排序命令
 
