@@ -120,6 +120,13 @@ pip3 install eiseg -i https://mirror.baidu.com/pypi/simple
 6. 空格，转化为矩形
 7. 下一张
 
+
+# 安装LabelImg
+
+conda create -n labelimg python=3.10 -y
+pip install labelimg -i https://pypi.tuna.tsinghua.edu.cn/simple
+
+
 # anaconda常用指令
 ```bash
 conda config --show # 查看conda的配置，确认channels

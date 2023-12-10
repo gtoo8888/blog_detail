@@ -306,6 +306,22 @@ s 放弃
 注释掉不想要提交的
 :wq退出
 
+## 报错解决
+报错：
+fatal: You are not currently on a branch.
+To push the history leading to the current (detached HEAD)
+state now, use
+
+    git push origin HEAD:<name-of-remote-branch>
+
+解决：
+1. 使用git branch查看当前分支
+git branch
+* (no branch, rebasing master)
+  master
+2. git rebase --continue解决问题
+3. git push -f
+
 
 如果需要rebase已经push的commit
 需要在提交的时候直接git push -f强制交上去，就会刷新掉之前的提交

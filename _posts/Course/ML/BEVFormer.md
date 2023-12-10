@@ -62,14 +62,14 @@ conda install --yes --file requirements.txt
 conda config --remove-key channels
 
 conda env list
-```
+
 conda install --use-local pytorch-0.4.0-py35_cuda8.0.61_cudnn7.1.2_1.tar.bz2
 conda remove -n 环境名字 --all
 
 conda clean -i
 
 conda uninstall xxx 
-
+```
 tar -xzf pycharm-community-2021.1.3.tar.gz
 sudo mkdir /opt/pycharm
 sudo mv pycharm-community-2023.1.3 /opt/pycharm/
@@ -79,6 +79,19 @@ cd ~/anaconda3/pkgs/
 cd /usr/lib/x86_64-linux-gnu
 ln -s libmpfr.so.6.0.2  libmpfr.so.4
 ln -s libisl.so.22 libisl.so.15
+
+
+# 加快pip安装
+pip install python-opencv -i https://pypi.tuna.tsinghua.edu.cn/simple
+
+# 标注sa标注软件的问题
+
+1. 如果没有模型，错误提示不友好
+2. int报错
+3. pycocotools安装难度较大，使用
+conda install -c conda-forge pycocotools
+4. 使用新模型直接闪退
+
 # 参考资料
 [pip install mmdet==2.14.0](https://pypi.org/project/mmdet/2.14.0/#files)
 [mmcv](https://download.openmmlab.com/mmcv/dist/cu111/torch1.9.0/index.html)

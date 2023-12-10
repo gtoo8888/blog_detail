@@ -81,6 +81,9 @@ TN（True Negative）：真反例，模型预测为反例，实际是反例 （�
 [【语义分割】评价指标：PA、CPA、MPA、IoU、MIoU详细总结和代码实现](https://blog.csdn.net/sinat_29047129/article/details/103642140)
 [ADE20K](https://groups.csail.mit.edu/vision/datasets/ADE20K/)
 
+[mmsegmentaion训练自己的数据](https://zhuanlan.zhihu.com/p/393070556)
+
+
 ## 图像标定
 [张正友标定法-完整学习笔记-从原理到实战](https://zhuanlan.zhihu.com/p/136827980)
 [生成标定纸](https://calib.io/pages/camera-calibration-pattern-generator)
