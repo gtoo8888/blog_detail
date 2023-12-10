@@ -2,6 +2,7 @@
 title: mmsegment
 date: 2023-09-09 14:43:15
 tags:
+- 课程
 ---
 
 ```bash

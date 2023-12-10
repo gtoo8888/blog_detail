@@ -2,6 +2,7 @@
 title: github 教程
 date: 2022-10-29 13:40:28
 tags:
+- 教程
 ---
 
 如何将自己的代码传到github上

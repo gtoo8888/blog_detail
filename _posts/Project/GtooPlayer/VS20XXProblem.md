@@ -1,6 +1,6 @@
 ---
 title: VS2017 使用教程
-date: 2023-10-10 16:40:04
+date: 2023-01-02 20:56:46
 tags:
 - 项目
 ---
@@ -25,14 +25,14 @@ vs2017 E1696	无法打开 源 文件 "QtWidgets/QMainWindow"
 添加参数的工程-->属性-->配置属性-->调试->命令参数
 各参数间用空格分离
 
-
+```shell
 $(ProjectDir)\include
 $(ProjectDir)\lib
 
 $(ProjectDir) 表示 xxx.vcxproj所在的目录
 $(ProjectName) 代表具体的project 名称,
 $(SolutionDir)
-
+```
 
 avcodec.lib
 avformat.lib
@@ -66,4 +66,3 @@ Tools>Options>Text Editor>All Languages>Tabs>
 # 参考资料
 
 [VS2015设置DLL和LIB的输出目录_zt_xcyk的博客-CSDN博客_lib的输出目录](https://blog.csdn.net/zt_xcyk/article/details/78006223)
-

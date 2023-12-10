@@ -2,6 +2,7 @@
 title: EIseg环境安装
 date: 2023-03-23 14:00:50
 tags:
+- 环境配置
 ---
 
 # 1. 安装python

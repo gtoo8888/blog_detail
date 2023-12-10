@@ -2,6 +2,7 @@
 title: mysql 教程
 date: 2022-10-27 19:12:48
 tags:
+- 教程
 ---
 
 show global variables like 'port';

@@ -2,6 +2,7 @@
 title: prompt
 date: 2023-04-20 20:22:27
 tags:
+- 其他
 ---
 
 # 1
