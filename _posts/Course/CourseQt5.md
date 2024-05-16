@@ -304,10 +304,12 @@ bool VideoDecode::open(const QString &url)
 
 
 
+# 参考资料
 
-
-
-
+## 美化相关
+[Qt|C++毛玻璃效果窗口Areo效果透明模糊窗口]https://www.bilibili.com/video/BV1x94y1N7f4/?vd_source=76dff3ae3b42b00d067c0921bf6859ca
+[UI仓库]https://github.com/BFEMCC/Qt-widget-Fancy_UI
+南开大学23C++
 
 
 

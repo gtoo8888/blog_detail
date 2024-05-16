@@ -367,10 +367,23 @@ git gc 为了定时的对文件进行打包
 问题：
 git gc以后，会消失一些什么信息？
 
-# git reflog
+## git reflog
 
 如果使用git reset --herd HEAD^回退了版本，会出现amend的未来提交
 可以使用reflog查看到，并且回退到未来的版本
+
+## git clone --recursive
+下载代码的子模块<br/>
+
+```bash
+git clone --recursive https://github.com/obsproject/obs-studio.git
+# 如果没有使用recursive命令，可以用下面的方法下载子模块
+git submodule sync
+git submodule update --init --recursive
+``` 
+
+
+
 
 # 参考文献
 [GIT在线练习平台]https://learngitbranching.js.org/?locale=zh_CN
@@ -396,3 +409,5 @@ https://blog.csdn.net/u014361280/article/details/109703556
 [【学了就忘】Git操作 — 51.git reflog命令]https://www.jianshu.com/p/7e4cef3863e7
 [Good First Issue]https://goodfirstissue.dev/language/cplusplus/
 [ssh远程连接主机报错:Someone could be eavesdropping on you right now (man-in-the-middle attack)!](https://blog.csdn.net/qq_36393978/article/details/118334076)
+[git clone —recursive 快速高效下载方法](https://zhuanlan.zhihu.com/p/361136073)
+
