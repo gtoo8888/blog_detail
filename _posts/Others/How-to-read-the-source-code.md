@@ -1,6 +1,7 @@
 ---
 title: 如何阅读源码
 date: 2022-02-25 12:44:36
+fix: 2024-05-24 16:14:40
 tags:
 - 其他
 ---
@@ -143,6 +144,118 @@ gdb调试工具等
   1. 我自己阅读了leveldb之后，将sst中的差值压缩思想应用项目中，存储压缩比大约30%+
   2. 命名更人性化
 
+
+# 对开源项目进行分析
+
+## 对一个项目分析的维度
+1. 代码行数（SLOC, Source Lines of Code）:这是最直观的衡量方式之一，通常用来表示项目的规模
+2. 编译后的二进制文件大小:这反映了最终可执行文件或库的尺寸
+3. 运行时内存占用:包括静态内存分配（如全局变量、静态变量）和动态内存分配（如通过new分配的内存）
+4. 衡量项目中代码被测试覆盖的比例，高覆盖率通常意味着更好的软件质量
+
+## 分析工具
+许多代码统计工具可以自动统计代码行数和字节数，cloc、SLOCCount 
+
+## 自己的统计
+
+将自己了解过的一些知名的C/C++开源项目进行了统计，使用一个粗略的脚本，统计了代码中去掉空行的代码行数
+虽然代码行数不能直接反映项目的大小，但是也能从一个侧面反映工程的的庞大与否。
+
+[![pkQ4pjK.png](https://s21.ax1x.com/2024/05/24/pkQ4pjK.png)](https://imgse.com/i/pkQ4pjK)
+
+可以先尝试从代码行数较少的项目中开始学习，同时对比如FFmpeg，OBS等项目有一个粗略的认识，认识到他们的项目规模大概有多大
+
+
+## 如何分析一个开源项目的状况
+时间基于2024-05-24<br/>
+主要分析的维度：
+1. 基础
+   1. Starred/Fork
+   2. Commit
+   3. Issue/Pull request(PR)
+2. 进阶
+   1. Issue templates / Pull request template
+   2. branch
+   3. Action
+   4. Release
+   5. Sponsor
+   6. Contributors
+3. 奢侈
+   1. Wiki
+   2. About官网
+   3. Discussions
+   4. Project
+   5. 相关文档/网络上的资料
+
+### 1. 基础
+#### 1.1 Starred/Fork
+最基本的评价指标，看看关注这个项目的人是否多
+
+#### 1.2 Commit
+看看项目的最近更新时间是什么时候，有的项目可能在5-7年前就停更了，那维护的人就比较少<br/>
+[TrafficMonitor](https://github.com/zhongyang219/TrafficMonitor)<br/>
+像这个项目，虽然提问的人很多，也有人有PR，但是已经一年没有更新了，很可能作者是跑路了<br/>
+
+#### 1.3 Issue/Pull request(PR)
+看看提问题的人多不多，关注这个项目的人多不多，是否有人愿意给项目贡献代码<br/>
+[douban_library](https://github.com/wyj0605/douban_library)<br/>
+[ISAT_with_segment_anything](https://github.com/yatengLG/ISAT_with_segment_anything)<br/>
+像是这种项目功能做的还是比较不错，但是Issue和PR都比较少，看起来就像是个人维护的项目<br/>
+会有跑路的风险，如果开发者还在的话，提Issue和PR都可以让开发者直接看到<br/>
+
+### 2. 进阶
+#### 2.1 Issue templates / Pull request template
+点击Issue界面，点击New Issue，可以看到仓库作者是否写了问题模版，还可以关注Label标签，这些都可以表明作者是否认真的在管理自己的评论社区<br/>
+[QOwnNotes](https://github.com/pbek/QOwnNotes)<br/>
+这个项目就可以看到，有丰富的Label，也有各种类型的Issue templates<br/>
+
+#### 2.2 branch
+如果是小型的项目，可能开发者就只会开发一个master主分支，如果是比较完善的项目，一般会用多个分支来管理<br/>
+
+#### 2.3 Action
+可以看到项目作者是否有自动化构建系统，有Action存在的话，可以保证代码有CI系统，一定程度上可以保证代码质量，也可以学习如何使用github的Acition<br/>
+[btop](https://github.com/aristocratos/btop)<br/>
+这个项目就针对于各个架构下都有Release包生成<br/>
+
+#### 2.4 Release
+和Action类似，如果有Release就说明作者可以提供一个安装包，自己可以方便的下载到本地直接进行使用，不需要自己进行编译，就可以直接通过安装包的形式看到项目的效果<br/>
+[YUView](https://github.com/IENT/YUView)<br/>
+[JQTools](https://github.com/188080501/JQTools)<br/>
+这两个项目就可以直接下载使用，JQTools就可以直接通过demo来看到效果<br/>
+
+#### 2.5 Insights->Contributors
+主要是通过Insights标签页中的Contributors可以看到项目有多少贡献者，如果贡献者较少的情况下很容易跑路（摸鱼是人的本性）<br/>
+[QTFFmpegSDLPlayer](https://github.com/huimingli/QTFFmpegSDLPlayer)<br/>
+
+### 3. 奢侈
+一般都是只有企业级别的开源产品才能维护的起下面的项目，个人开发者一般都没有精力去维护<br/>
+
+#### 3.1 Wiki
+如果有Wiki的一般都是较为大型的项目了，wiki里面包含了详细的如何对项目进行编译运行，还有各种类型的详细信息<br/>
+[TiDB](https://github.com/pingcap/tidb)<br/>
+[PyTorch](https://github.com/pytorch/pytorch)<br/>T
+
+#### 3.2 About官网
+有外部的链接专门介绍自己的产品<br/>
+[obs-studio](https://github.com/obsproject/obs-studio)<br/>
+[moonplayer](https://github.com/coslyk/moonplayer)<br/>
+
+#### 3.3 Discussions
+有讨论区，像是Issue的扩展<br/>
+[googletest](https://github.com/google/googletest)<br/>
+
+#### 3.4 Project
+有对项目工程的管理<br/>
+[godot](https://github.com/godotengine/godot)<br/>
+
+#### 3.5 相关文档/网络上的资料
+一般都是毋庸置疑的经典项目，网上有较多的分析和讨论<br/>
+[FFmpeg](https://github.com/FFmpeg/FFmpeg)<br/>
+[SDL](https://github.com/libsdl-org/SDL)<br/>
+
+
+
+
 ## 参考链接
 https://www.codedump.info/post/20190324-how-to-read-code/
 https://www.zhihu.com/question/19625320/answer/12429108
@@ -151,3 +264,6 @@ https://github.com/zhangguixu/myblogs/issues/4
 [英文能力与独立思考]https://www.raychase.net/6902
 [分享个人阅读源码的方法]https://www.bilibili.com/video/BV1w34y1p7V7/?spm_id_from=333.999.0.0&vd_source=76dff3ae3b42b00d067c0921bf6859ca     
 [LevelDB 源码分析]https://hardcore.feishu.cn/mindnotes/bmncnzpUmXNQruVGOwRwisHyxoh
+
+[cloc](https://github.com/AlDanial/cloc)
+[SLOCCount](https://dwheeler.com/sloccount/)
