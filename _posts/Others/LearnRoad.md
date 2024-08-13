@@ -12,32 +12,31 @@ tags:
 
 
 # C++书籍
-## 基础
-Essential C++
-C++ primer plus
 
-## 进阶1
-C++ Primer
-Effective C++
-More Effective C++
-Effective STL
-
-## 进阶2
-STL 源码剖析
-深度探索 C++ 对象模型
-
-候捷 C++：
-C++内存管理
-STL源码分析
-C++ STL与泛型编程高级
-C++11 新特性
-
-
-## 内化功力
-C++ 语言的设计与演化
-C++ 沉思录
-C++ Templates和C++模版元编程
-C+标准库(第2版)
+```bash
+> tree /f                       
+├─基础                                             
+│  ├─Essential C++                         
+│  └─C++ primer plus                            
+├─进阶1                     
+│  ├─C++ Primer     
+│  ├─Essential C++             
+│  ├─More Effective C++
+│  └─Effective STL       
+├─进阶2     
+│  ├─STL 源码剖析     
+│  └─深度探索 C++ 对象模型    
+├─候捷C++         
+│  ├─C++内存管理
+│  ├─STL源码分析 
+│  ├─C++ STL与泛型编程高级   
+│  └─C++11 新特性
+└─内化功力    
+   ├─C++ 语言的设计与演化  
+   ├─C++ 沉思录 
+   ├─C++ Templates和C++模版元编程
+   └─C+标准库(第2版) 
+```
 
 
 # C++网络编程
@@ -114,3 +113,10 @@ docker进阶与实战——初级介绍不多，讲了很多例子
 Docker源码分析
 自己动手写docker——高难度
 
+
+
+
+# 高级
+形式语言与自动机
+可计算性理论
+正则表达式
