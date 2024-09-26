@@ -92,24 +92,153 @@ ijkPlayer播放器
 
 
 
+cmake .. -D PYTHON_INCLUDE_DIR=/usr/include/python3.8 -D PYTHON_LIBRARY=/usr/lib/python3.8
+
+
+cmake .. -DPython3_INCLUDE_DIRS=/usr/include/python3.8 -DPYTHON_LIBRARY=/usr/lib/python3.8
+
+
+
+安装硬盘
+https://blog.zeruns.tech/archives/629.html
+
+
+
+fdisk  /dev/sda
+
+
+
+mkfs.ext4 /dev/sda1
+
+sudo apt install nano   # centos系统用 sudo yum install nano
+nano /etc/fstab
+#打开后，在最后一行加入以下代码：
+/dev/sda1 /data ext4 defaults 0 1  #如果上面用的是ext3，这里也要用ext3；
+
+/dev/sda /HDD_1 ext4 defaults 0 1 
+
+
+https://blog.csdn.net/toopoo/article/details/122407434
 
 
 
 
+/etc/init.d/bt  restart
+
+cat /etc/os-release
+
+
+lsb_release -a
+
+
+hostnamectl
+
+uname -a
+
+getconf LONG_BIT
+
+[树莓派4b安装OpenMediaVault（OMV 6）开源NAS系统](https://xyzbz.cn/archives/944/)
+
+
+https://www.raspberrypi.com/news/new-old-functionality-with-raspberry-pi-os-legacy/
+
+https://www.cnblogs.com/mq0036/p/18130075
+https://blog.csdn.net/weixin_43710676/article/details/128981939
+
+
+https://github.com/OpenMediaVault-Plugin-Developers/
+
+https://www.openmediavault.org/
 
 
 
+pip cache dir
+pip cache purge
+pip cache info
+
+
+https://cloud.tencent.com/developer/article/2323457
+
+https://blog.csdn.net/weixin_45653897/article/details/131254542
+
+C:\Users\Yan\AppData\Local\pip\cache
+
+
+C:\Users\Yan\AppData\Local
+
+C:\Users\Yan\AppData\Local\TslGame\Saved\Crashes
+C:\Users\Yan\AppData\Local\Temp
+
+https://blog.csdn.net/gqg_guan/article/details/130160022
+
+
+C:\Users\Yan\.gradle
+
+
+https://blog.csdn.net/Tisfy/article/details/126082324
+
+
+Linux命令行与shell脚本编程大全（第3版）
+Linux Shell脚本攻略
+Advanced Bash-Scripting Guide.
+sed and awk 101 hacks
+
+
+Mosquitto
+openssl
+micropython移植到stm32
+Yocto 
+doxygen
+UPS
+kali
+RAID 0,1
+Sumatra PDF
+obsidian
+ZFS
+
+
+Rust
+    入门：Rust语言圣经
+    进阶: Rust死灵书
+    再进阶: Rust for Rustaceans
+    Rust 程序设计 第二版
+    Rust 入门秘籍
+
+
+边缘物联代理
+智能家居、温湿度
+E3 E5 cpu
+奇校验、偶校验
+L2RC
 
 
 
+[分享8个高质量英文外刊网站](https://zhuanlan.zhihu.com/p/675556766)
+
+https://magazinelib.com/
+
+https://www.nationalgeographic.com/
+
+ New Scientist 新科学家（科学类）
+
+ The Economist 经济学人（经济类）——难度较大，词汇量2.5W
+
+ National Geographic Magazine 国家地理杂志（科学类）
+
+ History Today 今日历史（历史类）
+WIRED 连线杂志（科技类）
+
+ Cosmopolitan杂志（时尚类）
 
 
+华盛顿邮报，纽约时报
 
-
-
-
-
-
+考研、雅思、托福
+1. 华盛顿邮报
+2. 纽约时报
+3. 泰晤士报
+4. 哈弗商业评论
+5. 大西洋月刊
 
 
 
