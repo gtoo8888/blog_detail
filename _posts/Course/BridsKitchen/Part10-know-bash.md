@@ -96,6 +96,7 @@ grep -q "HISTORY" ~/.bashrc     # 静默模式，不输出任何信息
 ```bash
 grep -inE "*HIS*"               # i:忽略大小写，n:显示行号，E:使用扩展正则
 
+grep -v '^$' filename               # 过滤空行
 grep -i "apple" fruits.txt          # 在 fruits.txt 文件中忽略大小写查找 "apple"
 grep -r "error" /var/log/           # 在 /var/log/ 目录及其子目录中递归搜索包含 "error" 的文件
 grep -n "function" script.sh        # 在 script.sh 文件中查找包含 "function" 的行，并显示行号

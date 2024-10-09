@@ -241,76 +241,7 @@ WIRED 连线杂志（科技类）
 5. 大西洋月刊
 
 
-
-```shell
-systemctl  # 列出所有服务
-systemctl status mosquitto
-
-
-df /dev/sda2
-
-sudo dd if=/dev/zero of=tempfile bs=1M count=1024 conv=fdatasync status=progress
-
-
-
-```
-
-隔离电源与非隔离电源
-
-
--eq       等于,如:if [ "$a" -eq "$b" ] 
--ne       不等于,如:if [ "$a" -ne "$b" ] 
--gt       大于,如:if [ "$a" -gt "$b" ] 
--ge       大于等于,如:if [ "$a" -ge "$b" ] 
--lt       小于,如:if [ "$a" -lt "$b" ] 
--le       小于等于,如:if [ "$a" -le "$b" ] 
-
-tmpfs 文件系统
-
-
-‘r’：只读。该文件必须已存在。
-‘r+’：可读可写。该文件必须已存在，写为追加在文件内容末尾。
-‘rb’：表示以二进制方式读取文件。该文件必须已存在。
-‘w’：只写。打开即默认创建一个新文件，如果文件已存在，则覆盖写（即文件内原始数据会被新写入的数据清空覆盖）。
-‘w+’：写读。打开创建新文件并写入数据，如果文件已存在，则覆盖写。
-
-‘wb’：表示以二进制写方式打开，只能写文件， 如果文件不存在，创建该文件；如果文件已存在，则覆盖写。
-'ab': 追加写入二进制文件
-‘a’：追加写。若打开的是已有文件则直接对已有文件操作，若打开文件不存在则创建新文件，只能执行写（追加在后面），不能读。
-
-‘a+’：追加读写。打开文件方式与写入方式和'a'一样，但是可以读。需注意的是你若刚用‘a+’打开一个文件，一般不能直接读取，因为此时光标已经是文件末尾，除非你把光标移动到初始位置或任意非末尾的位置。（可使用seek() 方法解决这个问题，详细请见下文Model 8 示例）
-
-
-
-参数注释：
-1. if=文件名：输入文件名，缺省为标准输入。即指定源文件。< if=input file >
-2. of=文件名：输出文件名，缺省为标准输出。即指定目的文件。< of=output file >
-3. ibs=bytes：一次读入bytes个字节，即指定一个块大小为bytes个字节。
-    obs=bytes：一次输出bytes个字节，即指定一个块大小为bytes个字节。
-    bs=bytes：同时设置读入/输出的块大小为bytes个字节。
-4. cbs=bytes：一次转换bytes个字节，即指定转换缓冲区大小。
-5. skip=blocks：从输入文件开头跳过blocks个块后再开始复制。
-6. seek=blocks：从输出文件开头跳过blocks个块后再开始复制。
-注意：通常只用当输出文件是磁盘或磁带时才有效，即备份到磁盘或磁带时才有效。
-1. count=blocks：仅拷贝blocks个块，块大小等于ibs指定的字节数。
-2. conv=conversion：用指定的参数转换文件。
-    ascii：转换ebcdic为ascii
-     ebcdic：转换ascii为ebcdic
-    ibm：转换ascii为alternate ebcdic
-    block：把每一行转换为长度为cbs，不足部分用空格填充
-    unblock：使每一行的长度都为cbs，不足部分用空格填充
-    lcase：把大写字符转换为小写字符
-    ucase：把小写字符转换为大写字符
-    swab：交换输入的每对字节
-     noerror：出错时不停止
-     notrunc：不截短输出文件
-    sync：将每个输入块填充到ibs个字节，不足部分用空（NUL）字符补齐。
-
-sftp
-
-
 file(GLOB SOURCES "src/*/*.c")
-
 
 
 
@@ -320,80 +251,39 @@ file(GLOB SOURCES "src/*/*.c")
 .LBBn：是 Local Block Beginning 的缩写。
 .LBEn：是 Local Block Ending 的缩写。
 
+
+隔离电源与非隔离电源
+tmpfs 文件系统
+sftp
 压敏电阻
-
-
+WLCSP封装
+dot文件
 afl-fuzz
 如何使用AFL进行一次完整的fuzz过程
 模糊测试，Fuzzing测试
 
-
--c 从字符串中读取命令 
--i 实现脚本交互 
--n 进行语法检查 
--v 显示执行过程详细信息 
--x 实现逐条语句的跟踪 
---help 显示帮助信息 
---version 显示版本信息
-
-
 -lpthread -lmosquitto -ldl -lsqlite3 -lssl -lcrypto
 
+# 软件中常用的反义词组
+add/remove;begin/end;create/destroy;insert/delete;
+first/last;get/release;increment/decrement;put/get;
+add/delete;lock/unlock;open/close;min/max;
+old/new;start/stop;next/previous;source/target;
+show/hide;send/receive;source/destination;cut/paste;
+up/down;
 
-WLCSP封装
-
-
-
-dot文件
-
-
-
-# grep 
-
-grep -v '^$' filename # 过滤空行
-grep -A 5 # 可以显示匹配内容以及后面的5行内容
-grep -B 5  #可以显示匹配内容以及前面的5行内容
-grep -C 5  # 可以显示匹配内容以及前后面的5行内容
-
-cp -i 
-cp -if
-# 正则
-
-g_all_6013\[\w+\].
-
-
-
-perf record -F 100 -p 19083 -g -- sleep 30
-
-
-for x in $(seq 1 500); do
-   gdb -ex "set pagination 0" -ex "thread apply all bt" -batch -p $pid 2> /dev/null
-   sleep 0.01
-done
-
-gdb -ex "set pagination 0" -ex "thread apply all bt" -batch -p 11667 2> /dev/null
 
 
 # 参考资料
 [TLL模块烧坏](https://blog.csdn.net/fangye945a/article/details/118856004)
-[一篇搞懂python文件读写操作（r/r+/rb/w/w+/wb/a/a+/ab /w/wt / r/rt ）](https://blog.csdn.net/a12355556/article/details/112122670)
 [CMake构建Makefile深度解析：从底层原理到复杂项目（一）](https://developer.aliyun.com/article/1465057)
 [Cmake Cross Compile UserGuide](https://www.cnblogs.com/uestc-mm/p/15666249.html)
 [在Linux中安装CLion并添加图标](https://zhuanlan.zhihu.com/p/640021850)
 [Fuzzing技术总结（Brief Surveys on Fuzz Testing）](https://zhuanlan.zhihu.com/p/43432370)
 [我的AFL入门之路](https://zhuanlan.zhihu.com/p/524552737)
 [AFL++学习日志（一）开始Fuzz与crashes分析_](https://mundi-xu.github.io/2021/03/12/Start-Fuzzing-and-crashes-analysis/)
-[h命令 – shell命令语言解释器](https://www.linuxcool.com/sh)
 [蓝牙BLE详解](https://blog.csdn.net/daocaokafei/article/details/114735021)
-[cflow——C语言函数调用关系生成器](https://blog.csdn.net/lyndon_li/article/details/122163468)
-[系统性能分析工具：perf](https://zhuanlan.zhihu.com/p/186208907)
-[GNU cflow](https://www.gnu.org/software/cflow/)
-[Graphviz](https://graphviz.org/)
-[Calltree](https://directory.fsf.org/wiki/Calltree)
-[静态分析C语言生成函数调用关系的利器——calltree](https://cloud.tencent.com/developer/article/1383773)
-[代码分析神器：understand、bouml](https://zhuanlan.zhihu.com/p/476563039)
 [Linux复制文件到某路径并重命名](https://www.cnblogs.com/emary/p/12880275.htm)
-[Linux性能分析工具-perf并生成火焰图 ](https://www.cnblogs.com/panwenbin-logs/p/18177718)
 
 
 

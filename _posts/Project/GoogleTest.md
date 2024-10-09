@@ -40,5 +40,8 @@ sample1_unittest.cc: 测试用例
 [github仓库](https://github.com/google/googletest)
 [Google Test(GTEST)使用入门（1）- 下载编译安装执行](https://blog.csdn.net/wdcyf15/article/details/108855960)
 [Ubuntu 16.04安装gtest遇坑，成功安装及使用记录](https://blog.csdn.net/qq_34525916/article/details/113752768)
+[unit-testing-for-c-code-tools-and-methodology](https://stackoverflow.com/questions/91384/unit-testing-for-c-code-tools-and-methodology)
+[浅谈GTest与已有CMake项目对接](https://www.jianshu.com/p/21c205251f68)
+[Comparison of C++ unit test frameworks [duplicate]](https://stackoverflow.com/questions/242926/comparison-of-c-unit-test-frameworks)
 
 

@@ -324,6 +324,21 @@ matplotlib.transforms: 用来处理坐标变换相关的问题
 |string_|固定长度字符串|'S'|
 |unicode_|固定长度unicode字符串|'U'|
 
+
+
+‘r’：只读。该文件必须已存在。
+‘r+’：可读可写。该文件必须已存在，写为追加在文件内容末尾。
+‘rb’：表示以二进制方式读取文件。该文件必须已存在。
+‘w’：只写。打开即默认创建一个新文件，如果文件已存在，则覆盖写（即文件内原始数据会被新写入的数据清空覆盖）。
+‘w+’：写读。打开创建新文件并写入数据，如果文件已存在，则覆盖写。
+
+‘wb’：表示以二进制写方式打开，只能写文件， 如果文件不存在，创建该文件；如果文件已存在，则覆盖写。
+'ab': 追加写入二进制文件
+‘a’：追加写。若打开的是已有文件则直接对已有文件操作，若打开文件不存在则创建新文件，只能执行写（追加在后面），不能读。
+
+‘a+’：追加读写。打开文件方式与写入方式和'a'一样，但是可以读。需注意的是你若刚用‘a+’打开一个文件，一般不能直接读取，因为此时光标已经是文件末尾，除非你把光标移动到初始位置或任意非末尾的位置。（可使用seek() 方法解决这个问题，详细请见下文Model 8 示例）
+
+
 # 参考资料
 [anaconda启动非常慢，一直卡在Initializing(看起来没什么用，FQ马上打开了)]https://blog.csdn.net/qq_40051406/article/details/121365478
 [Anaconda超详细安装教程（Windows环境下）]https://blog.csdn.net/fan18317517352/article/details/123035625
@@ -341,7 +356,7 @@ matplotlib.transforms: 用来处理坐标变换相关的问题
 [__pycache__文件夹是什么东西？]https://zhuanlan.zhihu.com/p/476772186
 [Anaconda之导出/导出配置好的虚拟环境](https://blog.csdn.net/qq_43382635/article/details/127124980)
 [EISeg工具对应博文]https://blog.csdn.net/qq_37541097/article/details/120154543
-
+[一篇搞懂python文件读写操作（r/r+/rb/w/w+/wb/a/a+/ab /w/wt / r/rt ）](https://blog.csdn.net/a12355556/article/details/112122670)
 
 
 
