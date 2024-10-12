@@ -8,12 +8,8 @@ tags:
 # GCC介绍
 
 - GCC 原名为 GNU C语言编译器（GNU C Compiler）
-- GCC（GNU Compiler Collection， GNU编译器套件）是由 GNU 开发的编程语言
-译器。 GNU 编译器套件包括 C、 C++、 Objective-C、 Java、 Ada 和 Go 语言前
-端，也包括了这些语言的库（如 libstdc++， libgcj等）
-- GCC 不仅支持 C 的许多“方言”，也可以区别不同的 C 语言标准；可以使用命令行
-选项来控制编译器在翻译源代码时应该遵循哪个 C 标准。例如，当使用命令行参数
-`-std=c99` 启动 GCC 时，编译器支持 C99 标准。
+- GCC（GNU Compiler Collection， GNU编译器套件）是由 GNU 开发的编程语言译器。 GNU 编译器套件包括 C、 C++、 Objective-C、 Java、 Ada 和 Go 语言前端，也包括了这些语言的库（如 libstdc++， libgcj等）
+- GCC 不仅支持 C 的许多“方言”，也可以区别不同的 C 语言标准；可以使用命令行选项来控制编译器在翻译源代码时应该遵循哪个 C 标准。例如，当使用命令行参数`-std=c99` 启动 GCC 时，编译器支持 C99 标准。
 - 安装命令 sudo apt install gcc g++ （版本 > 4.8.5）
 - 查看版本 gcc/g++ -v/--version
 
@@ -54,25 +50,28 @@ gcc 和 g++都是GNU(组织)的一个编译器
 
 |-o [file1][file2] [file2] | 将文件 file2 编译成可执行文件 file1||
 
+```shell
 gcc -o test
-gcc -c -o test
-将main.c和string.c编译成一个执行文件
+gcc -c -o test # 将main.c和string.c编译成一个执行文件
 gcc -o test mian.c string.c
+gcc -O mian.c # 开启编译器优化
+gcc -O0 mian.c # 没有优化
+gcc -O3 mian.c # 优化级别最高
+gcc -g mian.c # 生成调试信息,可以被调试器调试
+gcc -w mian.c # 不生成任何警告信息
+gcc -Wall mian.c # 生成所有警告信息
+gcc -std=c++11 mian.c # 指定C方言
+gcc -fPIC/fpic # 生成与位置无关的代码
+
+```
 
 |指令| 说明|
 |---|---|
 |-I |directory 指定 include 包含文件的搜索目录|
-|---|---|
-|-g |在编译的时候，生成调试信息，该程序可以被调试器调试|
 |-D |在程序编译的时候，指定一个宏|
-|-w |不生成任何警告信息|
-|-Wall| 生成所有警告信息|
-|-O n|n的取值范围： 0~3,编译器的优化选项的4个级别</br> -O 0表示没有优化， -O 1为缺省值， -O 3优化级别最高|
 |-l |在程序编译的时候，指定使用的库|
 |-L |指定编译的时候，搜索的库的路径。|
-|-fPIC/fpic |生成与位置无关的代码|
 |-shared |生成共享目标文件，通常用在建立共享库时|
-|-std |指定C方言，如:-std=c++11， gcc默认的方言是GNU C|
 
 
 # 库文件

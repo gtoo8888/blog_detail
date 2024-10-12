@@ -100,7 +100,7 @@ docker port [容器名]
 
 
 # 参考资料
-[Ubuntu20.04安装docker]https://blog.csdn.net/m0_59092234/article/details/123816391#:~:text=Ubuntu20.04%20%E5%AE%89%E8%A3%85Docker%201859%20%E7%AC%AC%E4%B8%80%E6%AD%A5%EF%BC%9A%201%E3%80%81%E5%85%88%E6%9B%B4%E6%96%B0%E5%BA%93%E6%BA%90%20sudo%20apt-get%20update,2%E3%80%81%E7%84%B6%20%E5%90%8E%20%E7%9B%B4%E6%8E%A5%20sudo%20apt%20install%20docker.io%20%2F3%E3%80%82
+[Ubuntu20.04安装docker]https://blog.csdn.net/m0_59092234/article/details/123816391
 [docker hub]https://hub.docker.com/
 
 

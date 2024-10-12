@@ -100,7 +100,7 @@ https://pypi.org/
 https://anaconda.org/
 https://repo.anaconda.com/archive/
 
-https://zhuanlan.zhihu.com/p/101953103#:~:text=%E9%A6%96%E5%85%88%E8%A7%A3%E5%8E%8B%E6%BA%90%E7%A0%81%E5%8C%85%20%24%20tar%20-Jxvf%20Python-3.8.1.tar.xz%20%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85%20%24.%2Fconfigure%20--prefix%3D%2Fusr%2Flocal%2Fpython3,ln%20-s%20%2Fusr%2Flocal%2Fpython3%2Fbin%2Fpip3.8%20%2Fusr%2Fbin%2Fpip3%20%E5%91%BD%E4%BB%A4%E8%A1%8C%E8%BE%93%E5%85%A5%20python3%20-V%20%E6%9F%A5%E7%9C%8B%E6%98%AF%E5%90%A6%E5%AE%89%E8%A3%85%E6%88%90%E5%8A%9F%E3%80%82
+https://zhuanlan.zhihu.com/p/101953103
 
 https://blog.csdn.net/xiaowenshen/article/details/118760047
 

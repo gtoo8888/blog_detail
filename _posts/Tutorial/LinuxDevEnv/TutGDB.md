@@ -26,15 +26,16 @@ gdb my_exe -tui # 图形化模式，有的不支持
 # 基本操作
 ```shell
 r(run) # 开始运行，从头开始执行
-n(next) # 逐过程【相当于F10，为了查找是哪个函数出错了】
-s(step) # 逐语句【相当于F11，】
+n(next) # 逐过程，相当于F10，为了查找是哪个函数出错了
+s(step) # 逐语句，相当于F11
 fin(finish) # 退出当前函数
 x(examine) # 查看内存
 c(continue) # 从一个断点处，直接运行至下一个断点处【VS下不断按F5】
 l(list) # 列出文件内容，按ENTER继续显示
 b(break) 7 # 设置断点
 q(quite) # 退出
-
+i(info) b # 查看信息
+d(delete) # 删除所有断点
 
 ```
 
@@ -60,9 +61,6 @@ l - # 查看当前行之前
 ```shell
 p(print) CountNum
 p/x CountNum # 按十六进制显示
-info display # 查看变量信息
-display CountNum # 跟踪查看一个变量，每次停下来都显示它的值【变量/结构体…】
-undisplay 1 # 指定不显示的变量的序号
 
 # x 按十六进制格式显示变量
 # d 按十进制格式显示变量
@@ -74,6 +72,42 @@ undisplay 1 # 指定不显示的变量的序号
 # f 按浮点数格式显示变量
 ```
 
+```shell
+info display # 查看变量信息
+display var1 # 跟踪查看一个变量，每次停下来都显示它的值
+display {var1,var2} # 查看多个变量的值
+undisplay 1 # 指定不显示的变量的序号
+
+# disable
+disable display 1 # 使一个自动显示无效
+disable display 1 2 3 # 使多个自动显示无效
+disable display 10-15  # 使一个范围的自动显示无效
+# enable
+enable display 1 # 使一个自动显示有效
+enable display 1 2 3 # 使多个自动显示有效
+enable display 10-15  # 使一个范围的自动显示有效
+# delete
+delete display 1 # 删除编号1的自动显示
+delete display 1 2 3 # 删除多个自动显示，编号1,2,3
+delete display 10-15 # 删除范围自动显示，编号10-15
+```
+
+## 查看内存
+```shell
+x /nfu <addr>
+
+# x 是 examine 的缩写，意思是检查。
+# n表示要显示的内存单元的个数，比如：20
+# f表示显示方式, 可取如下值：
+
+
+# b表示单字节，
+# h表示双字节，
+# w表示四字节，
+# g表示八字节
+
+x /20xh 0x7fffffffe080
+```
 
 # 设置断点
 ```shell
@@ -87,9 +121,8 @@ disable b # 禁用所有断点
 enable 1 # 启用断点
 disable 1 # 禁用断点
 enable once 1  # 启用断点一次
-
-D # 删除所有断点
-
+ignore 1 # 忽略1号断点
+d(delete) # 删除所有断点
 ```
 
 # 保存参数

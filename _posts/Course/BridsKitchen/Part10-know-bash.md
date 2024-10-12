@@ -5,6 +5,33 @@ tags:
 - 鸟哥的Linux私房菜
 ---
 
+### ls     
+列出目录
+### 常用方法
+```bash
+ls -l # 以长格式列出文件
+ls -a # 显示隐藏文件夹
+ls -F # 在文件名后附加分类字符
+
+# 每个目录路径名后面有一个 \，
+# 每个路径名后面的 @ 是一个符号链接，
+# 每个可执行文件后面有一个 *，
+# 每个 FIFO 后面都有一个 |（有关更多信息，请参阅 mkfifo）
+
+ls -C
+ls --color=auto
+```
+### 常用指令
+```bash
+ls -i # 显示inode编号
+ls -d # ????
+ls -R # 递归列出文件
+ls -t # 按修改时间排序条目
+ls -S # 按大小排序条目
+ls -n # 显示数字 UID/GID
+ls -h # 将文件大小显示为可读的格式
+ls -X # 按文件类型分类，分开.c/.h
+```
 
 
 # 10.5 数据流重定向
@@ -114,38 +141,17 @@ sort [-fbMnrtuk] [file or stdin]
 
 |选项 | 含义|
 | ------ | ------ | 
-|-f  |忽略大小写的差异，例如 A 与 a 视为编码相同|
 |-b  |忽略最前面的空格符部分|
 |-M  |以月份的名字来排序，例如 JAN, DEC 等等的排序方法|
-|-n  |使用『纯数字』进行排序(默认是以文字型态来排序的)|
-|-r  |反向排序,原来是从小到大，-r后从大到小|
 |-u  |就是 uniq ，相同的数据中，仅出现一行代表|
-|-t  |分隔符，默认是用 [tab] 键来分隔|
-|-k  |以那个区间 (field) 来进行排序的意思|
 
-```
-sort
-1
-10
-11
-12
-13
-2
-20
-3
-4
-sort -n # 如果不加n，就是用字典序排序了
-1
-2
-3
-4
-10
-11
-12
-13
-20
-sort -rn    
-sort -t ':'  # 用冒号分割
+```bash
+sort # 字典排序，默认1,10,11,100,2,12
+sort -n # 纯数字排序
+sort -k1 # 按区间排序，按照第一列排序
+sort -r # 反向排序
+sort -t ':' # 用冒号分割,默认使用tab
+sort -f # 忽略大小写差异
 ```
 
 ### uniq
@@ -157,7 +163,7 @@ uniq [-ic]
 | -i | 忽略大小写字符的不同行 | 
 | -c | 进行计数 |
 
-```
+```shell
 uniq -c | sort -rn | head -n 5  # 找到次数最多的几个
 ```
 
@@ -170,7 +176,7 @@ wc [-lwm]
 | -w  | 仅列出多少字(英文单字) |
 | -m  | 多少字符 |
 
-```
+```shell
 cat /etc/passwd | wc -l   # 目前你的账号文件中有多少个账号时
 ```
 
@@ -179,10 +185,10 @@ cat /etc/passwd | wc -l   # 目前你的账号文件中有多少个账号时
 
 
 
-# 参考文献
-
-[Linux Shell >/dev/null 2>&1 &含义]https://www.silenceboy.com/2019/04/01/Linux-Shell-dev-null-2-1-%E5%90%AB%E4%B9%89/index.html
-[深入理解Linux shell中2>&1的含义(全网最全，看完就懂)]https://segmentfault.com/a/1190000040086046
+# 参考资料
+[Linux 中的 ls 命令：解释 17 个有用示例](https://cn.linux-console.net/?p=20178)
+[Linux Shell >/dev/null 2>&1 &含义](https://www.silenceboy.com/2019/04/01/Linux-Shell-dev-null-2-1-%E5%90%AB%E4%B9%89/index.html)
+[深入理解Linux shell中2>&1的含义(全网最全，看完就懂)](https://segmentfault.com/a/1190000040086046)
 
 
 

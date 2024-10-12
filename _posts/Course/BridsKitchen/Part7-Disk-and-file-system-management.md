@@ -17,8 +17,8 @@ tags:
 /dev/fdN: 软盘被命名为 fdN
 /dev/scdN or /dev/srN: CD-ROM 被命名为 /dev/scdN 或 /dev/srN
 
-
-# df
+# 7.2 档案系统的简单操作
+## 7.2.1 df
 用于显示目前在 Linux 系统上的文件系统磁盘使用情况统计
 查看一下有没有usb设备在挂载使用
 ```bash
@@ -27,7 +27,7 @@ df -T # 输出文件系统类型
 df -a # 包括伪、重复、不可访问的文件系统
 ```
 
-# du
+## 7.2.1 du
 用于显示目录或文件的大小
 -h以K，M，G为单位，提高信息的可读性
 -s或--summarize 仅显示总计
@@ -39,34 +39,22 @@ du -h myfile # 当前文件夹的总大小
 du -sh * # 查看当前文件夹下每个文件的大小
 ```
 
+# 7.3 磁盘的分割、格式化、检验与挂载
 
-# tar
-压缩与解压，在Unix和类Unix系统中常用的归档工具，用于打包和压缩文件
-## 常用指令
-```bash
-tar -z # 使用gzip压缩算法对tar归档文件进行压缩
-tar -x # 从tar归档文件中提取文件
-tar -v # 显示正在处理的文件的详细信息
-tar -f # 指定要操作的tar归档文件的名称
 
-tar -c # 创建一个新的tar归档文件
-```
-# 不常用指令
-```bash
-tar -r # 将文件追加到现有的tar归档文件中
-tar -t # 列出tar归档文件中的文件
-tar -u # 仅将比归档文件中相应文件更新的文件追加到现有的tar归档文件中
-tar -j # 使用bzip2压缩算法对tar归档文件进行压缩
-```
+7.3磁盘的分割、格式化、检验与挂载
+7.3.1观察磁盘分割状态：，lsblk, blkid, parted
+7.3.2磁盘分割gdisk/fdisk: gdisk，partprobe，fdisk
+7.3.3磁盘格式化（建置档案系统）: mkfs.xfs，mkfs.xfs for raid, mkfs.ext4, mkfs
+7.3.4档案系统检验：xfs_repair，fsck.ext4
+7.3.5档案系统挂载与卸载：mount，umount
+7.3.6磁盘/档案系统参数修订：mknod，xfs_admin, uuidgen, tune2fs
 
-## 常用指令组合
-```bash
-tar -zxvf FileName.tar.gz  # 对.tar.gz解压
-tar -zcvf FileName.tar.gz FileName  # 对FileName的文件打包成.tar.gz格式
-tar -xvf FileName.tar # 
-```
 
-# blkid
+## 7.3.1观察磁盘分割状态
+### 1) lsblk 列出所有磁盘列表
+
+### 2) blkid
 对系统的块设备（包括交换分区）所使用的文件系统类型、LABEL、UUID等信息进行查询
 ```bash
 # 常用指令
@@ -76,7 +64,14 @@ sudo blkid /dev/sdb # 指定设备挂载类型
 sudo blkid -s UUID # 显示所有设备UUID
 sudo blkid -s UUID /dev/sdb # 显示指定设备UUID
 ```
-# fdisk
+
+### 3) parted
+
+## 7.3.2 磁盘分割gdisk/fdisk
+
+### 1) gdisk
+
+### 3）fdisk
 用于磁盘分区的工具，可以创建、编辑、删除和显示硬盘分区
 fdisk创建MBR分区，最大支持2TB
 gdisk创建GPT分区，最大支持18EB，1EB=1024PB，1PB=1024TB
@@ -89,13 +84,13 @@ sudo fdisk /dev/sdb # 进入交互界面，操作扇区
 ```
 
 
-
+## 7.3.2 磁盘分割gdisk/fdisk
 
 # 其他指令
 ln 硬链接
 
 
-lsblk 列出所有磁盘列表
+lsblk 
 
 UUID 全局唯一标识符
 
@@ -132,9 +127,9 @@ e7dac072-5f03-41c4-bca2-0745d8e33c38 /date               ext4    defaults  0    
 Linux dump备份
 fsck选项
 
+
 # 参考资料
 [一种基于内存的文件系统tmpfs](https://www.linuxprobe.com/tmpfs-linux.html)
-[掌握 dd 命令：Linux 系统数据管理的终极工具](https://www.linuxmi.com/linux-dd-command.html)
 [【ubuntu】将磁盘挂载到指定目录并设置开机自动挂载](https://blog.csdn.net/weixin_42301220/article/details/130078734)
 [Linux fdisk命令详解：如何创建、编辑、删除和显示磁盘分区（附实例和注意事项）](https://blog.csdn.net/u012964600/article/details/134603643)
 

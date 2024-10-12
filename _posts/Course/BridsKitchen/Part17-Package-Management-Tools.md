@@ -90,14 +90,39 @@ apt-cache search <search-term> # 全局搜索软件包
 
 
 
+## snap
+
+相较传统 Linux 的 rpm，deb 软件包，在Ubuntu 18.04 / 20.04 LTS 版本的 Ubuntu 系统，引入的新应用格式包snap 包
+```bash
+sudo snap install code # 安装code snap
+sudo snap remove code # 卸载 snap
+snap find code # 搜索 snap
+snap info code # 查看 snap 信息
+snap list --all # 查看已安装的
+snap help
+``` 
 
 
+```bash
+# clean-snap.sh
+# sudo bash clean-snap.sh
+
+#!/bin/bash
+# Removes old revisions of snaps
+# CLOSE ALL SNAPS BEFORE RUNNING THIS
+set -eu
+snap list --all | awk '/disabled/{print $1, $3}' |
+    while read snapname revision; do
+        snap remove "$snapname" --revision="$revision"
+    done
+``` 
 
 
-
-
-
-
+# 参考资料
+[Linux的桌面环境比较与选择（gnome、kde、xfce、lxde 等）](https://blog.csdn.net/daobaqin/article/details/121029653)
+[什么是Snap应用？](https://cn.ubuntu.com/blog/what-is-snap-application)
+[Flatpak vs. Snapcraft：优缺点比较及如何选择](https://www.sysgeek.cn/flatpak-vs-snapcraft/)
+[如何在 Linux 中清理 Snap 包的版本 | Linux 中国](https://zhuanlan.zhihu.com/p/471882972)
 
 
 
