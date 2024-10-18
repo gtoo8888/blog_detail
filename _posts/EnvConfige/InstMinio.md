@@ -8,7 +8,7 @@ tags:
 
 # 安装docker
 1)按指令安装
-```shell
+```bash
 sudo apt-get remove docker docker-engine docker.io
 sudo apt-get update
 sudo apt-get install apt-transport-https ca-certificates curl software-properties-common
@@ -23,7 +23,7 @@ docker version
 
 
 # 安装minio
-```shell
+```bash
 docker run -it -d -p 9000:9000 -p 9001:9001 --name minio \
 -e "MINIO_ACCESS_KEY=minio" \
 -e "MINIO_SECRET_KEY=minio123" \

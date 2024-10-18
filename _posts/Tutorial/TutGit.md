@@ -26,7 +26,7 @@ Initialized empty Git repository in /home/yzx/network/.git/
 无
 3. ```git status```
 查看当前提交的状态
-```
+```shell
 On branch master
 No commits yet
 
@@ -94,7 +94,7 @@ Body 部分是对本次 commit 的详细描述，可以分成多行。下面是�
 步骤5操作过一次以后，下一次就不需要了
 
 输出：
-```
+```bash
 Enumerating objects: 9, done.
 Counting objects: 100% (9/9), done.
 Delta compression using up to 2 threads
@@ -124,14 +124,14 @@ git config --global user.name "XXX"
 git config --global user.email "XXX"
 ## 1.生成公钥：
 git命令：ssh-keygen  -m [密钥格式]  -t [密钥类型]  -C[密钥注解] 
-```
+```bash
 ssh-keygen -m PEM -t ed25519 -C "ujm456@126.com"
 ssh-keygen -m PEM -t ed25519 -C "your.email@example.com" // 创建新的 SSH 私钥与公钥秘钥对，输入你的邮箱作为标签
 Enter file in which to save the key (/Users/you/.ssh/id_rsa): [Press enter] // 推荐使用默认地址
 Enter passphrase (empty for no passphrase): // 此处直接回车即可；若设置密码，则每次使用 SSH 方式推送代码时都会要求输入密码
 ```
 成功之后显示：
-```
+```bash
 Your identification has been saved in /Users/you/.ssh/id_rsa.
 # Your public key has been saved in /Users/you/.ssh/id_rsa.pub.
 # The key fingerprint is:
@@ -193,11 +193,9 @@ git checkout -- filename
 ## git submodule
 当我们的项目很大很复杂的时候，需要将各个模块文件进行抽离，以此来降低项目文件之间的耦合程度。（当然你项目不大不复杂也可以使用，看个人喜好啦！！！）这个时候就可以使用git submodule来对项目文件进行抽离，最终使抽离出来的文件可以单独成为一个git仓库。这样做的好处是整个主项目对抽离出来的子项目（子模块）有依赖关系，却又并不关心子项目（子模块）的内部开发流程细节。
 
-```
-git submodule init
-# 初始化子项目
-git submodule update
-# 对子项目获取远程项目中最新的状态
+```bash
+git submodule init # 初始化子项目
+git submodule update # 对子项目获取远程项目中最新的状态
 ```
 # git rm 
 git rm --cached <File Name>
@@ -241,35 +239,25 @@ git config --global core.autocrlf input
 
 # git branch
 查看当前所在分支 
-
-```git branch -r```
-查看远程有哪些分支
-
-```git branch -v```
-显示当前分支的详细信息
-
-```git branch -d feat-0728```
-删除本地创建的分支
+```bash
+git branch -r # 查看远程有哪些分支
+git branch -v # 显示当前分支的详细信息
+git branch -d feat-0728 # 删除本地创建的分支
+```
 
 # git reset
-```git reset HEAD ```
-恢复已经add的提交
-```git reset HEAD test.cpp```
-指定文件恢复
-
-
-```git reset HEAD^ ```           
-回退所有内容到上一个版本  
-```git reset HEAD^ hello.php  ```    
-回退 hello.php 文件的版本到上一个版本  
-
-
+```bash
+git reset HEAD # 恢复已经add的提交
+git reset HEAD test.cpp # 指定文件恢复
+git reset HEAD^ # 回退所有内容到上一个版本  
+git reset HEAD^ hello.php # 回退 hello.php 文件的版本到上一个版本  
+```
 
 # git 高级技术
 
 ## git log
 
-```
+```bash
 git log --pretty=format:'%h: %s'
 d27f636: test:15
 e54dd6f: test:rebase 12
@@ -281,14 +269,12 @@ ee8c5a3: test:rebase
 46480b8: feat:增加了链接
 7035791: feat:init
 2544c56: Initial commit
+
+git log --pretty=oneline # 只显示一行，详细的
+git log --oneline # 只显示一行
+git log --graph # 显示图形界面
 ```
 
-只显示一行，详细的
-git log --pretty=oneline
-只显示一行
-git log --oneline
-显示图形界面
-git log --graph
 ## git rebase
 
 步骤一：
@@ -331,17 +317,13 @@ git branch
 git commit --amend 
 
 # git stsh 暂存
-暂存命令
-git stash save "暂存的备注"
-直接执行git stash也可以达到暂存的目的，但是连续多次暂存后容易让人混淆哪次暂存了哪些代码
 
-查看暂存记录
-git stash list
-取回暂存代码
-git stash pop
-取消【取消暂存代码】
-
-git reset --hard
+```bash
+git stash save "暂存的备注" # 暂存命令
+git stash list # 查看暂存记录
+git stash pop # 取回暂存代码
+git reset --hard # 取消【取消暂存代码】 
+```
 
 # git gc
 

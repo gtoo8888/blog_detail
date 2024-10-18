@@ -4,6 +4,8 @@ date: 2024-09-27 16:30:11
 tags:
 - 教程
 ---
+
+```bash
 sudo apt-get install subversion
 svn --version
 svn co [URL]
@@ -17,9 +19,10 @@ svn info [repositories]
 
 
 svn help(h)
-
+```
 
 # 常用拉取仓库命令
+```bash
 svn checkout [URL]
 svn info # 什么都不添加，就是本地仓库
 svn info [URL]
@@ -38,15 +41,18 @@ svn checkout(co) [URL] --revision [版本号]
 svn update
 
 svn diff -r r31:r32 src/tc_fun/tc_fun.c
-
+```
 # 本地修改命令
-svn update # 查看当前本地修改
+```bash
+svn update(up) # 将远程仓库同步到本地
+svn update -r 30 # 回退到指定版本
 svn revert # 撤销所有本地修改
 svn revert foo.c # 丢弃对文件的更改
 svn revert --depth=infinity . # 还原整个目录的文件
-
+```
 
 # 查看远程仓库命令
-
+```bash
 svn cat [URL]
 svn list(ls) 
+```

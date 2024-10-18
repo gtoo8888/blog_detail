@@ -66,7 +66,8 @@ git push
 # 参考资料
 
 [如何把自己的代码上传到github上]https://blog.csdn.net/qq_43111389/article/details/125644132
-
+[CodeQL从入门到放弃](https://www.freebuf.com/articles/web/283795.html)
+[关于使用 CodeQL 进行代码扫描](https://docs.github.com/zh/code-security/code-scanning/introduction-to-code-scanning/about-code-scanning-with-codeql)
 
 
 

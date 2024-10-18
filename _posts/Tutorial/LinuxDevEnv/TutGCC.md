@@ -99,11 +99,44 @@ gcc -fPIC/fpic # 生成与位置无关的代码
         - s – 索引
 
 
+# gcov lcov测试代码覆盖率
+
+```shell
+gcc -ftest-coverage test # 在编译的时候产生.gcno文件，它包含了重建基本块图和相应的块的源码的行号的信息。
+gcc -fprofile-arcs test # 在运行编译过的程序的时候，会产生.gcda文件，它包含了弧跳变的次数等信息
 
 
+sudo apt-get install lcov
 
+lcov -c -d build -o test_temp_fun.info
+genhtml -o html_test test_temp_fun.info
+
+
+lcov --capture 
+lcov --directory build 
+lcov --output-file coverage.info
+
+
+lcov --capture \
+     --directory build \
+     --output-file lcov/${test_name_date}_tmp.info \
+
+lcov --remove lcov/${test_name_date}_tmp.info \
+	'*/usr/include/*' '*/usr/lib/*' '*/usr/lib64/*' \
+	'*/usr/local/include/*' '*/usr/local/lib/*' '*/usr/local/lib64/*' \
+	--output-file lcov/${test_name_date}.info \
+
+genhtml -o lcov/${test_name_date}_html lcov/${test_name_date}.info
+```
 
 
 # 参考资料：
 https://www.nowcoder.com/courses/cover/live/504
 [100个gdb小技巧]https://wizardforcel.gitbooks.io/100-gdb-tips/content/index.html
+[GCC常用编译选项](https://zhuanlan.zhihu.com/p/393419013)
+[gcov代码覆盖率测试-原理和实践总结](https://blog.csdn.net/yanxiangyfg/article/details/80989680)
+[man lcov](https://man.archlinux.org/man/lcov.1.en)
+[入掌握lcov工具：代码覆盖率分析与报告生成](https://blog.csdn.net/cnzzs/article/details/141908079)
+
+
+
