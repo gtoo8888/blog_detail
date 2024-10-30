@@ -159,6 +159,24 @@ Backtrace stopped: previous frame identical to this frame (corrupt stack?)
 info sharedlibrary 
 disassemble func # 查看反汇编
 
+
+# gdbserver
+
+
+```shell
+gdbserver 194.168.1.190:6666 infoManager
+
+
+target remote 194.168.1.18:6666
+
+
+
+-exec bt # vscode
+```
+
+
+
+
 # 参考资料
 [GDB: The GNU Project Debugger](https://sourceware.org/gdb/)
 [gdb调试解决找不到源代码的问题](https://blog.csdn.net/albertsh/article/details/107437084)
@@ -177,7 +195,8 @@ disassemble func # 查看反汇编
 [gcov代码覆盖率测试-原理和实践总结](https://blog.csdn.net/yanxiangyfg/article/details/80989680)
 [GDB反向调试：让程序逆序执行，代码调试原来这么简单！体验时光旅行的快感！](https://zhuanlan.zhihu.com/p/673279895)
 [程序挂了，GDB调试只显示问号](https://blog.csdn.net/mseaspring/article/details/106346247)
-
+[用图文带你彻底弄懂GDB调试原理](https://cloud.tencent.com/developer/article/1823078)
+[Debug Console REPL](https://code.visualstudio.com/Docs/editor/debugging#_debug-console-repl)
 
 
 
