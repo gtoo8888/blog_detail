@@ -222,6 +222,6 @@ C:\Users\$用户名\AppData\Roaming\Code【注】这里的“$用户名”根据
 [VSCode配置C/C++环境]https://zhuanlan.zhihu.com/p/87864677
 [VScode配置c/c++环境（无数试错版本）]https://blog.csdn.net/Pretty_Anno/article/details/126978142
 [windwos11没有Hyper-V的解决方法]https://www.jianshu.com/p/96aa6eeacb56
-
+[VSCode插件开发全攻略（一）概览](https://www.cnblogs.com/liuxianan/p/vscode-plugin-overview.html)
 
 

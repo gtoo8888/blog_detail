@@ -17,6 +17,8 @@ make V=1 ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf-
 
 在编译 uboot 之前一定要使用 defconfig 来配置 uboot！
 
+
+# U-Boot主要关心文件夹
 arch
 arch/arm
 arch/arm/cpu
@@ -48,9 +50,27 @@ filter函数
 firstword函数
 export
 
+# U-Boot 启动流程详解
+第三十二章 U-Boot 启动流程详解
 
 
+u-boot.lds
+arch/arm/lib/vectors.S
+u-boot.map
+__image_copy_star
+arch/arm/cpu/armv7/start.S
+cpu_init_cp15
+cpu_init_crit
+_main
+arch/arm/cpu/armv7/lowlevel_init.S 
+arch/arm/cpu/armv7/mx6/soc.c
+arch/arm/lib/crt0.S
+common/init/board_init.c
+include/asm-generic/global_data.h
+ common/board_f.c 
 
+
+sp指针
 
 # 参考资料
 [The U-Boot Documentation](https://docs.u-boot.org/en/latest/index.html)
