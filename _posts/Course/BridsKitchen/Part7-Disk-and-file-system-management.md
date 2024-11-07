@@ -63,6 +63,8 @@ lsblk -d # 仅列出磁盘本身，并不会列出该磁盘的分割数据
 lsblk -f # 同时列出该磁盘内的档案系统名称
 lsblk -i # 使用ASCII的线段输出，不要使用复杂的编码（再某些环境下很有用）
 lsblk -p # 列出该装置的完整文件名！而不是仅列出最后的名字而已。
+
+lsblk -o name,mountpoint,size,uuid # 查看UUID
 ```
 
 ### 2) blkid

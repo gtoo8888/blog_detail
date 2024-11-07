@@ -10,10 +10,21 @@ tags:
 ```shell
 git clone git@github.com:google/googletest.git
 mkdir build && cd build
+cmake ..
 make -j all
 find . -name "*.a" # 查看静态链接库是否生成
 make insatll
 ls -l /user/local/ # 查看是否安装过去了
+```
+
+
+```shell
+# 仅安装
+tar -zxvf googletest-1.15.2.tar.gz
+mkdir build && cd build
+cmake ..
+make -j all
+make insatll
 ```
 
 # 2. demo测试

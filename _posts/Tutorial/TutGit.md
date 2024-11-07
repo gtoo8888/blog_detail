@@ -18,7 +18,7 @@ tags:
 git初始化
 输出：
 ```
-Initialized empty Git repository in /home/yzx/network/.git/
+Initialized empty Git repository in /home/user/network/.git/
 ```
 2. ```git add .```
 提交所有的内容
@@ -253,6 +253,58 @@ git reset HEAD^ # 回退所有内容到上一个版本
 git reset HEAD^ hello.php # 回退 hello.php 文件的版本到上一个版本  
 ```
 
+# git remote
+```bash
+git remote # 列出当前仓库中已配置的远程仓库。
+git remote -v # 列出当前仓库中已配置的远程仓库，并显示它们的 URL。
+# 添加一个新的远程仓库。指定一个远程仓库的名称和 URL，将其添加到当前仓库中。
+git remote add <remote_name> <remote_url> 
+git remote add origin https://github.com/user/repo.git
+git remote rename origin new-origin
+git remote remove new-origin
+# 修改指定远程仓库的 URL
+git remote set-url <remote_name> <new_url>
+git remote set-url origin https://github.com/user/new-repo.git 
+git remote show origin 
+```
+# 搭建自己git服务器
+
+简单的git服务器搭建
+```bash
+git init --bare tm_gtest.git # 裸仓库，在服务器上看不到文件内容
+git remote add gtest my_ubuntu_name@192.168.56.102:/date_sdb/soft/1_git_save/tm_gtest.git # 本地仓库和远端关联
+git remote -v # 查看关联情况
+git push --set-upstream gtest master # 设定推送的分支
+git clone my_ubuntu_name@192.168.56.102:/date_sdb/soft/1_git_save/tm_gtest.git # 拉取尝试
+```
+
+
+新增用户操作，专门用户git
+```bash
+cat /etc/group # 查看用户组
+cat /etc/passwd
+group # 查看用户组
+sudo mkdir -p /home/git_test
+sudo useradd git_test
+sudo passwd git_test
+sudo userdel git_test
+sudo userdel -r git_test # 删除用户文件夹
+sudo vim /etc/sudoers # 让此用户有root权限
+# User privilege specification
+root ALL=(ALL) ALL
+username ALL=(ALL) ALL
+su git_test
+su - root # 切换用户之后使用新用户的工作环境
+echo $SHELL # 查看当前使用shell
+usermod -s SHELL USER # 更改用户默认 Shell
+usermod -s /bin/bash git_test
+```
+操作失败，报错
+fatal: protocol error: bad line length character:
+fatal: The remote end hung up unexpectedly
+
+
+
 # git 高级技术
 
 ## git log
@@ -277,21 +329,27 @@ git log --graph # 显示图形界面
 
 ## git rebase
 
-步骤一：
-git rebase -i [startPonit] [endPoint]
-一般不使用endPoint
+```bash
+git config --global core.editor nano
+git config --global core.editor vim
+
+git rebase -i 63b4eec7eb2769d246ca2e0f34c72223a7d1a313 efed4109506a74d644613f82a9cfaa6ff3dc5aef
+
+# 使用流程
+# 步骤一
+git rebase -i [startPonit] [endPoint] # 一般不使用endPoint
 git rebase -i ee8c5a3
 (ee8c5a3,d27f636]
 (test:rebase,test:15]
-步骤二：
+# 步骤二：
 接下来进入图形界面
 p 选择
 s 放弃
-步骤二：
+# 步骤三：
 图形界面2
 注释掉不想要提交的
 :wq退出
-
+```
 ## 报错解决
 报错：
 fatal: You are not currently on a branch.
@@ -392,4 +450,7 @@ https://blog.csdn.net/u014361280/article/details/109703556
 [Good First Issue]https://goodfirstissue.dev/language/cplusplus/
 [ssh远程连接主机报错:Someone could be eavesdropping on you right now (man-in-the-middle attack)!](https://blog.csdn.net/qq_36393978/article/details/118334076)
 [git clone —recursive 快速高效下载方法](https://zhuanlan.zhihu.com/p/361136073)
+[搭建属于你自己的 Git 服务器](https://zhuanlan.zhihu.com/p/40371444)
+[在Ubuntu服务器搭建Git仓库，以及Git使用基本流程](https://blog.csdn.net/Xiaolan_2001/article/details/138717023)
+[最简单的 Git 服务器](https://www.ruanyifeng.com/blog/2022/10/git-server.html)
 

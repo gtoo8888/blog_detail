@@ -404,10 +404,10 @@ crontab -r             #删除当前用户的计划任务文件
 SHELL=/bin/bash
 PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/date_sdb/soft/0-my_test
 
-# log path /tmp/yzx_log
+# log path /tmp/test_log
 # */2 *  *  *  * ls 
 # *  *  *  *  * ls >> /tmp/load.log  2>&1
-0,15,30,45  *  *  *  * svn_update.sh >> /tmp/yzx_log/svn_update.log  2>&1
+0,15,30,45  *  *  *  * svn_update.sh >> /tmp/test_log/svn_update.log  2>&1
 ```
 
 
