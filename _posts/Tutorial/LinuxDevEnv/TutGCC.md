@@ -130,13 +130,44 @@ genhtml -o lcov/${test_name_date}_html lcov/${test_name_date}.info
 ```
 
 
-# 参考资料：
+
+# gcovr 测试代码覆盖率
+
+```shell
+gcc -ftest-coverage test # 在编译的时候产生.gcno文件，它包含了重建基本块图和相应的块的源码的行号的信息。
+gcc -fprofile-arcs test # 在运行编译过的程序的时候，会产生.gcda文件，它包含了弧跳变的次数等信息
+
+
+sudo apt-get install gcovr
+
+gcovr --html-details coverage.html # 生成HTML报告，--output是可选的，默认是html
+gcovr --html-details coverage.html # 将带注释的源代码报告添加到 HTML 报告。隐含 --html
+
+--xml-pretty  # Cobertura XML  报告
+--exclude-unreachable-branches # 从没有有用源代码的行中排除分支覆盖率（通常是编译器生成的“死”代码）
+--print-summary # 将带有线路&功能&分支百分比覆盖率的小报告打印到标准输出可选部分是决策和呼叫覆盖率。这是对其他报告的补充。
+
+
+--gcov-filter <gcov_filter>
+--gcov-exclude <gcov_exclude>
+--gcov-exclude-directories <gcov_exclude_dirs>, --exclude-directories <gcov_exclude_dirs>
+-f <filter>, --filter <filter> # 过滤文件夹得使用这个
+-e <exclude>, --exclude <exclude>
+
+```
+
+
+# 参考资料
 https://www.nowcoder.com/courses/cover/live/504
 [100个gdb小技巧]https://wizardforcel.gitbooks.io/100-gdb-tips/content/index.html
 [GCC常用编译选项](https://zhuanlan.zhihu.com/p/393419013)
 [gcov代码覆盖率测试-原理和实践总结](https://blog.csdn.net/yanxiangyfg/article/details/80989680)
+
+## lcov
 [man lcov](https://man.archlinux.org/man/lcov.1.en)
 [入掌握lcov工具：代码覆盖率分析与报告生成](https://blog.csdn.net/cnzzs/article/details/141908079)
 
-
+## gcovr
+https://gcovr.com/en/stable/manpage.html
+https://blog.csdn.net/whahu1989/article/details/121296840
 

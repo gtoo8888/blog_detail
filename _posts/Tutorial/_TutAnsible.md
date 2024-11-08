@@ -53,7 +53,7 @@ ansible-playbook -i install_host install.yml -v
 
 
 
-# 参考文献
+# 参考资料
 [ Ansible中文权威指南]http://www.ansible.com.cn/docs/playbooks.html
 
 

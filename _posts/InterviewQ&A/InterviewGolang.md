@@ -78,7 +78,7 @@ chan关键字
 多进程go机制
 
 
-# 参考文献
+# 参考资料
 [全面的golang教程]http://c.biancheng.net/golang/
 [defer关键字]https://tiancaiamao.gitbooks.io/go-internals/content/zh/03.4.html
 [GORM docs]https://gorm.io/zh_CN/docs/index.html

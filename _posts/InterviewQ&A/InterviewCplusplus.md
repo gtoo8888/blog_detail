@@ -91,7 +91,7 @@ Peterson算法是一个实现互斥锁的并发程序设计算法，可以控制
 
 
 
-# 参考文献：
+# 参考资料
 
 https://blog.51cto.com/danlove/2049403
 

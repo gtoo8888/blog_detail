@@ -84,7 +84,7 @@ BIN_SRCS := $(filter-out bin/test.cc, $(BIN_SRCS)) # 单独去掉bin/test.cc
 ```
 
 
-# 参考文献
+# 参考资料
 https://blog.csdn.net/yi412/article/details/69941791
 https://blog.csdn.net/marc07/article/details/62885868
 

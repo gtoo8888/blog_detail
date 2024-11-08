@@ -74,7 +74,7 @@ sudo apt-get install automake autoconf g++ libtool cmake
 
 # NSIS
 
-# 参考文献
+# 参考资料
 [使用Navicat分析SQL性能]https://blog.csdn.net/weixin_43416686/article/details/121037223
 
 

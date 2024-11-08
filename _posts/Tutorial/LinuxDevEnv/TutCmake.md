@@ -256,7 +256,7 @@ CMAKE_BUILD_TYPE
 4. CMAKE_<LANG>_COMPILER
    1. CMAKE_C_COMPILER
 
-# 参考文献
+# 参考资料
 [CMake org](https://cmake.org/)
 [CMake Reference Documentation — CMake latest Documentation](https://cmake.org/cmake/help/git-master/index.html)
 [Getting Started with CMake](https://cmake.org/getting-started/)

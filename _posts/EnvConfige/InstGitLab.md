@@ -5,6 +5,18 @@ tags:
 - 环境配置
 ---
 
+# 主流的git托管工具
+
+1. github
+2. gitlab
+3. Gitea
+4. Gogs
+
+
+## 国产
+
+1. gitee
+2. gitcode
 
 # 安装gitlab
 
@@ -83,6 +95,20 @@ git push --tags
 git tag -a gtest -m 'version 0.1'
 git push origin --tags
 
+
+# 常用变量
+```bash
+
+${CI_JOB_NAME}
+${CI_COMMIT_REF_NAME}
+${CI_COMMIT_SHA}
+${CI_PROJECT_PATH}
+${CI_JOB_STARTED_AT}
+${CI_PIPELINE_CREATED_AT}
+${CI_COMMIT_TIMESTAMP}
+${CI_COMMIT_REF_SLUG}
+
+```
 # 进入gitlab操作步骤
 
 1. 登录，修改密码
@@ -101,5 +127,14 @@ https://blog.csdn.net/leitingvre/article/details/108938882
 [花了两天，搞了Gitlab-Runner CI/CD实现自动化部署，可比Jenkins香太多啦！！！！](https://blog.csdn.net/Lee_SmallNorth/article/details/109382552)
 [GitLab Runner 命令 ](https://gitlab.cn/docs/runner/commands/)
 [测试覆盖率可视化](https://gitlab.cn/docs/jh/ci/testing/test_coverage_visualization.html#cc-%E7%A4%BA%E4%BE%8B)
+[Explore projects - GitLab](https://gitlab.com/explore)
+
+https://crowdin.com/
+https://translate.gitlab.com/
+
+
+[作业产物](https://gitlab.cn/docs/jh/ci/jobs/job_artifacts.html)
+[极狐GitLab CI/CD](https://gitlab.cn/docs/jh/ci/)
+
 
 

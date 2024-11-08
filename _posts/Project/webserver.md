@@ -199,107 +199,11 @@ int main() {
 
 
 
-
-
-
-
-
-
-
-
-如果你想开始学习FFmpeg，以下是一些步骤：
-
-1. 了解FFmpeg的基本概念和术语，例如：编解码器、格式、滤镜、muxer、demuxer等等。
-
-2. 下载FFmpeg的源代码或预编译版本。你可以从FFmpeg官方网站或其他可靠的下载站点获取。
-
-3. 安装FFmpeg。如果你下载的是源代码，你需要编译和安装它。如果你下载的是预编译版本，则可以直接解压缩并安装。
-
-4. 学习如何使用FFmpeg。你可以从官方文档、教程、博客、视频教程等资源中获取信息。
-
-5. 练习使用FFmpeg。尝试使用不同的命令行选项和参数，以及不同的输入和输出格式。你可以使用一些示例文件进行测试。
-
-6. 加入FFmpeg社区。你可以参与FFmpeg的邮件列表、IRC频道、论坛等社区，与其他用户交流和分享经验。
-
-总之，学习FFmpeg需要耐心和实践，如果你坚持下去，你会逐渐掌握它的技能并成为一个专业的视频处理人员。
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-以下是一些学习FFmpeg的参考资料：
-
-1. FFmpeg官方文档：https://ffmpeg.org/documentation.html
-
-2. FFmpeg官方wiki：https://trac.ffmpeg.org/wiki
-
-3. FFmpeg命令行参数手册：https://ffmpeg.org/ffmpeg.html
-
-4. FFmpeg格式和编解码器支持列表：https://ffmpeg.org/general.html#Supported-File-Formats-Codecs-and-Protocols
-
-5. FFmpeg滤镜手册：https://ffmpeg.org/ffmpeg-filters.html
-
-6. FFmpeg教程和示例代码：https://www.ffmpeg.org/documentation.html#Examples
-
-7. FFmpeg中文文档：https://www.ffmpeg.org.cn/
-
-8. FFmpeg视频处理实战：https://github.com/leandromoreira/ffmpeg-libav-tutorial
-
-9. FFmpeg常见问题解答：https://trac.ffmpeg.org/wiki/FAQ
-
-希望这些资料对你有所帮助，祝学习愉快！
-
-
-
-
-
-
-
-
-
-
-
-如果你想阅读 FFmpeg 的源代码，可以按照以下步骤开始：
-
-1. 先从官方网站下载最新的 FFmpeg 源代码。
-
-2. 阅读 FFmpeg 的文档，了解 FFmpeg 的基本概念、编译方式、命令行参数等。
-
-3. 阅读 FFmpeg 的主要源文件，包括 libavcodec、libavformat、libavutil 等。
-
-4. 学习 FFmpeg 的 API，了解如何使用 FFmpeg 的库函数来实现音视频的编解码、格式转换等功能。
-
-5. 阅读 FFmpeg 的示例代码，了解如何使用 FFmpeg 的 API 来实现常见的音视频处理任务。
-
-6. 参考 FFmpeg 的开发文档，了解如何贡献代码、提交补丁等。
-
-总之，要深入理解 FFmpeg 的源代码，需要花费大量的时间和精力，需要掌握 C 语言、音视频编解码、多媒体格式等多个领域的知识。
-
-
-
-
-
-
-
 libavcodec是FFmpeg中的一个库，它是一个编解码器库，提供了对各种音视频编码和解码的支持。它包含了多种音视频编解码器，如H.264、MPEG-4、MPEG-2、VP9、AAC、MP3等。在FFmpeg中，libavcodec是非常重要的一部分，它提供了FFmpeg的核心功能之一，即音视频的编解码功能。
 
 libavcodec可以将各种不同格式的音视频数据解码成FFmpeg内部的统一格式，也可以将FFmpeg内部的统一格式编码成各种不同格式的音视频数据，支持多种音视频编解码标准，同时具有高度的可扩展性和灵活性。此外，libavcodec还提供了一些优化的编解码实现，可以提高音视频编解码的效率。
 
 在使用libavcodec时，我们可以通过调用其提供的API来完成音视频的编解码工作，同时也可以进行一些高级的音视频处理，如滤波、裁剪、缩放、色彩空间转换等。总之，libavcodec是FFmpeg中非常重要的一部分，它为FFmpeg提供了强大的音视频编解码能力，是众多音视频应用的重要基础。
-
 
 
 
@@ -316,7 +220,7 @@ libavcodec可以将各种不同格式的音视频数据解码成FFmpeg内部的�
 这些仓库都提供了丰富的文档、示例代码和API，可以根据自己的需求进行定制和修改。
 
 
-# 参考文献
+# 参考资料
 
 [日志系统]https://mp.weixin.qq.com/s?__biz=MzI3NzE0NjcwMg==&mid=2650122657&idx=1&sn=c5ce1d8059c40e4cd6deb42a34f8fe49&chksm=f36bb480c41c3d96f69a9fbbc8e7e1515b8bbec87742f76fa3dfda0019a7b58aa282c3ef9bde&scene=21#wechat_redirect
 [Reactor模型和Proactor模型]https://cloud.tencent.com/developer/article/1488120

@@ -104,8 +104,10 @@ alt+KO可以打开新页面
 sticky scroll
 打开以后会把函数名进行附着
 
-# 参考文献
+
+# 参考资料
 
 [VS Code 快捷键使用小技巧](https://zhuanlan.zhihu.com/p/22880087)
 [在VScode中，代码提示左边的图标各自代表的含义]https://blog.csdn.net/qq_42838904/article/details/108222619
 [Sticky Scroll in vscode]https://dev.to/this-is-learning/sticky-scroll-in-vscode-44h2
+

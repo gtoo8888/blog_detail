@@ -157,7 +157,7 @@ recursive_mutex
 # 精确到ns的计时方法
 std::chrono
 
-# 参考文献：
+# 参考资料
 [C++ explicit 关键字]https://zhuanlan.zhihu.com/p/52152355
 [解决 VSCode 编写 C++11 代码报红问题]https://blog.csdn.net/weixin_42292229/article/details/113767569
 [C++11 带来的新特性 （3）—— 关键字noexcept]https://www.cnblogs.com/sword03/p/10020344.html

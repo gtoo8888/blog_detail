@@ -215,7 +215,7 @@ Config::Config(){
 [md文件编写可以使用在线所见即所得编辑器](https://www.zybuluo.com/mdeditor)
 
 
-# 参考文献
+# 参考资料
 https://shd101wyy.github.io/markdown-preview-enhanced/#/zh-cn/markdown-basics
 https://www.jianshu.com/p/280c6a6f2594
 [md文件编写可以使用在线所见即所得编辑器]https://www.zybuluo.com/mdeditor

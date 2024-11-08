@@ -42,7 +42,7 @@ iconv -l
 
 cpio
 
-# 参考资料：
+# 参考资料
 [libc、glibc和glib的关系](https://blog.csdn.net/yasi_xi/article/details/9899599)
 [glibc源码分析（一）系统调用](https://zhuanlan.zhihu.com/p/28984642)
 

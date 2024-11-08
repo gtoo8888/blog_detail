@@ -109,7 +109,7 @@ t get endpoints
 
 kubectl get pod -A
 
-# 参考文献
+# 参考资料
 [大佬做的笔记]https://www.yuque.com/fairy-era/yg511q/szg74m
 [备份etcd](https://www.cnblogs.com/paul8339/p/15629241.html)
 [kubernetes之StatefulSet详解]https://www.cnblogs.com/tylerzhou/p/11027559.html

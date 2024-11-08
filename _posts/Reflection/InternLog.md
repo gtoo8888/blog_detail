@@ -61,7 +61,7 @@ tags:
 
 
 
-# 参考文献
+# 参考资料
 [mysql和sqlserver删除指定条数的数据记录，mysql delete limit和sqlserver delete top]https://blog.csdn.net/guangmo0123/article/details/109353553
 [mysql 中数据表 DATA_LENGTH & INDEX_LENGTH]http://dbaselife.com/project-7/doc-1112/
 [mySQL 数据类型]https://www.runoob.com/mysql/mysql-data-types.html

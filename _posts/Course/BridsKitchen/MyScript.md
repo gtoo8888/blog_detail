@@ -37,7 +37,7 @@ set -o pipefail # 管道中的每个错误都会显示
 
 
 
-# 参考文献
+# 参考资料
 [cat << EOF]https://www.jianshu.com/p/df07d8498fa5
 [Bash 脚本 set 命令教程](https://www.ruanyifeng.com/blog/2017/11/bash-set.html)
 

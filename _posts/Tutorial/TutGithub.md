@@ -61,6 +61,47 @@ git commit -m "init"
 
 git push
 
+# 常见概念
+
+
+## Issue 议题
+
+## Milestones 里程碑
+
+## Labels 标签
+
+标签类型：
+1. bug 
+   1. Something isn't working
+   2. #d73a4a
+2. feature 
+   1. #84b6eb
+3. future
+4. question
+   1. Further information is requested
+   2. #d876e3
+5. duplicate 
+   1. This issue or pull request already exists
+   2. #cfd3d7
+6. documentation 
+   1. Improvements or additions to documentation
+   2. #0075ca
+7. enhancement
+   1. New feature or request
+   2. #a2eeef
+8. test
+   1. #009966
+9. ci
+   1.  #eee600
+
+
+low priority
+#9400d3
+medium priority
+#ed9121
+high priority
+#dc143c
+
 
 
 # 参考资料

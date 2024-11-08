@@ -23,7 +23,7 @@ objdump
 就说没看过 
 
 
-# 参考文献
+# 参考资料
 [字节跳动 基础架构 分布式存储 日常实习 二面挂经]https://articles.zsxq.com/id_1zq91uc3zg46.html
 [WebServer服务器项目可能会被问到的问题（一）]https://www.nowcoder.com/discuss/934904?type=all&order=recall&pos=&page=2&ncTraceId=&channel=-1&source_id=search_all_nctrack&gio_id=939FED971E9FCC25B724B4054BF9953A-1661177959694
 [c++ Lambda表达式使用过程中可能遇到的坑]https://juejin.cn/post/6844903879818084359

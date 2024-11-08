@@ -150,9 +150,16 @@ b .    ;死循环。"."--表示当前地址。
 b reset    ;跳入reset处理程序
 bl label    ;跳入label函数，同时将当前PC-4保存到R14中
 
+# 汇编相关
+DOSBox 
 
+编译器
+MASM
+TASM
 
-# 参考文献：
+MASM.EXE 是用来编译的，LINK.EXE 用来链接
+
+# 参考资料
 [ARM全汇编指令（详细）整理附实例快速掌握](https://blog.csdn.net/Luckiers/article/details/128221506)
 [ARM Architecture Reference Manual ARMv7-A and ARMv7-R edition](https://developer.arm.com/documentation/ddi0406/cd/?lang=en)
 [Getting Started with Arm Assembly Language](https://developer.arm.com/documentation/107829/0200?lang=en)

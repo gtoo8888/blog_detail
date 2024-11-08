@@ -250,7 +250,7 @@ profile：改变个人信息
 ### 改变每页的文章数目
 per_page: 20
 
-# 参考文献
+# 参考资料
 [B站羊哥的教程]https://www.bilibili.com/video/BV1Yb411a7ty?spm_id_from=333.337.search-card.all.click&vd_source=76dff3ae3b42b00d067c0921bf6859ca
 [官方的链接参考] https://hexo.io/zh-cn/docs/commands.html
 hexo下Markdown语法失效总结 https://blog.csdn.net/weixin_42932905/article/details/106153679?utm_medium=distribute.pc_aggpage_search_result.none-task-blog-2~aggregatepage~first_rank_ecpm_v1~rank_v31_ecpm-1-106153679.pc_agg_new_rank&utm_term=hexo+markdown%E4%B8%8D%E7%94%9F%E6%95%88&spm=1000.2123.3001.4430

@@ -22,7 +22,7 @@ Dism /online /enable-feature /featurename:Microsoft-Hyper-V-All /LimitAccess /AL
 
 
 
-# 参考文献
+# 参考资料
 
 [windwos11没有Hyper-V的解决方法]https://www.jianshu.com/p/96aa6eeacb56
 

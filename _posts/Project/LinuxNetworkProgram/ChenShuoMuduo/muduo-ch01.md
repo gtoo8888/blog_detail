@@ -180,7 +180,7 @@ make
 
 
 
-# 参考文献
+# 参考资料
 陈硕的博客 https://www.cnblogs.com/Solstice/archive/2011/02/02/1948814.html
 陈硕的csdn https://blog.csdn.net/Solstice?type=blog
 陈硕的课程主页 http://chenshuo.com/practical-network-programming/

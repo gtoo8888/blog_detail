@@ -8,7 +8,7 @@ tags:
 
 https://www.redis.com.cn/redis-installation-on-ubuntu.html
 
-# 参考文献
+# 参考资料
 [CAP理论]https://cloud.tencent.com/developer/article/1860632
 [CAP 定理的含义- 阮一峰的网络日志]https://www.ruanyifeng.com/blog/2018/07/cap.html
 http://erdengk.top/archives/jian-li--mian-shi
@@ -274,6 +274,20 @@ up/down;
 
 html链接中需要删除
 #:~:text=
+
+
+# 桌面软件开发用什么语言好？
+PySide
+C++
+C#
+MFC
+QT (C++)
+Electron
+Python (with PyQt or wxPython)
+Flutter
+Kotlin Multiplatform
+Delphi7
+易语言
 
 # 参考资料
 [TLL模块烧坏](https://blog.csdn.net/fangye945a/article/details/118856004)

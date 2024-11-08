@@ -425,7 +425,7 @@ git submodule update --init --recursive
 
 
 
-# 参考文献
+# 参考资料
 [GIT在线练习平台]https://learngitbranching.js.org/?locale=zh_CN
 https://blog.csdn.net/ajianyingxiaoqinghan/article/details/70544159
 https://blog.csdn.net/u014361280/article/details/109703556

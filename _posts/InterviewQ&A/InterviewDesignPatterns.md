@@ -90,7 +90,7 @@ adaptee是：deque
 
 
 
-# 参考文献：
+# 参考资料
 
 https://blog.csdn.net/chenxun_2010/article/details/48383571
 https://blog.csdn.net/llg070401046/article/details/73323934

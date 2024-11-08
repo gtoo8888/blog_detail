@@ -472,7 +472,7 @@ df /dev/sda2
 
 
 
-# 参考文献
+# 参考资料
 [查看linux用户密码]https://blog.csdn.net/feikillyou/article/details/109129870
 [chrony]https://www.cnblogs.com/my-show-time/p/14658895.html
 [linux kernel文档]https://www.kernel.org/doc/html/v5.4/admin-guide/sysctl/kernel.html
