@@ -60,7 +60,12 @@ tsc -v
 
 什么反应没有，vscode版本不匹配
 
+# electron
 
+
+```bash
+npm install -g electron
+```
 
 
 # 参考资料
