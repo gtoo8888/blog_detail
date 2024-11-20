@@ -120,3 +120,18 @@ Docker源码分析
 形式语言与自动机
 可计算性理论
 正则表达式
+
+
+# shell脚本
+Linux命令行与shell脚本编程大全（第3版）
+Linux Shell脚本攻略
+Advanced Bash-Scripting Guide.
+sed and awk 101 hacks
+
+
+# Rust
+入门：Rust语言圣经
+进阶: Rust死灵书
+再进阶: Rust for Rustaceans
+Rust 程序设计 第二版
+Rust 入门秘籍

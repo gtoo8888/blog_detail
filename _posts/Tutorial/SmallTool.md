@@ -74,9 +74,39 @@ sudo apt-get install automake autoconf g++ libtool cmake
 
 # NSIS
 
+
+
+doxygen
+Sumatra PDF
+obsidian
+visual svn
+
+
+# 清理存储空间
+## Ubuntu清理
+
+## Windows清理
+C:\Users\<User>\AppData\Local\pip\cache
+C:\Users\<User>\AppData\Local
+C:\Users\<User>\AppData\Local\TslGame\Saved\Crashes
+C:\Users\<User>\AppData\Local\Temp
+C:\Users\<User>\.gradle
+
+## 通用大文件
+
+### 1. vscode
+### 2. python包管理
+pip cache
+pip cache dir purge
+pip cache info
+
 # 参考资料
 [使用Navicat分析SQL性能]https://blog.csdn.net/weixin_43416686/article/details/121037223
-
+## 清理存储空间
+[如何清除 Pip 缓存？从而优化 Python 环境并释放磁盘空间](https://cloud.tencent.com/developer/article/2323457)
+[Windows上pip缓存](https://blog.csdn.net/weixin_45653897/article/details/131254542)
+[gradle瘦身/删除没有用的文件](https://blog.csdn.net/gqg_guan/article/details/130160022)
+[轻量级的VsCode为何越用越大？为什么吃了我C盘10G？如何无痛清理VsCode缓存？手把手教你为C盘瘦身](https://blog.csdn.net/Tisfy/article/details/126082324)
 
 
 

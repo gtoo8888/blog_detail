@@ -9,7 +9,7 @@ tags:
 # docker 安装教程
 
 # 一、docker 镜像命令
-
+```bash
 ## 镜像查看
 docker images -a            #列出本地所有的镜像
 docker images -q            #只显示镜像ID
@@ -62,15 +62,12 @@ docker rmi -f java
 docker rmi -f java tomcat nginx
 #删除本地全部镜像
 docker rmi -f $(docker images -q)
-
+```
 # 二、docker 容器命令
-
+```bash
 ## 查看容器
-查看正在运行容器列表
-docker ps
-查看所有容器 -----包含正在运行 和已停止的
-docker ps -a
-
+docker ps # 查看正在运行容器列表
+docker ps -a # 查看所有容器 
 
 ## 停止容器
 docker stop 容器名/容器ID
@@ -85,22 +82,75 @@ docker start t1
 
 
 ## 删除容器
-#删除一个容器
-docker rm -f 容器名/容器ID
-#删除多个容器 空格隔开要删除的容器名或容器ID
-docker rm -f 容器名/容器ID 容器名/容器ID 容器名/容器ID
-#删除全部容器
-docker rm -f $(docker ps -aq)
+docker rm -f ubuntu:v1.0 #删除一个容器
+docker rm -f ubuntu:v1.1 ubuntu:v1.2  #删除多个容器 空格隔开要删除的容器名或容器ID
+docker rm -f $(docker ps -aq) #删除全部容器
 
 ## 查看容器端口映射
 
-docker port [容器名]
-需要这个容器被启动，才能查看到他的端口映射情况
+docker port [容器名] # 需要这个容器被启动，才能查看到他的端口映射情况
+```
 
+
+# build
+```bash
+# 常用指令
+docker build -t ubuntu:v1.0  # 构建的容器名称和tag
+docker build -f Dockerfile2 # 依据指定的文件名称构建
+docker build -q # 静默输出
+
+
+
+# 常用组合指令
+
+docker build -t ubuntu:v1.0 -f Dockerfile2 
+
+```
+
+## 常用指令
+
+```bash
+
+
+docker run --name my_u1 -dit u:v1.1 /bin/bash
+
+
+
+```
+
+# 新的参考资料
+ubunut:Alpine # 最精简的ubuntu包
+
+```bash
+docker pull docker.unsee.tech/istio/distroless
+vim /etc/docker/daemon.json
+
+{
+   "registry-mirrors": [
+      "https://docker.unsee.tech"
+   ]
+}
+sudo systemctl daemon-reload && sudo systemctl restart docker
+
+docker pull ubuntu:20.04
+
+docker run  --name my_ubuntu -dit ubuntu:20.04 /bin/bash
+
+docker exec -it my_ubuntu bash
+
+docker info
+
+查看docker存储默认位置
+
+/var/lib/docker
+/var/lib/docker/image/
+```
+/var/lib/docker
 
 
 # 参考资料
 [Ubuntu20.04安装docker]https://blog.csdn.net/m0_59092234/article/details/123816391
 [docker hub]https://hub.docker.com/
-
+[聊聊 Docker 的存储 Overlay2](https://zhuanlan.zhihu.com/p/587283618)
+[Docker-Docker镜像存储位置(Windows/Mac/Linux)](https://blog.csdn.net/qq_24256877/article/details/123033703)
 

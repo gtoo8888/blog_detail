@@ -67,7 +67,8 @@ SOLID指代了**面向对象编程**和**面向对象设计**的五个基本原�
 工厂在这里面起的作用，就是隐藏了创建过程的复杂度，以配合InterfaceA对那一百个子类的复杂度进行隐藏，这样B只要知道上转型之后的InterfaceA即可，简单清晰。
 
 # 参考资料
-https://blog.csdn.net/weixin_42636062/category_11313224.html?spm=1001.2014.3001.5482
+[weixin_42636062的博客 C++设计模式](https://blog.csdn.net/weixin_42636062/category_11313224.html)
+
 
 
 

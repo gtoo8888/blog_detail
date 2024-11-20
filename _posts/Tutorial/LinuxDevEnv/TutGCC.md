@@ -157,6 +157,19 @@ gcovr --html-details coverage.html # 将带注释的源代码报告添加到 HTM
 ```
 
 
+# tmpfile
+
+gcc默认目录
+/usr/include;/usr/local/include;/usr/lib/gcc/x86_64-linux-gnu/5/include
+
+/usr/include;
+/usr/local/include;
+/usr/lib/gcc/x86_64-linux-gnu/5/include
+
+
+gcc -print-search-dirs  # 默认的搜索路径
+
+
 # 参考资料
 https://www.nowcoder.com/courses/cover/live/504
 [100个gdb小技巧]https://wizardforcel.gitbooks.io/100-gdb-tips/content/index.html

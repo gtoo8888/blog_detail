@@ -226,4 +226,5 @@ libavcodec可以将各种不同格式的音视频数据解码成FFmpeg内部的�
 [Reactor模型和Proactor模型]https://cloud.tencent.com/developer/article/1488120
 [Reactor模型]https://www.cnblogs.com/CodeBear/p/12567022.html
 [epoll 事件之 EPOLLRDHUP]https://yangwenbo.com/articles/epoll-event-epollrdhup.html
+[在 ubuntu 上安装 Redis](https://www.redis.com.cn/redis-installation-on-ubuntu.html)
 

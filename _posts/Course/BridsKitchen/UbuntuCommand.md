@@ -452,8 +452,15 @@ ls -t $DIR/*_timedata.db | sed -e '1,10d' | xargs rm
 按时间排序，1-10行删除掉
 
 
+# 查看系统参数
+```shell
+cat /etc/os-release
+lsb_release -a
+hostnamectl
+uname -a
+getconf LONG_BIT
 
-
+```
 
 
 

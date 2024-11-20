@@ -66,6 +66,21 @@ webpack、rollup、vite
 3. Taro 
    1. 京东
 
+
+# 桌面软件开发用什么语言好？
+PySide
+C++
+C#
+MFC
+QT (C++)
+Electron
+Python (with PyQt or wxPython)
+Flutter
+Kotlin Multiplatform
+Delphi7
+易语言
+
+
 # 参考资料
 [Flutter官网](https://flutter.cn/)
 [uni-app官网](https://www.dcloud.io/)

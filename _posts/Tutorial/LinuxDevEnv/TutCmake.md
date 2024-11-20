@@ -256,6 +256,12 @@ CMAKE_BUILD_TYPE
 4. CMAKE_<LANG>_COMPILER
    1. CMAKE_C_COMPILER
 
+# 临时存放命令
+
+cmake .. -D PYTHON_INCLUDE_DIR=/usr/include/python3.8 -D PYTHON_LIBRARY=/usr/lib/python3.8
+cmake .. -DPython3_INCLUDE_DIRS=/usr/include/python3.8 -DPYTHON_LIBRARY=/usr/lib/python3.8
+file(GLOB SOURCES "src/*/*.c")
+
 # 参考资料
 [CMake org](https://cmake.org/)
 [CMake Reference Documentation — CMake latest Documentation](https://cmake.org/cmake/help/git-master/index.html)
