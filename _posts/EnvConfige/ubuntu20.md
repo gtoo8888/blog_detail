@@ -127,6 +127,19 @@ deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-backports main restricted
 # deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-backports main restricted universe multiverse
 deb https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-security main restricted universe multiverse
 # deb-src https://mirrors.tuna.tsinghua.edu.cn/ubuntu/ focal-security main restricted universe multiverse multiverse
+
+
+
+# Debian 12 更换国内/本地源
+deb https://mirrors.aliyun.com/debian/ bookworm main non-free non-free-firmware contrib
+deb-src https://mirrors.aliyun.com/debian/ bookworm main non-free non-free-firmware contrib
+deb https://mirrors.aliyun.com/debian-security/ bookworm-security main
+deb-src https://mirrors.aliyun.com/debian-security/ bookworm-security main
+deb https://mirrors.aliyun.com/debian/ bookworm-updates main non-free non-free-firmware contrib
+deb-src https://mirrors.aliyun.com/debian/ bookworm-updates main non-free non-free-firmware contrib
+deb https://mirrors.aliyun.com/debian/ bookworm-backports main non-free non-free-firmware contrib
+deb-src https://mirrors.aliyun.com/debian/ bookworm-backports main non-free non-free-firmware contrib
+
 ```
 ## 4. 挂载硬盘
 
@@ -145,9 +158,6 @@ UUID=e7dac072-5f03-41c4-bca2-0745d8e33c38 /date_sdb       ext4    defaults   0  
 
 ```bash
 sudo apt-get install gcc g++ make openssl libssl-dev build-essential lcov -y
-
-sudo apt-get install nghttp2 libnghttp2-dev -y
-sudo apt-get install zsh -y
 ```
 a1234567b
 a1234567bb
@@ -266,6 +276,7 @@ VScode无法调试go
 cgo: C compiler "gcc" not found: exec: "gcc": executable file not found in $PATH (exit status 2)
 
 # 参考资料
+[Debian 12 更换国内/本地源](https://www.cnblogs.com/smlile-you-me/p/17727308.html)
 [Ubuntu20.04软件源更换 - 知乎 (zhihu.com)](https://zhuanlan.zhihu.com/p/142014944)
 [ubuntu 安装go](https://blog.csdn.net/liangcsdn111/article/details/115405223)
 [Golang调试工具Delve安装及使用](https://www.jianshu.com/p/2802d71ab9e9)

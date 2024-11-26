@@ -117,8 +117,10 @@ ${CI_COMMIT_REF_SLUG}
 
 # 参考资料
 [2023最新Ubuntu安装部署Gitlab详细教程（每个步骤均配图）](https://blog.csdn.net/m0_63230155/article/details/131952266)
-[gitlab-ce_16.0.10-ce.0_amd64.deb](https://packages.gitlab.com/gitlab/gitlab-ce/packages/ubuntu/bionic/gitlab-ce_16.0.10-ce.0_amd64.deb)
-https://blog.csdn.net/leitingvre/article/details/108938882
+[gitlab-ce_16.0.10-ce.0_amd64.deb-ubuntu](https://packages.gitlab.com/gitlab/gitlab-ce/packages/ubuntu/bionic/gitlab-ce_16.0.10-ce.0_amd64.deb)
+[gitlab-ce_17.3.6-ce.0_arm64.deb-树莓派](https://packages.gitlab.com/gitlab/gitlab-ce/packages/debian/bookworm/gitlab-ce_17.3.6-ce.0_arm64.deb)
+[低配置服务器安装GitLab](https://blog.csdn.net/leitingvre/article/details/108938882)
+
 [手动在 GNU/Linux 上安装极狐GitLab Runner ](https://gitlab.cn/docs/runner/install/linux-manually.html)
 [GitLab Runner :: 17.5.3](https://gitlab-runner-downloads.s3.amazonaws.com/latest/index.html)
 [GitLab → 搭建中常遇的问题与日常维护](https://www.cnblogs.com/youzhibing/p/12572598.html)
