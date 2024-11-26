@@ -76,6 +76,9 @@ exten_output=$(IFS='|'; echo "| ${extensions[*]} |")
 counts_output=$(IFS='|'; echo "| ${counts[*]} |")  
 lines_output=$(IFS='|'; echo "| ${lines[*]} |")  
 
+length=${#extensions[@]}  
+echo "|---|$(printf '---|' $(seq 1 $length))"  
+
 
 # 使用 Markdown 表格呈现结果  
 echo "**${filename}中代码统计**"  

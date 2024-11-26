@@ -157,6 +157,18 @@ recursive_mutex
 # 精确到ns的计时方法
 std::chrono
 
+
+
+# C++格式化工具 clang-format
+
+llvm, google, chromium, mozilla, webkit
+
+clang-format -style=Google -dump-config > .clang-format
+clang-format -style=file -i utility/utilities.cpp
+
+
+
+
 # 参考资料
 [C++ explicit 关键字]https://zhuanlan.zhihu.com/p/52152355
 [解决 VSCode 编写 C++11 代码报红问题]https://blog.csdn.net/weixin_42292229/article/details/113767569
@@ -177,5 +189,9 @@ std::chrono
 [注释规范]https://blog.csdn.net/lxj362343/article/details/105711524/
 [C++11 新的计时方法——std::chrono 大法好]https://blog.csdn.net/u013390476/article/details/50209603
 [C++模板全特化、偏特化]https://blog.csdn.net/m_buddy/article/details/72973207
+# 代码格式化
+[Clang-Format用法详解](https://zhuanlan.zhihu.com/p/641846308)
+[Clang-Format Style Options](https://clang.llvm.org/docs/ClangFormatStyleOptions.html)
+[Clang-Format用法详解](https://mp.weixin.qq.com/s/mwMsffSrouPaswzG9rgdmg)
 
 

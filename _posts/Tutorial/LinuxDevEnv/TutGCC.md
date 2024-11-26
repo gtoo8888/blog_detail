@@ -170,6 +170,42 @@ gcc默认目录
 gcc -print-search-dirs  # 默认的搜索路径
 
 
+# binutils
+
+addr2line
+ar
+as
+c++
+c++filt
+cpp
+elfedit
+gcc-5.3.1
+gcc-ar
+gcc-nm
+gcc-ranlib
+gcov-tool
+gfortran
+ld
+ld.bfd
+nm
+objcopy
+objdump
+ranlib
+readelf
+size
+strings
+strip
+gdbserver
+runtest
+
+
+g++
+gcc
+gcov
+gdb
+gprof
+
+
 # 参考资料
 https://www.nowcoder.com/courses/cover/live/504
 [100个gdb小技巧]https://wizardforcel.gitbooks.io/100-gdb-tips/content/index.html
@@ -184,3 +220,6 @@ https://www.nowcoder.com/courses/cover/live/504
 https://gcovr.com/en/stable/manpage.html
 https://blog.csdn.net/whahu1989/article/details/121296840
 
+## GCC的小工具binutils
+[Documentation for binutils 2.43](https://sourceware.org/binutils/docs/)
+[GCC编译器原理（一）------GCC 工具：addr2line、ar、as、c++filt和elfedit](https://www.cnblogs.com/kele-dad/p/9394568.html)

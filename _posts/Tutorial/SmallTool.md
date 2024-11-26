@@ -100,6 +100,43 @@ pip cache
 pip cache dir purge
 pip cache info
 
+
+# MQTT使用
+
+```bash
+sudo apt-get install mosquitto mosquitto-clients mosquitto-dev -y
+mosquitto -p 1883
+
+mosquitto_pub -h localhost -t mqtt -m "haha" 
+systemctl status mosquitto
+
+mosquitto_sub -t mqtt -v
+
+
+# mosquitto_sub -t 'test/topic' -v
+# mosquitto_pub -t 'test/topic' -m 'hello world'
+
+log_dest file C:\Program Files\mosquitto\log\mosquitto.log
+log_dest stdout stderr 
+log_type all
+log_timestamp true
+log_timestamp_format %Y-%m-%dT%H:%M:%S
+connection_messages true
+websockets_log_level 0
+allow_anonymous false
+
+
+
+cat install_manifest.txt | sudo xargs rm # 卸载
+# 编译源码
+
+
+sudo apt-get install libssl-dev xsltproc -y
+
+
+sudo systemctl status mosquitto.service
+```
+
 # 参考资料
 [使用Navicat分析SQL性能]https://blog.csdn.net/weixin_43416686/article/details/121037223
 ## 清理存储空间
@@ -107,7 +144,10 @@ pip cache info
 [Windows上pip缓存](https://blog.csdn.net/weixin_45653897/article/details/131254542)
 [gradle瘦身/删除没有用的文件](https://blog.csdn.net/gqg_guan/article/details/130160022)
 [轻量级的VsCode为何越用越大？为什么吃了我C盘10G？如何无痛清理VsCode缓存？手把手教你为C盘瘦身](https://blog.csdn.net/Tisfy/article/details/126082324)
-
+# MQTT
+[mosquitto.h](https://mosquitto.org/api/files/mosquitto-h.html)
+[使用Mosquitto实现MQTT客服端C语言](https://www.cnblogs.com/jzcn/p/15252983.html)
+[mosquitto的安装、配置、使用教程](https://www.cnblogs.com/qumogu/p/16007609.html)
 
 
 
