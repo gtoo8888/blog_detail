@@ -6,12 +6,13 @@ tags:
 ---
 
 # linux kernel
-
+编译流程，通过一下步骤可以编译出imx的linux内核
+```bash
 make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- distclean
 make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- imx_v7_defconfig
 make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- menuconfig
 make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- all -j16
-
+```
 
 
 linux-imx-4.1.15-2.1.0-g3dc0a4b-v2.7/arch/arm/kernel/vmlinux.lds
@@ -83,10 +84,19 @@ Linux内核源代码分析——Scott Maxwell
 深入Linux内核架构——
 
 # 参考资料
-[The U-Boot Documentation](https://docs.u-boot.org/en/latest/index.html)
-[U-Boot gitlib](https://source.denx.de/u-boot/u-boot)
+
+[man page主页](https://man7.org/index.html)
+[查看kernal源码](https://elixir.bootlin.com/linux/v4.1.15/source/)
+
+[Linux内核代码大佬们如何观看的？](https://www.zhihu.com/question/439569498/answer/2967990818)
+
 [BusyBox](https://www.busybox.net/)
 
 [8.11 The origin Function](https://www.gnu.org/software/make/manual/html_node/Origin-Function.html)
 [陈孝松个人主页 课程和视频](https://chenxiaosong.com/courses.html)
 [linux内核经典书籍](https://zhuanlan.zhihu.com/p/34977296)
+
+
+## 互斥锁
+[【原创】Linux Mutex机制分析](https://www.cnblogs.com/LoyenWang/p/12826811.html)
+

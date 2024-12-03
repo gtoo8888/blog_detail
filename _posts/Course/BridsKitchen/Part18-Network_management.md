@@ -80,7 +80,7 @@ ifconfig
 [netstat命令详解](https://blog.csdn.net/Tony1154/article/details/142178125)
 https://linux.vbird.org/linux_server/rocky9/0120cloudandvm.php#1.2
 https://linux.vbird.org/linux_server/rocky9/0150networking.php#4.3.4
-
+[ifconfig、route、ip route、ip addr、 ip link 用法](https://developer.aliyun.com/article/523476)
 
 
 

@@ -166,8 +166,27 @@ llvm, google, chromium, mozilla, webkit
 clang-format -style=Google -dump-config > .clang-format
 clang-format -style=file -i utility/utilities.cpp
 
+```bash
+# win存储路径
+C:\Users\<user>\.vscode\extensions\ms-vscode.cpptools-1.22.11-win32-x64\LLVM\bin\clang-format.exe
+# linux存储路径
+/home/<user>/.vscode-server/extensions/ms-vscode.cpptools-1.22.11-linux-x64/LLVM/bin
+sudo ln -s ~/.vscode-server/extensions/ms-vscode.cpptools-1.22.11-linux-x64/LLVM/bin/clang-format /usr/bin/clang-format
+```
 
 
+# 暂存
+
+C++11 default构造函数
+#define __sched		__attribute__((__section__(".sched.text")))
+
+C内 指针一般是这么写
+int *arr = new int[5];
+在C++中一般这么写
+int* arr = new int[5];
+但当在一行内声明多个指针的时候跟C写法相同以防止混淆
+int *p, *q, r;    //p, q是int指针, r是int
+int* a, b, c;     //a是int指针, b, c是int
 
 # 参考资料
 [C++ explicit 关键字]https://zhuanlan.zhihu.com/p/52152355
@@ -189,9 +208,20 @@ clang-format -style=file -i utility/utilities.cpp
 [注释规范]https://blog.csdn.net/lxj362343/article/details/105711524/
 [C++11 新的计时方法——std::chrono 大法好]https://blog.csdn.net/u013390476/article/details/50209603
 [C++模板全特化、偏特化]https://blog.csdn.net/m_buddy/article/details/72973207
-# 代码格式化
+[C语言指针，*符号应该靠近类型写，还是靠近名称写](https://www.zhihu.com/question/492439854/answer/2176443328)？
+## 代码格式化
 [Clang-Format用法详解](https://zhuanlan.zhihu.com/p/641846308)
 [Clang-Format Style Options](https://clang.llvm.org/docs/ClangFormatStyleOptions.html)
 [Clang-Format用法详解](https://mp.weixin.qq.com/s/mwMsffSrouPaswzG9rgdmg)
-
-
+[vs code 技巧：使用clang-format来格式化代码](https://www.cnblogs.com/simpleGao/p/17022517.html)
+## GUI显示
+[使用 ncurses 在你的 Linux 屏幕上定位文本 | Linux 中国](https://zhuanlan.zhihu.com/p/407239430)
+[Writing Programs with NCURSES](https://invisible-island.net/ncurses/ncurses-intro.html#introduction)
+[交叉编译ncurses库](https://blog.csdn.net/zadile1/article/details/52025818)
+[解决从源码编译ncurses6.0编译lib_gen.c报错的问题](https://www.cnblogs.com/kokoer-wu/p/5289843.html)
+## 内核操作
+[33 Linux内核高精度定时器实现延时](https://blog.csdn.net/chasing_chasing/article/details/90229183)
+[一文入门linux内核高精度定时器hrtimer机制](https://zhuanlan.zhihu.com/p/450089796)
+[open(2) — Linux manual page](https://www.man7.org/linux/man-pages/man2/open.2.html)
+[深入了解Linux内核中文件系统之open函数（上）](https://zhuanlan.zhihu.com/p/636620782)
+[openat与open的区别及用法示例](https://www.cnblogs.com/BinBinStory/p/7400993.html)

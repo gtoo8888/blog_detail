@@ -157,6 +157,28 @@ gcovr --html-details coverage.html # 将带注释的源代码报告添加到 HTM
 ```
 
 
+# gprof 
+
+## 使用流程
+```shell
+# 1. 增加编译选项
+g++ -pg -o test test.cpp
+# 2. 运行编译出来的可执行文件,得到gmon.out文件
+./test
+# 3. gprof分析生成文件得到结果，一般输出到文件
+gprof test gmon.out > test.log
+```
+
+## 常用选项
+```shell
+gprof --version
+gprof -b test gmon.out > test.log # 简洁输出，不显示冗长的解释
+gprof -s test gmon.out > test.log # 将多个gmon.out文件合并
+gprof -p test gmon.out > test.log # 显示程序的每个函数的执行时间统计
+gprof -q test gmon.out > test.log # 显示程序的每个函数的调用关系
+
+```
+
 # tmpfile
 
 gcc默认目录
@@ -217,8 +239,12 @@ https://www.nowcoder.com/courses/cover/live/504
 [入掌握lcov工具：代码覆盖率分析与报告生成](https://blog.csdn.net/cnzzs/article/details/141908079)
 
 ## gcovr
-https://gcovr.com/en/stable/manpage.html
-https://blog.csdn.net/whahu1989/article/details/121296840
+[Command Line Reference gcovr](https://gcovr.com/en/stable/manpage.html)
+[Linux下lcov和gcovr的使用](https://blog.csdn.net/whahu1989/article/details/121296840)
+
+## gprof
+[Linux C++ 开发9 - 手把手教你使用gprof性能分析工具](https://www.cnblogs.com/luoweifu/p/18427705)
+[官方文档：Profiling a Program: Where Does It Spend Its Time?](https://sourceware.org/binutils/docs/gprof/index.html)
 
 ## GCC的小工具binutils
 [Documentation for binutils 2.43](https://sourceware.org/binutils/docs/)

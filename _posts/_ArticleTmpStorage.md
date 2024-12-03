@@ -75,6 +75,29 @@ GPON/EPON
 SmartAX MA5620/MA5626
 Listary
 
+# 项目管理
+## 软件
+飞项
+trello
+targetprocess
+甘特图
+Excel模板
+worktile
+pingcode
+简道云
+Asana
+开源项目管理软件Redmine
+Jira 
+
+## 概念
+看板
+项目管理的方法论很多，主要有瀑布理论(waterfall)，敏捷（agile），增量理论等
+Scrum、Kanban、知识库、迭代计划&跟踪、产品需求规划、缺陷跟踪、测试管理
+
+
+
+
+
 # 参考资料
 ## 其他
 [软件工程师成长的一个误区](https://www.raychase.net/6965)
@@ -89,6 +112,8 @@ Listary
 [AFL++学习日志（一）开始Fuzz与crashes分析_](https://mundi-xu.github.io/2021/03/12/Start-Fuzzing-and-crashes-analysis/)
 [蓝牙BLE详解](https://blog.csdn.net/daocaokafei/article/details/114735021)
 [Linux复制文件到某路径并重命名](https://www.cnblogs.com/emary/p/12880275.htm)
+[工作效率翻倍：2024年最受欢迎的11款个人项目管理软件](https://segmentfault.com/a/1190000045064606)
+
 
 
 

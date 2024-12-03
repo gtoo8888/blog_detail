@@ -77,12 +77,14 @@ counts_output=$(IFS='|'; echo "| ${counts[*]} |")
 lines_output=$(IFS='|'; echo "| ${lines[*]} |")  
 
 length=${#extensions[@]}  
-echo "|---|$(printf '---|' $(seq 1 $length))"  
-
+length_output="|---|---|"
+for ((i=0; i<length; i++)); do
+    length_output+="---|"
+done
 
 # 使用 Markdown 表格呈现结果  
 echo "**${filename}中代码统计**"  
 echo "| ${filename} ${exten_output}  **总和** |"  
-echo "|---|---|---|---|---|---|---|---|---|---|"  
+echo $length_output
 echo "${counts_output} **${total_files}** |"  
 echo "${lines_output} **${total_lines}** |"  
