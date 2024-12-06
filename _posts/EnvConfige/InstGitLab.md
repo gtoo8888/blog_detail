@@ -73,13 +73,15 @@ gitlab-runner run  # 列出存储在配置文件中的所有 Runner
 gitlab-runner verify # 检测注册的 Runner 是否可以连接到极狐GitLab， 但不会校验其是否被极狐GitLab Runner 服务使用
 
 gitlab-runner unregister # 使用极狐GitLab Runners API 取消已注册的 Runner。
-gitlab-runner unregister --url http://192.168.56.101:8077 --token glrt-mz2XmpyG6X7HYLeFevQu
-gitlab-runner unregister --name test-runner
+gitlab-runner unregister --url http://192.168.56.101:8077 --token glrt-f-ynh8x5XAsHd97WEBBr
+gitlab-runner unregister --name shell2
+
+gitlab-runner verify --delete # 删除以后用这个删除list中的文件，会校验runner是否有效
 
 # run以后才能运行
 gitlab-runner unregister run
 
-
+gitlab-runner list
 gitlab-runner install
 gitlab-runner uninstall
 gitlab-runner start

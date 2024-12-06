@@ -135,3 +135,81 @@ sed and awk 101 hacks
 再进阶: Rust for Rustaceans
 Rust 程序设计 第二版
 Rust 入门秘籍
+
+
+
+# 极客时间
+
+Python核心技术与实战
+Python自动化办公实战课
+Vim 实用技巧必知必会
+从0打造音视频直播系统
+后端技术面试 38 讲
+实用密码学
+架构实战案例解析
+物联网开发实战
+现代C++实战30讲
+编译原理之美
+编译原理实战课
+网络编程实战
+许式伟的架构课
+设计模式之美
+面试现场
+
+
+
+## 性能
+Linux内核技术实战课
+Linux性能优化实战
+性能优化高手课
+性能工程高手课
+系统性能调优必知必会
+高并发系统设计40问
+
+## 测试
+说透敏捷
+性能测试实战30讲
+持续交付36讲
+接口测试入门课
+软件测试52讲
+
+## 管理
+
+技术与商业案例解读
+技术管理实战36讲
+技术管理案例课
+朱赟的技术管理课
+程序员进阶攻略
+项目管理实战20讲
+黄勇的OKR实战笔记
+
+
+## 其他
+互联网人的英语私教课
+人人都用得上的写作课
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# 参考资料
+
+[技术摘抄](https://learn.liangliangleelianglianglee.com/)
+[Brendan Gregg's Homepage](https://brendangregg.com/overview.html)
+
+https://github.com/cheetahlou/CategoryResourceRepost/
+https://github.com/cheetahlou/CategoryResourceRepost/tree/master/极客时间专栏

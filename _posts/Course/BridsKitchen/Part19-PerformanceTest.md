@@ -33,7 +33,25 @@ find . -mmin -1 -exec stat {} \; > stat_min.log
 
 ## vmstat
 
+## blktrace
 
+## sar
+
+## fio
+
+## perf
+
+## dstat
+
+## pidstat
+
+## iolatency
+
+## slabtop
+
+/proc/meminfo
+/proc/meminfo
+/proc/diskstats
 
 # 系统调用
 ## strace 
@@ -50,7 +68,7 @@ strace -f ls # 跟踪由目标进程创建的所有子进程
 strace -p 1234 # 附着到一个已经运行的进程上进行跟踪
 
 
-strace -tt -T -e trace=write -o coverage/store.log ./build/bin/Debug/store_interface_test_d | grep -v "\33[0;32m"
+strace -tt -T -e trace=write -o coverage/store.log ./build/bin/Debug/store_interface_test_d | grep -v "32m\["
 ```
 
 
@@ -61,10 +79,13 @@ strace -tt -T -e trace=write -o coverage/store.log ./build/bin/Debug/store_inter
 
 # tmp save
 ## 命令
-
+pstack 
 pidof
 nm
 objdump
+lsof
+
+
 ## 函数
 mtrace
 
@@ -75,6 +96,7 @@ mtrace
 [在Linux中，如何使用strace进行故障排查](https://www.cnblogs.com/huangjiabobk/p/18181434)
 [Linux 问题故障定位的技巧大全](https://zhuanlan.zhihu.com/p/697459627)
 [基础：磁盘IO性能优化的几个思路](https://zhuanlan.zhihu.com/p/577849119)
+[什么时候选择mmap而非read?](https://www.cnblogs.com/zhujiwei/p/14726211.html)
 
 
 

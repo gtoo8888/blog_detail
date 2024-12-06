@@ -12,6 +12,15 @@ make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- distclean
 make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- imx_v7_defconfig
 make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- menuconfig
 make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- all -j16
+
+sudo apt-get install u-boot-tools
+sudo apt-get install gawk
+
+sudo apt install mkbootimg
+whereis mkbootimg
+/usr/bin/mkbootimg
+mkbootimg
+
 ```
 
 
@@ -92,10 +101,11 @@ Linux内核源代码分析——Scott Maxwell
 
 [BusyBox](https://www.busybox.net/)
 
-[8.11 The origin Function](https://www.gnu.org/software/make/manual/html_node/Origin-Function.html)
 [陈孝松个人主页 课程和视频](https://chenxiaosong.com/courses.html)
 [linux内核经典书籍](https://zhuanlan.zhihu.com/p/34977296)
-
+# T3C编译报错
+[编译kernel提示"mkimage" command not found - U-Boot images will not be built](https://www.cnblogs.com/liangliangge/p/12848888.html)
+https://wiki.sipeed.com/soft/Lichee/zh/Zero-Doc/Contribution/article_10.html
 
 ## 互斥锁
 [【原创】Linux Mutex机制分析](https://www.cnblogs.com/LoyenWang/p/12826811.html)

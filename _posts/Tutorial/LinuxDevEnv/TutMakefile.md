@@ -76,6 +76,13 @@ g++ test -o
 ar -rcs libtest.a
 
 
+# 条件变量
+```makefile
+ifeq ("$(origin V)", "command line")
+  KBUILD_VERBOSE = $(V)
+endif
+```
+
 
 # 常见编译选项
 ```makefile
@@ -84,9 +91,92 @@ BIN_SRCS := $(filter-out bin/test.cc, $(BIN_SRCS)) # 单独去掉bin/test.cc
 ```
 
 
+# tmp
+MAKEFLAGS += -rR --no-print-directory
+
+”-rR“表示禁用内置的隐含规则和变量定义
+
+获取当前区域设置的数字格式习惯
+
+```makefile
+FORCE
+
+u-boot: $(u-boot-init) $(u-boot-main) u-boot.lds FORCE
+
+quiet_cmd_u-boot__ ?= LD      $@ 
+
+
+quiet_cmd_mkimage = MKIMAGE $@
+cmd_mkimage = $(objtree)/tools/mkimage $(MKIMAGEFLAGS_$(@F)) -d $< $@ \
+	$(if $(KBUILD_VERBOSE:1=), >/dev/null)
+
+u-boot.imx: u-boot.bin $(IMX_CONFIG) FORCE
+	$(call if_changed,mkimage)
+
+
+%.imx: %.bin
+        $(Q)$(MAKE) $(build)=arch/arm/imx-common $@
+
+
+$(warnings "$$$$$$$$$$$ += checkarmreloc before")
+
+
+
+```
+
+
+# 常见缩写
+
+AS		= $(CROSS_COMPILE)as
+# Always use GNU ld
+ifneq ($(shell $(CROSS_COMPILE)ld.bfd -v 2> /dev/null),)
+LD		= $(CROSS_COMPILE)ld.bfd
+else
+LD		= $(CROSS_COMPILE)ld
+endif
+CC		= $(CROSS_COMPILE)gcc
+CPP		= $(CC) -E
+AR		= $(CROSS_COMPILE)ar
+NM		= $(CROSS_COMPILE)nm
+LDR		= $(CROSS_COMPILE)ldr
+STRIP		= $(CROSS_COMPILE)strip
+OBJCOPY		= $(CROSS_COMPILE)objcopy
+OBJDUMP		= $(CROSS_COMPILE)objdump
+
+
+
+# 常用uboot短指令
+    268 CC
+     88 LD
+     37 HOSTCC
+     14 WRAP
+      8 CLEAN
+      8 AS
+      4 OBJCOPY
+      4 GEN
+      3 UPD
+      3 HOSTLD
+      3 CHK
+      2 cp
+      1 LDS
+      1 if
+      1 fi
+      1 else
+      1 Configuring
+      1 build_uboot
+      1 AR
+
+
+
+
+
 # 参考资料
 https://blog.csdn.net/yi412/article/details/69941791
 https://blog.csdn.net/marc07/article/details/62885868
+
+[Makefile 官方参考](https://www.gnu.org/software/make/manual/html_node/)
+[7.1 Example of a Conditional](https://www.gnu.org/software/make/manual/html_node/Conditional-Example.html)
+[8.11 The origin Function](https://www.gnu.org/software/make/manual/html_node/Origin-Function.html)
 
 
 

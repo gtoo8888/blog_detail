@@ -6,14 +6,13 @@ tags:
 ---
 
 
-
-
+```bash
 sudo apt-get install libncurses5-dev
 
 make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- distclean
 make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- mx6ull_14x14_ddr512_emmc_defconfig
-make V=1 ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- 
-
+make V=0 ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- 
+```
 
 在编译 uboot 之前一定要使用 defconfig 来配置 uboot！
 
@@ -49,6 +48,7 @@ origin函数
 filter函数
 firstword函数
 export
+ $(call if_changed,copy)
 
 # U-Boot 启动流程详解
 第三十二章 U-Boot 启动流程详解
@@ -75,8 +75,8 @@ sp指针
 # 参考资料
 [The U-Boot Documentation](https://docs.u-boot.org/en/latest/index.html)
 [U-Boot gitlib](https://source.denx.de/u-boot/u-boot)
-
-
-[8.11 The origin Function](https://www.gnu.org/software/make/manual/html_node/Origin-Function.html)
-
-
+[在线查看源码](https://elixir.bootlin.com/u-boot/v2024.10/source)
+[uboot下载链接](https://ftp.denx.de/pub/u-boot/)
+[uboot构建框架6-u-boot.bin生成过程追踪](https://blog.csdn.net/sunxiaohusunke/article/details/90747854)
+[uboot构建框架7-u-boot.imx生成过程追踪](https://blog.csdn.net/sunxiaohusunke/article/details/90763083)
+[uboot构建框架2-kbuild框架简要分析](https://blog.csdn.net/sunxiaohusunke/article/details/90712298)

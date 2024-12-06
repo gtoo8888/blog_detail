@@ -174,6 +174,20 @@ C:\Users\<user>\.vscode\extensions\ms-vscode.cpptools-1.22.11-win32-x64\LLVM\bin
 sudo ln -s ~/.vscode-server/extensions/ms-vscode.cpptools-1.22.11-linux-x64/LLVM/bin/clang-format /usr/bin/clang-format
 ```
 
+# VSCode使用clang-format配置
+
+1. setting->搜索format->勾选format on save 
+2. C_Cpp: Clang_format_fallback Style 
+   1. 当设置clang-format且没有.clang-format文件时，会使用这里选择的默认设置来设置格式
+3. C_Cpp: Clang_format_path：
+   1. clang-format.exe的绝对路径
+   2. /usr/bin/clang-format
+4. C_Cpp: Clang_format_style：
+   1. .clang-format 文件加载样式
+   2. 文件目录下
+5. 右下角{}
+   1. 选择要使用的格式化格式
+   2. 不要安装clang-format插件，会和C++的格式化插件冲突
 
 # 暂存
 
@@ -214,6 +228,7 @@ int* a, b, c;     //a是int指针, b, c是int
 [Clang-Format Style Options](https://clang.llvm.org/docs/ClangFormatStyleOptions.html)
 [Clang-Format用法详解](https://mp.weixin.qq.com/s/mwMsffSrouPaswzG9rgdmg)
 [vs code 技巧：使用clang-format来格式化代码](https://www.cnblogs.com/simpleGao/p/17022517.html)
+[VS Code + Clang-format 格式化代码](https://zhuanlan.zhihu.com/p/356143396)
 ## GUI显示
 [使用 ncurses 在你的 Linux 屏幕上定位文本 | Linux 中国](https://zhuanlan.zhihu.com/p/407239430)
 [Writing Programs with NCURSES](https://invisible-island.net/ncurses/ncurses-intro.html#introduction)
