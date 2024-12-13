@@ -38,6 +38,8 @@ sudo gitlab-ctl restart # 重启所有gitlab组件 ​
 sudo gitlab-ctl start # 启动所有gitlab组件 
 sudo systemctl enable gitlab-runsvdir.service # 启用开机自启动
 
+sudo gitlab-ctl tail postgresql # 查看某一个服务的日志
+
 #查看密码
 sudo cat /etc/gitlab/initial_root_password
 # 随机的密码，一定时间后失效
@@ -117,6 +119,42 @@ ${CI_COMMIT_REF_SLUG}
 
 
 
+# 报错
+postgresql服务挂了
+
+
+run: alertmanager: (pid 2671) 1001s; run: log: (pid 2647) 1001s
+run: gitaly: (pid 2668) 1001s; run: log: (pid 2658) 1001s
+run: gitlab-exporter: (pid 2646) 1001s; run: log: (pid 2630) 1001s
+run: gitlab-kas: (pid 2632) 1001s; run: log: (pid 2626) 1001s
+run: gitlab-workhorse: (pid 2657) 1001s; run: log: (pid 2636) 1001s
+run: logrotate: (pid 2653) 1001s; run: log: (pid 2634) 1001s
+run: nginx: (pid 2628) 1001s; run: log: (pid 2624) 1001s
+run: node-exporter: (pid 2664) 1001s; run: log: (pid 2643) 1001s
+run: postgres-exporter: (pid 2665) 1001s; run: log: (pid 2639) 1001s
+down: postgresql: 0s, normally up, want up; run: log: (pid 2625) 1001s
+run: prometheus: (pid 2644) 1001s; run: log: (pid 2629) 1001s
+run: puma: (pid 13803) 2s; run: log: (pid 2627) 1001s
+run: redis: (pid 2656) 1001s; run: log: (pid 2635) 1001s
+run: redis-exporter: (pid 2655) 1001s; run: log: (pid 2637) 1001s
+run: sidekiq: (pid 13683) 13s; run: log: (pid 2645) 1001s
+
+down: alertmanager: 125s, normally up; run: log: (pid 2647) 1131s
+down: gitaly: 124s, normally up; run: log: (pid 2658) 1131s
+down: gitlab-exporter: 123s, normally up; run: log: (pid 2630) 1131s
+down: gitlab-kas: 113s, normally up; run: log: (pid 2626) 1131s
+down: gitlab-workhorse: 113s, normally up; run: log: (pid 2636) 1131s
+down: logrotate: 113s, normally up; run: log: (pid 2634) 1131s
+down: nginx: 112s, normally up; run: log: (pid 2624) 1131s
+down: node-exporter: 112s, normally up; run: log: (pid 2643) 1131s
+down: postgres-exporter: 112s, normally up; run: log: (pid 2639) 1131s
+run: postgresql: (pid 14385) 48s; run: log: (pid 2625) 1131s
+down: prometheus: 107s, normally up; run: log: (pid 2629) 1131s
+down: puma: 107s, normally up; run: log: (pid 2627) 1131s
+down: redis: 106s, normally up; run: log: (pid 2635) 1131s
+down: redis-exporter: 106s, normally up; run: log: (pid 2637) 1131s
+down: sidekiq: 104s, normally up; run: log: (pid 2645) 1131s
+
 # 参考资料
 [2023最新Ubuntu安装部署Gitlab详细教程（每个步骤均配图）](https://blog.csdn.net/m0_63230155/article/details/131952266)
 [gitlab-ce_16.0.10-ce.0_amd64.deb-ubuntu](https://packages.gitlab.com/gitlab/gitlab-ce/packages/ubuntu/bionic/gitlab-ce_16.0.10-ce.0_amd64.deb)
@@ -139,6 +177,10 @@ https://translate.gitlab.com/
 
 [作业产物](https://gitlab.cn/docs/jh/ci/jobs/job_artifacts.html)
 [极狐GitLab CI/CD](https://gitlab.cn/docs/jh/ci/)
+
+# 错误解决
+[GitLab502--postgresql服务timeout超时(down)](https://blog.csdn.net/liangjiabao5555/article/details/106128231)
+
 
 
 

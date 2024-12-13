@@ -202,6 +202,126 @@ int* arr = new int[5];
 int *p, *q, r;    //p, q是int指针, r是int
 int* a, b, c;     //a是int指针, b, c是int
 
+
+# 头文件
+```c++
+// 常用
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include <math.h>
+
+#include <unistd.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
+#include <pthread.h>
+
+#include <termio.h>
+
+// 不常用
+#include <ctype.h>
+#include <stdint.h>
+#include <time.h>
+```
+
+# stdlib
+```c++
+#include <stdlib.h>
+// /usr/include/stdlib.h
+
+// Dynamic memory management
+void *malloc( size_t size );
+void *calloc( size_t num, size_t size );
+void *realloc( void *ptr, size_t new_size ); // 调整先前使用malloc(),calloc()或realloc()函数开辟的动态内存的大小
+void free( void *ptr );
+void *aligned_alloc( size_t alignment, size_t size );
+
+```
+在缩小内存占用的情况下，realloc往往比free再malloc的效率高，因为会原地缩小
+
+# string
+
+```c++
+#include <string.h>
+
+// Copying
+void * memcpy ( void * destination, const void * source, size_t num );
+void * memmove ( void * destination, const void * source, size_t num );
+char * strcpy ( char * destination, const char * source );
+char * strncpy ( char * destination, const char * source, size_t num );
+
+// Concatenation
+char * strcat ( char * destination, const char * source );
+char * strncat ( char * destination, const char * source, size_t num );
+
+// Comparison
+int memcmp ( const void * ptr1, const void * ptr2, size_t num );
+int strcmp ( const char * str1, const char * str2 );
+int strncmp ( const char * str1, const char * str2, size_t num );
+
+// Other
+void * memset ( void * ptr, int value, size_t num );
+size_t strlen ( const char * str );
+
+```
+
+```c++
+#include <string.h>
+// 内存操作函数
+void * memcpy ( void * destination, const void * source, size_t num );
+void * memmove ( void * destination, const void * source, size_t num );
+int memcmp ( const void * ptr1, const void * ptr2, size_t num );
+void * memset ( void * ptr, int value, size_t num );
+
+
+
+// 字符串操作函数
+char * strcpy ( char * destination, const char * source );
+char * strcat ( char * destination, const char * source );
+int strcmp ( const char * str1, const char * str2 );
+size_t strlen ( const char * str );
+
+```
+
+
+```c++
+#include <unistd.h>
+
+// 系统调用
+pid_t        fork(void);  // 创建一个子进程的副本
+pid_t        getpid(void);  // 获取当前进程的进程ID
+pid_t        getppid(void);  // 获取当前进程的父进程ID
+int          chdir(const char *); // 改变当前工作目录
+exec()：用于在当前进程上执行一个新的程序。
+wait()：等待子进程结束。
+
+// 文件操作
+int          close(int); // 关闭文件描述符 
+ssize_t      read(int, void *, size_t);  // 从文件描述符读取数据
+ssize_t      write(int, const void *, size_t);  // 向文件描述符写入数据
+off_t        lseek(int, off_t, int);
+
+close()：
+
+// 系统信息
+int          gethostname(char *, size_t); // 获取主机名。
+sysconf()：获取系统配置信息。
+
+```
+## 内核
+
+mmap
+ioctl
+fstat
+futex
+brk
+openat
+access
+read
+stat
+mknod
+
 # 参考资料
 [C++ explicit 关键字]https://zhuanlan.zhihu.com/p/52152355
 [解决 VSCode 编写 C++11 代码报红问题]https://blog.csdn.net/weixin_42292229/article/details/113767569
@@ -240,3 +360,21 @@ int* a, b, c;     //a是int指针, b, c是int
 [open(2) — Linux manual page](https://www.man7.org/linux/man-pages/man2/open.2.html)
 [深入了解Linux内核中文件系统之open函数（上）](https://zhuanlan.zhihu.com/p/636620782)
 [openat与open的区别及用法示例](https://www.cnblogs.com/BinBinStory/p/7400993.html)
+## cJSON
+[cJSON解析json文件](https://www.cnblogs.com/lodger47/p/14758036.html)
+[C/C++程序开发: cJSON的使用(创建与解析JSON数据)](https://cloud.tencent.com/developer/article/1933102)
+[cjson库解析json文件](https://yang12342.github.io/articles/%E5%B8%B8%E8%A7%81%E6%96%87%E4%BB%B6%E6%96%B9%E6%B3%95/cjson/)
+## 未分类
+[关于c语言中malloc和remalloc函数的分析](https://blog.csdn.net/suliangkuanjiayou/article/details/83477415)
+[mcheck(3) — Linux manual page](https://www.man7.org/linux/man-pages/man3/mcheck.3.html)
+[__THROW是什么东西？](https://blog.csdn.net/lanmanck/article/details/6856168)
+[【Linux系统编程】Linux的系统库中的unistd.h头文件的作用](https://blog.csdn.net/MonsterUFO/article/details/131745212)
+[unistd.h(0p) — Linux manual page](https://www.man7.org/linux/man-pages/man0/unistd.h.0p.html)
+[协程库项目（CPP） | 代码随想录知识星球](https://www.programmercarl.com/other/project_coroutine.html)
+[新版C++学习路线](https://articles.zsxq.com/id_n4jcuih49kad.html)
+[代码随想录项目精讲-协程库（CPP）正式发布。xck3582thl](https://wx.zsxq.com/group/88511825151142/topic/211425484228181)
+https://github.com/youngyangyang04/coroutine-lib
+
+[would learning Qt6 improve my overall C++ skills?](https://www.reddit.com/r/cpp_questions/comments/yedlyl/would_learning_qt6_improve_my_overall_c_skills/?rdt=61683)
+[How can I boost my career as C++ Qt Developer](https://www.quora.com/How-can-I-boost-my-career-as-C++-Qt-Developer)
+[[SOLVED] Beginner: How to use Qt and C++ the right way?](https://forum.qt.io/topic/25987/solved-beginner-how-to-use-qt-and-c-the-right-way)

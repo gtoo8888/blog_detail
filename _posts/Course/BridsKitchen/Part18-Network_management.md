@@ -70,11 +70,42 @@ nmap -sTU localhost
 
 
 ## 1.2.4 route
+```bash
+# 常用指令
+route -n  # 显示路由表
+# 临时路由设置，重启网卡失效
+# 添加一条路由(发往192.168.62这个网段的全部要经过网关192.168.1.1)
+route add -net 192.168.62.0 netmask 255.255.255.0 gw 192.168.1.1
+#添加到主机的路由，删除将add换成del
+route add –host 192.168.62.0 dev eth0
+# 删除一条路由　删除的时候不用写网关
+route del -net 192.168.62.0 netmask 255.255.255.0
+# 修改路由 将目的ip为192.168.3.98且子网掩码为255.255.255.0的下一跳由x.x.x.x改为192.168.3.45
+route change 192.168.3.98 netmask 255.255.255.0 192.168.3.45   
+
+
+# 常用组合
+
+# 需要通过sudo查看进程号
+
+```
+
 
 
 traceroute 
 ip addr show
 ifconfig 
+
+ip link
+ntpd
+
+
+# NTP服务器
+
+```shell
+ntpq -p #  打印服务器已知的对等点的列表以及它们的状态摘要
+
+```
 
 # 参考资料
 [netstat命令详解](https://blog.csdn.net/Tony1154/article/details/142178125)
@@ -83,9 +114,9 @@ https://linux.vbird.org/linux_server/rocky9/0150networking.php#4.3.4
 [ifconfig、route、ip route、ip addr、 ip link 用法](https://developer.aliyun.com/article/523476)
 
 
-
-
-
+# ntp
+[ntpq - standard NTP query program](https://www.ntp.org/documentation/4.2.8-series/ntpq/)
+[NTP Pool Project](https://www.ntppool.org/zone/cn)
 
 
 

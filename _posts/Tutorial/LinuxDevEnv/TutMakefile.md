@@ -5,37 +5,42 @@ tags:
 - 教程
 ---
 
+# 自动化变量
+
+| 自动化变量 | 说明                  | 备注    |
+| ----- | ------------------- | ----- |
+| $@    | 目标文件的完整名称           |       |
+| $^    | 所有目标依赖文件，不重复        | 以空格分割 |
+| $?    | 所有时间戳比目标文件晚的的依赖文件   | 以空格分开 |
+| $<    | 第一个依赖文件名            |       |
+| $*    | 目标文件的名称，不包含目标文件的扩展名 |       |
+| $+    | 所有目标依赖文件，重复         | 类似$^  |
+| $(@D) | 目标文件的目录部分           |       |
+| $(@F) | 目标文件的文件名部分          |       |
 
 
-|自动化变量                        |   说明|
-| ------ | ------ |
-|$*                             |表示目标文件的名称，不包含目标文件的扩展名|
-|$+                                |也是所有依赖目标的集合,这些依赖文件用空格分开，按照出现的先后为顺序，只是它不去除重复的依赖目标|
-|$<                            |  规则中的第一个相关文件名|
-|$?                            |  规则中日期新于目标的所有相关文件的列表，以空格分割|
-|$@                            |  规则的目标所对应的文件名|
-|$^                            |  规则中所有相关文件的列表，以空格分割|
-|$(@D)                          | 目标文件的目录部分|
-|$(@F)                         |  目标文件的文件名部分|
 
 
-
-
-|常用变量                            | 说明  |默认值
-| ------ | ------ |------ |
-|AR                              | 归档维护程序         |ar  |
-|AS                              | 汇编程序             |as  |
-|CPP                            |  c预处理程序          |cpp  |
-|CC                              |   c编译程序          |cc  |
-|CXX                              |   c++编译程序          |g++  |                        
-|RM                              | 文件删除程序         |rm -f  |
-|ARFLAGS                         |  传给归档维护程序的标志|rv  |
-|ASFLAGS                         | 传给汇编程序的标志   |无默认值  |
-|CFLAGS                          | 传给c编译程序的标志  |无默认值  |
-|CPPFLAGS                        | 传给c预处理程序的标志    |无默认值  |
-|CXXFLAGS                        |  传给c++编译器的标志     |无默认值|
-|LDFLAGS                         |传给链接程序（ld）的标志|无默认值  |
-
+| 常用变量     | 说明            | 默认值      |
+| -------- | ------------- | -------- |
+| CC       | c编译程序         | gcc      |
+| CPP      | c预处理程序        | $(CC) -E |
+| CXX      | c++编译程序       | g++      |
+| CFLAGS   | 传给c编译程序的标志    | 无默认值     |
+| CPPFLAGS | 传给c预处理程序的标志   | 无默认值     |
+| CXXFLAGS | 传给c++编译器的标志   | 无默认值     |
+| LDFLAGS  | 传给链接程序（ld）的标志 | 无默认值     |
+| AR       | 归档维护程序        | ar       |
+| AS       | 汇编程序          | as       |
+| RM       | 文件删除程序        | rm -f    |
+| LD       |               | ld       |
+| NM       |               | nm       |
+| LDR      |               | ldr      |
+| STRIP    |               | strip    |
+| OBJCOPY  |               | objcopy  |
+| OBJDUMP  |               | objdump  |
+| ARFLAGS  | 传给归档维护程序的标志   | rv    |
+| ASFLAGS  | 传给汇编程序的标志     | 无默认值  |
 
 
 模式规则中，至少在规则的目标定义中要包含"%"，否则，就是一般的规则。目标中的"%"定义表示对文件名的匹配，"%"表示长度任意的非空字符串。例如："%.c"表示以".c"结尾的文件名（文件名的长度至少为3），而"s.%.c"则表示以"s."开头，".c"结尾的文件名（文件名的长度至少为5）。
@@ -44,19 +49,6 @@ tags:
     %.o : %.c 
 
 
-markdown中的函数
-
-
-BIN_SRCS := $(wildcard bin/*.cc)
-获取匹配模式的文件名 wildcard
-src = $(wildcard *.c)
-wildcard把 指定目录 ./ 和 ./sub/ 下的所有后缀是c的文件全部展开。
-
-
-模式替换函数 patsubst
-
-
-循环函数 foreach
 
 
 
@@ -90,6 +82,29 @@ BIN_SRCS := $(wildcard bin/*.cc)  # 选择所有文件
 BIN_SRCS := $(filter-out bin/test.cc, $(BIN_SRCS)) # 单独去掉bin/test.cc
 ```
 
+# 常见函数
+
+## wildcard 获取匹配模式的文件名
+BIN_SRCS := $(wildcard bin/*.cc)
+获取匹配模式的文件名 wildcard
+src = $(wildcard *.c)
+wildcard把 指定目录 ./ 和 ./sub/ 下的所有后缀是c的文件全部展开。
+
+
+## patsubst 模式替换函数
+
+## foreach 循环函数
+
+## filter 
+
+## firstword
+
+## call
+origin函数
+
+export
+ $(call if_changed,copy)
+
 
 # tmp
 MAKEFLAGS += -rR --no-print-directory
@@ -121,28 +136,7 @@ u-boot.imx: u-boot.bin $(IMX_CONFIG) FORCE
 $(warnings "$$$$$$$$$$$ += checkarmreloc before")
 
 
-
 ```
-
-
-# 常见缩写
-
-AS		= $(CROSS_COMPILE)as
-# Always use GNU ld
-ifneq ($(shell $(CROSS_COMPILE)ld.bfd -v 2> /dev/null),)
-LD		= $(CROSS_COMPILE)ld.bfd
-else
-LD		= $(CROSS_COMPILE)ld
-endif
-CC		= $(CROSS_COMPILE)gcc
-CPP		= $(CC) -E
-AR		= $(CROSS_COMPILE)ar
-NM		= $(CROSS_COMPILE)nm
-LDR		= $(CROSS_COMPILE)ldr
-STRIP		= $(CROSS_COMPILE)strip
-OBJCOPY		= $(CROSS_COMPILE)objcopy
-OBJDUMP		= $(CROSS_COMPILE)objdump
-
 
 
 # 常用uboot短指令
@@ -177,9 +171,7 @@ https://blog.csdn.net/marc07/article/details/62885868
 [Makefile 官方参考](https://www.gnu.org/software/make/manual/html_node/)
 [7.1 Example of a Conditional](https://www.gnu.org/software/make/manual/html_node/Conditional-Example.html)
 [8.11 The origin Function](https://www.gnu.org/software/make/manual/html_node/Origin-Function.html)
-
-
-
+[Learn Makefiles With the tastiest examples](https://makefiletutorial.com/)
 
 
 

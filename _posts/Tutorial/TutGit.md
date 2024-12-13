@@ -194,7 +194,7 @@ git checkout -- filename
 当我们的项目很大很复杂的时候，需要将各个模块文件进行抽离，以此来降低项目文件之间的耦合程度。（当然你项目不大不复杂也可以使用，看个人喜好啦！！！）这个时候就可以使用git submodule来对项目文件进行抽离，最终使抽离出来的文件可以单独成为一个git仓库。这样做的好处是整个主项目对抽离出来的子项目（子模块）有依赖关系，却又并不关心子项目（子模块）的内部开发流程细节。
 
 ```bash
-git submodule add <ssh_url>
+git submodule add <ssh_url> # 在原有的仓库中，添加一个别的仓库
 git submodule init # 初始化子项目
 git submodule update # 对子项目获取远程项目中最新的状态
 git submodule status

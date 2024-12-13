@@ -175,9 +175,42 @@ gprof --version
 gprof -b test gmon.out > test.log # 简洁输出，不显示冗长的解释
 gprof -s test gmon.out > test.log # 将多个gmon.out文件合并
 gprof -p test gmon.out > test.log # 显示程序的每个函数的执行时间统计
+-p[symspec]
+--flat-profile[=symspec]
 gprof -q test gmon.out > test.log # 显示程序的每个函数的调用关系
-
+-q[symspec]
+--graph[=symspec]
 ```
+
+
+# valgrind
+# 安装教程
+```bash
+tar -jxvf valgrind-3.24.0.tar.bz2
+# ./configure --prefix=/root/valgrind-3.24.0
+./configure
+make 
+sudo make install
+```
+
+## 常用参数
+```bash
+valgrind --tool=memcheck
+valgrind --tool=memcheck ls -l
+valgrind --tool=memcheck --leak-check=full ls -l
+valgrind --tool=memcheck --leak-check=full --show-leak-kinds=all ls -l
+valgrind --tool=memcheck --leak-check=full --show-leak-kinds=all --show-reachable=yes --run-libc-freeres=yes ls -l
+```
+
+## massif工具
+```bash
+sudo apt install valgrind
+# sudo snap install massif-visualizer --edge # 无法使用
+sudo apt install massif-visualizer 
+valgrind --tool=massif ./test
+massif-visualizer
+```
+
 
 # tmpfile
 
@@ -245,6 +278,15 @@ https://www.nowcoder.com/courses/cover/live/504
 ## gprof
 [Linux C++ 开发9 - 手把手教你使用gprof性能分析工具](https://www.cnblogs.com/luoweifu/p/18427705)
 [官方文档：Profiling a Program: Where Does It Spend Its Time?](https://sourceware.org/binutils/docs/gprof/index.html)
+[5.1 The Flat Profile](https://sourceware.org/binutils/docs/gprof/Flat-Profile.html)
+[5.2 The Call Graph](https://sourceware.org/binutils/docs/gprof/Call-Graph.html)
+
+# falgrind
+[valgrind](https://valgrind.org/)
+[内存问题排查工具 --- valgrind](https://www.cnblogs.com/cobbliu/p/4423775.html#sec-7-5)
+[只看一篇系列：使用valgrind查看C++内存占用与堆栈分析](https://zhuanlan.zhihu.com/p/493972853)
+[C++ 有哪些性能分析工具？](https://www.zhihu.com/question/31382177/answer/3391497360)
+
 
 ## GCC的小工具binutils
 [Documentation for binutils 2.43](https://sourceware.org/binutils/docs/)
