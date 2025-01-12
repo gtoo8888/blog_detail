@@ -110,6 +110,13 @@ This application failed to start because no Qt platform plugin could be initiali
 Available platform plugins are: linuxfb, minimal, offscreen, vnc.
 
 
+
+
+qmake.exe .\01_HelloFFmpeg.pro -spec win32-g++ "CONFIG+=debug" "CONFIG+=qml_debug"
+
+mingw32-make Makefile qmake_all
+mingw32-make -j20
+
 # 参考资料
 [linux环境下编译Qt源码](https://blog.csdn.net/weixin_43742643/article/details/102835929)
 [Building Qt Sources](https://doc.qt.io/qt-5/build-sources.html)

@@ -6,6 +6,15 @@ tags:
 ---
 
 
+# 安装OMV6
+
+
+# 安装frp内网穿透
+
+
+apt-get install iftop 
+sudo apt-get install ethstatus
+sudo apt-get install bmon
 
 # 参考资料
 [树莓派错误:仓库将其‘Suite‘值从‘testing‘修改到了‘oldstable‘ 解决办法](https://blog.csdn.net/toopoo/article/details/122407434)
@@ -16,3 +25,5 @@ https://www.raspberrypi.com/news/new-old-functionality-with-raspberry-pi-os-lega
 [【树莓派】初见树莓派：系统安装2023](https://blog.csdn.net/weixin_43710676/article/details/128981939)
 [OpenMediaVault Plugin Developers](https://github.com/OpenMediaVault-Plugin-Developers/)
 [openmediavault](https://www.openmediavault.org/)
+
+https://wiki.omv-extras.org/doku.php?id=omv6:omv6

@@ -148,6 +148,7 @@ linux地址为（/root/.ssh/id_ed25519）
 ssh -T git@github.com
 ssh -T git@e.coding.net
 ssh -T git@gitee.com
+ssh -T git@192.168.1.25
 
 ssh -vT git@github.com # 显示详细连接信息,排查错误
 ```

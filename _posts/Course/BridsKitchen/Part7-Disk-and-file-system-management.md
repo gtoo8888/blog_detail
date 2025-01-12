@@ -322,11 +322,109 @@ ln 硬链接
 parted 列出磁盘分区表类型与分区信息
 Linux dump备份
 
+# 完整挂载流程
+```bash
+# 刚初始化的硬盘直接挂载会报错
+root@ubuntu:/# mount /dev/sdb /date_sdb/
+mount: /date_sdb: wrong fs type, bad option, bad superblock on /dev/sdb, missing codepage or helper program, or other error.
 
+# 1. 查看新添加硬盘是否存在
+fdisk -l
+Disk /dev/sdb: 40 GiB, 42949672960 bytes, 83886080 sectors
+Disk model: VMware Virtual S
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
 
+# 2. 对新建的磁盘进行分区及格式化
+fdisk /dev/sdb
+# 进入交互界面
+# m
+# n
+# p
+# 1
+# w
+Command (m for help): m
+Help:
+  DOS (MBR)
+   a   toggle a bootable flag
+   b   edit nested BSD disklabel
+   c   toggle the dos compatibility flag
+  Generic
+   d   delete a partition
+   F   list free unpartitioned space
+   l   list known partition types
+   n   add a new partition
+   p   print the partition table
+   t   change a partition type
+   v   verify the partition table
+   i   print information about a partition
+  Misc
+   m   print this menu
+   u   change display/entry units
+   x   extra functionality (experts only)
+  Script
+   I   load disk layout from sfdisk script file
+   O   dump disk layout to sfdisk script file
+  Save & Exit
+   w   write table to disk and exit
+   q   quit without saving changes
+  Create a new label
+   g   create a new empty GPT partition table
+   G   create a new empty SGI (IRIX) partition table
+   o   create a new empty DOS partition table
+   s   create a new empty Sun partition table
+Command (m for help): n
+Partition type
+   p   primary (0 primary, 0 extended, 4 free)
+   e   extended (container for logical partitions)
+Select (default p): p
+Partition number (1-4, default 1): 1
+First sector (2048-83886079, default 2048): [Enter]
+Last sector, +/-sectors or +/-size{K,M,G,T,P} (2048-83886079, default 83886079): [Enter]
+
+Created a new partition 1 of type 'Linux' and of size 40 GiB.
+Command (m for help): w
+The partition table has been altered.
+Calling ioctl() to re-read partition table.
+Syncing disks.
+
+# 3. 查看格式化情况
+fdisk -l #  /dev/sdb增加内容，出现/dev/sdb1
+
+Disk /dev/sdb: 40 GiB, 42949672960 bytes, 83886080 sectors
+Disk model: VMware Virtual S
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
+Disklabel type: dos
+Disk identifier: 0x9d88a992
+
+Device     Boot Start      End  Sectors Size Id Type
+/dev/sdb1        2048 83886079 83884032  40G 83 Linux
+# 4. 对新建的分区进行格式化
+mkfs -t ext4 /dev/sdb1
+mke2fs 1.45.5 (07-Jan-2020)
+Creating filesystem with 10485504 4k blocks and 2621440 inodes
+Filesystem UUID: b5d92c2b-e70d-48c1-b578-ae3e0a9bccaf
+Superblock backups stored on blocks:
+        32768, 98304, 163840, 229376, 294912, 819200, 884736, 1605632, 2654208,
+        4096000, 7962624
+
+Allocating group tables: done
+Writing inode tables: done
+Creating journal (65536 blocks): done
+Writing superblocks and filesystem accounting information: done
+
+# 5. 执行挂载
+mount /dev/sdb1 /date_sdb/ # 什么都没有输出，挂载成功
+
+# 6. 验证
+cd /date_sdb/ && ls # 存在lost+found/文件夹
+```
 
 # 参考资料
 [一种基于内存的文件系统tmpfs](https://www.linuxprobe.com/tmpfs-linux.html)
 [【ubuntu】将磁盘挂载到指定目录并设置开机自动挂载](https://blog.csdn.net/weixin_42301220/article/details/130078734)
 [Linux fdisk命令详解：如何创建、编辑、删除和显示磁盘分区（附实例和注意事项）](https://blog.csdn.net/u012964600/article/details/134603643)
-
+[详解VMware虚拟机中添加新硬盘并挂载的方法](https://blog.csdn.net/weixin_50464560/article/details/115714884)

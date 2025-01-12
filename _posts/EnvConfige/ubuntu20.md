@@ -35,7 +35,8 @@ tags:
 4. 挂载硬盘
 5. 安装开发工具
 6. 安装zsh
-7. 配置静态ip -- 不需要？
+7. 配置静态IP -- 不需要？
+8. 修改时区
 
 
 ## 1. 安装工具集，开启ssh
@@ -176,34 +177,68 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 ./zsh_install.sh
 # 安装扩展
 git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
+git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 
 cp -r zsh-autosuggestions ~/.oh-my-zsh/plugins 
 cp -r zsh-syntax-highlighting ~/.oh-my-zsh/plugins 
 
 # 配置扩展
 cat ~/.oh-my-zsh/plugins/git/git.plugin.zsh
+
+# 配置zshrc,添加扩展是在这个位置
+vim ~/.zshrc
 plugins=(
-  git zsh-autosuggestions zsh-syntax-highlighting
+  z git zsh-autosuggestions zsh-syntax-highlighting
 )
 eval "$(fasd --init auto)"
 
+alias ga='git add'
+alias gb='git branch'
+alias gba='git branch --all'
+alias gsi='git submodule init'
+alias gsu='git submodule update'
 ```
 
 # 7. 配置静态IP
 
 ```bash
+# ubuntu18配置方法
 sudo vim /etc/network/interfaces
 
-auto enp0s9
-iface enp0s9 inet static
-    address 194.168.1.190
+auto ens33
+iface ens33 inet static
+    address 192.168.1.25
     netmask 255.255.255.0
-    gatway 194.168.1.1
+    gatway 192.168.1.1
 
 sudo /etc/init.d/networking restart
+
+# ubuntu20配置方法
+cd /etc/netplan/
+sudo vim 00-installer-config.yaml
+network:
+  version: 2
+  renderer: NetworkManager
+  ethernets:
+      ens33:   # 网卡名称
+        dhcp4: no     # 关闭dhcp
+        dhcp6: no
+        addresses: [192.168.1.25/24]  # 静态ip
+        gateway4: 192.168.1.1     # 网关
+
+sudo netplan apply
+
 ```
 
 
+# 8. 修改时区
+
+```bash
+timedatectl status
+# 所有的时区名称存储在/usr/share/zoneinfo文件中
+timedatectl set-timezone "Asia/Shanghai"
+timedatectl status
+```
 
 # 安装ssh
 
@@ -281,3 +316,6 @@ cgo: C compiler "gcc" not found: exec: "gcc": executable file not found in $PATH
 [ubuntu 安装go](https://blog.csdn.net/liangcsdn111/article/details/115405223)
 [Golang调试工具Delve安装及使用](https://www.jianshu.com/p/2802d71ab9e9)
 [快速跳转工具--FASD 简单介绍](https://segmentfault.com/a/1190000011327993)
+[为Ubuntu 20.04 设置静态IP简明教程（和把大象装冰箱一样简单）](https://cloud.tencent.com/developer/article/1933335)
+[Ubuntu 20.04设置DNS解析（解决resolve.conf被覆盖问题）](https://blog.csdn.net/lsc_1893/article/details/118696693)
+[Ubuntu查看/修改系统时间](https://blog.csdn.net/lenmpeng/article/details/84313474)
