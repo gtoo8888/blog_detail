@@ -80,14 +80,12 @@ docker exec -it test01 /bin/bash
 docker start 容器ID/容器名
 docker start t1
 
-
 ## 删除容器
 docker rm -f ubuntu:v1.0 #删除一个容器
 docker rm -f ubuntu:v1.1 ubuntu:v1.2  #删除多个容器 空格隔开要删除的容器名或容器ID
 docker rm -f $(docker ps -aq) #删除全部容器
 
 ## 查看容器端口映射
-
 docker port [容器名] # 需要这个容器被启动，才能查看到他的端口映射情况
 ```
 
@@ -99,24 +97,121 @@ docker build -t ubuntu:v1.0  # 构建的容器名称和tag
 docker build -f Dockerfile2 # 依据指定的文件名称构建
 docker build -q # 静默输出
 
-
-
 # 常用组合指令
-
 docker build -t ubuntu:v1.0 -f Dockerfile2 
-
 ```
 
 ## 常用指令
 
 ```bash
-
-
 docker run --name my_u1 -dit u:v1.1 /bin/bash
-
-
-
 ```
+
+# docker包的安装
+
+```bash
+REPOSITORY                     TAG          IMAGE ID       CREATED        SIZE
+jenkins/jenkins                2.493        03347633fbe6   2 days ago     467MB
+homeassistant/home-assistant   latest       dceda7130840   7 days ago     1.8GB
+node                           23.6         38f9e6f7d426   9 days ago     1.12GB
+redis                          7.4          4075a3f8c3f8   10 days ago    117MB
+memcached                      1.6          39b1fb8d7053   3 weeks ago    84.8MB
+minio/minio                    latest       6aed1b694901   4 weeks ago    179MB
+rabbitmq                       4.0          d4093a263704   4 weeks ago    231MB
+dpage/pgadmin4                 latest       199b8ca63523   5 weeks ago    507MB
+mongo                          8.0          f08e39122805   5 weeks ago    855MB
+python                         3.10         6b3e490e4343   6 weeks ago    1GB
+python                         3.9          2ea5847b07f6   6 weeks ago    999MB
+python                         3.11         d7a93f6b0abf   6 weeks ago    1.01GB
+postgres                       17.2         9a0ce6be5dd4   8 weeks ago    435MB
+mysql                          9.1          56a8c14e1404   3 months ago   603MB
+mysql                          8.0          6c55ddbef969   3 months ago   591MB
+ubuntu                         20.04        6013ae1a63c2   3 months ago   72.8MB
+rabbitmq                       management   f24092b2eabe   3 months ago   267MB
+python                         3.8          3ea6eaad4f17   4 months ago   995MB
+nginx                          1.26         0dcfd986e814   5 months ago   188MB
+gcc                            14.2         f1283bbe9368   5 months ago   1.42GB
+
+
+docker save -o images.tar.gz ubuntu:20.04 minio/minio:latest nginx:1.26
+docker load -i ubunut20.04.tar.gz
+docker image inspect mysql:latest | grep -i version
+
+ping -c 3 docker-0.unsee.tech # 测试镜像是否可用
+
+
+docker stats --no-stream
+
+docker run -id -p 80:80 --name nginx \
+    nginx:1.26
+
+docker run -id -p 80:80 --name nginx \
+    -v /home/nginx/conf/nginx.conf:/etc/nginx/nginx.conf \
+    -v /home/nginx/conf/conf.d:/etc/nginx/conf.d \
+    -v /home/nginx/log:/var/log/nginx \
+    -v /home/nginx/html:/usr/share/nginx/html \
+    nginx:1.26
+http://192.168.56.101:80 
+
+docker run -id --name jenkins \
+    -v /usr/local/docker/jenkins_home:/var/jenkins_home \
+    -p 8099:8080 -p 50099:50000 \
+    jenkins/jenkins:2.493
+http://192.168.56.101:8099 
+
+
+docker run -id --name=rabbitmq \
+        -v /usr/local/docker/rabbitmq:/var/lib/rabbitmq \
+        -p 15672:15672 -p 5672:5672 \
+        -e RABBITMQ_DEFAULT_USER=admin \
+        -e RABBITMQ_DEFAULT_PASS=admin \
+        rabbitmq:management
+http://192.168.56.101:15672
+
+
+docker run -id --name postgres \
+        -v /usr/local/docker/postgresql/data:/var/lib/postgresql/data \
+        -p 5432:5432 \
+        -e POSTGRES_PASSWORD=123456 \
+        -e POSTGRES_USER=aderversa \
+        -e POSTGRES_DB=testdb \
+        postgres:17.2
+docker exec -it postgres /bin/bash
+http://192.168.56.101:5432
+
+docker run -id -p 5433:80 --name pgadmin4 \
+        -e PGADMIN_DEFAULT_EMAIL=test@123.com \
+        -e PGADMIN_DEFAULT_PASSWORD=123456 \
+        dpage/pgadmin4:latest
+http://192.168.56.101:5433
+
+
+
+docker run -id -p 27017:27017  --name mongo \
+        --restart=always \
+        -v /usr/local/docker/mongo/data:/data/db \
+        -v /usr/local/docker/mongo/log:/data/log \
+        -e TZ=Asia/Shanghai \
+        -e MONGO_INITDB_ROOT_USERNAME=mongo \
+        -e MONGO_INITDB_ROOT_PASSWORD=mongo \
+        --privileged=true \
+        mongo:8.0
+http://192.168.56.101:27017
+
+docker run -id -p 8123:8123 --name=homeassistant \
+    -v /usr/local/docker/homeassistant:/config \
+    -e "TZ=Asia/Shanghai" \
+    homeassistant/home-assistant:latest
+http://192.168.56.101:8123
+
+
+
+
+sudo docker-compose -f all.yaml up -d
+sudo docker-compose -f all.yaml stop
+sudo docker-compose -f all.yaml rm -f
+```
+
 
 # 新的参考资料
 ubunut:Alpine # 最精简的ubuntu包
@@ -153,4 +248,5 @@ docker info
 [docker hub]https://hub.docker.com/
 [聊聊 Docker 的存储 Overlay2](https://zhuanlan.zhihu.com/p/587283618)
 [Docker-Docker镜像存储位置(Windows/Mac/Linux)](https://blog.csdn.net/qq_24256877/article/details/123033703)
+[在Docker中运行PostgreSQL + pgAdmin 4](https://www.cnblogs.com/xhznl/p/13155054.html)
 

@@ -26,4 +26,6 @@ https://www.raspberrypi.com/news/new-old-functionality-with-raspberry-pi-os-lega
 [OpenMediaVault Plugin Developers](https://github.com/OpenMediaVault-Plugin-Developers/)
 [openmediavault](https://www.openmediavault.org/)
 
-https://wiki.omv-extras.org/doku.php?id=omv6:omv6
+[Documents and References for Openmediavault 6](https://wiki.omv-extras.org/doku.php?id=omv6:omv6)
+[搭建个人服务器图床最速の传说（docker+minio+picgo）](https://blog.csdn.net/qq_59622162/article/details/132522323)
+[Minio + PicGo自建图床/自己造图床（保姆级教程）](https://www.decoderx.cc/posts/b30591a9.html)

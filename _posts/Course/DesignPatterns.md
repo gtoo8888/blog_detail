@@ -132,9 +132,7 @@ SOLID指代了**面向对象编程**和**面向对象设计**的五个基本原�
 [C++享元模式探索：轻松优化内存使用和性能提升之道](https://developer.aliyun.com/article/1463784)
 [设计模式在前端开发中的实践（三）——享元模式](https://juejin.cn/post/7323048733787226152?searchId=202411261635595727A47103E59B9498EF)
 [备受“冷落”的享元模式](https://juejin.cn/post/7242911173723979833?searchId=202411261635595727A47103E59B9498EF)
-
-
-
+[接口与实现分离](https://www.cnblogs.com/Stultz-Lee/p/10099261.html)
 
 
 

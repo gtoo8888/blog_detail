@@ -431,31 +431,34 @@ git submodule update --init --recursive
 
 
 # 参考资料
-[GIT在线练习平台]https://learngitbranching.js.org/?locale=zh_CN
-https://blog.csdn.net/ajianyingxiaoqinghan/article/details/70544159
-https://blog.csdn.net/u014361280/article/details/109703556
-[git submodule]https://blog.csdn.net/weixin_44901565/article/details/123086226
-[git配置中的CRLF、LF、CR]https://blog.csdn.net/u013037336/article/details/121541008
-[git commit -m约定式提交]https://www.conventionalcommits.org/zh-hans/v1.0.0/
-[白色箭头]https://blog.csdn.net/bowenlaw/article/details/124594664
-[git commit 规范指南]https://blog.csdn.net/qq_41662115/article/details/99759645
-[.gitignore基础规则]https://www.cnblogs.com/kevingrace/p/5690241.html
-[git rebase]https://blog.csdn.net/small_white_123/article/details/121563248
-[git reset HEAD 用法]https://blog.csdn.net/wangkai6666/article/details/120810363
-[英文git教程网站]https://www.atlassian.com/git
-[git commit --amend]https://blog.csdn.net/xiaoyulike/article/details/119176756
-[git - 执行 git clone 时 "Filtering content"是什么意思？]https://www.coder.work/article/1531074
-[为什么要管理git gc自动垃圾回收(英文)]https://donatstudios.com/yagni-git-gc
-[为什么要git gc]https://www.cnblogs.com/ayseeing/p/4226471.html
-[Git是如何存储对象的]https://blog.csdn.net/hudashi/article/details/7669477
-[10.4 Git 内部原理 - 包文件]https://git-scm.com/book/zh/v2/Git-%E5%86%85%E9%83%A8%E5%8E%9F%E7%90%86-%E5%8C%85%E6%96%87%E4%BB%B6
-[Git是如何存储对象的- 7. 原理解析- [ Git Community Book 中文版 ...]]https://www.shouce.ren/api/view/a/9924
-[git 版本回退]https://www.liaoxuefeng.com/wiki/896043488029600/897013573512192
-[【学了就忘】Git操作 — 51.git reflog命令]https://www.jianshu.com/p/7e4cef3863e7
-[Good First Issue]https://goodfirstissue.dev/language/cplusplus/
+[GIT在线练习平台](https://learngitbranching.js.org/?locale=zh_CN)
+[Ubuntu环境如何上传项目到GitHub网站？](https://blog.csdn.net/ajianyingxiaoqinghan/article/details/70544159)
+[Git 常见错误 之 error: src refspec xxx does not match any / error: failed to push some refs to 简单解决方法](https://blog.csdn.net/u014361280/article/details/109703556)
+[git submodule](https://blog.csdn.net/weixin_44901565/article/details/123086226)
+[git配置中的CRLF、LF、CR](https://blog.csdn.net/u013037336/article/details/121541008)
+[白色箭头](https://blog.csdn.net/bowenlaw/article/details/124594664)
+[git rebase](https://blog.csdn.net/small_white_123/article/details/121563248)
+[git reset HEAD 用法](https://blog.csdn.net/wangkai6666/article/details/120810363)
+[英文git教程网站](https://www.atlassian.com/git)
+[git commit --amend](https://blog.csdn.net/xiaoyulike/article/details/119176756)
+[git - 执行 git clone 时 "Filtering content"是什么意思？](https://www.coder.work/article/1531074)
+[为什么要管理git gc自动垃圾回收(英文)](https://donatstudios.com/yagni-git-gc)
+[为什么要git gc](https://www.cnblogs.com/ayseeing/p/4226471.html)
+[Git是如何存储对象的](https://blog.csdn.net/hudashi/article/details/7669477)
+[10.4 Git 内部原理 - 包文件](https://git-scm.com/book/zh/v2/Git-%E5%86%85%E9%83%A8%E5%8E%9F%E7%90%86-%E5%8C%85%E6%96%87%E4%BB%B6)
+[Git是如何存储对象的- 7. 原理解析- [ Git Community Book 中文版 ...]](https://www.shouce.ren/api/view/a/9924)
+[git 版本回退](https://www.liaoxuefeng.com/wiki/896043488029600/897013573512192)
+[【学了就忘】Git操作 — 51.git reflog命令](https://www.jianshu.com/p/7e4cef3863e7)
+[Good First Issue](https://goodfirstissue.dev/language/cplusplus/)
 [ssh远程连接主机报错:Someone could be eavesdropping on you right now (man-in-the-middle attack)!](https://blog.csdn.net/qq_36393978/article/details/118334076)
 [git clone —recursive 快速高效下载方法](https://zhuanlan.zhihu.com/p/361136073)
 [搭建属于你自己的 Git 服务器](https://zhuanlan.zhihu.com/p/40371444)
 [在Ubuntu服务器搭建Git仓库，以及Git使用基本流程](https://blog.csdn.net/Xiaolan_2001/article/details/138717023)
 [最简单的 Git 服务器](https://www.ruanyifeng.com/blog/2022/10/git-server.html)
+## 版本管理与规范
+[git commit -m约定式提交](https://www.conventionalcommits.org/zh-hans/v1.0.0/)
+[git commit 规范指南](https://blog.csdn.net/qq_41662115/article/details/99759645)
+[.gitignore基础规则](https://www.cnblogs.com/kevingrace/p/5690241.html)
+[Major、Minor、Build Number及Revision 版本号注解含义](https://blog.csdn.net/Guzarish/article/details/119693362)
+[开发规范之正确使用版本号](https://www.chengxiaobai.cn/skills/the-correct-use-of-the-development-specification-version-number.html)
 

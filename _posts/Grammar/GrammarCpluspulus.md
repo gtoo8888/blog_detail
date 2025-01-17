@@ -172,6 +172,9 @@ C:\Users\<user>\.vscode\extensions\ms-vscode.cpptools-1.22.11-win32-x64\LLVM\bin
 # linux存储路径
 /home/<user>/.vscode-server/extensions/ms-vscode.cpptools-1.22.11-linux-x64/LLVM/bin
 sudo ln -s ~/.vscode-server/extensions/ms-vscode.cpptools-1.22.11-linux-x64/LLVM/bin/clang-format /usr/bin/clang-format
+
+
+sudo ln -s ~/.vscode-server/extensions/ms-vscode.cpptools-1.22.11-linux-x64/LLVM/bin/clang-tidy /usr/bin/clang-tidy
 ```
 
 # VSCode使用clang-format配置
@@ -342,7 +345,11 @@ mknod
 [注释规范]https://blog.csdn.net/lxj362343/article/details/105711524/
 [C++11 新的计时方法——std::chrono 大法好]https://blog.csdn.net/u013390476/article/details/50209603
 [C++模板全特化、偏特化]https://blog.csdn.net/m_buddy/article/details/72973207
-[C语言指针，*符号应该靠近类型写，还是靠近名称写](https://www.zhihu.com/question/492439854/answer/2176443328)？
+[C语言指针，*符号应该靠近类型写，还是靠近名称写](https://www.zhihu.com/question/492439854/answer/2176443328)
+[enum和std::string的自动互相转换](https://zhuanlan.zhihu.com/p/607465499)
+[深入C++ std:chrono设计原理并造一个简化版](https://zhuanlan.zhihu.com/p/608961346)
+[Opening KeynoteMeetingC++2019 - HowardHinnant - Design Rationale for the chronoL](https://www.bilibili.com/video/BV18741127Ny/?vd_source=76dff3ae3b42b00d067c0921bf6859ca)
+[Meeting C++ Slide listing](https://meetingcpp.com/mcpp/slides/)
 ## 代码格式化
 [Clang-Format用法详解](https://zhuanlan.zhihu.com/p/641846308)
 [Clang-Format Style Options](https://clang.llvm.org/docs/ClangFormatStyleOptions.html)
@@ -378,3 +385,11 @@ https://github.com/youngyangyang04/coroutine-lib
 [would learning Qt6 improve my overall C++ skills?](https://www.reddit.com/r/cpp_questions/comments/yedlyl/would_learning_qt6_improve_my_overall_c_skills/?rdt=61683)
 [How can I boost my career as C++ Qt Developer](https://www.quora.com/How-can-I-boost-my-career-as-C++-Qt-Developer)
 [[SOLVED] Beginner: How to use Qt and C++ the right way?](https://forum.qt.io/topic/25987/solved-beginner-how-to-use-qt-and-c-the-right-way)
+[现代化 C++ 开发工具 CLion:从入门到精通](https://zhuanlan.zhihu.com/p/97175720)
+## 好的网站
+https://cppcon.org/
+http://www.purecpp.cn/
+https://isocpp.org/
+https://www.fluentcpp.com/
+https://awesomecpp.com/
+https://abseil.io/tips/

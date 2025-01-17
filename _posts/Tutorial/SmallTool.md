@@ -83,9 +83,29 @@ visual svn
 
 
 # 清理存储空间
-## Ubuntu清理
+## Ubuntu清理存储空间
+```bash
+#!/bin/bash
+set -ex
 
-## Windows清理
+df -h 
+
+rm -rf /var/log/journal/*
+rm -rf ~/.cache/vscode-cpptools/*
+
+snap list --all | awk '/disabled/{print $1, $3}' |
+while read snapname revision; do
+    snap remove "$snapname" --revision="$revision"
+done
+
+apt-get autoclean  -y # 将已经删除了的软件包的.deb安装文件从硬盘中删除掉
+apt-get clean      -y # 删除包缓存中的所有包
+apt-get autoremove -y # 删除为了满足其他软件包的依赖而安装的，但现在不再需要的软件包。
+
+df -h 
+```
+
+## Windows清理存储空间
 C:\Users\<User>\AppData\Local\pip\cache
 C:\Users\<User>\AppData\Local
 C:\Users\<User>\AppData\Local\TslGame\Saved\Crashes
@@ -137,6 +157,42 @@ sudo apt-get install libssl-dev xsltproc -y
 sudo systemctl status mosquitto.service
 ```
 
+
+## 增强bing搜索
+
+https://cn.bing.com/search?q=%s&{bing:cvid}{bing:msb}{google:assistedQueryStats}
+https://cn.bing.com/search?q=%s+-site:*.csdn.net+-site:*.wenku.baidu.com&{bing:cvid}{bing:msb}{google:assistedQueryStats}
+
+vtk应用场景 -site:*.csdn.net -site:*.wenku.baidu.com
+
+# bing国际版网址
+https://global.bing.com/?setlang=en-us&setmkt=en-us
+
+
+# powershell
+
+oh-my-posh
+
+常见的powershell配置
+
+C:\Users\wellsun\.condarc
+
+添加auto_activate_base: false
+C:\Users\<User>\Documents\WindowsPowerShell
+
+
+
+```bash
+$PSVersionTable
+
+function prompt {
+    $currentPath = (Get-Location).Path
+    $time = Get-Date -Format "HH:mm:ss"
+    return "[$time] $currentPath> "
+}
+```
+
+
 # 参考资料
 [使用Navicat分析SQL性能]https://blog.csdn.net/weixin_43416686/article/details/121037223
 ## 清理存储空间
@@ -144,10 +200,12 @@ sudo systemctl status mosquitto.service
 [Windows上pip缓存](https://blog.csdn.net/weixin_45653897/article/details/131254542)
 [gradle瘦身/删除没有用的文件](https://blog.csdn.net/gqg_guan/article/details/130160022)
 [轻量级的VsCode为何越用越大？为什么吃了我C盘10G？如何无痛清理VsCode缓存？手把手教你为C盘瘦身](https://blog.csdn.net/Tisfy/article/details/126082324)
-# MQTT
+[解决Antimalware Service Executable让CPU占用过高](https://www.bilibili.com/opus/976945853997514788)
+## MQTT
 [mosquitto.h](https://mosquitto.org/api/files/mosquitto-h.html)
 [使用Mosquitto实现MQTT客服端C语言](https://www.cnblogs.com/jzcn/p/15252983.html)
 [mosquitto的安装、配置、使用教程](https://www.cnblogs.com/qumogu/p/16007609.html)
-
-
+## 杂项
+[在国内怎么使用必应国际版？全英文的那种？](https://answers.fuyeor.com/zh-hans/question/5321)
+[配置和美化你的powershell终端](https://zhuanlan.zhihu.com/p/444165353)
 

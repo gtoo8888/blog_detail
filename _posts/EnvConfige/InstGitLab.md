@@ -155,6 +155,19 @@ down: redis: 106s, normally up; run: log: (pid 2635) 1131s
 down: redis-exporter: 106s, normally up; run: log: (pid 2637) 1131s
 down: sidekiq: 104s, normally up; run: log: (pid 2645) 1131s
 
+# 问题
+gitlab-runner运行中，编译过程会卡住，甚至编译出了成果物也卡住
+
+1. 卡住阶段，top,cpu没有使用，iotop，io没有使用
+2. 不是偶发，反复出现，多次重新出发，全都会卡住
+3. gitlab-runner日志显示正常
+4. 早上10:00左右的提交还正常触发了CI，从那一次以后，就一直卡主了
+5. 看那一次提交，在编译后的后的执行阶段从./test改为sudo ./test，可能由此卡住
+6. sudo gitlab-runnner run,依然会卡主
+7. 去掉sudo运行，正常ci
+
+
+
 # 参考资料
 [2023最新Ubuntu安装部署Gitlab详细教程（每个步骤均配图）](https://blog.csdn.net/m0_63230155/article/details/131952266)
 [gitlab-ce_16.0.10-ce.0_amd64.deb-ubuntu](https://packages.gitlab.com/gitlab/gitlab-ce/packages/ubuntu/bionic/gitlab-ce_16.0.10-ce.0_amd64.deb)

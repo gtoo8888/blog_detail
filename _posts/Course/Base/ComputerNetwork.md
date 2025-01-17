@@ -79,9 +79,12 @@ Q: 怎样提供类似电路交换的服务？
 - X.25 和ATM
 
 
-
-
-
+# 参考资料
+[网络通信模式全解析：单播、广播、组播、任播](https://cloud.tencent.com/developer/article/2361411)
+[NTP的工作模式](https://support.huawei.com/enterprise/zh/doc/EDOC1100138322/e20379e)
+[【一文掌握】NTP时间同步协议原理详解以及ntpd和ntpdate安装与使用](https://blog.csdn.net/qq_27843945/article/details/140663499)
+[Support NTP](https://support.ntp.org/Support/TroubleshootingNTP#Section_9.5)
+[ntpq - standard NTP query program](https://www.eecis.udel.edu/~mills/ntp/html/ntpq.html)
 
 
 

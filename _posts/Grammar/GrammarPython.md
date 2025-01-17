@@ -339,28 +339,61 @@ matplotlib.transforms: 用来处理坐标变换相关的问题
 ‘a+’：追加读写。打开文件方式与写入方式和'a'一样，但是可以读。需注意的是你若刚用‘a+’打开一个文件，一般不能直接读取，因为此时光标已经是文件末尾，除非你把光标移动到初始位置或任意非末尾的位置。（可使用seek() 方法解决这个问题，详细请见下文Model 8 示例）
 
 
+
+# PyQt5
+
+
+Name：Qt Designer.
+  Program：D:\anaconda\envs\pyqt5\Lib\site-packages\qt5_applications\Qt\bin\designer.exe
+  Arguments：不填写
+  Working directory:$FileDir$
+
+名称：PyUIC
+工具设置
+    程序：D:\anaconda\envs\pyqt5\Scripts\pyrcc5.exe
+    实参： $FileName$ -o UI_$FileNameWithoutExtension$.py
+    工作目录：$FileDir$
+
+名称：PyRCC
+工具设置
+    程序：D:\anaconda\envs\pyqt5\Scripts\pyrcc5.exe
+    实参：$FileName$ -o $FileNameWithoutExtension$_rc.py
+    工作目录：$FileDir$
+
+# -F 创建一个绑定的可执行文件
+pyinstaller -F -i MeterTools.ico  -w main.py -n MeterTools
+
+
 # 参考资料
+## 基础语法
+[Python命名规范-大小写]https://blog.csdn.net/quietbxj/article/details/107188786
+[一篇搞懂python文件读写操作（r/r+/rb/w/w+/wb/a/a+/ab /w/wt / r/rt ）](https://blog.csdn.net/a12355556/article/details/112122670)
+[解锁 Python 类方法的精髓：@classmethod 的应用技巧！](https://blog.csdn.net/wuShiJingZuo/article/details/136304733)
+[Python 抽象基类 ABC ：从实践到优雅](https://segmentfault.com/a/1190000045678933)
+[__pycache__文件夹是什么东西？]https://zhuanlan.zhihu.com/p/476772186
+## Pytorch
+[Pytorch教程（一）：Pytorch安装教程-使用pip在conda里面装上了]https://zhuanlan.zhihu.com/p/88903659
+[清华大学开源软件镜像站]https://mirrors.tuna.tsinghua.edu.cn/
+[CUDA 11.7无法安装pytorch的GPU版本](https://blog.csdn.net/qq_46037444/article/details/125991109)
+[pytorch官网]https://pytorch.org/get-started/locally/
+[基于pytorch的yolov5运行报错warnings.warn(‘User provided device_type of ‘cuda‘, but CUDA is not available)](https://blog.csdn.net/weixin_50813961/article/details/122587255)
+[安装PyTorch详细过程]https://blog.csdn.net/MCYZSF/article/details/116525159
+[EISeg工具对应博文]https://blog.csdn.net/qq_37541097/article/details/120154543
+## Anaconda
+[Python使用conda安装requirement.txt的扩展包]https://blog.csdn.net/weixin_45092662/article/details/106906719
 [anaconda启动非常慢，一直卡在Initializing(看起来没什么用，FQ马上打开了)]https://blog.csdn.net/qq_40051406/article/details/121365478
 [Anaconda超详细安装教程（Windows环境下）]https://blog.csdn.net/fan18317517352/article/details/123035625
 [新手教程一：Anaconda新建开发环境]https://blog.csdn.net/qq_42573052/article/details/113770662
 [anaconda 换清华镜像源 windows](https://blog.csdn.net/jasneik/article/details/114227716)
-[Python命名规范-大小写]https://blog.csdn.net/quietbxj/article/details/107188786
-[Solving environment: failed with initial frozen solve. Retrying with flexible solve的解决]https://blog.csdn.net/Brookekitty/article/details/106226285
-[Python使用conda安装requirement.txt的扩展包]https://blog.csdn.net/weixin_45092662/article/details/106906719
-[安装PyTorch详细过程]https://blog.csdn.net/MCYZSF/article/details/116525159
-[清华大学开源软件镜像站]https://mirrors.tuna.tsinghua.edu.cn/
-[Pytorch教程（一）：Pytorch安装教程-使用pip在conda里面装上了]https://zhuanlan.zhihu.com/p/88903659
-[基于pytorch的yolov5运行报错warnings.warn(‘User provided device_type of ‘cuda‘, but CUDA is not available)]https://blog.csdn.net/weixin_50813961/article/details/122587255
-[CUDA 11.7无法安装pytorch的GPU版本]https://blog.csdn.net/qq_46037444/article/details/125991109
-[pytorch官网]https://pytorch.org/get-started/locally/
-[__pycache__文件夹是什么东西？]https://zhuanlan.zhihu.com/p/476772186
+[一打开终端就默认进入conda的base环境，取消方法](https://www.cnblogs.com/exmyth/p/17665778.html)
+[Solving environment: failed with initial frozen solve. Retrying with flexible solve的解决](https://blog.csdn.net/Brookekitty/article/details/106226285)
 [Anaconda之导出/导出配置好的虚拟环境](https://blog.csdn.net/qq_43382635/article/details/127124980)
-[EISeg工具对应博文]https://blog.csdn.net/qq_37541097/article/details/120154543
-[一篇搞懂python文件读写操作（r/r+/rb/w/w+/wb/a/a+/ab /w/wt / r/rt ）](https://blog.csdn.net/a12355556/article/details/112122670)
-
-
-
-
+## PyQt
+[手把手教你学习PyQT5：打造精美、功能强大的桌面应用程序（更新中。。）](https://blog.csdn.net/weixin_42475060/article/details/130327901)
+## Streamlit
+[stackshare django-vs-streamlit](https://stackshare.io/stackups/django-vs-streamlit)
+[Streamlit vs Flask vs Django comparison - November 2024](https://www.restack.io/docs/streamlit-knowledge-streamlit-vs-flask-vs-django)
+[launching Streamlit from PyCharm](https://discuss.streamlit.io/t/version-1-5-0/21455/10)
 
 
 
