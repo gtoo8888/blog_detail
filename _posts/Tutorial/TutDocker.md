@@ -99,6 +99,13 @@ docker build -q # 静默输出
 
 # 常用组合指令
 docker build -t ubuntu:v1.0 -f Dockerfile2 
+
+ 
+docker build -t p:v1.0 . -f DockerfilePython    
+
+docker run -id -v ${PWD}/work_pytest/PyQt:/app/test_code --name p0 -dit p:v1.0
+
+docker exec -it p0 /bin/bash
 ```
 
 ## 常用指令

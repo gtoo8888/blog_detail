@@ -364,6 +364,20 @@ Name：Qt Designer.
 pyinstaller -F -i MeterTools.ico  -w main.py -n MeterTools
 
 
+# 代码分析
+
+black
+flake8
+ipython
+mypy
+pylint
+pytest
+yapf
+
+__slots__ 
+__dict__ 
+__weakref__ 
+
 # 参考资料
 ## 基础语法
 [Python命名规范-大小写]https://blog.csdn.net/quietbxj/article/details/107188786
@@ -396,5 +410,12 @@ pyinstaller -F -i MeterTools.ico  -w main.py -n MeterTools
 [launching Streamlit from PyCharm](https://discuss.streamlit.io/t/version-1-5-0/21455/10)
 
 
+## 其他
+https://liaoxuefeng.com/books/python/introduction/index.html
+https://zhuanlan.zhihu.com/p/680596253
+https://www.zhihu.com/question/574776561/answer/55965549995
+
+
+https://github.com/PiperLiu/CS-courses-notes
 
 

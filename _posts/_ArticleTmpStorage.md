@@ -178,6 +178,59 @@ dd if=/dev/zero of=testfile bs=1M count=1000 oflag=direct  0.00s user 0.69s syst
 
 
 
+# 宠物类APP
+## 主要品类
+1. 电商-购买宠物用品
+2. 社交-纯扯淡
+3. 知识百科
+4. 电子设备-宠物用品
+   1. 自动喂食器
+   2. 自动猫砂盆
+5. 医疗需求
+## 核心痛点
+
+最基本的：
+记录疫苗历史，驱虫历史，吃药打针看病体检历史，并且能附带提醒功能。（这个很重要，家里宠物一多，很容易搞乱！）
+每天记录喂食，排泄，出门运动。
+对于年老年幼的狗or猫，需要监控体重，心率等等。
+记录洗澡，剪毛，剪指甲，刷牙洗牙，刷洗厕所，刷洗消毒饮水机等等日常活动的功能，并且附带提醒功能
+
+
+https://www.zhihu.com/question/22136889/answer/86361167
+萌爪记
+小佩
+爱宠大陆
+狗管家
+
+
+1.花里胡哨的2.很多广告3.很多莫名其妙的功能4.要么买东西要么社区5.各种神器的科普 
+
+我就想要一个简简单单的可以让我记录我家喵星人，不用怎么去操心其他的应用在我试过各路神器app以后，我在小程序里面找了两个出来，一个主子档案，一个宠本本主子好像停更很久了，宠本本才刚出来，功能还在更新完善中推荐题主去看一下宠本本，好看好用方便简单
+
+近年来行业中的头部企业比如CatLink、PETKIT（小佩）、uah、玲珑猫等纷纷选择出海
+
+https://www.zhihu.com/question/429507027/answer/1604829483
+
+https://www.easemob.com/news/9021
+https://zhuanlan.zhihu.com/p/657506513
+https://www.woshipm.com/evaluating/5328450.html
+https://www.tuya.com/cn/solution/hardware/pets
+https://www.reddit.com/r/selfhosted/comments/1cgxyor/puppysignal_an_open_source_pets_qr_tag/?rdt=51566
+https://www.linkedin.com/pulse/unleashed-open-source-tech-pets-animals-jeff-macharyas
+https://www.woshipm.com/share/6130549.html
+[producthunt 海外产品分享](https://www.producthunt.com/)
+
+
+## 市场规模
+受众分析
+## 需要技术栈
+1. 前端
+   1. ardurin
+2. 后端go
+## 本产品需求
+1. 遛狗轨迹记录
+   1. 分享
+2. 
 
 # 参考资料
 ## 其他
@@ -201,4 +254,24 @@ https://iperf.fr/iperf-download.php
 https://github.com/esnet/iperf?tab=readme-ov-file
 https://www.cnblogs.com/xuanbjut/p/14144255.html
 https://zhuanlan.zhihu.com/p/546330081
+
+
+# flutter
+https://www.jianshu.com/p/601f2ce98ce1
+https://blog.csdn.net/tower888/article/details/115371706
+
+
+flutter config --android-sdk C:\Users\wellsun\AppData\Local\Android\Sdk
+ flutter doctor
+ flutter run -d edge --web-port=8080 --web-hostname=127.0.0.1
+
+
+$env:FLUTTER_STORAGE_BASE_URL="https://mirrors.tuna.tsinghua.edu.cn/flutter"
+$env:PUB_HOSTED_URL="https://mirrors.tuna.tsinghua.edu.cn/dart-pub"
+
+
+https://juejin.cn/post/7299346813261676544
+
+
+
 
