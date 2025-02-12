@@ -136,6 +136,9 @@ sed and awk 101 hacks
 Rust 程序设计 第二版
 Rust 入门秘籍
 
+## 书籍
+音视频开发进阶指南
+FFmpeg从入门到精通
 
 
 # 极客时间
@@ -194,9 +197,7 @@ Linux性能优化实战
 
 
 
-
-
-
+《计算机程序的构造和解释》（Structure and Interpretation of Computer Programs，简记为 SICP）
 
 
 

@@ -122,106 +122,10 @@ EPOLLHUP
 请注意，这些措施只是一些基本的防御措施，无法完全保护服务器免受DDoS攻击。因此，建议您与网络安全专家合作，制定更全面的防御策略。
 
 
-
-
 令牌桶算法是一种常用的限流算法，可以用于限制每个IP地址的连接速率。以下是一个简单的C++实现令牌桶算法的例子：
-```c++
-#include <iostream>
-#include <chrono>
-#include <thread>
-#include <mutex>
-#include <condition_variable>
-
-using namespace std::chrono;
-
-class TokenBucket {
-public:
-    TokenBucket(int capacity, int rate) : capacity_(capacity), rate_(rate), tokens_(0) {
-        last_refill_time_ = steady_clock::now();
-    }
-
-    bool TryConsume(int tokens) {
-        std::unique_lock<std::mutex> lock(mutex_); 
-
-        Refill();
-
-        if (tokens_ >= tokens) {
-            tokens_ -= tokens;
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-private:
-    void Refill() {
-        auto now = steady_clock::now();
-        auto time_since_last_refill = now - last_refill_time_;
-        last_refill_time_ = now;
-
-        int tokens_to_add = duration_cast<milliseconds>(time_since_last_refill).count() * rate_ / 1000;
-        tokens_ = std::min(tokens_ + tokens_to_add, capacity_);
-    }
-
-    int capacity_;
-    int rate_;
-    int tokens_;
-    std::mutex mutex_;
-    std::condition_variable cv_;
-    std::chrono::steady_clock::time_point last_refill_time_;
-};
-
-int main() {
-    TokenBucket bucket(10, 2);
-
-    for (int i = 0; i < 20; i++) {
-        std::this_thread::sleep_for(milliseconds(500));
-
-        if (bucket.TryConsume(1)) {
-            std::cout << "Request " << i << " accepted." << std::endl;
-        } else {
-            std::cout << "Request " << i << " rejected." << std::endl;
-        }
-    }
-
-    return 0;
-}
-```
-在这个例子中，`TokenBucket`类维护了桶的容量、速率和当前的令牌数量。当一个请求到达时，它将尝试从桶中消耗指定数量的令牌。如果桶中有足够的令牌，请求将被接受，否则请求将被拒绝。
-
-在`TryConsume`方法中，首先调用`Refill`方法以确保桶中有足够的令牌。然后，如果桶中有足够的令牌，它将扣除指定数量的令牌并返回`true`，否则它将返回`false`。
-
-在`Refill`方法中，它计算从上次刷新以来的时间，并根据速率计算应该添加的令牌数量。然后，它将令牌数量限制在桶的容量内。
-
-在`main`函数中，我们创建一个容量为10，速率为2的`TokenBucket`对象，并模拟20个请求，每500毫秒到达一个请求。如果请求被接受，它将输出“Request i accepted.”，否则它将输出“Request i rejected.”。
-
-这个例子只是一个简单的演示，您可以根据自己的需求进行修改和扩展。
-
-
-
-libavcodec是FFmpeg中的一个库，它是一个编解码器库，提供了对各种音视频编码和解码的支持。它包含了多种音视频编解码器，如H.264、MPEG-4、MPEG-2、VP9、AAC、MP3等。在FFmpeg中，libavcodec是非常重要的一部分，它提供了FFmpeg的核心功能之一，即音视频的编解码功能。
-
-libavcodec可以将各种不同格式的音视频数据解码成FFmpeg内部的统一格式，也可以将FFmpeg内部的统一格式编码成各种不同格式的音视频数据，支持多种音视频编解码标准，同时具有高度的可扩展性和灵活性。此外，libavcodec还提供了一些优化的编解码实现，可以提高音视频编解码的效率。
-
-在使用libavcodec时，我们可以通过调用其提供的API来完成音视频的编解码工作，同时也可以进行一些高级的音视频处理，如滤波、裁剪、缩放、色彩空间转换等。总之，libavcodec是FFmpeg中非常重要的一部分，它为FFmpeg提供了强大的音视频编解码能力，是众多音视频应用的重要基础。
-
-
-
-以下是一些比较好的ffmpeg和C++结合的视频播放器的Github仓库：
-
-1. mpv-player/mpv：一个基于FFmpeg和OpenGL的视频播放器，支持多种视频格式和音频格式，可以在Linux、Windows和macOS系统上运行。
-
-2. VideoLAN/VLC：一个开源的跨平台媒体播放器，支持各种视频和音频格式，可以在Windows、Linux、macOS、Android和iOS等平台上运行。
-
-3. Bilibili/ijkplayer：一个基于FFmpeg的Android/iOS视频播放器，支持多种视频格式和音频格式，提供了丰富的API和示例代码。
-
-4. FFmpegPlayer/FFmpegPlayer：一个基于FFmpeg和SDL的视频播放器，支持多种视频格式和音频格式，提供了简单易用的API和示例代码。
-
-这些仓库都提供了丰富的文档、示例代码和API，可以根据自己的需求进行定制和修改。
 
 
 # 参考资料
-
 [日志系统]https://mp.weixin.qq.com/s?__biz=MzI3NzE0NjcwMg==&mid=2650122657&idx=1&sn=c5ce1d8059c40e4cd6deb42a34f8fe49&chksm=f36bb480c41c3d96f69a9fbbc8e7e1515b8bbec87742f76fa3dfda0019a7b58aa282c3ef9bde&scene=21#wechat_redirect
 [Reactor模型和Proactor模型]https://cloud.tencent.com/developer/article/1488120
 [Reactor模型]https://www.cnblogs.com/CodeBear/p/12567022.html

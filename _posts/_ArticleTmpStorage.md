@@ -273,5 +273,15 @@ $env:PUB_HOSTED_URL="https://mirrors.tuna.tsinghua.edu.cn/dart-pub"
 https://juejin.cn/post/7299346813261676544
 
 
+3、熟悉RTSP、RTP、RTCP、RTMP等流媒体网络通讯协议；
+4、熟悉FFmpeg/GStreamer等常用的音视频开源库；
 
+1.熟练掌握编程基础知识，比如多线程，缓存队列，网络编程，音视频等基础
+3、熟悉音视频领域知识（常见码流封装协议rtsp等；熟悉主流音视频编码协议，如H264，H265，AAC等），有ffmpeg，live555,gpu等开源框架开发经验优先;
+4、了解基本硬件知识，熟悉常见的音视频AD/DA芯片，熟悉音视频采集和显示原理；
+
+
+
+音视频开发
+流媒体服务器
 

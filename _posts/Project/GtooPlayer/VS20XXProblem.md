@@ -44,7 +44,21 @@ swresample.lib
 swscale.lib
 
 
+```bash
+MSBuild属性宏:
+- $(OutDir):输出目录，用于存放生成的可执行文件或库文件
+- $(ProjectName):项目名称，通常与项目文件名相同
+- $(Configuration):当前项目配置，例如Debug或Release
+- $(Platform):当前项目平台，例如Win32或x64
+- $(SolutionDir):解决方案目录，包含解决方案文件所在的路径
+- $(ProjectDir):项目目录，包含项目文件所在的路径
 
+$(SolutionDir)
+$(SolutionExt)
+$(SolutionFileName)
+$(SolutionName)
+$(SolutionPath)
+```
 
 
 

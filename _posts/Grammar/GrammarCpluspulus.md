@@ -171,7 +171,7 @@ clang-format -style=file -i utility/utilities.cpp
 C:\Users\<user>\.vscode\extensions\ms-vscode.cpptools-1.22.11-win32-x64\LLVM\bin\clang-format.exe
 # linux存储路径
 /home/<user>/.vscode-server/extensions/ms-vscode.cpptools-1.22.11-linux-x64/LLVM/bin
-sudo ln -s ~/.vscode-server/extensions/ms-vscode.cpptools-1.22.11-linux-x64/LLVM/bin/clang-format /usr/bin/clang-format
+sudo ln -s ~/.vscode-server/extensions/ms-vscode.cpptools-1.23.6-linux-x64/LLVM/bin/clang-format /usr/bin/clang-format
 
 
 sudo ln -s ~/.vscode-server/extensions/ms-vscode.cpptools-1.22.11-linux-x64/LLVM/bin/clang-tidy /usr/bin/clang-tidy
@@ -191,6 +191,30 @@ sudo ln -s ~/.vscode-server/extensions/ms-vscode.cpptools-1.22.11-linux-x64/LLVM
 5. 右下角{}
    1. 选择要使用的格式化格式
    2. 不要安装clang-format插件，会和C++的格式化插件冲突
+
+# 在2周后，忽然vscode使用ctrl+s保存时无法格式化
+
+1. 查看配置，上面的配置都正确Clang_format_path：/usr/bin/clang-format
+2. 查看/usr/bin/中配置
+```bash
+cd /usr/bin/ 
+ll | grep clang
+clang-format -> /home/<username>/.vscode-server/extensions/ms-vscode.cpptools-1.22.11-linux-x64/LLVM/bin/clang-format # 查看当前链接
+clang-format # 无效
+cd /home/<username>/.vscode-server/extensions/ms-vscode.cpptools-1.22.11-linux-x64/LLVM/bin/ # 目录不存在
+cd /home/<username>/.vscode-server/extensions/
+ll # 由于vscode插件更新了，也由于自己的删除重装插件导致路径不正确
+ms-vscode.cpptools-1.23.5-linux-x64
+ms-vscode.cpptools-1.23.6-linux-x64
+```
+3. 由于vscode插件更新了，也由于自己的删除重装插件导致路径不正确
+4. 删除原来链接，重新链接
+```bash
+cd /usr/bin/ 
+sudo rm -rf clang-format
+sudo ln -s ~/.vscode-server/extensions/ms-vscode.cpptools-1.23.6-linux-x64/LLVM/bin/clang-format /usr/bin/clang-format
+```
+
 
 # 暂存
 
