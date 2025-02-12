@@ -2,7 +2,7 @@
 title: ffmpeg
 date: 2023-04-14 22:29:24
 tags:
-- 项目
+- 课程
 ---
 
 
@@ -128,7 +128,7 @@ int av_find_best_stream(AVFormatContext *ic, enum AVMediaType type, int wanted_s
 # 参考资料
 [ffmpeg官网](https://ffmpeg.org/)
 [FFmpeg邮件列表](https://ffmpeg.org/contact.html)
-[Stack Overflow](https://stackoverflow.com/questions/tagged/ffmpeg)
+
 [FFmpeg中文社区](https://ffmpeg.club/)
 [FFmpeg API Documentation](https://ffmpeg.org/doxygen/trunk/index.html)
 [ffmpeg官方下载网页](http://www.ffmpeg.org/download.html)
@@ -147,12 +147,6 @@ int av_find_best_stream(AVFormatContext *ic, enum AVMediaType type, int wanted_s
 [FFmpeg三种版本（static、shared、dev）和实际操作举例](https://blog.csdn.net/ustc_sse_shenzhang/article/details/102546753)
 
 
-# 第三方资料
-[雷霄骅系列博客汇总](https://blog.csdn.net/mytzs123/article/details/122262837)
-[雷霄骅](https://blog.csdn.net/leixiaohua1020)
-[李超 音视频直播技术专家](https://www.zhihu.com/people/garrylea)
-
-[VLC-Qt](https://vlc-qt.tano.si/)
 
 # 萤石
 [萤石 OpenSDK](https://open.ys7.com/doc/zh/pc/index.html)
