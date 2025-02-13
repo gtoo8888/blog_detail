@@ -375,6 +375,34 @@ git branch
 如果需要rebase已经push的commit
 需要在提交的时候直接git push -f强制交上去，就会刷新掉之前的提交
 
+
+## git rebase 修改倒数第二次提交的作者邮箱
+
+1. 启动交互式Rebase：
+```bash
+git rebase -i HEAD~2
+```
+
+2. 标记提交进行编辑：
+在打开的文本编辑器中，你将看到最近两次提交的列表。找到你想修改的那个提交（即倒数第二次），将其前面的单词从`pick`改为`edit`。保存并关闭编辑器。
+
+3. 修改作者信息：
+接下来，执行如下命令来修改该提交的作者信息。请确保替换`<正确的邮箱地址>`为实际想要设置的正确邮箱地址。
+```bash
+git commit --amend --author="Name <正确的邮箱地址>" --no-edit
+```
+如果你也想修改提交日期或者其他信息，可以省略`--no-edit`参数，以便手动调整提交信息。
+
+4. 继续Rebase过程：
+```bash
+git rebase --continue
+```
+
+1. 强制推送：
+```bash
+git push --force
+```
+
 # 修改最后一次提交的注释
 
 git commit --amend 

@@ -14,7 +14,8 @@ tags:
 # 博客系列
 [雷霄骅系列博客汇总](https://blog.csdn.net/mytzs123/article/details/122262837)
 [秒懂音视频开发-M了个J](https://www.cnblogs.com/mjios/category/1938094.html?page=2)
-
+[腾讯云音视频](https://www.zhihu.com/org/teng-xun-yun-shi-pin-yun/zvideos)
+[七牛云](https://www.zhihu.com/column/c_32092841)
 
 # 音视频论坛
 ## 国内论坛
@@ -38,6 +39,7 @@ tags:
 [2024-05-27  以斗鱼直播流为例，谈谈高并发架构实践细节](https://www.bilibili.com/video/BV1Mw4m1S7aB)
 [2024-04-15  Matroska解封装原理与实践](https://www.bilibili.com/opus/920847877397282837)
 [2022-11-10  B站在实时音视频技术领域的探索与实践](https://www.bilibili.com/opus/727141412243505209)
+[2022-07-01  画质可控的场景自适应转码系统](https://www.bilibili.com/opus/677787079636156484)
 
 ## 斗鱼
 [2022-07-18 斗鱼 H5 直播原理解析，它是如何省了 80% 的 CDN 流量？](https://juejin.cn/post/7121513067728338975)

@@ -1,5 +1,5 @@
 ---
-title: ffmpeg
+title: FFmpeg 教程
 date: 2023-04-14 22:29:24
 tags:
 - 课程
@@ -8,21 +8,59 @@ tags:
 
 # 总体介绍
 FFmpeg一共包含8个库:
-avcodec:编解码（最重要的库）
-avformat:封装格式处理
-avfilter:滤镜特效处理
-avdevice:各种设备的输入输出
-avutil:工具库（大部分库都需要这个库的支持）
-postproc:后加工
-swresample:音频采样数据格式转换
-swscale:视频像素数据格式转换
+1. avcodec:编解码（最重要的库）
+2. avformat:封装格式处理
+3. avfilter:滤镜特效处理
+4. avdevice:各种设备的输入输出
+5. avutil:工具库（大部分库都需要这个库的支持）
+6. postproc:后加工
+7. swresample:音频采样数据格式转换
+8. swscale:视频像素数据格式转换
+9. 其他工具
+   1.  ffmpeg：该项目提供的一个工具，可用于格式转换、解码或电视卡即时编码等
+   2.  ffsever：一个 HTTP 多媒体即时广播串流服务器；
+   3.  ffplay：是一个简单的播放器，使用ffmpeg 库解析和解码，通过SDL显示；
+
+# linux安装FFmpeg
+源码安装
+官方linux包名称
+ffmpeg_7.1.orig.tar.xz
+```bash
+# 安装x264
+tar -vxjf x264-snapshot-20191217-2245.tar.bz2
+./configure --enable-shared --enable-static --disable-asm   
+make
+sudo make install
 
 
 
-
-
-
+# 安装ffmpeg
+tar -xjvf ffmpeg-3.4.8.tar.gz 
+cd ffmpeg-7.1/
 ./configure --prefix=/usr/local/ffmpeg --enable-shared --disable-static --disable-doc  --enable-gpl --enable-libx264
+# 报错nasm/yasm not found or too old. Use --disable-x86asm for a crippled build
+# 需要安装yasm
+make 
+make install
+
+
+# 安装yasm
+tar -xvzf yasm-1.3.0.tar.gz
+cd yasm-1.3.0/
+./configure
+make
+make install
+
+
+# 报错 libavdevice.so.57: cannot open shared object file: No such file or directory
+vim /etc/ld.so.conf
+/usr/local/ffmpeg/lib
+sudo ldconfig
+vim ~/.zshrc
+export PATH=/monchickey/ffmpeg/bin:$PATH
+source ~/.zshrc
+```
+
 
 fmpeg-master-latest-win64-gpl-shared.zip
 
@@ -93,6 +131,19 @@ AVCodecContext *avcodec_alloc_context3(const AVCodec *codec);
 int avcodec_parameters_to_context(AVCodecContext *codec_ctx, const AVCodecParameters *par);
 // 用于传递额外的编解码器选项。返回0表示成功，负数表示错误
 int avcodec_open2(AVCodecContext *avctx, const AVCodec *codec, AVDictionary **options);
+
+
+avcodec_send_packet
+av_packet_unref
+avcodec_receive_frame
+av_frame_unref
+
+
+AVFormatContext* mFormatContext = nullptr;     // 解封装上下文
+AVCodecContext* mCodecContext = nullptr;       // 解码器上下文
+SwsContext* mSwsContext = nullptr;             // 图像转换上下文
+AVPacket* mPacket = nullptr;                   // 数据包
+AVFrame* mFrame = nullptr;                     // 解码后的视频帧
 ```
 
 
@@ -112,7 +163,27 @@ int avformat_find_stream_info(AVFormatContext *ic, AVDictionary **options);
 int av_find_best_stream(AVFormatContext *ic, enum AVMediaType type, int wanted_stream_nb, int related_stream, AVCodec **decoder_ret, int flags);
 ```
 
-以下是一些比较好的ffmpeg和C++结合的视频播放器的Github仓库：
+
+## 
+
+```c++
+AVDictionary // 保存一组选项（如编码器或解码器参数）
+ 
+// 这个函数用于设置AVDictionary中的一个条目
+int av_dict_set(AVDictionary **pm, const char *key, const char *value, int flags);
+// 用于释放由AVDictionary分配的所有内存，并将指向它的指针设为NULL
+void av_dict_free(AVDictionary **pm);
+// 该函数用于打开多媒体输入流并读取文件头信息
+int avformat_open_input(AVFormatContext **ps, const char *url, AVInputFormat *fmt, AVDictionary **options);
+// 在成功打开输入之后，使用这个函数可以获取到关于媒体文件内部各个流的详细信息
+int avformat_find_stream_info(AVFormatContext *ic, AVDictionary **options);
+// 在给定的媒体文件中查找最佳的指定类型的流
+int av_find_best_stream(AVFormatContext *ic, enum AVMediaType type, int wanted_stream_nb, int related_stream, AVCodec **decoder_ret, int flags);
+```
+
+
+
+以下是一些比较好的FFmpeg和C++结合的视频播放器的Github仓库：
 1. mpv-player/mpv：一个基于FFmpeg和OpenGL的视频播放器，支持多种视频格式和音频格式，可以在Linux、Windows和macOS系统上运行。
 2. VideoLAN/VLC：一个开源的跨平台媒体播放器，支持各种视频和音频格式，可以在Windows、Linux、macOS、Android和iOS等平台上运行。
 3. Bilibili/ijkplayer：一个基于FFmpeg的Android/iOS视频播放器，支持多种视频格式和音频格式，提供了丰富的API和示例代码。
@@ -122,28 +193,31 @@ int av_find_best_stream(AVFormatContext *ic, enum AVMediaType type, int wanted_s
 
 
 
-
-
-
 # 参考资料
-[ffmpeg官网](https://ffmpeg.org/)
-[FFmpeg邮件列表](https://ffmpeg.org/contact.html)
+[FFmpeg官网](https://FFmpeg.org/)
+[FFmpeg邮件列表](https://FFmpeg.org/contact.html)
+[FFmpeg中文社区](https://FFmpeg.club/)
+[FFmpeg API Documentation](https://FFmpeg.org/doxygen/trunk/index.html)
+[FFmpeg官方下载网页](http://www.FFmpeg.org/download.html)
+[FFmpeg-Builds,FFmpeg库文件下载地址](https://github.com/BtbN/FFmpeg-Builds/releases)
 
-[FFmpeg中文社区](https://ffmpeg.club/)
-[FFmpeg API Documentation](https://ffmpeg.org/doxygen/trunk/index.html)
-[ffmpeg官方下载网页](http://www.ffmpeg.org/download.html)
-[FFmpeg-Builds,ffmpeg库文件下载地址](https://github.com/BtbN/FFmpeg-Builds/releases)
-
-## linux
-[Ubuntu上安装ffmpeg](https://blog.csdn.net/TracelessLe/article/details/107362505)
-[Ubuntu下x264库编译安装](https://blog.csdn.net/TracelessLe/article/details/107522845)
-[编译ffmpeg错误:ERROR: x264 not found using pkg-config](https://blog.csdn.net/qq_44054791/article/details/127861823)
-[编译安装libx264库遇到Found no assembler Minimum version is nasm-](https://www.lixian.fun/4237.html)
+## 安装教程
+### 官方下载链接
+[x264, the best H.264/AVC encoder - VideoLAN](https://www.videolan.org/developers/x264.html)
+[x264下载链接 Index of /x264/snapshots/](http://download.videolan.org/x264/snapshots/)
+[yasm下载链接](https://github.com/yasm/yasm/releases/tag/v1.3.0)
+[官网ffmpeg linux下载链接](https://launchpad.net/ubuntu/+source/ffmpeg)
 [nasm官网](https://www.nasm.us/)
 [nasm下载链接](https://www.nasm.us/pub/nasm/releasebuilds/)
+### 安装教程
+[Linux安装ffmpeg详细教程（超细）](https://blog.csdn.net/Number_oneEngineer/article/details/108848206)
+[Ubuntu上安装FFmpeg](https://blog.csdn.net/TracelessLe/article/details/107362505)
+[Ubuntu下x264库编译安装](https://blog.csdn.net/TracelessLe/article/details/107522845)
+[编译FFmpeg错误:ERROR: x264 not found using pkg-config](https://blog.csdn.net/qq_44054791/article/details/127861823)
+[编译安装libx264库遇到Found no assembler Minimum version is nasm-](https://www.lixian.fun/4237.html)
 
 ## windows
-[ffmpeg windows下载地址](https://github.com/BtbN/FFmpeg-Builds/releases)
+[FFmpeg windows下载地址](https://github.com/BtbN/FFmpeg-Builds/releases)
 [FFmpeg三种版本（static、shared、dev）和实际操作举例](https://blog.csdn.net/ustc_sse_shenzhang/article/details/102546753)
 
 
