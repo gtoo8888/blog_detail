@@ -131,12 +131,14 @@ AVCodecContext *avcodec_alloc_context3(const AVCodec *codec);
 int avcodec_parameters_to_context(AVCodecContext *codec_ctx, const AVCodecParameters *par);
 // 用于传递额外的编解码器选项。返回0表示成功，负数表示错误
 int avcodec_open2(AVCodecContext *avctx, const AVCodec *codec, AVDictionary **options);
-
-
-avcodec_send_packet
-av_packet_unref
-avcodec_receive_frame
-av_frame_unref
+// 向编解码器发送一个压缩数据包进行解码。如果编解码器是编码器，则该函数用于发送原始帧进行编码。
+int avcodec_send_packet(AVCodecContext *avctx, const AVPacket *avpkt);
+//  释放与AVPacket相关的资源，包括未分配的数据和缓冲区，并重置AVPacket的内容。
+void av_packet_unref(AVPacket *pkt);
+// 从编解码器接收一个解码后的帧（或编码后的包）。这个函数应该在调用`avcodec_send_packet`之后调用，直到它返回错误代码`EAGAIN`或者`EOF`
+int avcodec_receive_frame(AVCodecContext *avctx, AVFrame *frame);
+// 释放与AVFrame关联的所有缓冲区并重置AVFrame的内容。
+void av_frame_unref(AVFrame *frame);
 
 
 AVFormatContext* mFormatContext = nullptr;     // 解封装上下文
@@ -161,10 +163,13 @@ int avformat_open_input(AVFormatContext **ps, const char *url, AVInputFormat *fm
 int avformat_find_stream_info(AVFormatContext *ic, AVDictionary **options);
 // 在给定的媒体文件中查找最佳的指定类型的流
 int av_find_best_stream(AVFormatContext *ic, enum AVMediaType type, int wanted_stream_nb, int related_stream, AVCodec **decoder_ret, int flags);
+// 打印详细的媒体文件信息到标准输出，这对于调试非常有用。
+void av_dump_format(AVFormatContext *ic, int index, const char *url, int is_output);
 ```
 
 
-## 
+
+## avutil 工具库
 
 ```c++
 AVDictionary // 保存一组选项（如编码器或解码器参数）
@@ -179,6 +184,10 @@ int avformat_open_input(AVFormatContext **ps, const char *url, AVInputFormat *fm
 int avformat_find_stream_info(AVFormatContext *ic, AVDictionary **options);
 // 在给定的媒体文件中查找最佳的指定类型的流
 int av_find_best_stream(AVFormatContext *ic, enum AVMediaType type, int wanted_stream_nb, int related_stream, AVCodec **decoder_ret, int flags);
+
+av_dict_get
+
+av_get_media_type_string
 ```
 
 
