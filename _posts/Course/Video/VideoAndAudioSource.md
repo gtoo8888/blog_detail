@@ -1,8 +1,8 @@
 ---
 title: 音视频相关资料
-date: 2023-04-14 22:29:24
+date: 2025-02-14 22:29:24
 tags:
-- 课程
+- 音视频课程
 ---
 
 
@@ -61,4 +61,15 @@ tags:
 ## 开源个人项目
 [VLC-Qt](https://vlc-qt.tano.si/)
 [Quickly create a fully functional cross-platform media player - VLC-Qt](https://vlc-qt.tano.si/)
+
+
+# FFmpeg官方推荐书籍
+[Quick Start Guide to FFmpeg: Learn to Use the Open Source Multimedia-Processing Tool like a Pro](​https://www.amazon.com/Quick-Start-Guide-to-FFmpeg-V-Subhash-from-Apress/dp/1484287002/)
+[FFMPEG - From Zero to Hero](​https://www.amazon.com/FFMPEG-Zero-Hero-Nick-Ferrando-ebook/dp/B08Y64XG9T/)
+[FFmpeg For Beginners: Edit Audio and Video Like a Pro for Youtube and Social Media ](​https://www.amazon.com/FFmpeg-Beginners-Audio-Youtube-Social-ebook/dp/B087GYV15Y/)
+[Introduction to FFmpeg: Encode Video for the Web and Mobile Devices ](​https://www.amazon.com/Introduction-FFmpeg-Encode-Mobile-Devices-ebook/dp/B07PBYS324/)
+[Learn to Produce Videos with FFmpeg: In Thirty Minutes or Less ](​https://www.amazon.com/Learn-Produce-Videos-FFmpeg-Minutes/dp/0998453013/)
+
+
+
 

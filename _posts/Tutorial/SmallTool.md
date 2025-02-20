@@ -201,10 +201,6 @@ function prompt {
 [gradle瘦身/删除没有用的文件](https://blog.csdn.net/gqg_guan/article/details/130160022)
 [轻量级的VsCode为何越用越大？为什么吃了我C盘10G？如何无痛清理VsCode缓存？手把手教你为C盘瘦身](https://blog.csdn.net/Tisfy/article/details/126082324)
 [解决Antimalware Service Executable让CPU占用过高](https://www.bilibili.com/opus/976945853997514788)
-## MQTT
-[mosquitto.h](https://mosquitto.org/api/files/mosquitto-h.html)
-[使用Mosquitto实现MQTT客服端C语言](https://www.cnblogs.com/jzcn/p/15252983.html)
-[mosquitto的安装、配置、使用教程](https://www.cnblogs.com/qumogu/p/16007609.html)
 ## 杂项
 [在国内怎么使用必应国际版？全英文的那种？](https://answers.fuyeor.com/zh-hans/question/5321)
 [配置和美化你的powershell终端](https://zhuanlan.zhihu.com/p/444165353)
