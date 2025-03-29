@@ -349,6 +349,69 @@ read
 stat
 mknod
 
+# C++
+1. std::isalnum
+2. void printPinInfoCol(void) const;
+3. 仿函数
+4. lambda表达式
+
+
+# C++11
+1. std::chrono
+2. enum class
+3. std::shared_ptr
+4. std::thread
+   1. std::thread::hardware_concurrency()
+5. std::this_thread
+   1. std::this_thread::get_id()
+6. constexpr
+7. static_cast
+8. std::function
+9. std::any
+10. algorithm
+   1. std::copy_if
+   2. std::back_inserter
+   3. std::move
+11. 并发
+   1. std::mutex
+   2. std::condition_variable
+   3. std::atomic<bool>
+   4. std::lock_guard
+
+constexpr 来定义常量和使用宏 #define
+## C++11 并发
+
+std::lock
+std::adopt_lock
+
+std::lock_guard
+没有提供手动解锁的接口。它的设计初衷是确保锁的生命周期与作用域绑定，避免人为错误
+std::unique_lock
+如果需要更灵活的控制（例如手动解锁）
+
+| 特性                  | `std::lock_guard`                  | `std::unique_lock`                  |
+|-----------------------|------------------------------------|-------------------------------------|
+| **锁定方式**           | 构造时立即锁定，析构时自动释放     | 可以延迟锁定，手动锁定和解锁       |
+| **灵活性**             | 较低                               | 较高                                |
+| **条件变量支持**       | 不支持                             | 支持                                |
+| **性能**               | 更轻量，性能更好                   | 稍重，性能稍差                     |
+| **适用场景**           | 简单的锁管理                       | 复杂的锁管理，条件变量，延迟锁定等 |
+
+
+
+### 5. 注意事项
+- **虚假唤醒**：无论是 `notify_one()` 还是 `notify_all()`，线程都可能因为虚假唤醒（spurious wakeup）而提前返回。因此，条件变量的等待通常需要放在一个循环中，并检查条件是否真正满足。
+  ```cpp
+  cv.wait(lock, []{ return ready; }); // 使用谓词避免虚假唤醒
+  ```
+- **锁竞争**：`notify_all()` 会唤醒所有线程，可能导致大量线程竞争锁，影响性能。因此，在不需要唤醒所有线程时，优先使用 `notify_one()`。
+
+
+
+## 问题
+1. 递归锁
+2. lock_guard死锁
+
 # 参考资料
 [C++ explicit 关键字]https://zhuanlan.zhihu.com/p/52152355
 [解决 VSCode 编写 C++11 代码报红问题]https://blog.csdn.net/weixin_42292229/article/details/113767569

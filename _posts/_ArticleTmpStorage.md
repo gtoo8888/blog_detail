@@ -285,3 +285,178 @@ https://juejin.cn/post/7299346813261676544
 音视频开发
 流媒体服务器
 
+
+[干货|教你使用Doxygen制作漂亮的程序文档](https://zhuanlan.zhihu.com/p/510925324)
+
+tar -zxvf
+./configure --without-http_rewrite_module
+
+
+Configuration summary
+  + PCRE library is not used
+  + OpenSSL library is not used
+  + using system zlib library
+
+
+启动一个服务：systemctl start firewalld.service
+关闭一个服务：systemctl stop firewalld.service
+重启一个服务：systemctl restart firewalld.service
+显示一个服务的状态：systemctl status firewalld.service
+
+
+在开机时启用一个服务：systemctl enable firewalld.service
+在开机时禁用一个服务：systemctl disable firewalld.service
+查看服务是否开机启动：systemctl is-enabled firewalld.service
+
+查看所有已经启动的服务 systemctl list-units --type=service
+查看开机启动的服务列表：systemctl list-unit-files|grep enabled
+查看启动失败的服务列表：systemctl --failed
+
+
+# 一些新的工具
+proxmox
+
+
+Audiobookshelf
+ollam
+TrueNAS 
+Gitea
+Grafana
+Paperless-ngx 
+
+
+# 电子书阅读
+Calibre 
+Neat Reader
+Koodo
+foliate
+
+# 照片管理
+digiKam
+picasa
+eagle
+
+
+
+AV1 编解码
+AV1 旨在取代 VP9 并成为与HEVC（H.265）竞争的主要视频编码标准。
+
+AV1 旨在比现有的视频编码标准（如H.264/AVC和HEVC/H.265）提供更高的数据压缩率，这意味着在相同的视频质量下，AV1 编码的视频文件将占用更少的存储空间和带宽。但高压缩率带来的是编码耗时的增加，大约是 H265 的 3 倍
+
+
+
+帧内编码 预测模式
+
+AVS3
+AV1
+H266
+
+腾讯云的视频编解码芯片沧海、阿里云的4K实时硬件编码器XGH265、实时高清编码器Ali266
+涌现科技Seirios-I智能编码处理器基于全自研芯片提供高算力、高吞吐、低成本、低功耗的灵活适配异构计算方案
+
+视频与视觉技术国家工程研究中心
+数字视频编解码技术国家工程实验室
+马思伟
+高文院士
+超高清视频多态基元编解码关键技术
+超高清视频编解码关键技术及系统应用
+中国科学技大学吴枫教授
+多媒体非均匀编码和通信的贡献
+中国科学技术大学李卫平教授、陈志波教授
+智构编码
+字节跳动先进视频团队
+火山引擎多媒体实验室
+
+划分、预测、变换、量化、熵编码
+
+
+广播电视信息
+电视技术
+家庭影院技术
+中国传媒科技
+
+
+帧内编码、帧间编码、熵编码、环路滤波
+
+
+
+### **1. 文件访问模式（必选其一）**
+这些标志用于指定文件的打开方式，**必须选择其中一个**：
+- `O_RDONLY`：只读模式打开。
+- `O_WRONLY`：只写模式打开。
+- `O_RDWR`：读写模式打开。
+
+### **2. 文件创建与状态标志（可选）**
+这些标志可以与其他标志按位或（`|`）组合使用：
+
+#### **文件创建相关**
+- `O_CREAT`：如果文件，则创建它（需配合 `mode` 参数指定权限，如 `0644`）。
+- `O_EXCL`：与 `O_CREAT` 一起使用时，如果文件已存在，则 `open()` 失败（用于原子性创建文件）。
+- `O_TRUNC`：如果文件已存在且为普通文件，将其长度截断为 0（清空文件）。
+
+#### **同步 I/O 控制**
+- `O_SYNC`：每次 `write()` 都会等待数据物理写入硬件（同步写入，影响性能但更安全）。
+- `O_DSYNC`：类似 `O_SYNC`，但仅同步文件数据（不同步元数据）。
+- `O_RSYNC`：与 `O_SYNC` 或 `O_DSYNC` 配合使用，确保读操作也同步。
+
+#### **非阻塞与异步 I/O**
+- `O_NONBLOCK`：以非阻塞模式打开文件（如串口无数据时立即返回而非阻塞）。
+- `O_ASYNC`：启用信号驱动的 I/O（如当串口有数据可读时发送 `SIGIO` 信号）。
+
+#### **其他常用标志**
+- `O_APPEND`：每次写入时追加到文件末尾（避免覆盖）。
+- `O_NOCTTY`：如果打开的是终端设备（如串口），禁止其成为控制终端（防止程序被终端信号干扰）。
+- `O_CLOEXEC`：在 `exec()` 调用后自动关闭文件描述符（避免子进程继承）。
+
+### **3. 特殊设备相关标志（如串口）**
+打开串口等设备时，常用的组合标志：
+```c
+int fd = open("/dev/ttyUSB0", O_RDWR | O_NOCTTY | O_SYNC | O_NONBLOCK);
+```
+- `O_NOCTTY`：防止串口成为控制终端（重要！）。
+- `O_SYNC`：确保数据实时写入硬件（避免缓冲）。
+- `O_NONBLOCK`：非阻塞模式（可选，根据需求）。
+
+
+
+| **命令**         | **作用**                                                                 |
+|------------------|-------------------------------------------------------------------------|
+| `F_DUPFD`        | 复制文件描述符（类似 `dup()`）。                                        |
+| `F_GETFD`        | 获取文件描述符标志（如 `FD_CLOEXEC`）。                                 |
+| `F_SETFD`        | 设置文件描述符标志（如 `FD_CLOEXEC`，防止子进程继承）。                 |
+| `F_GETFL`        | 获取文件状态标志（如 `O_RDONLY`、`O_NONBLOCK`）。                       |
+| `F_SETFL`        | 设置文件状态标志（如 `O_NONBLOCK`、`O_APPEND`）。                       |
+| `F_GETLK`        | 获取文件锁信息（用于记录锁）。                                          |
+| `F_SETLK`        | 设置非阻塞文件锁（失败立即返回）。                                      |
+| `F_SETLKW`       | 设置阻塞文件锁（失败时等待）。                                          |
+| `F_GETOWN`       | 获取接收 `SIGIO`/`SIGURG` 信号的进程 ID（用于异步 I/O）。               |
+| `F_SETOWN`       | 设置接收 `SIGIO`/`SIGURG` 信号的进程 ID（用于异步 I/O）。               |
+
+
+```bash
+file exec # 检测是否存在符号链接
+nm exec # 检测是否存在符号链接
+nm -D exec  # 查看动态符号（适用于动态库）
+nm -g exec  # 仅显示外部/全局符号
+objdump -h exec | grep debug # 检测是否存在符号链接
+readelf -S gpio_instruct_test_t3c_arm_r | grep debug
+```
+
+**输出示例：**
+- **有符号信息**：  
+  ```
+  your_executable: ELF 64-bit LSB executable, x86-64, dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, **not stripped**
+  ```
+- **无符号信息（已 `strip` 过）**：  
+  ```
+  your_executable: ELF 64-bit LSB executable, x86-64, dynamically linked, interpreter /lib64/ld-linux-x86-64.so.2, **stripped**
+  ```
+
+
+| 工具          | 作用                               | 适用场景                     |
+|---------------|-----------------------------------|----------------------------|
+| `file`        | 快速判断是否 `stripped`           | 初步检查                   |
+| `nm`          | 列出符号表                        | 查看具体符号               |
+| `objdump -t`  | 显示符号表（更详细）              | 分析符号类型               |
+| `readelf -s`  | 显示 ELF 符号表                   | 专业分析                   |
+| `strip` + `ls`| 通过文件大小变化验证              | 简单验证                   |

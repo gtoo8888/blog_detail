@@ -483,6 +483,7 @@ git submodule update --init --recursive
 [搭建属于你自己的 Git 服务器](https://zhuanlan.zhihu.com/p/40371444)
 [在Ubuntu服务器搭建Git仓库，以及Git使用基本流程](https://blog.csdn.net/Xiaolan_2001/article/details/138717023)
 [最简单的 Git 服务器](https://www.ruanyifeng.com/blog/2022/10/git-server.html)
+[git cherry-pick 教程](https://www.ruanyifeng.com/blog/2020/04/git-cherry-pick.html)
 ## 版本管理与规范
 [git commit -m约定式提交](https://www.conventionalcommits.org/zh-hans/v1.0.0/)
 [git commit 规范指南](https://blog.csdn.net/qq_41662115/article/details/99759645)

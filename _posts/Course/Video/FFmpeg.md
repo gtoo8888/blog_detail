@@ -227,6 +227,8 @@ AVDictionary // 保存一组选项（如编码器或解码器参数）
  
 // 这个函数用于设置AVDictionary中的一个条目
 int av_dict_set(AVDictionary **pm, const char *key, const char *value, int flags);
+// 用于获取指定键的值
+AVDictionaryEntry *av_dict_get(const AVDictionary *m, const char *key, const AVDictionaryEntry *prev, int flags);
 // 用于释放由AVDictionary分配的所有内存,并将指向它的指针设为NULL
 void av_dict_free(AVDictionary **pm);
 // 该函数用于打开多媒体输入流并读取文件头信息
@@ -251,6 +253,126 @@ av_get_media_type_string
 
 
 
+
+在 `libavfilter` 中，滤镜分为 **视频滤镜（Video Filters）** 和 **音频滤镜（Audio Filters）**，每种滤镜都有特定的功能。以下是一些常见的滤镜及其用途：
+
+---
+
+### **1. 视频滤镜（Video Filters）**
+
+#### **1.1 基础处理**
+- **`scale`**: 调整视频分辨率。
+  - 示例：`scale=640:480`（将视频缩放到 640x480）。
+- **`crop`**: 裁剪视频区域。
+  - 示例：`crop=400:300:100:100`（从 (100,100) 开始裁剪 400x300 的区域）。
+- **`pad`**: 添加填充（如黑边）。
+  - 示例：`pad=800:600:100:100:black`（将视频填充到 800x600，四周添加 100 像素黑边）。
+- **`transpose`**: 旋转或翻转视频。
+  - 示例：`transpose=1`（顺时针旋转 90 度）。
+
+#### **1.2 色彩处理**
+- **`eq`**: 调整亮度、对比度、饱和度。
+  - 示例：`eq=brightness=0.1:contrast=1.5:saturation=0.8`。
+- **`hue`**: 调整色调。
+  - 示例：`hue=h=30:s=1`（调整色调和饱和度）。
+- **`colorbalance`**: 调整颜色平衡。
+  - 示例：`colorbalance=rs=0.1:gs=0.2:bs=0.3`。
+
+#### **1.3 特效处理**
+- **`overlay`**: 叠加两个视频（画中画）。
+  - 示例：`overlay=10:10`（将第二个视频叠加到主视频的 (10,10) 位置）。
+- **`fade`**: 添加淡入淡出效果。
+  - 示例：`fade=in:0:30`（前 30 帧淡入）。
+- **`boxblur`**: 添加模糊效果。
+  - 示例：`boxblur=luma_radius=2:luma_power=1`。
+
+#### **1.4 时间处理**
+- **`setpts`**: 修改视频帧的时间戳。
+  - 示例：`setpts=PTS-STARTPTS`（重置时间戳）。
+- **`fps`**: 调整帧率。
+  - 示例：`fps=30`（将帧率调整为 30 FPS）。
+
+#### **1.5 格式转换**
+- **`format`**: 转换像素格式。
+  - 示例：`format=yuv420p`（将视频转换为 YUV420P 格式）。
+- **`hwupload` / `hwdownload`**: 硬件加速格式转换。
+  - 示例：`hwupload,scale_cuda=640:480,hwdownload`。
+
+---
+
+### **2. 音频滤镜（Audio Filters）**
+
+#### **2.1 基础处理**
+- **`aresample`**: 重采样音频。
+  - 示例：`aresample=44100`（将音频重采样为 44.1kHz）。
+- **`volume`**: 调整音量。
+  - 示例：`volume=2.0`（将音量提高 2 倍）。
+
+#### **2.2 特效处理**
+- **`aecho`**: 添加回声效果。
+  - 示例：`aecho=0.8:0.88:60:0.4`。
+- **`afade`**: 添加淡入淡出效果。
+  - 示例：`afade=in:0:30`（前 30 个采样淡入）。
+- **`highpass` / `lowpass`**: 高通/低通滤波。
+  - 示例：`highpass=f=1000`（滤除 1000Hz 以下的频率）。
+
+#### **2.3 格式转换**
+- **`aformat`**: 转换音频格式。
+  - 示例：`aformat=sample_fmts=fltp:channel_layouts=stereo`。
+- **`channelsplit`**: 分离音频声道。
+  - 示例：`channelsplit=channel_layout=stereo`。
+
+#### **2.4 时间处理**
+- **`asetpts`**: 修改音频帧的时间戳。
+  - 示例：`asetpts=PTS-STARTPTS`（重置时间戳）。
+- **`atempo`**: 调整音频速度。
+  - 示例：`atempo=1.5`（将音频速度提高 1.5 倍）。
+
+---
+
+### **3. 常用滤镜组合**
+#### **3.1 视频画中画**
+```bash
+ffmpeg -i main.mp4 -i overlay.mp4 -filter_complex "[0:v][1:v] overlay=10:10" output.mp4
+```
+
+#### **3.2 视频缩放与裁剪**
+```bash
+ffmpeg -i input.mp4 -vf "scale=640:480,crop=400:300:100:100" output.mp4
+```
+
+#### **3.3 音频重采样与音量调整**
+```bash
+ffmpeg -i input.mp3 -af "aresample=44100,volume=2.0" output.mp3
+```
+
+#### **3.4 视频淡入淡出**
+```bash
+ffmpeg -i input.mp4 -vf "fade=in:0:30,fade=out:300:30" output.mp4
+```
+
+#### **3.5 音频回声效果**
+```bash
+ffmpeg -i input.wav -af "aecho=0.8:0.88:60:0.4" output.wav
+```
+
+---
+
+### **4. 如何查找更多滤镜**
+- **FFmpeg 官方文档**: https://ffmpeg.org/ffmpeg-filters.html
+- **命令行查询**:
+  ```bash
+  ffmpeg -filters
+  ```
+  或查看特定滤镜的详细信息：
+  ```bash
+  ffmpeg -h filter=scale
+  ```
+
+---
+
+### **5. 总结**
+常见的滤镜涵盖了从基础处理（如缩放、裁剪、重采样）到高级特效（如叠加、回声、模糊）的多种功能。通过灵活组合这些滤镜，可以实现复杂的音视频处理需求。建议结合实际场景，逐步熟悉和掌握这些滤镜的使用。
 
 
 # 参考资料
@@ -280,8 +402,8 @@ av_get_media_type_string
 [FFmpeg windows下载地址](https://github.com/BtbN/FFmpeg-Builds/releases)
 [FFmpeg三种版本（static、shared、dev）和实际操作举例](https://blog.csdn.net/ustc_sse_shenzhang/article/details/102546753)
 
-
-
+https://zhuanlan.zhihu.com/p/661991554
+https://zhuanlan.zhihu.com/p/10815222885
 # 萤石
 [萤石 OpenSDK](https://open.ys7.com/doc/zh/pc/index.html)
 https://open.ys7.com/help/1798

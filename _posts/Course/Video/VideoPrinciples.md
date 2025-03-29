@@ -76,5 +76,30 @@ WebRTC
 拉流
     怎么做到低延时
 
+
+
+HEVC透明视频解码
+
+FFmpeg支持用videotoolbox编码Alpha HEVC：
+
+Alpha HEVC解码最麻烦的处理是解析VPS extension，
+
+Nvidia nvenc
+
+VPS扩展部分
+SEI里标记alpha视频信息
+
+
+H.265相比VP9（至少在国内）生态上成熟很多
+
+透明vp9是libvpx 的能力
+
+
+10bit YUV   P010
+NV12
+
+NV21属于YUV420SP
+ IOMMU 显示引擎
+HDR10
 # 参考资料
 

@@ -26,8 +26,13 @@ tar -j # 使用bzip2压缩算法对tar归档文件进行压缩
 
 ## 常用指令组合
 ```bash
-tar -zxvf FileName.tar.gz  # 对.tar.gz解压
-tar -zcvf FileName.tar.gz FileName  # 对FileName的文件打包成.tar.gz格式
+
+tar -zcvf FileName.tar.gz FileName  # 打包压缩
+tar -zxvf FileName.tar.gz  # 解压
+tar -cjvf FileName.tar.bz2 FileName # 打包压缩
+tar -xvjf archive.tar.bz2 # 解压
+tar -cJvf FileName.tar.xz FileName # 打包压缩
+tar -xvf archive.tar.xz # 解压
 tar -xvf FileName.tar # 
 ```
 
