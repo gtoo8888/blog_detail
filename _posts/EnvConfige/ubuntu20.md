@@ -43,7 +43,7 @@ tags:
 
 ```bash
 sudo apt-get install vim openssh-server openssh-client net-tools git tree subversion -y
-sudo apt-get install terminator iotop -y
+sudo apt-get install terminator iotop htop -y
 
 sudo vi /etc/ssh/sshd_config
 PermitRootLogin yes 
