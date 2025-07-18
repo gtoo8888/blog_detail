@@ -198,12 +198,12 @@ sudo ln -s ~/.vscode-server/extensions/ms-vscode.cpptools-1.22.11-linux-x64/LLVM
 2. 查看/usr/bin/中配置
 ```bash
 cd /usr/bin/ 
-ll | grep clang
+ls -lh | grep clang
 clang-format -> /home/<username>/.vscode-server/extensions/ms-vscode.cpptools-1.22.11-linux-x64/LLVM/bin/clang-format # 查看当前链接
 clang-format # 无效
-cd /home/<username>/.vscode-server/extensions/ms-vscode.cpptools-1.22.11-linux-x64/LLVM/bin/ # 目录不存在
-cd /home/<username>/.vscode-server/extensions/
-ll # 由于vscode插件更新了，也由于自己的删除重装插件导致路径不正确
+cd ~/.vscode-server/extensions/ms-vscode.cpptools-1.22.11-linux-x64/LLVM/bin/ # 目录不存在
+cd ~/.vscode-server/extensions/
+ls -lh | grep ms-vscode.cpptools # 由于vscode插件更新了，也由于自己的删除重装插件导致路径不正确
 ms-vscode.cpptools-1.23.5-linux-x64
 ms-vscode.cpptools-1.23.6-linux-x64
 ```
@@ -212,7 +212,7 @@ ms-vscode.cpptools-1.23.6-linux-x64
 ```bash
 cd /usr/bin/ 
 sudo rm -rf clang-format
-sudo ln -s ~/.vscode-server/extensions/ms-vscode.cpptools-1.23.6-linux-x64/LLVM/bin/clang-format /usr/bin/clang-format
+sudo ln -s ~/.vscode-server/extensions/ms-vscode.cpptools-1.26.3-linux-x64/LLVM/bin/clang-format /usr/bin/clang-format
 ```
 
 
@@ -411,6 +411,14 @@ std::unique_lock
 ## 问题
 1. 递归锁
 2. lock_guard死锁
+
+
+# C++17
+1. std::optional
+2. std::any
+3. std::vairant
+
+
 
 # 参考资料
 [C++ explicit 关键字]https://zhuanlan.zhihu.com/p/52152355
