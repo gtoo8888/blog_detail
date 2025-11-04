@@ -31,8 +31,6 @@ find . -mmin -1 -exec stat {} \; > stat_min.log
 ```
 ## iotop（arm平台不可用）
 
-## vmstat
-
 ## blktrace
 
 ## sar
@@ -112,8 +110,6 @@ truss
 ## 命令
 pstack 
 pidof
-nm
-objdump
 lsof
 
 

@@ -92,21 +92,62 @@ Linux Kernel 四库全书
 Linux内核源代码分析——Scott Maxwell
 深入Linux内核架构——
 
-# 参考资料
 
+# Linux底层开发 RoadMap
+Linux嵌入式系统开发工程师
+Linux BSP开发工程师
+
+
+【正点原子】I.MX6U嵌入式Linux驱动开发指南V1.81.pdf
+
+1. uboot
+   1. U-Boot顶层Makefile详解
+   2. U-Boot启动流程详解
+   3. U-Boot移植
+   4. U-Boot图形化配置及其原理
+2. kernal
+   1. Linux内核顶层Makefile详解
+   2. Linux内核启动流程
+   3. Linux内核移植
+   4. 根文件系统构建
+   5. **Linux并发与竞争**
+   6. Linux内核定时器
+3. 设备树驱动部分
+   1. 字符设备驱动开发
+   2. Linux设备树
+   3. 设备树下的LED驱动实验
+   4. pinctrl和gpio子系统实验
+   5. **platform设备驱动实验**
+   6. **设备树下的platform驱动编写**
+   7. Linux MISC驱动
+   8. Linux INPUT子系统
+   9. Linux LCD驱动
+   10. Linux RTC驱动
+   11. Linux 12C驱动
+   12. Linux SPl驱动
+   13. Linux RS232/485/GPS驱动
+   14. Linux 音频驱动
+   15. Linux CAN驱动
+   16. Linux USB驱动
+   17. Linux 块设备驱动
+   18. Linux 网络驱动
+   19. Linux WIFl驱动
+   20. Linux PWM驱动
+   21. Linux ll0驱动
+   22. Linux ADC驱动
+
+
+
+# 参考资料
 [man page主页](https://man7.org/index.html)
 [查看kernal源码](https://elixir.bootlin.com/linux/v4.1.15/source/)
-
 [Linux内核代码大佬们如何观看的？](https://www.zhihu.com/question/439569498/answer/2967990818)
-
 [BusyBox](https://www.busybox.net/)
-
 [陈孝松个人主页 课程和视频](https://chenxiaosong.com/courses.html)
 [linux内核经典书籍](https://zhuanlan.zhihu.com/p/34977296)
 # T3C编译报错
 [编译kernel提示"mkimage" command not found - U-Boot images will not be built](https://www.cnblogs.com/liangliangge/p/12848888.html)
-https://wiki.sipeed.com/soft/Lichee/zh/Zero-Doc/Contribution/article_10.html
-
+[lichee 编译踩坑记录(ilichee ZERO)](https://wiki.sipeed.com/soft/Lichee/zh/Zero-Doc/Contribution/article_10.html)
 ## 互斥锁
 [【原创】Linux Mutex机制分析](https://www.cnblogs.com/LoyenWang/p/12826811.html)
 

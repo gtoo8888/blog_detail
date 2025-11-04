@@ -50,75 +50,18 @@ dos2unix filename
 [ STRING1 ]　 如果字符串不为空则为真,与-n类似
 
 
-
-# 开启摄像头
-
-
-cheese
-
-
-# 显示系统进程
-
-显示系统进程 top
-
-杀死这个进程号的进程 sudo kill pid
-
-
-# 获取最高用户权限
-
-sudo -i
-
-# 挂载和弹出U盘
-查看挂载情况
-df -h
-## 挂载
-查看系统磁盘设备信息，并找到待U盘的目录(Linux系统中所有设备均被视为文件)
-fdisk -l
-#/dev/sdb1
-将U盘挂载到系统某个位置
-mount /dev/sdb1 /mnt
-现在U盘所有文件被挂载到了/mnt目录中，进入U盘目录查看内容
-cd /mnt
-
-## 弹出
-df 查看一下有没有usb设备在挂载使用
-umount /dev/sdb1
-
-
-# export  添加环境变量
-
-# last 显示最近使用者的登录列表
-
-# set 观察bash下的所有环境变量
-
-
-# id vvv 查询是不是有这个用户
-
-# alias 设置永久的alias别名
-
-
-
-# 更改./.bashrc配置
-
-vim ./.bashrc
-source ./.bashrc
-
-# 批量改权限
-sudo chmod +x ~/bin/*
-
-
 # bash快捷键
-|按键|功能|
-|---|---|
-|ALT+B | 光标移动到所在单词词首|
-|---|---|
-CTRL+C | 停止当前运行的命令|
-|CTRL+L | 清空屏幕并重新显示当前行|
-|CTRL+U | 删除光标前的所有字符|
-|CTRL+K | 删除光标后的所有字符|
-|CTRL+A | 快速移动到行首|
-|CTRL+E | 移动到行末|
-|CTRL+T | 交换最后两个字符|
+| 按键   | 功能                     |
+| ------ | ------------------------ |
+| ALT+B  | 光标移动到所在单词词首   |
+| ---    | ---                      |
+| CTRL+C | 停止当前运行的命令       |
+| CTRL+L | 清空屏幕并重新显示当前行 |
+| CTRL+U | 删除光标前的所有字符     |
+| CTRL+K | 删除光标后的所有字符     |
+| CTRL+A | 快速移动到行首           |
+| CTRL+E | 移动到行末               |
+| CTRL+T | 交换最后两个字符         |
 
 
 
@@ -136,28 +79,11 @@ CTRL+C | 停止当前运行的命令|
 4. shutdown -h 10 10分钟后自动关机
 
 
-# 关机前准备
-
-# who 查看谁在线
-
-# netstat -a 网络的联机状态
-
-# dmesg 查看内核信息
-
-
-
 ## 通过cpu-checker实用程序
  sudo apt-get install cpu-checker
 
  sudo kvm-ok
 
-# 查看系统位数
- file /bin/ls
-
-# vmstat 命令功能说明： 命令报告关于内核线程、虚拟内存、磁盘、陷阱和 CPU 活动的统计信息
-
-
-# du(disk usage) 命令功能说明：统计目录(或文件)所占磁盘空间的大小
  qemu-kvm - 为 KVM 管理程序提供硬件模拟的软件程序
 libvirt-daemon-system - 将 libvirt 守护程序作为系统服务运行的配置文件
 libvirt-clients - 用来管理虚拟化平台的软件
@@ -174,52 +100,43 @@ sudo apt-get install acpi
 Battery 0: Discharging, 33%, 00:44:53 remaining
 如果你要看更多的信息，如电池总容量、温度等信息，使用acpi -V命令
 
-
 使用IBAM检测电池用量
 IBAM自称为“智能的电池监测器”
 
 
 
-upower --dump | grep --color=never -E "state|to\ full|to\ empty|percentage"
-
-
-
- systemctl isolate multi-user.target
- 
-  systemctl isolate graphical.target
-
-|目录|	用途|
-|---|---|
-|/|	虚拟目录的根目录，万物起源。通常不会在这里存储文件|
-|/bin	|二进制目录，存放许多用户级的GNU工具|
-|/boot	|启动目录，包含Linux内核，存放启动文件|
-|/boot/grub/grub.conf or menu.lst|被用来配置启动加载程序|
-|/boot/vmlinuz|Linux 内核|
-|/dev	|设备目录，Linux在这里创建设备节点|
-|/etc	|系统配置文件目录，也包含一系列的shell脚本|
-|/etc/crontab|定义自动运行的任务
-|/etc/fstab|包含存储设备的列表，以及与他们相关的挂载点
-|/etc/passwd|包含用户帐号列表
-|/home	|主目录，Linux在这 里创建用户目录|
-|/lib	|库目录，存放系统和应用程序的库文件|
-|/media	|媒体目录，可移动媒体设备的常用挂载点|
-|/mnt	|挂载目录，另一个可移动媒体设备的常用挂载点|
-|/opt	|可选目录，常用于存放第三方软件包和数据文件|
-|/proc	|进程目录，存放现有硬件及当前进程的相关信息|
-|/root	|root用户的主目录|
-|/sbin	|系统二进制目录，存放许多GNU管理员级工具|
-|/run	|运行目录，存放系统运作时的运行时数据|
-|/srv	|服务目录，存放本地服务的相关文件|
-|/sys	|系统目录，存放系统硬件信息的相关文件|
-|/tmp	|临时目录，可以在该目录中创建和删除临时工作文件|
-|/usr	|用户二进制目录，大量用户级的GNU工具和数据文件都存储在这里，它可能是Linux系统中最大的一个
-|/usr/bin|包含系统安装的可执行程序，通常会包含许多程序
-|/usr/lib|包含由/usr/bin目录中的程序所用的共享库
-|/usr/local|非系统发行版自带却打算让系统使用的程序的安装目录
-|/usr/sbin|包含许多系统管理程序
-|/usr/share|包含许多由/usr/bin目录中的程序使用的共享数据，其中包括像默认的配置文件、图标、桌面背景、音频文件等等
-/usr/share/doc|大多数安装在系统中的软件包会包含一些文档|
-|/var	|可变目录，用以存放经常变化的文件，比如日志文件
+| 目录                             | 用途                                                                                                 |
+| -------------------------------- | ---------------------------------------------------------------------------------------------------- |
+| /                                | 虚拟目录的根目录，万物起源。通常不会在这里存储文件                                                   |
+| /bin                             | 二进制目录，存放许多用户级的GNU工具                                                                  |
+| /boot                            | 启动目录，包含Linux内核，存放启动文件                                                                |
+| /boot/grub/grub.conf or menu.lst | 被用来配置启动加载程序                                                                               |
+| /boot/vmlinuz                    | Linux 内核                                                                                           |
+| /dev                             | 设备目录，Linux在这里创建设备节点                                                                    |
+| /etc                             | 系统配置文件目录，也包含一系列的shell脚本                                                            |
+| /etc/crontab                     | 定义自动运行的任务                                                                                   |
+| /etc/fstab                       | 包含存储设备的列表，以及与他们相关的挂载点                                                           |
+| /etc/passwd                      | 包含用户帐号列表                                                                                     |
+| /home                            | 主目录，Linux在这 里创建用户目录                                                                     |
+| /lib                             | 库目录，存放系统和应用程序的库文件                                                                   |
+| /media                           | 媒体目录，可移动媒体设备的常用挂载点                                                                 |
+| /mnt                             | 挂载目录，另一个可移动媒体设备的常用挂载点                                                           |
+| /opt                             | 可选目录，常用于存放第三方软件包和数据文件                                                           |
+| /proc                            | 进程目录，存放现有硬件及当前进程的相关信息                                                           |
+| /root                            | root用户的主目录                                                                                     |
+| /sbin                            | 系统二进制目录，存放许多GNU管理员级工具                                                              |
+| /run                             | 运行目录，存放系统运作时的运行时数据                                                                 |
+| /srv                             | 服务目录，存放本地服务的相关文件                                                                     |
+| /sys                             | 系统目录，存放系统硬件信息的相关文件                                                                 |
+| /tmp                             | 临时目录，可以在该目录中创建和删除临时工作文件                                                       |
+| /usr                             | 用户二进制目录，大量用户级的GNU工具和数据文件都存储在这里，它可能是Linux系统中最大的一个             |
+| /usr/bin                         | 包含系统安装的可执行程序，通常会包含许多程序                                                         |
+| /usr/lib                         | 包含由/usr/bin目录中的程序所用的共享库                                                               |
+| /usr/local                       | 非系统发行版自带却打算让系统使用的程序的安装目录                                                     |
+| /usr/sbin                        | 包含许多系统管理程序                                                                                 |
+| /usr/share                       | 包含许多由/usr/bin目录中的程序使用的共享数据，其中包括像默认的配置文件、图标、桌面背景、音频文件等等 |
+| /usr/share/doc                   | 大多数安装在系统中的软件包会包含一些文档                                                             |
+| /var                             | 可变目录，用以存放经常变化的文件，比如日志文件                                                       |
 
 
 # 常用的库
@@ -232,70 +149,7 @@ Ubuntu缺省情况下，并没有提供C/C++的编译环境，因此还需要手
 
 libtool 是一个通用库支持脚本，将使用动态库的复杂性隐藏在统一、可移植的接口中，也就是说，你可以通过如下所示的标准方法，在不同平台上创建并调用动态库，我们 可以认为libtool是gcc的一个抽象，也就是说，它包装了gcc或者其他的任何编译器，用户无需知道细节，只要告诉libtool说我需要要编译哪 些库即可，并且，它只与libtool文件打交道，例如lo、la为后缀的文件。
 
-
-
-# 第二种方法：使用mount命令
-# mount -l
-
-# 第三种方法：查看文件/etc/mtab。
-# cat /etc/mtab
-
-# 第四种方法：使用lsblk命令查看
-# lsblk -P
-
-# 查看端口号
-netstat -tunpl | grep 端口号
-
-
-
-# chrony
-
 Chrony是一个开源自由的网络时间协议 NTP 的客户端和服务器软软件。它能让计算机保持系统时钟与时钟服务器（NTP）同步，因此让你的计算机保持精确的时间，Chrony也可以作为服务端软件为其他计算机提供时间同步服务。
-
-
-# modprobe 
-modprobe命令用于智能地向内核中加载模块或者从内核中移除模块。
-
-
-modprobe -V
-kmod version 27
-+XZ -ZLIB +LIBCRYPTO -EXPERIMENTAL
-
-加载模型
-modprobe sysrq
-都从这个路径下加载
-/lib/modules/
-error:
-modprobe: FATAL: Module sysrq not found in directory /lib/modules/5.10.16.3-microsoft-standard-WSL2
-
-# lsmod
-查看已加载的内核模块信息
-
-sudo insmod hello.ko  //插入模块
-sudo rmmode hello // 卸载模块
-modinfo hello.ko // 查看模块信息
-lsmod //查看系统模块
-dmesg // 查看系统日志信息
-
-
-# systemctl 
-
--p 从指定文件夹加载
-sysctl -p /etc/sysctl.d/my-default.conf
-
-
-which systmd
-查看状态
-sysctl docker status
-
-
-
-
-wget https://github.com/microsoft/WSL2-Linux-Kernel/archive/refs/tags/linux-msft-5.4.72.tar.gz
-
-
-# modprobe br_netfilter
-linux透明防火墙--br_netfilter
 
 
 
@@ -311,26 +165,11 @@ sudo update-grub
 
 sudo update-initramfs -u -k all
 
-# lsof
-
 # swapoff
 Linux swapoff命令用于关闭系统交换区(swap area)。
 -a 将/etc/fstab文件中所有设置为swap的设备关闭
 -h 帮助信息
 -V 版本信息
-
-
-
-
-sudo -i 切换用户身份到root.
-
-
-# mount
-mount命令是经常会使用到的命令，它用于挂载Linux系统外的文件。
--t：指定档案系统的型态，通常不必指定。mount 会自动选择正确的型态。
- mount -t glusterfs
-
-
 
 
 # \cp
@@ -411,22 +250,6 @@ PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/date_sdb/soft
 ```
 
 
-# 查看ubuntu下都开启了哪些服务
-
-service --status-all
-
-systemctl
-
-pstree
-
-
-# 列出当前目录的隐藏权限
-lsattr 
-
-# readlink
-readlink是Linux系统中一个常用工具，主要用来找出符号链接所指向的位置。
-
-
 echo "shell脚本本身的名字: $0"
 echo "传给shell的第一个参数: $1"
 echo "传给shell的第二个参数: $2"
@@ -451,33 +274,54 @@ sed -e '1,10d' -e 's/My/Your/g' datafile
 ls -t $DIR/*_timedata.db | sed -e '1,10d' | xargs rm
 按时间排序，1-10行删除掉
 
+# 杂项命令
+```bash
+sudo -i # 获取最高用户权限
+export  #添加环境变量
+last #显示最近使用者的登录列表
+set #观察bash下的所有环境变量
+id vvv #查询是不是有这个用户
+alias #设置永久的alias别名
+vim ./.bashrc # 更改./.bashrc配置
+source ./.bashrc
+sudo chmod +x ~/bin/* # 批量改权限
+sudo kill pid  #杀死这个进程号的进程
+top # 显示系统进程
+cheese # 开启摄像头 
+who  #查看谁在线
+file /bin/ls # 查看系统位数
+vmstat  # 关于内核线程、虚拟内存、磁盘、陷阱和 CPU 活动的统计信息
+upower --dump | grep --color=never -E "state|to\ full|to\ empty|percentage"
+systemctl isolate multi-user.target
+systemctl isolate graphical.target
+cat /etc/mtab
+lsblk -P
+systemctl 
+-p 从指定文件夹加载
+sysctl -p /etc/sysctl.d/my-default.conf
+lsattr  # 列出当前目录的隐藏权限
+readlink # 找出符号链接所指向的位置。
+systemctl
+pstree
+which systmd
+查看状态
+sysctl docker status
+service --status-all # # 查看ubuntu下都开启了哪些服务
+wget https://github.com/microsoft/WSL2-Linux-Kernel/archive/refs/tags/linux-msft-5.4.72.tar.gz
 
 # 查看系统参数
-```shell
 cat /etc/os-release
 lsb_release -a
 hostnamectl
 uname -a
 getconf LONG_BIT
 
-```
 
-
-
-# wget
-
-
-```shell
+#
 systemctl  # 列出所有服务
 systemctl status mosquitto
-
-
 df /dev/sda2
-
-
 ```
-
-
 
 # 参考资料
 [查看linux用户密码]https://blog.csdn.net/feikillyou/article/details/109129870
@@ -492,17 +336,5 @@ df /dev/sda2
 [用history查看历史命令]https://blog.csdn.net/qq_34243930/article/details/107007654
 [让 history 命令显示日期和时间]https://zhuanlan.zhihu.com/p/99818664
 [环境变量HISTCONTROL命令及对快捷键Ctrl+o命令的影响]https://blog.csdn.net/weixin_30723433/article/details/96641179
-
-
-
-
-
-
-
-
-
-
-
-
 
 

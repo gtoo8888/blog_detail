@@ -21,6 +21,7 @@ mknod
 ```bash
 modprobe -r # 移除模块及其依赖模块
 modprobe --show-depends # 显示模块的依赖关系
+modprobe -V # 查看版本号
 insmod -f   # 强制加载模块(危险操作)
 rmmod -f    # 强制移除模块(可能导致系统不稳定)
 ```
