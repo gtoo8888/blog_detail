@@ -47,10 +47,6 @@ find . -mmin -1 -exec stat {} \; > stat_min.log
 
 ## slabtop
 
-/proc/meminfo
-/proc/meminfo
-/proc/diskstats
-
 # 系统调用
 ## strace 
 编译得到arm端可用的strace
