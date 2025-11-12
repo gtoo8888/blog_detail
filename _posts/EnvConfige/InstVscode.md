@@ -15,41 +15,41 @@ tags:
 
 # 三、常用的扩展
 
-| 扩展名 | 功能 | 
-| ---- | ---- | 
-| **通用的** | 
-| Chinese (Simplified) (简体中文) | 中文翻译 | 
-| Code Runner | 展开全部代码 | 
-| Markdown Preview Enhanced | Markdown查看 | 
-| C++相关 | |
-| **C/C++**| 写C++代码 | 
-| C/C++ Extension | | 
-| CMake |  | 
-| CMake Tools |  | 
-| C/C++ Extension Pack |  | 
-| **HTML** | |
-| Auto Rename Tag | 自动修改前后标签名 | 
-| open in browser | 在浏览器中打开 | 
-| CSS Peek | 追踪CSS样式 | 
-| HTML CSS Support | HTML样式支持 | 
-| **Vue** | |
-| Live Server | 保存后动态显示 | 
-| **Git** | |
-| Git History | 查看git历史提交记录 | 
-| GitLens  |  | 
-| Git Graph  |  | 
-| **GoLang** | |
-| go | 语法支持 | 
-| vscode-proto3  | 查看protobuf格式 | 
-| **Jinja2** | |
-| Jinja | jinja语法支持 | 
-| **Shell** | |
-| shell-format | 格式化工具 | 
-| shellman | 代码提示工具 | 
-| **远程控制** | |
-| Remote - SSH | 远程ssh连接 | 
-| Remote - Containers |  | 
-|Remote - SSH: Editing Configuration Files | |
+| 扩展名                                    | 功能                |
+| ----------------------------------------- | ------------------- |
+| **通用的**                                |
+| Chinese (Simplified) (简体中文)           | 中文翻译            |
+| Code Runner                               | 展开全部代码        |
+| Markdown Preview Enhanced                 | Markdown查看        |
+| C++相关                                   |                     |
+| **C/C++**                                 | 写C++代码           |
+| C/C++ Extension                           |                     |
+| CMake                                     |                     |
+| CMake Tools                               |                     |
+| C/C++ Extension Pack                      |                     |
+| **HTML**                                  |                     |
+| Auto Rename Tag                           | 自动修改前后标签名  |
+| open in browser                           | 在浏览器中打开      |
+| CSS Peek                                  | 追踪CSS样式         |
+| HTML CSS Support                          | HTML样式支持        |
+| **Vue**                                   |                     |
+| Live Server                               | 保存后动态显示      |
+| **Git**                                   |                     |
+| Git History                               | 查看git历史提交记录 |
+| GitLens                                   |                     |
+| Git Graph                                 |                     |
+| **GoLang**                                |                     |
+| go                                        | 语法支持            |
+| vscode-proto3                             | 查看protobuf格式    |
+| **Jinja2**                                |                     |
+| Jinja                                     | jinja语法支持       |
+| **Shell**                                 |                     |
+| shell-format                              | 格式化工具          |
+| shellman                                  | 代码提示工具        |
+| **远程控制**                              |                     |
+| Remote - SSH                              | 远程ssh连接         |
+| Remote - Containers                       |                     |
+| Remote - SSH: Editing Configuration Files |                     |
 
 
 # 五、配置c/c++环境

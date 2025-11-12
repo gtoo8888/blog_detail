@@ -9,6 +9,8 @@ tags:
 
 
 ```bash
+ls -1 /proc | grep -v '^[0-9]*$' # 筛选/proc中文件
+
 cat /proc/iomem         # 查看物理内存分布
 cat /proc/meminfo       # 查看系统内存信息
 cat /proc/slabinfo      # 查看内核内存分配
