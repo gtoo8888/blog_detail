@@ -555,4 +555,9 @@ Ghidra
 
 X.509证书
 
+https://www.zhihu.com/?theme=light
+https://www.zhihu.com/?theme=dark
+
+不要提供代码，主要文字描述的分析过程
+
 

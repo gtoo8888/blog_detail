@@ -184,7 +184,7 @@ gprof -q test gmon.out > test.log # 显示程序的每个函数的调用关系
 
 
 # valgrind
-# 安装教程
+## 安装教程
 ```bash
 tar -jxvf valgrind-3.24.0.tar.bz2
 # ./configure --prefix=/root/valgrind-3.24.0
@@ -193,14 +193,97 @@ make
 sudo make install
 ```
 
+## 使用方式
+
+1. 编译程序，比如gcc使用gcc -g，增加调试符号
+2. 进行内存检测，指定工具memcheck
+3. 分析输出内容
+
 ## 常用参数
 ```bash
-valgrind --tool=memcheck
-valgrind --tool=memcheck ls -l
+# 选项含义，常用
+valgrind --tool=memcheck           # 使用内存检查工具，检测内存错误和泄漏（默认工具）
+valgrind --tool=helgrind           # 使用线程错误检测工具，检测数据竞争和死锁
+valgrind --tool=cachegrind         # 使用缓存分析工具，分析CPU缓存命中率
+valgrind --tool=massif             # 使用堆分析工具，分析内存使用情况
+valgrind --tool=callgrind          # 使用调用图分析工具，分析函数调用关系
+valgrind --vgdb=yes                # 启用GDB服务器，允许通过GDB连接调试
+valgrind --leak-check=full         # 启用完整泄漏检查，显示详细堆栈跟踪信息
+valgrind --leak-check=summary      # 仅显示泄漏摘要，不显示详细堆栈跟踪
+valgrind --show-leak-kinds=all     # 显示所有类型的泄漏：明确、间接、可能和可访问的
+valgrind --show-reachable=yes      # 显示程序退出时仍可访问的内存块信息
+valgrind --run-libc-freeres=yes    # 强制释放glibc内部缓存，提供更准确的泄漏报告
+
+# 不常用
+valgrind --error-exitcode=1        # 发现错误时返回非零退出码，便于自动化测试
+valgrind --suppressions=file.supp  # 使用抑制文件忽略特定的已知错误
+valgrind --gen-suppressions=yes    # 自动生成抑制规则，用于创建自定义抑制文件
+valgrind --show-possibly-lost=no   # 不显示可能泄漏的内存块，减少输出噪音
+valgrind --time-stamp=yes          # 在输出中添加时间戳，便于分析时序问题
+valgrind --malloc-fill=0xFF        # 在分配内存时填充指定字节，帮助检测未初始化使用
+valgrind --free-fill=0xDD          # 在释放内存时填充指定字节，帮助检测使用已释放内存
+valgrind --track-origins=yes       # 跟踪未初始化值的来源，帮助定位问题根源
+valgrind --verbose                 # 显示详细输出信息，包括工具和错误统计
+valgrind --log-file=filename       # 将输出保存到指定文件，便于后续分析
+```
+
+
+```bash
+# 基本内存检查
+valgrind --tool=memcheck 
+# 基本内存检查
+valgrind --tool=memcheck ls -l 
+# 启用完整泄漏检查,每个泄漏的详细堆栈跟踪信息
 valgrind --tool=memcheck --leak-check=full ls -l
+# 显示所有类型的泄漏信息
 valgrind --tool=memcheck --leak-check=full --show-leak-kinds=all ls -l
+# 最详细的内存检查配置
 valgrind --tool=memcheck --leak-check=full --show-leak-kinds=all --show-reachable=yes --run-libc-freeres=yes ls -l
 ```
+
+
+## 输出内容分析
+
+
+
+```bash
+# 示例输出：
+==16243== HEAP SUMMARY:
+==16243==     in use at exit: 724 bytes in 3 blocks
+==16243==   total heap usage: 2,401 allocs, 2,398 frees, 285,757 bytes allocated
+==16243== 
+==16243== 72 bytes in 1 blocks are still reachable in loss record 1 of 3
+==16243==    at 0x4C33A53: operator new(unsigned long) (vg_replace_malloc.c:487)
+==16243==    by 0x1884B4: LogFilePrintf::getInstance() (log_printf.h:18)
+==16243==    by 0x217EC4: main (main_instruct_test_t536.cpp:28)
+==16243== 
+==16243== 100 bytes in 1 blocks are definitely lost in loss record 2 of 3
+==16243==    at 0x4C332E5: malloc (vg_replace_malloc.c:446)
+==16243==    by 0x217DEB: create_leaks() (main_instruct_test_t536.cpp:5)
+==16243==    by 0x217E2A: main (main_instruct_test_t536.cpp:24)
+==16243== 
+==16243== 552 bytes in 1 blocks are still reachable in loss record 3 of 3
+==16243==    at 0x4C332E5: malloc (vg_replace_malloc.c:446)
+==16243==    by 0x5686DF9: __fopen_internal (iofopen.c:65)
+==16243==    by 0x5686DF9: fopen@@GLIBC_2.2.5 (iofopen.c:89)
+==16243==    by 0x1F1A77: LogFilePrintf::LogFilePrintf() (log_printf.cpp:41)
+==16243==    by 0x1884D1: LogFilePrintf::getInstance() (log_printf.h:18)
+==16243==    by 0x217EC4: main (main_instruct_test_t536.cpp:28)
+==16243== 
+==16243== LEAK SUMMARY:
+==16243==    definitely lost: 100 bytes in 1 blocks
+==16243==    indirectly lost: 0 bytes in 0 blocks
+==16243==      possibly lost: 0 bytes in 0 blocks
+==16243==    still reachable: 624 bytes in 2 blocks
+==16243==         suppressed: 0 bytes in 0 blocks
+```
+
+泄漏类型说明:
+1. definitely lost:确认泄漏 - 必须修复
+2. indirectly lost:间接泄漏 - 必须修复  
+3. possibly lost:可能泄漏 - 需要进一步分析
+4. still reachable:仍可访问 - 通常可接受,但应尽量减少
+5. suppressed:已抑制的错误
 
 ## massif工具
 ```bash
@@ -211,6 +294,11 @@ valgrind --tool=massif ./test
 massif-visualizer
 ```
 
+## 实现原理
+
+动态二进制插帧和虚拟CPU模拟技术
+
+应用广泛的动态二进制分析平台有Pin，DynamoRIO和Frida等。
 
 # tmpfile
 
