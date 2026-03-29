@@ -5,30 +5,32 @@ tags:
 - 环境配置
 ---
 
-# 1. 安装python
-勾选安装环境变量
+## 1. 安装 Python
 
-# 2. 安装anaconda
-1. 不要勾选安装环境变量
+勾选安装环境变量。
 
+## 2. 安装 Anaconda
 
-2. 安装后增加环境变量
-E:\Anaconda 
-E:\Anaconda\Scripts 
-E:\Anaconda\Library\mingw-w64\bin
-E:\Anaconda\Library\usr\bin 
-E:\Anaconda\Library\bin
+1. 不要勾选安装环境变量。
+2. 安装后增加环境变量：
+   - `E:\Anaconda`
+   - `E:\Anaconda\Scripts`
+   - `E:\Anaconda\Library\mingw-w64\bin`
+   - `E:\Anaconda\Library\usr\bin`
+   - `E:\Anaconda\Library\bin`
 
-测试是否安装成功
+测试是否安装成功：
+
 ```bash
 conda --version
 ```
-1. anaconda换源
 
-   1. 先打开第一次anaconda，会创建.condarc
-   2. 在C:\Users\{username} 文件夹下面修改.condarc
+### Anaconda 换源
 
-```bash
+1. 先打开第一次 Anaconda，会创建 `.condarc`。
+2. 在 `C:\Users\{username}` 文件夹下面修改 `.condarc`：
+
+```yaml
 channels:
   - defaults
 show_channel_urls: true
@@ -46,16 +48,19 @@ custom_channels:
   simpleitk: https://mirrors.tuna.tsinghua.edu.cn/anaconda/cloud
 ```
 
-   3. conda clean -i
-   
-   
-   4. 检测是否换源成功
+3. 换源后清理缓存：
+
+```bash
+conda clean -i
+```
+
+4. 检测是否换源成功：
 
 ```bash
 conda config --show-sources # 仅查看所有镜像
 ```
 
-
+### 测试 PyTorch
 
 ```python
 import torch # 如果pytorch安装成功即可导入
@@ -64,50 +69,48 @@ print(torch.cuda.device_count()) # 查看可用的CUDA数量
 print(torch.version.cuda) # 查看CUDA的版本号
 ```
 
-# 3. 安装EIseg
+## 3. 安装 EIseg
 
-1. 创建自己的环境
-
+### 创建环境
 
 ```bash
 # 环境所用的python版本需要在后面指定，如果不指定默认Anaconda自带python版本
 # doccano 是环境名称，可根据自己命名区分不同自己的环境
 conda create -n eiseg_env python=3.10
 # 激活自己的环境
-conda activate ant
+conda activate eiseg_env
 ```
 
-2. 切换到新创建的环境中，打开open Terminal
-
-3. 安装PaddlePaddle，是依赖环境
+### 安装 PaddlePaddle
 
 ```bash
 pip3 install paddlepaddle -i https://mirror.baidu.com/pypi/simple
 ```
 
+### 安装 EIseg
 
-4. 安装EIseg
 ```bash
 pip3 install eiseg -i https://mirror.baidu.com/pypi/simple
 ```
 
-5. 启动
-直接在命令行中输入eiseg
+### 启动
 
+直接在命令行中输入 `eiseg`。
 
-# 配置EIseg
-1. 只保存彩色图片
-2. 编辑快捷键
-   1. 前后移动
-   2. 自动保存
-   3. 删除所有多边形
-3. 保存路径不能有中文
+## 配置 EIseg
 
+1. 只保存彩色图片。
+2. 编辑快捷键：
+   - 前后移动
+   - 自动保存
+   - 删除所有多边形
+3. 保存路径不能有中文。
 
-# 基础操作
-1. 正负样本点
-2. 转化为矩形，拖动
-3. 删除矩形
+## 基础操作
+
+1. 正负样本点。
+2. 转化为矩形，拖动。
+3. 删除矩形。
 
 # 标注时候需要注意
 
@@ -121,50 +124,39 @@ pip3 install eiseg -i https://mirror.baidu.com/pypi/simple
 6. 空格，转化为矩形
 7. 下一张
 
+## 安装 LabelImg
 
-# 安装LabelImg
-
+```bash
 conda create -n labelimg python=3.10 -y
 pip install labelimg -i https://pypi.tuna.tsinghua.edu.cn/simple
+```
 
+## Anaconda 常用指令
 
-# anaconda常用指令
 ```bash
-conda config --show # 查看conda的配置，确认channels
-conda config --show-sources # 仅查看所有镜像
-conda config --get channels # 查看已经添加的channels
-conda config --show channels # 查看已经添加的channels
-conda list # 当前安装的包列表
-
-# 未查看
+conda config --show
+conda config --show-sources
+conda config --get channels
+conda config --show channels
+conda list
 conda update -n base conda
 conda install --yes --file requirements.txt
 conda config --remove-key channels
+conda config --set show_channel_urls yes
 ```
+
 conda install --use-local pytorch-0.4.0-py35_cuda8.0.61_cudnn7.1.2_1.tar.bz2
 conda remove -n 环境名字 --all
-
-
-
 conda config --set show_channel_urls yes # 生成.condarc文件
 pip install numpy -vvv # 显示安装日志
 
+## 参考资料
 
-# 参考资料
-[Anaconda超详细安装教程（Windows环境下）]https://blog.csdn.net/fan18317517352/article/details/123035625 <br/>
-[新手教程一：Anaconda新建开发环境]https://blog.csdn.net/qq_42573052/article/details/113770662 <br/>
-[anaconda 换清华镜像源 windows](https://blog.csdn.net/jasneik/article/details/114227716) <br/>
-[清华大学开源软件镜像站](https://mirrors.tuna.tsinghua.edu.cn/) <br/>
-[Anaconda之导出/导出配置好的虚拟环境](https://blog.csdn.net/qq_43382635/article/details/127124980) <br/>
-[EISeg工具对应博文](https://blog.csdn.net/qq_37541097/article/details/120154543) <br/>
-[EIseg官方安装说明](https://github.com/PaddlePaddle/PaddleSeg/blob/release/2.7/README_CN.md) <br/>
-[飞桨安装参考文档](https://www.paddlepaddle.org.cn/documentation/docs/zh/install/index_cn.html) <br/>
-
-https://mirrors.tuna.tsinghua.edu.cn/help/anaconda/
-[PyPI 软件仓库](https://mirrors.tuna.tsinghua.edu.cn/help/pypi/)
-
-
-
-
-
-
+- [Anaconda 超详细安装教程（Windows 环境）](https://blog.csdn.net/fan18317517352/article/details/123035625)
+- [Anaconda 新建开发环境](https://blog.csdn.net/qq_42573052/article/details/113770662)
+- [Anaconda 换清华镜像源（Windows）](https://blog.csdn.net/jasneik/article/details/114227716)
+- [清华大学开源软件镜像站](https://mirrors.tuna.tsinghua.edu.cn/)
+- [EISeg 工具对应博文](https://blog.csdn.net/qq_37541097/article/details/120154543)
+- [EIseg 官方安装说明](https://github.com/PaddlePaddle/PaddleSeg/blob/release/2.7/README_CN.md)
+- [飞桨安装参考文档](https://www.paddlepaddle.org.cn/documentation/docs/zh/install/index_cn.html)
+- [PyPI 软件仓库](https://mirrors.tuna.tsinghua.edu.cn/help/pypi/)

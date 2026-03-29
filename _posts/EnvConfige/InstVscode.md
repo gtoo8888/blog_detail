@@ -5,75 +5,54 @@ tags:
 - 环境配置
 ---
 
-# 一、官网下载vscode
+## 一、下载与安装
 
-# 二、安装
+从 [官网](https://code.visualstudio.com/) 下载，安装时勾选「通过 code 打开」添加到 Windows 资源管理器文件上下文菜单。
 
-安装的时候记得把
-将"通过 code打开"操作添加到 Windows资源管理器文件上下文菜单
-打钩
+## 二、常用扩展
 
-# 三、常用的扩展
+| 扩展名 | 功能 |
+|--------|------|
+| **通用** | |
+| Chinese (Simplified) | 中文翻译 |
+| Code Runner | 运行代码 |
+| Markdown Preview Enhanced | Markdown 查看 |
+| **C/C++** | |
+| C/C++ | C++ 代码支持 |
+| CMake | CMake 支持 |
+| CMake Tools | CMake 工具 |
+| **HTML** | |
+| Auto Rename Tag | 自动修改前后标签名 |
+| open in browser | 在浏览器中打开 |
+| CSS Peek | 追踪 CSS 样式 |
+| HTML CSS Support | HTML 样式支持 |
+| **Vue** | |
+| Live Server | 保存后动态显示 |
+| **Git** | |
+| Git History | 查看 Git 提交历史 |
+| GitLens | 代码追踪 |
+| Git Graph | 可视化分支图 |
+| **GoLang** | |
+| go | Go 语法支持 |
+| vscode-proto3 | Protobuf 格式支持 |
+| **Jinja2** | |
+| Jinja | Jinja 语法支持 |
+| **Shell** | |
+| shell-format | 格式化工具 |
+| shellman | 代码提示工具 |
+| **远程** | |
+| Remote - SSH | 远程 SSH 连接 |
+| Remote - Containers | 容器内开发 |
+| Remote - SSH: Editing Configuration Files | SSH 配置编辑 |
 
-| 扩展名                                    | 功能                |
-| ----------------------------------------- | ------------------- |
-| **通用的**                                |
-| Chinese (Simplified) (简体中文)           | 中文翻译            |
-| Code Runner                               | 展开全部代码        |
-| Markdown Preview Enhanced                 | Markdown查看        |
-| C++相关                                   |                     |
-| **C/C++**                                 | 写C++代码           |
-| C/C++ Extension                           |                     |
-| CMake                                     |                     |
-| CMake Tools                               |                     |
-| C/C++ Extension Pack                      |                     |
-| **HTML**                                  |                     |
-| Auto Rename Tag                           | 自动修改前后标签名  |
-| open in browser                           | 在浏览器中打开      |
-| CSS Peek                                  | 追踪CSS样式         |
-| HTML CSS Support                          | HTML样式支持        |
-| **Vue**                                   |                     |
-| Live Server                               | 保存后动态显示      |
-| **Git**                                   |                     |
-| Git History                               | 查看git历史提交记录 |
-| GitLens                                   |                     |
-| Git Graph                                 |                     |
-| **GoLang**                                |                     |
-| go                                        | 语法支持            |
-| vscode-proto3                             | 查看protobuf格式    |
-| **Jinja2**                                |                     |
-| Jinja                                     | jinja语法支持       |
-| **Shell**                                 |                     |
-| shell-format                              | 格式化工具          |
-| shellman                                  | 代码提示工具        |
-| **远程控制**                              |                     |
-| Remote - SSH                              | 远程ssh连接         |
-| Remote - Containers                       |                     |
-| Remote - SSH: Editing Configuration Files |                     |
+## 三、配置 C/C++ 环境
 
+1. 安装 MinGW。
+2. `Ctrl + Shift + P` -> `C/C++: Edit Configurations (UI)`。
+3. 设置编译器路径：`D:\MinGW\bin\gcc.exe`。
 
-# 五、配置c/c++环境
+### tasks.json
 
-1. 安装mingw
-2. ctl+shift+P
-C/C++: Edit Configurations (UI)
-编译器路径
-D:\MinGW\bin\gcc.exe
-
-## c++调试的原理
-1. 先使用tasks.json来创建一个任务
-- tasks.json文件可以对程序进行编译，对于C++来说，可以使用gcc,g++,make,cmake,shell脚本
-- 可以先测试task能否正常运行，这一步的测试就是测试程序是否能编译通过
-2. 通过launch.json调用想要使用的任务
-这是启动vscode的调试功能
-需要做一些配置
-再启动gdb调试器来进行调试
-3. 添加c_cpp_properties.json增加C++的语言支持
-
-## 使用步骤
-创建一个.vscode文件夹
-
-### 1.tasks.json
 ```json
 {
     // See https://go.microsoft.com/fwlink/?LinkId=733558 
@@ -122,10 +101,10 @@ D:\MinGW\bin\gcc.exe
         }
     ]
 }
-
 ```
 
-### 2.launch.json
+### launch.json
+
 ```json
 {
     // 使用 IntelliSense 了解相关属性。
@@ -160,10 +139,10 @@ D:\MinGW\bin\gcc.exe
         }
     ]
 }
-
 ```
 
-### 3.c_cpp_properties.json
+### c_cpp_properties.json
+
 ```json
 // https://code.visualstudio.com/docs/cpp/c-cpp-properties-schema-reference
 //.vscode文件夹局部的配置c_cpp_properties.json
@@ -201,27 +180,23 @@ D:\MinGW\bin\gcc.exe
 }
 ```
 
+## 四、常见问题
 
-### 关于调试的一些疑问
-1. 使用了C++11的语法，但是C++11的语句，比如auto还是会报错
-c_cpp_properties.json中添加
-```json
-"cStandard": "c17",
-"cppStandard": "c++17",
-```
-2. 使用了外部的库，比如opencv,QThread等库的时候，编译可以通过但是无法转跳
-没有在include中增加包含库的路径
+1. **C++11 语法报错**：在 `c_cpp_properties.json` 中添加 `"cStandard": "c17"` 和 `"cppStandard": "c++17"`。
+2. **外部库无法跳转**：比如opencv,QThread等库的时候，编译可以通过但是无法转跳,在 `includePath` 中添加库的头文件路径。
 
-# 四、卸载
+## 五、卸载
+
+```bash
 C:\Users\$用户名\.vscode
-C:\Users\$用户名\AppData\Roaming\Code【注】这里的“$用户名”根据自己的用户名而定。
+C:\Users\$用户名\AppData\Roaming\Code
+```
 
-# 参考资料
-[mingw安装教程](https://www.cnblogs.com/LIJIH/p/12533926)
-[VSCode 任务配置参数及任务结果分析-problemMatcher](https://geek-docs.com/vscode/vscode-tutorials/vscode-task-configuration-parameters-and-task-results-analysis.html)
-[VSCode配置C/C++环境]https://zhuanlan.zhihu.com/p/87864677
-[VScode配置c/c++环境（无数试错版本）]https://blog.csdn.net/Pretty_Anno/article/details/126978142
-[windwos11没有Hyper-V的解决方法]https://www.jianshu.com/p/96aa6eeacb56
-[VSCode插件开发全攻略（一）概览](https://www.cnblogs.com/liuxianan/p/vscode-plugin-overview.html)
+## 参考资料
 
-
+- [MinGW 安装教程](https://www.cnblogs.com/LIJIH/p/12533926)
+- [VSCode 任务配置参数及问题分析](https://geek-docs.com/vscode/vscode-tutorials/vscode-task-configuration-parameters-and-task-results-analysis.html)
+- [VSCode 配置 C/C++ 环境](https://zhuanlan.zhihu.com/p/87864677)
+- [VSCode 配置 C/C++ 环境（详细版）](https://blog.csdn.net/Pretty_Anno/article/details/126978142)
+- [Windows 11 没有 Hyper-V 的解决方法](https://www.jianshu.com/p/96aa6eeacb56)
+- [VSCode 插件开发全攻略](https://www.cnblogs.com/liuxianan/p/vscode-plugin-overview.html)
