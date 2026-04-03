@@ -27,12 +27,11 @@ tags:
 | `F4`               | 触发绝对和相对引用切换                          |
 | `F9`               | 更新公式                                        |
 | `Alt + =`          | 插入自动求和函数                                |
-| `ALT + F11`        | 打开Microsoft Visual Basic for Applications窗口 |
 | `Ctrl + `` `       | 触发公式的显示和隐藏                            |
 | `Ctrl+Alt+V`       | 选择性粘贴                                      |
 
 
-ALT + F11
+
 ## 数字格式化
 
 | 快捷键              | 功能描述         |
@@ -42,7 +41,7 @@ ALT + F11
 | `Ctrl + Shift + ^`  | 应用科学记数格式 |
 | `Ctrl + Shift + #`  | 应用日期格式     |
 | `Ctrl + Shift + @`  | 应用时间格式     |
-| `Ctrl + shift + ！` | 数字格式 无效    |
+| `Ctrl + Shift + !`  | 数字格式（无效） |
 
 
 # 公式
@@ -128,7 +127,7 @@ ALT + F11
 | 函数    | 语法                                                                | 功能描述                     | 示例                                                  |
 | ------- | ------------------------------------------------------------------- | ---------------------------- | ----------------------------------------------------- |
 | INDEX   | =INDEX(array,row_num,[column_num])                                  | 返回表或区域中的值或值的引用 | =INDEX(A1:C10,2,3) 返回B2单元格的值                   |
-| VLOOKUP | =VLOOKUP(lookup_value,<br>table_array,col_index_num,[range_lookup]) | 垂直查找函数                 | =VLOOKUP(G2,A:E,3,0) 在A:E区域查找G2，返回第3列匹配值 |
+| VLOOKUP | =VLOOKUP(lookup_value, table_array, col_index_num, [range_lookup]) | 垂直查找函数                 | =VLOOKUP(G2,A:E,3,0) 在A:E区域查找G2，返回第3列匹配值 |
 | MATCH   | =MATCH(lookup_value,<br>lookup_array,[match_type])                  | 返回指定数值在数组中的位置   | =MATCH("Excel",A1:A10,0) 返回"Excel"在区域中的位置    |
 
 
@@ -171,7 +170,7 @@ ALT + F11
 ## Excel 2021 新函数
 | 函数     | 语法                                                                                       | 功能描述                    | 示例                                  |
 | -------- | ------------------------------------------------------------------------------------------ | --------------------------- | ------------------------------------- |
-| XLOOKUP  | =XLOOKUP(lookup_value,lookup_array,return_array,[if_not_found],[match_mode],[search_mode]) | 增强型查找函数，替代VLOOKUP | =XLOOKUP(G2,A:A,C:C,"未找到")         |
+| XLOOKUP  | =XLOOKUP(lookup_value, lookup_array, return_array, [if_not_found], [match_mode], [search_mode]) | 增强型查找函数，替代VLOOKUP | =XLOOKUP(G2,A:A,C:C,"未找到")         |
 | UNIQUE   | =UNIQUE(array,[by_col],[exactly_once])                                                     | 提取区域中的唯一值          | =UNIQUE(A2:A100) 返回唯一值列表       |
 | SEQUENCE | =SEQUENCE(rows,[columns],[start],[step])                                                   | 生成数字序列                | =SEQUENCE(10,5,100,2) 生成10行5列序列 |
 

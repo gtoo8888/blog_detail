@@ -4,55 +4,59 @@ date: 2022-04-05 20:33:12
 tags:
 - 教程
 ---
-# 代码里的左侧颜色标识:
 
-红色，未加入版本控制; (刚clone到本地)
-绿色，已经加入版本控制暂未提交; (新增部分)
-蓝色，加入版本控制，已提交，有改动； (修改部分)
-白色，加入版本控制，已提交，无改动；
-灰色：版本控制已忽略文件。
+# VSCode 教程
 
-git文件标识:
-M: 文件的内容被修改了
-U: 文件没有被合并(你需要完成合并才能进行提交)
-D: 删除的一个文件
+## 一、文件颜色标识（Git 版本控制）
 
-A: 增加的文件.
-C: 文件的一个新拷贝.
-R: 文件名被修改了。
-T: 文件的类型被修改了。
-X: 未知状态
+| 颜色 | 含义 |
+|---|---|
+| 红色 | 未加入版本控制（刚 clone 到本地） |
+| 绿色 | 已加入版本控制，暂未提交（新增文件） |
+| 蓝色 | 已提交，有改动（修改文件） |
+| 白色 | 已提交，无改动 |
+| 灰色 | 版本控制已忽略 |
 
-# 使用VSCode远程调试linux
+Git 文件状态：
+- `M`：文件被修改
+- `U`：文件未合并（需完成合并才能提交）
+- `D`：文件被删除
+- `A`：新增文件
+- `C`：文件的新拷贝
+- `R`：文件名被修改
+- `T`：文件类型被修改
 
-1. 准备工作
-```
+## 二、远程调试 Linux
+
+### 1. 服务器端配置
+```bash
+# 1. 准备工作
 apt-get update
-apt-get install sudo
-apt-get install vim
-passwd # 修改密码
-```
-2. 安装openssh
-apt-get install openssh-server
-apt-get install openssh-client
-3. 修改ssh配置文件 
+apt-get install sudo vim
+passwd                               # 修改密码
+
+# 2. 安装openssh
+apt-get install openssh-server openssh-client
+
+# 3. 修改 SSH 配置
 sudo vi /etc/ssh/sshd_config
-PermitRootLogin yes 
-（默认为#PermitRootLogin prohibit-password）前面的#号要放开
-4. 启动服务
+# 找到 PermitRootLogin，改为：
+PermitRootLogin yes
+#（默认为#PermitRootLogin prohibit-password）前面的#号要放开
+# 4. 启动服务
 /etc/init.d/ssh restart
 5. 连接测试
 ssh user@[ip] -p [端口]
 ssh user@192.168.0.3 -p 22
-6. vscode配置
+```
+6. VSCode 配置
 ```
 Host 192.168.0.3
   HostName 192.168.0.3
   User username
 ```
 
-
-# 使用VSCode远程调试linux中的容器
+## 三、远程调试 Linux 容器
 
 1. 需要把容器的端口映射出来
 
@@ -69,45 +73,52 @@ Host 15.1.0.89      # 显示的名字
   IdentityFile ~\.ssh\id_rsa
 ```
 
-# 快捷键
+## 四、快捷键
 
-| 快捷键 | 功能 | 
-| :----: | :----: | 
-| ctl + k + 0 | 快速收缩全部代码 | 
-| ctl + k + j | 展开全部代码 | 
-| ctl + shift + [ | 收缩当前代码 | 
-| ctl + shift + ] | 展开当前代码 | 
-| alt + left | 向后 | 
-| alt + left | 向前 | 
-| ctl + g | 跳到指定行 | 
-| ctl + b | 关闭左侧栏 | 
-| ctl + j | 关闭下面栏 | 
-| ctl + K + T | 换主题颜色 | 
+| 快捷键 | 功能 |
+|---|---|
+| `Ctrl + K + 0` | 折叠全部代码 |
+| `Ctrl + K + J` | 展开全部代码 |
+| `Ctrl + Shift + [` | 折叠当前代码块 |
+| `Ctrl + Shift + ]` | 展开当前代码块 |
+| `Alt + left` | 后退导航 |
+| `Alt + right` | 前进导航 |
+| `Ctrl + G` | 跳转到指定行 |
+| `Ctrl + B` | 关闭左侧栏 |
+| `Ctrl + J` | 关闭底部栏 |
+| `Ctrl + K + T` | 切换主题颜色 |
 
-# 一些设置
-C++不报错
-C_Cpp.errorSquiggles
+## 五、常用设置
 
+### 启用 Code Runner 输入
+设置 → Code-runner: Run In Terminal 开启，支持交互式输入。
 
-code runner在命令行中运行，可以接受输入
-Code-runner: Run In Terminal
-# 前端使用的插件
+### 开启 Live Server（前端热更新）
+安装 Live Server 插件，保存后自动刷新页面，`Alt + K + O` 打开新窗口。
 
-快捷键
-开头按输入!,自动填充基础内容
+### 开启 Sticky Scroll（函数名附着）
+`Sticky Scroll` 功能：代码滚动时顶部固定显示当前函数名，方便定位。
 
+### C++ 不报错
+设置 `C_Cpp.errorSquiggles` 为 `disabled` 可关闭报错提示（不推荐）。
 
-# Live Server
-保存以后会自动更新
-alt+KO可以打开新页面
 # 代码滚动时候进行附着
 sticky scroll
 打开以后会把函数名进行附着
 
 
-# 参考资料
+## 六、常用插件
 
-[VS Code 快捷键使用小技巧](https://zhuanlan.zhihu.com/p/22880087)
-[在VScode中，代码提示左边的图标各自代表的含义]https://blog.csdn.net/qq_42838904/article/details/108222619
-[Sticky Scroll in vscode]https://dev.to/this-is-learning/sticky-scroll-in-vscode-44h2
+| 插件 | 用途 |
+|---|---|
+| Remote - SSH | 远程连接服务器 |
+| Live Server | 前端热更新 |
+| C/C++ | C/C++ 语言支持 |
+| Python | Python 语言支持 |
+| GitLens | Git 增强 |
 
+## 参考资料
+
+- [VS Code 快捷键使用小技巧](https://zhuanlan.zhihu.com/p/22880087)
+- [VSCode 文件图标含义](https://blog.csdn.net/qq_42838904/article/details/108222619)
+- [Sticky Scroll 功能](https://dev.to/this-is-learning/sticky-scroll-in-vscode-44h2)
